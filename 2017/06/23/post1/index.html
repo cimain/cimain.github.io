@@ -6,17 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>ChenMan</title>
+  <title>iOS字符串编码与解码方法的实现与调用(UrlEncode/UrlDecode) | ChenMan</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Shenzhen,China">
-<meta property="og:type" content="website">
-<meta property="og:title" content="ChenMan">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="#1.本编解码方法的功能说明  UrlEncode方法把任何参数转换成适合放在URL中的字符串。具体规则：     字母，数字，连字符不变。  空格转换成加号。  其他所有的字符转换成用百分号表示，并接上字符的两位十六进制编码。如%2F     UrlDecode方法其功能与编码相反  #2. 字符串在编码之前之后的效果原字符串：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS字符串编码与解码方法的实现与调用(UrlEncode&#x2F;UrlDecode)">
+<meta property="og:url" content="http://yoursite.com/2017/06/23/post1/index.html">
 <meta property="og:site_name" content="ChenMan">
-<meta property="og:description" content="Shenzhen,China">
+<meta property="og:description" content="#1.本编解码方法的功能说明  UrlEncode方法把任何参数转换成适合放在URL中的字符串。具体规则：     字母，数字，连字符不变。  空格转换成加号。  其他所有的字符转换成用百分号表示，并接上字符的两位十六进制编码。如%2F     UrlDecode方法其功能与编码相反  #2. 字符串在编码之前之后的效果原字符串：">
+<meta property="og:updated_time" content="2017-06-23T05:55:25.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ChenMan">
-<meta name="twitter:description" content="Shenzhen,China">
+<meta name="twitter:title" content="iOS字符串编码与解码方法的实现与调用(UrlEncode&#x2F;UrlDecode)">
+<meta name="twitter:description" content="#1.本编解码方法的功能说明  UrlEncode方法把任何参数转换成适合放在URL中的字符串。具体规则：     字母，数字，连字符不变。  空格转换成加号。  其他所有的字符转换成用百分号表示，并接上字符的两位十六进制编码。如%2F     UrlDecode方法其功能与编码相反  #2. 字符串在编码之前之后的效果原字符串：">
   
     <link rel="alternative" href="/atom.xml" title="ChenMan" type="application/atom+xml">
   
@@ -162,74 +163,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-iOS字符串的各种基础操作及衍生操作" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-post1" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/23/iOS字符串的各种基础操作及衍生操作/">iOS字符串的各种基础操作及衍生操作</a>
-    </h1>
-  
-
-        
-        <a href="/2017/06/23/iOS字符串的各种基础操作及衍生操作/" class="archive-article-date">
-  	<time datetime="2017-06-23T05:54:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<ul>
-<li>目前，有不少文献介绍字符串的一些基本操作，如：字符串插入、字符串覆盖、字符串截取、分割字符串。</li>
-</ul>
-</blockquote>
-<p>但有时候，仅仅停留在这些基本操作还不能直接满足一些需求，这时候可以利用这些基本操作进行一些字符串的衍生操作。</p>
-<p>这篇文章，将先引用CSDN一个<a href="http://blog.csdn.net/sevenquan" target="_blank" rel="external">大神</a>的字符串【基本操作】，基于此，然后介绍一些【字符串的衍生操作】。</p>
-<p>#一. 字符串的基本操作</p>
-<p>1.【字符串插入】<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">NSMutableString* str1=[[NSMutableString alloc] initWithString:@&quot;hello&quot;];//存在堆区，可变字符串</div><div class="line">NSLog(@&quot;str1:%@&quot;,str1);</div><div class="line">[str1 insertString:@&quot;234&quot;atIndex:2];//把一个字符串插入另一个字符串中的某一个位置</div><div class="line">NSLog(@&quot;str1:%@&quot;,str1);</div></pre></td></tr></table></figure></p>
-        
-          <a class="article-more-a" href="/2017/06/23/iOS字符串的各种基础操作及衍生操作/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/06/23/iOS字符串的各种基础操作及衍生操作/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-post1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/23/post1/">iOS字符串编码与解码方法的实现与调用(UrlEncode/UrlDecode)</a>
+    <h1 class="article-title" itemprop="name">
+      iOS字符串编码与解码方法的实现与调用(UrlEncode/UrlDecode)
     </h1>
   
 
@@ -256,124 +197,56 @@
 <ul>
 <li><strong>UrlDecode方法</strong><br>其功能与编码相反</li>
 </ul>
-<p>#2. 字符串在编码之前之后的效果<br>原字符串：<br>
-        
-          <a class="article-more-a" href="/2017/06/23/post1/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/06/23/post1/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-cimain" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/23/cimain/">指定markdown博客截取标签</a>
-    </h1>
-  
-
-        
-        <a href="/2017/06/23/cimain/" class="archive-article-date">
-  	<time datetime="2017-06-23T05:31:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>写文章时插入
-        
-          <a class="article-more-a" href="/2017/06/23/cimain/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/06/23/cimain/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-welcome" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/23/welcome/">搭建网站填坑记录</a>
-    </h1>
-  
-
-        
-        <a href="/2017/06/23/welcome/" class="archive-article-date">
-  	<time datetime="2017-06-23T05:25:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <hr>
-<blockquote>
+<p>#2. 字符串在编码之前之后的效果<br>原字符串：<br><a id="more"></a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Vk/nQmguwJIN</div></pre></td></tr></table></figure>
+<p>编码之后：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Vk%2FnQmguwJIN</div></pre></td></tr></table></figure></p>
+<p>解码之后：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Vk/nQmguwJIN</div></pre></td></tr></table></figure></p>
+<p>#3.UrlEncode/UrlDecode方法的实现</p>
+<p><strong>编码</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">+(NSString*)encodeString:(NSString*)unencodedString&#123;</div><div class="line"></div><div class="line">// CharactersToBeEscaped = @&quot;:/?&amp;=;+!@#$()~&apos;,*&quot;;</div><div class="line">// CharactersToLeaveUnescaped = @&quot;[].&quot;;</div><div class="line"></div><div class="line">NSString *encodedString = (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,</div><div class="line">(CFStringRef)unencodedString,</div><div class="line">NULL,</div><div class="line">(CFStringRef)@&quot;!*&apos;();:@&amp;=+$,/?%#[]&quot;,</div><div class="line">kCFStringEncodingUTF8));</div><div class="line"></div><div class="line">return encodedString;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>解码</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">//URLDEcode</div><div class="line">+(NSString *)decodeString:(NSString*)encodedString</div><div class="line"></div><div class="line">&#123;</div><div class="line">//NSString *decodedString = [encodedString stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding ];</div><div class="line"></div><div class="line">NSString *decodedString  = (__bridge_transfer NSString *)CFURLCreateStringByReplacingPercentEscapesUsingEncoding(NULL,(__bridge CFStringRef)encodedString,CFSTR(&quot;&quot;),CFStringConvertNSStringEncodingToEncoding(NSUTF8StringEncoding));</div><div class="line">return decodedString;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>#4.使用建议<br>建议自己写个Category。比如，可以基于NSString新建一个URLEncoding类别文件，类名分别为NSString+URLEncoding.h和NSString+URLEncoding.m。然后，在你需要的地方导入该头文件即可。作为对比，与上面的实现不同，下面采用replaceOccurrencesOfString:方法实现解码功能。</p>
+<p>其中：<br><strong>NSString+URLEncoding.h</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">#import &lt;Foundation/Foundation.h&gt;</div><div class="line"></div><div class="line">@interface NSString (URLEncoding)</div><div class="line"></div><div class="line">// 字符串转码</div><div class="line">- (NSString*)urlEncodeString;</div><div class="line"></div><div class="line">// 反URL编码</div><div class="line">- (NSString *)decodeFromPercentEscapeString;</div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure></p>
+<p><strong>NSString+URLEncoding.m</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">#import &quot;NSString+URLEncoding.h&quot;</div><div class="line"></div><div class="line">@implementation NSString (URLEncoding)</div><div class="line"></div><div class="line">// 字符串编码</div><div class="line">- (NSString *)urlEncodeString</div><div class="line">&#123;</div><div class="line">NSString *result = (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault, (CFStringRef)self, NULL, CFSTR(&quot;:/?#[]@!$&amp;’()&#123;&#125;&lt;&gt;*+,;=&quot;),kCFStringEncodingUTF8));</div><div class="line">return result;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 反URL编码</div><div class="line">- (NSString *)decodeFromPercentAndPlusString</div><div class="line">&#123;</div><div class="line">NSMutableString *outputStr = [NSMutableString stringWithString:self];</div><div class="line">[outputStr replaceOccurrencesOfString:@&quot;+&quot;</div><div class="line">withString:@&quot; &quot;</div><div class="line">options:NSLiteralSearch</div><div class="line">range:NSMakeRange(0, [outputStr length])];</div><div class="line"></div><div class="line">return [outputStr stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>#5. 调用范例</p>
+<p>在调用处的类中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">#import &quot;NSString+URLEncoding.h&quot;</div></pre></td></tr></table></figure></p>
+<p>然后，调用上述方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[testStr urlEncodeString];</div></pre></td></tr></table></figure></p>
+<p>即可。</p>
+<p>##参考文献</p>
 <ul>
-<li>暂时没有时间讲全程ç的步骤，日后可能会更新完整版。</li>
-<li>目前仅做个人填坑记录。大家暂时绕走哈。</li>
+<li><a href="http://blog.csdn.net/qwerty123501029/article/details/7092077" target="_blank" rel="external">http://blog.csdn.net/qwerty123501029/article/details/7092077</a></li>
+<li><a href="http://blog.csdn.net/typingios/article/details/9136005" target="_blank" rel="external">http://blog.csdn.net/typingios/article/details/9136005</a></li>
+<li><a href="http://blog.csdn.net/bianhuanshizhe/article/details/46953155" target="_blank" rel="external">http://blog.csdn.net/bianhuanshizhe/article/details/46953155</a></li>
 </ul>
-</blockquote>
-<ul>
-<li>问题提示</li>
-</ul>
-<blockquote>
-<p>Check you have permission to write to /usr/local</p>
-</blockquote>
-        
-          <a class="article-more-a" href="/2017/06/23/welcome/#more">more >></a>
-        
+
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/wechat.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -382,75 +255,94 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/06/23/welcome/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/06/23/post1/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
 
-
-
-
-
   
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/23/hello-world/">Hello World</a>
-    </h1>
+    <a href="/2017/06/23/iOS字符串的各种基础操作及衍生操作/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          iOS字符串的各种基础操作及衍生操作
+        
+      </div>
+    </a>
   
-
-        
-        <a href="/2017/06/23/hello-world/" class="archive-article-date">
-  	<time datetime="2017-06-22T19:33:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2017/06/23/hello-world/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/06/23/hello-world/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
+  
+    <a href="/2017/06/23/cimain/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">指定markdown博客截取标签</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
 
 
 
 
 
   
+  
+  
+
+  
+
   
 
 
@@ -473,8 +365,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
