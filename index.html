@@ -164,6 +164,53 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-welcome" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/23/welcome/">welcome</a>
+    </h1>
+  
+
+        
+        <a href="/2017/06/23/welcome/" class="archive-article-date">
+  	<time datetime="2017-06-23T05:25:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/06/23/welcome/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -193,7 +240,40 @@
 <p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
 <h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
+<hr>
+<blockquote>
+<ul>
+<li>暂时没有时间讲全程搭建网站的步骤，日后可能会更新完整版。</li>
+<li>目前仅做个人填坑记录。大家暂时绕走哈。</li>
+</ul>
+</blockquote>
+<ul>
+<li>问题提示</li>
+</ul>
+<blockquote>
+<p>Check you have permission to write to /usr/local</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">miki:~ ChenMan$ brew install nvm</div><div class="line">Updating Homebrew...</div><div class="line">==&gt; Auto-updated Homebrew!</div><div class="line">Updated 1 tap (homebrew/core).</div><div class="line">==&gt; Updated Formulae</div><div class="line">cimg</div><div class="line"></div><div class="line">Error: Could not link:</div><div class="line">/usr/local/share/zsh/site-functions/_brew</div><div class="line"></div><div class="line">Please delete these paths and run `brew update`.</div><div class="line">Error: Could not link:</div><div class="line">/usr/local/share/man/man1/brew.1</div><div class="line"></div><div class="line">Please delete these paths and run `brew update`.</div><div class="line">Error: Could not link:</div><div class="line">/usr/local/share/doc/homebrew</div><div class="line"></div><div class="line">Please delete these paths and run `brew update`.</div><div class="line">Error: Could not create /usr/local/Cellar</div><div class="line">Check you have permission to write to /usr/local</div></pre></td></tr></table></figure>
+<ul>
+<li>解决办法</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">miki:~ ChenMan$ sudo chown -R $(whoami):admin /usr/local</div><div class="line">Password:</div></pre></td></tr></table></figure>
+<ul>
+<li>随后：brew可正常安装nvm</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">miki:~ ChenMan$ brew install nvm</div><div class="line">==&gt; Using the sandbox</div><div class="line">==&gt; Downloading https://github.com/creationix/nvm/archive/v0.33.2.tar.gz</div><div class="line">Already downloaded: /Users/ChenMan/Library/Caches/Homebrew/nvm-0.33.2.tar.gz</div><div class="line">==&gt; Caveats</div><div class="line">Please note that upstream has asked us to make explicit managing</div><div class="line">nvm via Homebrew is unsupported by them and you should check any</div><div class="line">problems against the standard nvm install method prior to reporting.</div><div class="line"></div><div class="line">You should create NVM&apos;s working directory if it doesn&apos;t exist:</div><div class="line"></div><div class="line">  mkdir ~/.nvm</div><div class="line"></div><div class="line">Add the following to ~/.bash_profile or your desired shell</div><div class="line">configuration file:</div><div class="line"></div><div class="line">  export NVM_DIR=&quot;$HOME/.nvm&quot;</div><div class="line">  . &quot;/usr/local/opt/nvm/nvm.sh&quot;</div><div class="line"></div><div class="line">You can set $NVM_DIR to any location, but leaving it unchanged from</div><div class="line">/usr/local/opt/nvm will destroy any nvm-installed Node installations</div><div class="line">upon upgrade/reinstall.</div><div class="line"></div><div class="line">Type `nvm help` for further information.</div><div class="line"></div><div class="line">Bash completion has been installed to:</div><div class="line">  /usr/local/etc/bash_completion.d</div><div class="line">==&gt; Summary</div><div class="line">🍺  /usr/local/Cellar/nvm/0.33.2: 7 files, 125.4KB, built in 4 seconds</div><div class="line">miki:~ ChenMan$ mkdir ~/.nvm</div></pre></td></tr></table></figure>
+<ul>
+<li>安装<a href="https://github.com/creationix/nvm" target="_blank" rel="external">nvm</a></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">miki:~ ChenMan$ curl https://raw.github.com/creationix/nvm/master/install.sh | sh</div><div class="line">  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current</div><div class="line">                                 Dload  Upload   Total   Spent    Left  Speed</div><div class="line">  0     0    0     0    0     0      0      0 --:--:--  0:00:02 --:--:--     0</div></pre></td></tr></table></figure>
+<ul>
+<li>安装Node.js</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ nvm install stable</div></pre></td></tr></table></figure>
+<ul>
+<li>安装 Hexo</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">miki:~ ChenMan$ npm install -g hexo-cli</div><div class="line">/usr/local/bin/hexo -&gt; /usr/local/lib/node_modules/hexo-cli/bin/hexo</div><div class="line"></div><div class="line">&gt; fsevents@1.1.2 install /usr/local/lib/node_modules/hexo-cli/node_modules/fsevents</div><div class="line">&gt; node install</div><div class="line"></div><div class="line">[fsevents] Success: &quot;/usr/local/lib/node_modules/hexo-cli/node_modules/fsevents/lib/binding/Release/node-v57-darwin-x64/fse.node&quot; already installed</div><div class="line">Pass --update-binary to reinstall or --build-from-source to recompile</div><div class="line"></div><div class="line">&gt; dtrace-provider@0.8.3 install /usr/local/lib/node_modules/hexo-cli/node_modules/dtrace-provider</div><div class="line">&gt; node scripts/install.js</div><div class="line"></div><div class="line"></div><div class="line">&gt; hexo-util@0.6.0 postinstall /usr/local/lib/node_modules/hexo-cli/node_modules/hexo-util</div><div class="line">&gt; npm run build:highlight</div><div class="line"></div><div class="line"></div><div class="line">&gt; hexo-util@0.6.0 build:highlight /usr/local/lib/node_modules/hexo-cli/node_modules/hexo-util</div><div class="line">&gt; node scripts/build_highlight_alias.js &gt; highlight_alias.json</div><div class="line"></div><div class="line">+ hexo-cli@1.0.3</div><div class="line">added 219 packages in 15.752s</div></pre></td></tr></table></figure>
       
 
       
