@@ -6,18 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>iOS字符串编码与解码方法的实现与调用(UrlEncode/UrlDecode) | ChenMan(陈满の个人网站)</title>
+  <title>post4 | ChenMan(陈满の个人网站)</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="#1.本编解码方法的功能说明  UrlEncode方法把任何参数转换成适合放在URL中的字符串。具体规则：     字母，数字，连字符不变。  空格转换成加号。  其他所有的字符转换成用百分号表示，并接上字符的两位十六进制编码。如%2F     UrlDecode方法其功能与编码相反  #2. 字符串在编码之前之后的效果原字符串：">
+  <meta name="description" content="iOS中，UICollectionView和UITableView已经有系统默认选中颜色设置，但是只有无色，蓝色，灰色，三种颜色设置，如果想要其他的颜色效果，我们可以自由自定义设置。  前言 先观赏一下典型的UITableView控件案例">
 <meta property="og:type" content="article">
-<meta property="og:title" content="iOS字符串编码与解码方法的实现与调用(UrlEncode&#x2F;UrlDecode)">
-<meta property="og:url" content="http://yoursite.com/2017/06/23/post1/index.html">
+<meta property="og:title" content="post4">
+<meta property="og:url" content="http://yoursite.com/2017/06/24/post4/index.html">
 <meta property="og:site_name" content="ChenMan(陈满の个人网站)">
-<meta property="og:description" content="#1.本编解码方法的功能说明  UrlEncode方法把任何参数转换成适合放在URL中的字符串。具体规则：     字母，数字，连字符不变。  空格转换成加号。  其他所有的字符转换成用百分号表示，并接上字符的两位十六进制编码。如%2F     UrlDecode方法其功能与编码相反  #2. 字符串在编码之前之后的效果原字符串：">
-<meta property="og:updated_time" content="2017-06-23T05:55:25.000Z">
+<meta property="og:description" content="iOS中，UICollectionView和UITableView已经有系统默认选中颜色设置，但是只有无色，蓝色，灰色，三种颜色设置，如果想要其他的颜色效果，我们可以自由自定义设置。  前言 先观赏一下典型的UITableView控件案例">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1283539-645bbe8ea2df333b.png">
+<meta property="og:updated_time" content="2017-06-24T12:15:53.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iOS字符串编码与解码方法的实现与调用(UrlEncode&#x2F;UrlDecode)">
-<meta name="twitter:description" content="#1.本编解码方法的功能说明  UrlEncode方法把任何参数转换成适合放在URL中的字符串。具体规则：     字母，数字，连字符不变。  空格转换成加号。  其他所有的字符转换成用百分号表示，并接上字符的两位十六进制编码。如%2F     UrlDecode方法其功能与编码相反  #2. 字符串在编码之前之后的效果原字符串：">
+<meta name="twitter:title" content="post4">
+<meta name="twitter:description" content="iOS中，UICollectionView和UITableView已经有系统默认选中颜色设置，但是只有无色，蓝色，灰色，三种颜色设置，如果想要其他的颜色效果，我们可以自由自定义设置。  前言 先观赏一下典型的UITableView控件案例">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1283539-645bbe8ea2df333b.png">
   
     <link rel="alternative" href="/atom.xml" title="ChenMan(陈满の个人网站)" type="application/atom+xml">
   
@@ -163,62 +165,93 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-post1" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-post4" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      iOS字符串编码与解码方法的实现与调用(UrlEncode/UrlDecode)
+      post4
     </h1>
   
 
         
-        <a href="/2017/06/23/post1/" class="archive-article-date">
-  	<time datetime="2017-06-23T05:51:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-23</time>
+        <a href="/2017/06/24/post4/" class="archive-article-date">
+  	<time datetime="2017-06-24T12:13:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-24</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>#1.本编解码方法的功能说明</p>
+        <blockquote>
+<p>iOS中，UICollectionView和UITableView已经有系统默认选中颜色设置，但是只有无色，蓝色，灰色，三种颜色设置，如果想要其他的颜色效果，我们可以自由自定义设置。</p>
+</blockquote>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><ul>
+<li>先观赏一下典型的UITableView控件案例</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/1283539-645bbe8ea2df333b.png" alt="image.png"></p>
+<!--more>
+
+- 典型的UICollectionView控件案例
+
+![image.png](http://upload-images.jianshu.io/upload_images/1283539-27d98b5c999424a0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+
+## 1.单元格默认选中效果
+
+- 系统默认单元格选中样式
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">//无色</div><div class="line">cell.selectionStyle = </div><div class="line">UITableViewCellSelectionStyleNone</div><div class="line">;</div><div class="line">//蓝色</div><div class="line">cell.selectionStyle = </div><div class="line">UITableViewCellSelectionStyleBlue</div><div class="line">;</div><div class="line">//灰色</div><div class="line">cell.selectionStyle = </div><div class="line">UITableViewCellSelectionStyleGray</div><div class="line">;</div></pre></td></tr></table></figure>
 <ul>
-<li><strong>UrlEncode方法</strong><br>把任何参数转换成适合放在URL中的字符串。具体规则： </li>
+<li>系统默认单元格样式（无选中效果）</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cell.selectionStyle = UITableViewCellStyleDefault;</div><div class="line">cell.selectionStyle = UITableViewCellSelectionStyleDefault;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>示例</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath</div><div class="line">&#123;</div><div class="line"></div><div class="line">MyTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];</div><div class="line">if (cell == nil) &#123;</div><div class="line">cell = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([MyTableViewCell class]) owner:self options:nil] lastObject];</div><div class="line">&#125;</div><div class="line">cell.cellMdl = [self.tableItemArr objectAtIndex:indexPath.row];</div><div class="line"></div><div class="line">//设置选中背景色</div><div class="line">cell.selectionStyle = UITableViewCellStyleDefault;</div><div class="line">cell.selectionStyle = UITableViewCellSelectionStyleDefault;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="2-单元格自定义选中效果方案（一）"><a href="#2-单元格自定义选中效果方案（一）" class="headerlink" title="2.单元格自定义选中效果方案（一）"></a>2.单元格自定义选中效果方案（一）</h2><ul>
+<li>通用方案:</li>
 </ul>
 <blockquote>
-<ol>
-<li>字母，数字，连字符不变。 </li>
-<li>空格转换成<strong>加号</strong>。 </li>
-<li>其他所有的字符转换成用<strong>百分号</strong>表示，并接上字符的两位十六进制编码。如%2F </li>
-</ol>
+<p>假设你已经正确实现其他代理方法，需要在table或collection的返回cell的代理方法中作如下设置：</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cell.selectedBackgroundView = [[UIView alloc] initWithFrame:cell.frame];</div><div class="line">cell.selectedBackgroundView.backgroundColor = [UIColor groupTableViewBackgroundColor];</div></pre></td></tr></table></figure>
+<blockquote>
+<p>示例：</p>
 </blockquote>
 <ul>
-<li><strong>UrlDecode方法</strong><br>其功能与编码相反</li>
+<li>UICollectionView</li>
 </ul>
-<p>#2. 字符串在编码之前之后的效果<br>原字符串：<br><a id="more"></a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Vk/nQmguwJIN</div></pre></td></tr></table></figure>
-<p>编码之后：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Vk%2FnQmguwJIN</div></pre></td></tr></table></figure></p>
-<p>解码之后：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Vk/nQmguwJIN</div></pre></td></tr></table></figure></p>
-<p>#3.UrlEncode/UrlDecode方法的实现</p>
-<p><strong>编码</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">+(NSString*)encodeString:(NSString*)unencodedString&#123;</div><div class="line"></div><div class="line">// CharactersToBeEscaped = @&quot;:/?&amp;=;+!@#$()~&apos;,*&quot;;</div><div class="line">// CharactersToLeaveUnescaped = @&quot;[].&quot;;</div><div class="line"></div><div class="line">NSString *encodedString = (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,</div><div class="line">(CFStringRef)unencodedString,</div><div class="line">NULL,</div><div class="line">(CFStringRef)@&quot;!*&apos;();:@&amp;=+$,/?%#[]&quot;,</div><div class="line">kCFStringEncodingUTF8));</div><div class="line"></div><div class="line">return encodedString;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p><strong>解码</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">//URLDEcode</div><div class="line">+(NSString *)decodeString:(NSString*)encodedString</div><div class="line"></div><div class="line">&#123;</div><div class="line">//NSString *decodedString = [encodedString stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding ];</div><div class="line"></div><div class="line">NSString *decodedString  = (__bridge_transfer NSString *)CFURLCreateStringByReplacingPercentEscapesUsingEncoding(NULL,(__bridge CFStringRef)encodedString,CFSTR(&quot;&quot;),CFStringConvertNSStringEncodingToEncoding(NSUTF8StringEncoding));</div><div class="line">return decodedString;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>#4.使用建议<br>建议自己写个Category。比如，可以基于NSString新建一个URLEncoding类别文件，类名分别为NSString+URLEncoding.h和NSString+URLEncoding.m。然后，在你需要的地方导入该头文件即可。作为对比，与上面的实现不同，下面采用replaceOccurrencesOfString:方法实现解码功能。</p>
-<p>其中：<br><strong>NSString+URLEncoding.h</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">#import &lt;Foundation/Foundation.h&gt;</div><div class="line"></div><div class="line">@interface NSString (URLEncoding)</div><div class="line"></div><div class="line">// 字符串转码</div><div class="line">- (NSString*)urlEncodeString;</div><div class="line"></div><div class="line">// 反URL编码</div><div class="line">- (NSString *)decodeFromPercentEscapeString;</div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure></p>
-<p><strong>NSString+URLEncoding.m</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">#import &quot;NSString+URLEncoding.h&quot;</div><div class="line"></div><div class="line">@implementation NSString (URLEncoding)</div><div class="line"></div><div class="line">// 字符串编码</div><div class="line">- (NSString *)urlEncodeString</div><div class="line">&#123;</div><div class="line">NSString *result = (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault, (CFStringRef)self, NULL, CFSTR(&quot;:/?#[]@!$&amp;’()&#123;&#125;&lt;&gt;*+,;=&quot;),kCFStringEncodingUTF8));</div><div class="line">return result;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 反URL编码</div><div class="line">- (NSString *)decodeFromPercentAndPlusString</div><div class="line">&#123;</div><div class="line">NSMutableString *outputStr = [NSMutableString stringWithString:self];</div><div class="line">[outputStr replaceOccurrencesOfString:@&quot;+&quot;</div><div class="line">withString:@&quot; &quot;</div><div class="line">options:NSLiteralSearch</div><div class="line">range:NSMakeRange(0, [outputStr length])];</div><div class="line"></div><div class="line">return [outputStr stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>#5. 调用范例</p>
-<p>在调用处的类中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">#import &quot;NSString+URLEncoding.h&quot;</div></pre></td></tr></table></figure></p>
-<p>然后，调用上述方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[testStr urlEncodeString];</div></pre></td></tr></table></figure></p>
-<p>即可。</p>
-<p>##参考文献</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath &#123;</div><div class="line"></div><div class="line">//    return [collectionView dequeueReusableCellWithReuseIdentifier:@&quot;collectionCellId&quot; forIndexPath:indexPath];</div><div class="line"></div><div class="line">UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:collectionCellId forIndexPath:indexPath];</div><div class="line"></div><div class="line">cell.selectedBackgroundView = [[UIView alloc] initWithFrame:cell.frame];</div><div class="line">cell.selectedBackgroundView.backgroundColor = [UIColor groupTableViewBackgroundColor];</div><div class="line"></div><div class="line">////    错误的做法：当次级VC返回时才会调用</div><div class="line">//    if (cell.isHighlighted) &#123;</div><div class="line">//        cell.backgroundColor = [UIColor groupTableViewBackgroundColor];</div><div class="line">//    &#125;else&#123;</div><div class="line">//        cell.backgroundColor = [UIColor whiteColor];</div><div class="line">//    &#125;</div><div class="line"></div><div class="line">return cell;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <ul>
-<li><a href="http://blog.csdn.net/qwerty123501029/article/details/7092077" target="_blank" rel="external">http://blog.csdn.net/qwerty123501029/article/details/7092077</a></li>
-<li><a href="http://blog.csdn.net/typingios/article/details/9136005" target="_blank" rel="external">http://blog.csdn.net/typingios/article/details/9136005</a></li>
-<li><a href="http://blog.csdn.net/bianhuanshizhe/article/details/46953155" target="_blank" rel="external">http://blog.csdn.net/bianhuanshizhe/article/details/46953155</a></li>
+<li>UITableView</li>
 </ul>
-
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath</div><div class="line">&#123;</div><div class="line"></div><div class="line">AssistantTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];</div><div class="line">if (cell == nil) &#123;</div><div class="line">cell = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([AssistantTableViewCell class]) owner:self options:nil] lastObject];</div><div class="line">&#125;</div><div class="line">cell.cellMdl = [self.questionItemArr objectAtIndex:indexPath.row];</div><div class="line"></div><div class="line">//设置选中背景色</div><div class="line">//    cell.selectionStyle = UITableViewCellStyleDefault;</div><div class="line">//    cell.selectionStyle = UITableViewCellSelectionStyleDefault;</div><div class="line"></div><div class="line">cell.selectedBackgroundView = [[UIView alloc] initWithFrame:cell.frame];</div><div class="line">cell.selectedBackgroundView.backgroundColor = [UIColor groupTableViewBackgroundColor];</div><div class="line"></div><div class="line">return cell;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="3-单元格自定义选中效果方案（二）"><a href="#3-单元格自定义选中效果方案（二）" class="headerlink" title="3.单元格自定义选中效果方案（二）"></a>3.单元格自定义选中效果方案（二）</h2><ul>
+<li><p>通用方案:</p>
+</li>
+<li><p>[x] 在自己自定义的cell文件中重写如下方法：</p>
+</li>
+</ul>
+<blockquote>
+<p>示例：</p>
+</blockquote>
+<ul>
+<li>UITableViewCell.m</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">- (void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated&#123;</div><div class="line">[super setHighlighted:highlighted];</div><div class="line">if (highlighted) &#123;</div><div class="line">//选中时</div><div class="line">self.backgroundColor = [UIColor groupTableViewBackgroundColor];</div><div class="line">&#125;else&#123;</div><div class="line">//非选中</div><div class="line">self.backgroundColor = [UIColor whiteColor];</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>UICollectionView.m</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">- (void)setHighlighted:(BOOL)highlighted&#123;</div><div class="line">[super setHighlighted:highlighted];</div><div class="line">if (highlighted) &#123;</div><div class="line">//选中时</div><div class="line">self.backgroundColor = [UIColor groupTableViewBackgroundColor];</div><div class="line">&#125;else&#123;</div><div class="line">//非选中</div><div class="line">self.backgroundColor = [UIColor whiteColor];</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="4-小结"><a href="#4-小结" class="headerlink" title="4.小结"></a>4.小结</h2><p>如你所见，不难发现，两个cell设置套路是一样的（捂脸）。</p>
+<blockquote>
+<p>注意的是，方案一和方案二不要重复设置。另外，二者择一的话，推荐方案一。</p>
+</blockquote>
+-->
       
 
       
@@ -307,7 +340,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/06/23/post1/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/06/24/post4/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -321,18 +354,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/06/24/post2/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          iOS字符串的各种基础操作及衍生操作
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/06/23/cimain/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">指定markdown博客截取标签</div>
+    <a href="/2017/06/24/post3/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">post3</div>
       <i class="icon-circle-right"></i>
     </a>
   

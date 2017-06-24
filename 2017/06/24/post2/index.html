@@ -6,18 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>iOS字符串编码与解码方法的实现与调用(UrlEncode/UrlDecode) | ChenMan(陈满の个人网站)</title>
+  <title>iOS字符串的各种基础操作及衍生操作 | ChenMan(陈满の个人网站)</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="#1.本编解码方法的功能说明  UrlEncode方法把任何参数转换成适合放在URL中的字符串。具体规则：     字母，数字，连字符不变。  空格转换成加号。  其他所有的字符转换成用百分号表示，并接上字符的两位十六进制编码。如%2F     UrlDecode方法其功能与编码相反  #2. 字符串在编码之前之后的效果原字符串：">
+  <meta name="description" content="目前，有不少文献介绍字符串的一些基本操作，如：字符串插入、字符串覆盖、字符串截取、分割字符串。   但有时候，仅仅停留在这些基本操作还不能直接满足一些需求，这时候可以利用这些基本操作进行一些字符串的衍生操作。 这篇文章，将先引用CSDN一个大神的字符串【基本操作】，基于此，然后介绍一些【字符串的衍生操作】。 #一. 字符串的基本操作 1.【字符串插入】1234NSMutableString*">
 <meta property="og:type" content="article">
-<meta property="og:title" content="iOS字符串编码与解码方法的实现与调用(UrlEncode&#x2F;UrlDecode)">
-<meta property="og:url" content="http://yoursite.com/2017/06/23/post1/index.html">
+<meta property="og:title" content="iOS字符串的各种基础操作及衍生操作">
+<meta property="og:url" content="http://yoursite.com/2017/06/24/post2/index.html">
 <meta property="og:site_name" content="ChenMan(陈满の个人网站)">
-<meta property="og:description" content="#1.本编解码方法的功能说明  UrlEncode方法把任何参数转换成适合放在URL中的字符串。具体规则：     字母，数字，连字符不变。  空格转换成加号。  其他所有的字符转换成用百分号表示，并接上字符的两位十六进制编码。如%2F     UrlDecode方法其功能与编码相反  #2. 字符串在编码之前之后的效果原字符串：">
-<meta property="og:updated_time" content="2017-06-23T05:55:25.000Z">
+<meta property="og:description" content="目前，有不少文献介绍字符串的一些基本操作，如：字符串插入、字符串覆盖、字符串截取、分割字符串。   但有时候，仅仅停留在这些基本操作还不能直接满足一些需求，这时候可以利用这些基本操作进行一些字符串的衍生操作。 这篇文章，将先引用CSDN一个大神的字符串【基本操作】，基于此，然后介绍一些【字符串的衍生操作】。 #一. 字符串的基本操作 1.【字符串插入】1234NSMutableString*">
+<meta property="og:updated_time" content="2017-06-24T11:50:50.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iOS字符串编码与解码方法的实现与调用(UrlEncode&#x2F;UrlDecode)">
-<meta name="twitter:description" content="#1.本编解码方法的功能说明  UrlEncode方法把任何参数转换成适合放在URL中的字符串。具体规则：     字母，数字，连字符不变。  空格转换成加号。  其他所有的字符转换成用百分号表示，并接上字符的两位十六进制编码。如%2F     UrlDecode方法其功能与编码相反  #2. 字符串在编码之前之后的效果原字符串：">
+<meta name="twitter:title" content="iOS字符串的各种基础操作及衍生操作">
+<meta name="twitter:description" content="目前，有不少文献介绍字符串的一些基本操作，如：字符串插入、字符串覆盖、字符串截取、分割字符串。   但有时候，仅仅停留在这些基本操作还不能直接满足一些需求，这时候可以利用这些基本操作进行一些字符串的衍生操作。 这篇文章，将先引用CSDN一个大神的字符串【基本操作】，基于此，然后介绍一些【字符串的衍生操作】。 #一. 字符串的基本操作 1.【字符串插入】1234NSMutableString*">
   
     <link rel="alternative" href="/atom.xml" title="ChenMan(陈满の个人网站)" type="application/atom+xml">
   
@@ -163,61 +163,56 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-post1" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-post2" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      iOS字符串编码与解码方法的实现与调用(UrlEncode/UrlDecode)
+      iOS字符串的各种基础操作及衍生操作
     </h1>
   
 
         
-        <a href="/2017/06/23/post1/" class="archive-article-date">
-  	<time datetime="2017-06-23T05:51:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-23</time>
+        <a href="/2017/06/24/post2/" class="archive-article-date">
+  	<time datetime="2017-06-24T11:46:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-24</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>#1.本编解码方法的功能说明</p>
+        <blockquote>
 <ul>
-<li><strong>UrlEncode方法</strong><br>把任何参数转换成适合放在URL中的字符串。具体规则： </li>
+<li>目前，有不少文献介绍字符串的一些基本操作，如：字符串插入、字符串覆盖、字符串截取、分割字符串。</li>
 </ul>
-<blockquote>
-<ol>
-<li>字母，数字，连字符不变。 </li>
-<li>空格转换成<strong>加号</strong>。 </li>
-<li>其他所有的字符转换成用<strong>百分号</strong>表示，并接上字符的两位十六进制编码。如%2F </li>
-</ol>
 </blockquote>
-<ul>
-<li><strong>UrlDecode方法</strong><br>其功能与编码相反</li>
-</ul>
-<p>#2. 字符串在编码之前之后的效果<br>原字符串：<br><a id="more"></a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Vk/nQmguwJIN</div></pre></td></tr></table></figure>
-<p>编码之后：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Vk%2FnQmguwJIN</div></pre></td></tr></table></figure></p>
-<p>解码之后：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Vk/nQmguwJIN</div></pre></td></tr></table></figure></p>
-<p>#3.UrlEncode/UrlDecode方法的实现</p>
-<p><strong>编码</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">+(NSString*)encodeString:(NSString*)unencodedString&#123;</div><div class="line"></div><div class="line">// CharactersToBeEscaped = @&quot;:/?&amp;=;+!@#$()~&apos;,*&quot;;</div><div class="line">// CharactersToLeaveUnescaped = @&quot;[].&quot;;</div><div class="line"></div><div class="line">NSString *encodedString = (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,</div><div class="line">(CFStringRef)unencodedString,</div><div class="line">NULL,</div><div class="line">(CFStringRef)@&quot;!*&apos;();:@&amp;=+$,/?%#[]&quot;,</div><div class="line">kCFStringEncodingUTF8));</div><div class="line"></div><div class="line">return encodedString;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p><strong>解码</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">//URLDEcode</div><div class="line">+(NSString *)decodeString:(NSString*)encodedString</div><div class="line"></div><div class="line">&#123;</div><div class="line">//NSString *decodedString = [encodedString stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding ];</div><div class="line"></div><div class="line">NSString *decodedString  = (__bridge_transfer NSString *)CFURLCreateStringByReplacingPercentEscapesUsingEncoding(NULL,(__bridge CFStringRef)encodedString,CFSTR(&quot;&quot;),CFStringConvertNSStringEncodingToEncoding(NSUTF8StringEncoding));</div><div class="line">return decodedString;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>#4.使用建议<br>建议自己写个Category。比如，可以基于NSString新建一个URLEncoding类别文件，类名分别为NSString+URLEncoding.h和NSString+URLEncoding.m。然后，在你需要的地方导入该头文件即可。作为对比，与上面的实现不同，下面采用replaceOccurrencesOfString:方法实现解码功能。</p>
-<p>其中：<br><strong>NSString+URLEncoding.h</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">#import &lt;Foundation/Foundation.h&gt;</div><div class="line"></div><div class="line">@interface NSString (URLEncoding)</div><div class="line"></div><div class="line">// 字符串转码</div><div class="line">- (NSString*)urlEncodeString;</div><div class="line"></div><div class="line">// 反URL编码</div><div class="line">- (NSString *)decodeFromPercentEscapeString;</div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure></p>
-<p><strong>NSString+URLEncoding.m</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">#import &quot;NSString+URLEncoding.h&quot;</div><div class="line"></div><div class="line">@implementation NSString (URLEncoding)</div><div class="line"></div><div class="line">// 字符串编码</div><div class="line">- (NSString *)urlEncodeString</div><div class="line">&#123;</div><div class="line">NSString *result = (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault, (CFStringRef)self, NULL, CFSTR(&quot;:/?#[]@!$&amp;’()&#123;&#125;&lt;&gt;*+,;=&quot;),kCFStringEncodingUTF8));</div><div class="line">return result;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 反URL编码</div><div class="line">- (NSString *)decodeFromPercentAndPlusString</div><div class="line">&#123;</div><div class="line">NSMutableString *outputStr = [NSMutableString stringWithString:self];</div><div class="line">[outputStr replaceOccurrencesOfString:@&quot;+&quot;</div><div class="line">withString:@&quot; &quot;</div><div class="line">options:NSLiteralSearch</div><div class="line">range:NSMakeRange(0, [outputStr length])];</div><div class="line"></div><div class="line">return [outputStr stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>#5. 调用范例</p>
-<p>在调用处的类中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">#import &quot;NSString+URLEncoding.h&quot;</div></pre></td></tr></table></figure></p>
-<p>然后，调用上述方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[testStr urlEncodeString];</div></pre></td></tr></table></figure></p>
-<p>即可。</p>
-<p>##参考文献</p>
-<ul>
-<li><a href="http://blog.csdn.net/qwerty123501029/article/details/7092077" target="_blank" rel="external">http://blog.csdn.net/qwerty123501029/article/details/7092077</a></li>
-<li><a href="http://blog.csdn.net/typingios/article/details/9136005" target="_blank" rel="external">http://blog.csdn.net/typingios/article/details/9136005</a></li>
-<li><a href="http://blog.csdn.net/bianhuanshizhe/article/details/46953155" target="_blank" rel="external">http://blog.csdn.net/bianhuanshizhe/article/details/46953155</a></li>
-</ul>
+<p>但有时候，仅仅停留在这些基本操作还不能直接满足一些需求，这时候可以利用这些基本操作进行一些字符串的衍生操作。</p>
+<p>这篇文章，将先引用CSDN一个<a href="http://blog.csdn.net/sevenquan" target="_blank" rel="external">大神</a>的字符串【基本操作】，基于此，然后介绍一些【字符串的衍生操作】。</p>
+<p>#一. 字符串的基本操作</p>
+<p>1.【字符串插入】<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">NSMutableString* str1=[[NSMutableString alloc] initWithString:@&quot;hello&quot;];//存在堆区，可变字符串</div><div class="line">NSLog(@&quot;str1:%@&quot;,str1);</div><div class="line">[str1 insertString:@&quot;234&quot;atIndex:2];//把一个字符串插入另一个字符串中的某一个位置</div><div class="line">NSLog(@&quot;str1:%@&quot;,str1);</div></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<p>2.【字符串覆盖】<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">NSRange range=&#123;1,2&#125;;//字符串覆盖另一个字符串（覆盖范围可以设定）</div><div class="line">[str1 replaceCharactersInRange:range withString:@&quot;dffdf&quot;];</div><div class="line">NSLog(@&quot;str1:%@&quot;,str1);</div></pre></td></tr></table></figure></p>
+<p>3.【字符串截取】<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">NSMutableString* str4=[[NSMutableString alloc] initWithString:@&quot;handaiy&quot;];</div><div class="line">NSString* str5=[str4 substringFromIndex:5];//截取从第5位到最后一位</div><div class="line">NSLog(@&quot;截取后的字符串为：%@&quot;,str5);</div><div class="line"></div><div class="line">NSMutableString* str6=[[NSMutableString alloc] initWithString:@&quot;handaiy&quot;];</div><div class="line">NSString* str7=[str6 substringToIndex:5];//截取从0位到第4位</div><div class="line">NSLog(@&quot;截取后的字符串为：%@&quot;,str7);</div><div class="line"></div><div class="line">NSMutableString* str8=[[NSMutableString alloc] initWithString:@&quot;handaiy&quot;];</div><div class="line">NSRange ange=&#123;2,3&#125;;</div><div class="line">NSString* str9=[str8 substringWithRange:ange];//截取从第二位到第4位</div><div class="line">NSLog(@&quot;截取后的字符串为：%@&quot;,str9);</div><div class="line">```    </div><div class="line"></div><div class="line">4.【字符串的大小转换】</div></pre></td></tr></table></figure></p>
+<p>/<em><br>(1)将所有的字符串内容变为大写字母  uppercaseString<br>(2)将所有的字符串内容变为小写字母  lowercaseString<br>(3)将单词的首字母小写变为大写字母  capitalizedString
+</em>/<br>NSString<em> str10=@”sayhelloworld”;<br>NSString</em> str11=[str10 uppercaseString];<br>NSLog(@”str11:%@”,str11);//(1)将所有的字符串内容变为大写字母</p>
+<p>NSString<em> str12=@”Hello WORD”;<br>NSString</em> str13=[str12 lowercaseString];<br>NSLog(@”str11:%@”,str13);//(2)将所有的字符串内容变为小写字母</p>
+<p>NSString<em> stu=@”sayhelloworld”;<br>NSString</em> aa=[stu substringToIndex:3];//截取say<br>NSString<em> stu1=[aa capitalizedString];//把say首字母变成大写<br>NSRange rang={3,5};//截取hello<br>NSString</em> bb=[stu substringWithRange:rang];//取出hello创建对象bb<br>NSString<em> stu2=[bb capitalizedString];//把hello首字母变成大写<br>NSString</em> dd=[stu substringFromIndex:8];<br>NSString<em> stu3=[dd capitalizedString];<br>//拼接方法（1）<br>NSString</em> stu4=[NSString stringWithFormat:@”%@%@%@”,stu1,stu2,stu3];//把截取出来的单词拼接成新的字符串。<br>NSLog(@”截取单词后，每个单词首字母变成大写，然后重新拼接成的新字符串：%@”,stu4);//(4)字符串截取、改变、拼接<br>//拼接方法（2）如：<br>NSString<em> h=@”2014年”;<br>NSString</em> j=@”9月”;<br>NSString<em> k=@”26号”;<br>NSString</em> riqi=[[[[h stringByAppendingString:@”<em>“]<br>stringByAppendingString:j]<br>stringByAppendingString:@”</em>“]<br>stringByAppendingString:k];<br>NSLog(@”%@”,riqi);</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">5.【分割字符串】</div></pre></td></tr></table></figure>
+<p>NSString<em> nba=@”2014.9.26”;<br>NSArray </em>p=[nba componentsSeparatedByString:@”.”];<br>NSLog(@”分割后的字符串：%@”,p);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">6.【字符串转化为数字型再计算】intValue、floatVale...</div></pre></td></tr></table></figure></p>
+<p>NSString* cba=@”2014”;<br>int s=[cba intValue];<br>int d=s+1;<br>NSLog(@”字符串转化成数字后再计算：%d”,d);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">7.【数字型转化为字符串】</div></pre></td></tr></table></figure></p>
+<p>int z=45534;<br>NSString* g=[NSString stringWithFormat:@”%d”,z];<br>NSLog(@”数字转化为字符串：%@”,g);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">8.字符串的【末尾追加】新的字符串</div></pre></td></tr></table></figure></p>
+<p>NSString <em>bbc =@”www.cn”;<br>NSString </em>bbc1 = [bbc stringByAppendingString:@”itcast.cn”];<br>NSLog(@”bbc1: %@”,bbc1);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">9.在【制定的范围追加】字符串(插入字符串、替换字符串)</div></pre></td></tr></table></figure></p>
+<p>NSString <em>aac =@”wwwbbbccc”;<br>NSRange ranges = {4,0};<br>NSString </em>aac1 = [aac stringByReplacingCharactersInRange:ranges withString:@”aa”];<br>NSLog(@”aac1: %@”,aac1);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">10.使用新的字符串【替换】原有的字符串或删除指定的字符串</div></pre></td></tr></table></figure></p>
+<p>NSString <em>cca =@”ww w.bai.com”;<br>NSString </em>cca1 = [cca stringByReplacingOccurrencesOfString:@”bai”withString:@”du”];//替换<br>NSString <em>cca2 = [cca stringByReplacingOccurrencesOfString:@”co”withString:@””];//删除<br>NSString </em>cca3 = [ccastringByReplacingOccurrencesOfString:@” “withString:@””];//删除空格号<br>NSLog(@”cca1: %@ cca2: %@ cca3: %@”,cca1,cca2,cca3);</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">11.【带引号】的字符串</div></pre></td></tr></table></figure>
+<p>NSString *string = @”hello, \”world\””;<br>NSLog(@”带引号的字符串：%@”,string);</p>
+<p>NSString *string2 = [NSString stringWithFormat:@”hello,\”%@\””,@”世界”];<br>NSLog(@”拼接字符串：%@”,string2);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">* 上面输出效果：</div></pre></td></tr></table></figure></p>
+<p>2017-06-10 11:37:07.535423 test123[1588:130648] 带引号的字符串：hello, “world”<br>2017-06-10 11:37:07.535488 test123[1588:130648] 拼接字符串：hello,”世界”<br>Program ended with exit code: 0<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">#二. 字符串的衍生操作</div><div class="line">1.首字母替换为星号\*(脱敏处理)</div><div class="line">**需求：**</div><div class="line">&gt;脱敏处理，比如隐藏某个字符串的首字符为*号。</div><div class="line"></div><div class="line">**功能拆解：**</div><div class="line">&gt; </div><div class="line">先【截取】指定字符串首字符，作为占位字符串【替换】为指定字符串。</div></pre></td></tr></table></figure></p>
+<p>NSString <em>testStr = @”我的名字很敏感”;<br>NSString </em>tempStr = [testStr substringToIndex:1];<br>_headerView.nickNameLabel.text = [testStr stringByReplacingOccurrencesOfString:tempStr withString:@”*”];<br>```</p>
+<p>【后续待更新..】</p>
+<p>#参考文献<br><a href="http://blog.csdn.net/sevenquan" target="_blank" rel="external">http://blog.csdn.net/sevenquan</a><br><a href="http://www.cnblogs.com/Zsmile/p/4140371.html" target="_blank" rel="external">http://www.cnblogs.com/Zsmile/p/4140371.html</a></p>
 
       
 
@@ -307,7 +302,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/06/23/post1/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/06/24/post2/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -321,18 +316,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/06/24/post2/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/06/24/post3/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          iOS字符串的各种基础操作及衍生操作
+          post3
         
       </div>
     </a>
   
   
-    <a href="/2017/06/23/cimain/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">指定markdown博客截取标签</div>
+    <a href="/2017/06/23/post1/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">iOS字符串编码与解码方法的实现与调用(UrlEncode/UrlDecode)</div>
       <i class="icon-circle-right"></i>
     </a>
   
