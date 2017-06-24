@@ -6,20 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>post4 | ChenMan(陈满の个人网站)</title>
+  <title>Archives: 2017/4 | ChenMan(陈满の个人网站)</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="iOS中，UICollectionView和UITableView已经有系统默认选中颜色设置，但是只有无色，蓝色，灰色，三种颜色设置，如果想要其他的颜色效果，我们可以自由自定义设置。  前言 先观赏一下典型的UITableView控件案例">
-<meta property="og:type" content="article">
-<meta property="og:title" content="post4">
-<meta property="og:url" content="http://yoursite.com/2017/06/24/post4/index.html">
+  <meta name="description" content="Shenzhen,China">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ChenMan(陈满の个人网站)">
+<meta property="og:url" content="http://yoursite.com/archives/2017/04/index.html">
 <meta property="og:site_name" content="ChenMan(陈满の个人网站)">
-<meta property="og:description" content="iOS中，UICollectionView和UITableView已经有系统默认选中颜色设置，但是只有无色，蓝色，灰色，三种颜色设置，如果想要其他的颜色效果，我们可以自由自定义设置。  前言 先观赏一下典型的UITableView控件案例">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1283539-645bbe8ea2df333b.png">
-<meta property="og:updated_time" content="2017-06-24T12:15:53.000Z">
+<meta property="og:description" content="Shenzhen,China">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="post4">
-<meta name="twitter:description" content="iOS中，UICollectionView和UITableView已经有系统默认选中颜色设置，但是只有无色，蓝色，灰色，三种颜色设置，如果想要其他的颜色效果，我们可以自由自定义设置。  前言 先观赏一下典型的UITableView控件案例">
-<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1283539-645bbe8ea2df333b.png">
+<meta name="twitter:title" content="ChenMan(陈满の个人网站)">
+<meta name="twitter:description" content="Shenzhen,China">
   
     <link rel="alternative" href="/atom.xml" title="ChenMan(陈满の个人网站)" type="application/atom+xml">
   
@@ -165,214 +162,49 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-post4" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      post4
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2017" class="archive-year">2017</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2017/04/23/post1/" class="archive-article-date">
+  	<time datetime="2017-04-23T05:51:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-23</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2017/04/23/post1/">iOS字符串编码与解码方法的实现与调用(UrlEncode/UrlDecode)</a>
     </h1>
   
 
-        
-        <a href="/2017/06/24/post4/" class="archive-article-date">
-  	<time datetime="2017-06-24T12:13:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>iOS中，UICollectionView和UITableView已经有系统默认选中颜色设置，但是只有无色，蓝色，灰色，三种颜色设置，如果想要其他的颜色效果，我们可以自由自定义设置。</p>
-</blockquote>
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><ul>
-<li>先观赏一下典型的UITableView控件案例</li>
-</ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/1283539-645bbe8ea2df333b.png" alt="image.png"></p>
-<!--more>
+        <div class="article-info info-on-right">
+          
+          
 
-- 典型的UICollectionView控件案例
-
-![image.png](http://upload-images.jianshu.io/upload_images/1283539-27d98b5c999424a0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-
-
-## 1.单元格默认选中效果
-
-- 系统默认单元格选中样式
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">//无色</div><div class="line">cell.selectionStyle = </div><div class="line">UITableViewCellSelectionStyleNone</div><div class="line">;</div><div class="line">//蓝色</div><div class="line">cell.selectionStyle = </div><div class="line">UITableViewCellSelectionStyleBlue</div><div class="line">;</div><div class="line">//灰色</div><div class="line">cell.selectionStyle = </div><div class="line">UITableViewCellSelectionStyleGray</div><div class="line">;</div></pre></td></tr></table></figure>
-<ul>
-<li>系统默认单元格样式（无选中效果）</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cell.selectionStyle = UITableViewCellStyleDefault;</div><div class="line">cell.selectionStyle = UITableViewCellSelectionStyleDefault;</div></pre></td></tr></table></figure>
-<blockquote>
-<p>示例</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath</div><div class="line">&#123;</div><div class="line"></div><div class="line">MyTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];</div><div class="line">if (cell == nil) &#123;</div><div class="line">cell = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([MyTableViewCell class]) owner:self options:nil] lastObject];</div><div class="line">&#125;</div><div class="line">cell.cellMdl = [self.tableItemArr objectAtIndex:indexPath.row];</div><div class="line"></div><div class="line">//设置选中背景色</div><div class="line">cell.selectionStyle = UITableViewCellStyleDefault;</div><div class="line">cell.selectionStyle = UITableViewCellSelectionStyleDefault;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="2-单元格自定义选中效果方案（一）"><a href="#2-单元格自定义选中效果方案（一）" class="headerlink" title="2.单元格自定义选中效果方案（一）"></a>2.单元格自定义选中效果方案（一）</h2><ul>
-<li>通用方案:</li>
-</ul>
-<blockquote>
-<p>假设你已经正确实现其他代理方法，需要在table或collection的返回cell的代理方法中作如下设置：</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cell.selectedBackgroundView = [[UIView alloc] initWithFrame:cell.frame];</div><div class="line">cell.selectedBackgroundView.backgroundColor = [UIColor groupTableViewBackgroundColor];</div></pre></td></tr></table></figure>
-<blockquote>
-<p>示例：</p>
-</blockquote>
-<ul>
-<li>UICollectionView</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath &#123;</div><div class="line"></div><div class="line">//    return [collectionView dequeueReusableCellWithReuseIdentifier:@&quot;collectionCellId&quot; forIndexPath:indexPath];</div><div class="line"></div><div class="line">UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:collectionCellId forIndexPath:indexPath];</div><div class="line"></div><div class="line">cell.selectedBackgroundView = [[UIView alloc] initWithFrame:cell.frame];</div><div class="line">cell.selectedBackgroundView.backgroundColor = [UIColor groupTableViewBackgroundColor];</div><div class="line"></div><div class="line">////    错误的做法：当次级VC返回时才会调用</div><div class="line">//    if (cell.isHighlighted) &#123;</div><div class="line">//        cell.backgroundColor = [UIColor groupTableViewBackgroundColor];</div><div class="line">//    &#125;else&#123;</div><div class="line">//        cell.backgroundColor = [UIColor whiteColor];</div><div class="line">//    &#125;</div><div class="line"></div><div class="line">return cell;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<ul>
-<li>UITableView</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath</div><div class="line">&#123;</div><div class="line"></div><div class="line">AssistantTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];</div><div class="line">if (cell == nil) &#123;</div><div class="line">cell = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([AssistantTableViewCell class]) owner:self options:nil] lastObject];</div><div class="line">&#125;</div><div class="line">cell.cellMdl = [self.questionItemArr objectAtIndex:indexPath.row];</div><div class="line"></div><div class="line">//设置选中背景色</div><div class="line">//    cell.selectionStyle = UITableViewCellStyleDefault;</div><div class="line">//    cell.selectionStyle = UITableViewCellSelectionStyleDefault;</div><div class="line"></div><div class="line">cell.selectedBackgroundView = [[UIView alloc] initWithFrame:cell.frame];</div><div class="line">cell.selectedBackgroundView.backgroundColor = [UIColor groupTableViewBackgroundColor];</div><div class="line"></div><div class="line">return cell;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="3-单元格自定义选中效果方案（二）"><a href="#3-单元格自定义选中效果方案（二）" class="headerlink" title="3.单元格自定义选中效果方案（二）"></a>3.单元格自定义选中效果方案（二）</h2><ul>
-<li><p>通用方案:</p>
-</li>
-<li><p>[x] 在自己自定义的cell文件中重写如下方法：</p>
-</li>
-</ul>
-<blockquote>
-<p>示例：</p>
-</blockquote>
-<ul>
-<li>UITableViewCell.m</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">- (void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated&#123;</div><div class="line">[super setHighlighted:highlighted];</div><div class="line">if (highlighted) &#123;</div><div class="line">//选中时</div><div class="line">self.backgroundColor = [UIColor groupTableViewBackgroundColor];</div><div class="line">&#125;else&#123;</div><div class="line">//非选中</div><div class="line">self.backgroundColor = [UIColor whiteColor];</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<ul>
-<li>UICollectionView.m</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">- (void)setHighlighted:(BOOL)highlighted&#123;</div><div class="line">[super setHighlighted:highlighted];</div><div class="line">if (highlighted) &#123;</div><div class="line">//选中时</div><div class="line">self.backgroundColor = [UIColor groupTableViewBackgroundColor];</div><div class="line">&#125;else&#123;</div><div class="line">//非选中</div><div class="line">self.backgroundColor = [UIColor whiteColor];</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="4-小结"><a href="#4-小结" class="headerlink" title="4.小结"></a>4.小结</h2><p>如你所见，不难发现，两个cell设置套路是一样的（捂脸）。</p>
-<blockquote>
-<p>注意的是，方案一和方案二不要重复设置。另外，二者择一的话，推荐方案一。</p>
-</blockquote>
--->
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/assets/img/aliPay.jpg">
-                      <span class="reward-type">支付宝</span>
-                    </div>
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/assets/img/wechatPay.jpg">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
         </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
-        </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/06/24/post4/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
   
   
-    <a href="/2017/06/24/post3/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">post3</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
+    
 
 
           </div>
@@ -395,8 +227,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

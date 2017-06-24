@@ -6,18 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>iOS字符串编码与解码方法的实现与调用(UrlEncode/UrlDecode) | ChenMan(陈满の个人网站)</title>
+  <title>iOS·采用第三方(百度地图SDK)实现定位等功能开发 | ChenMan(陈满の个人网站)</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="#1.本编解码方法的功能说明  UrlEncode方法把任何参数转换成适合放在URL中的字符串。具体规则：     字母，数字，连字符不变。  空格转换成加号。  其他所有的字符转换成用百分号表示，并接上字符的两位十六进制编码。如%2F     UrlDecode方法其功能与编码相反  #2. 字符串在编码之前之后的效果原字符串：">
+  <meta name="description" content="##1.申请密钥 首先，申请一个baidu账号，接着进入新建密钥入口申请成为baidu地图开发者，填写相关开发者信息和短信验证码。接下来点击创建应用，如官方文档新建密钥文档指南里面的截图所示，注意正确勾选有关项。如果你想要实名认证，点击页面右上角的实名状态，下面是该页面的截图。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="iOS字符串编码与解码方法的实现与调用(UrlEncode&#x2F;UrlDecode)">
-<meta property="og:url" content="http://yoursite.com/2017/06/23/post1/index.html">
+<meta property="og:title" content="iOS·采用第三方(百度地图SDK)实现定位等功能开发">
+<meta property="og:url" content="http://yoursite.com/2017/06/24/post5/index.html">
 <meta property="og:site_name" content="ChenMan(陈满の个人网站)">
-<meta property="og:description" content="#1.本编解码方法的功能说明  UrlEncode方法把任何参数转换成适合放在URL中的字符串。具体规则：     字母，数字，连字符不变。  空格转换成加号。  其他所有的字符转换成用百分号表示，并接上字符的两位十六进制编码。如%2F     UrlDecode方法其功能与编码相反  #2. 字符串在编码之前之后的效果原字符串：">
-<meta property="og:updated_time" content="2017-06-23T05:55:25.000Z">
+<meta property="og:description" content="##1.申请密钥 首先，申请一个baidu账号，接着进入新建密钥入口申请成为baidu地图开发者，填写相关开发者信息和短信验证码。接下来点击创建应用，如官方文档新建密钥文档指南里面的截图所示，注意正确勾选有关项。如果你想要实名认证，点击页面右上角的实名状态，下面是该页面的截图。">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1283539-a6da7f3eb5a79e5e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1283539-2692fd322c24ee12.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1283539-94b292153d5dde82.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1283539-fa978acf2fba6dc5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1283539-50f3d4490a346fa9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-06-24T12:25:25.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iOS字符串编码与解码方法的实现与调用(UrlEncode&#x2F;UrlDecode)">
-<meta name="twitter:description" content="#1.本编解码方法的功能说明  UrlEncode方法把任何参数转换成适合放在URL中的字符串。具体规则：     字母，数字，连字符不变。  空格转换成加号。  其他所有的字符转换成用百分号表示，并接上字符的两位十六进制编码。如%2F     UrlDecode方法其功能与编码相反  #2. 字符串在编码之前之后的效果原字符串：">
+<meta name="twitter:title" content="iOS·采用第三方(百度地图SDK)实现定位等功能开发">
+<meta name="twitter:description" content="##1.申请密钥 首先，申请一个baidu账号，接着进入新建密钥入口申请成为baidu地图开发者，填写相关开发者信息和短信验证码。接下来点击创建应用，如官方文档新建密钥文档指南里面的截图所示，注意正确勾选有关项。如果你想要实名认证，点击页面右上角的实名状态，下面是该页面的截图。">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1283539-a6da7f3eb5a79e5e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
   
     <link rel="alternative" href="/atom.xml" title="ChenMan(陈满の个人网站)" type="application/atom+xml">
   
@@ -163,61 +169,130 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-post1" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-post5" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      iOS字符串编码与解码方法的实现与调用(UrlEncode/UrlDecode)
+      iOS·采用第三方(百度地图SDK)实现定位等功能开发
     </h1>
   
 
         
-        <a href="/2017/06/23/post1/" class="archive-article-date">
-  	<time datetime="2017-06-23T05:51:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-23</time>
+        <a href="/2017/06/24/post5/" class="archive-article-date">
+  	<time datetime="2017-06-24T12:19:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-24</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>#1.本编解码方法的功能说明</p>
+        <p>##1.申请密钥</p>
+<p>首先，申请一个baidu账号，接着进入<a href="http://lbsyun.baidu.com/apiconsole/key" target="_blank" rel="external">新建密钥入口</a>申请成为baidu地图开发者，填写相关开发者信息和短信验证码。接下来点击<strong>创建应用</strong>，如官方文档<a href="http://lbsyun.baidu.com/index.php?title=iossdk/guide/key" target="_blank" rel="external">新建密钥文档指南</a>里面的截图所示，注意正确勾选有关项。如果你想要实名认证，点击页面右上角的<strong>实名状态</strong>，下面是该页面的截图。</p>
+<a id="more"></a>
+<p><img src="http://upload-images.jianshu.io/upload_images/1283539-a6da7f3eb5a79e5e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
 <ul>
-<li><strong>UrlEncode方法</strong><br>把任何参数转换成适合放在URL中的字符串。具体规则： </li>
+<li>创建应用时，注意勾选正确的应用类型</li>
 </ul>
+<p>默认是<strong>服务端</strong>类型，如果没有勾选<strong>iOS SDK</strong>类型，就不能根据你自己工程BundleID（即百度地图所谓的安全码）设置Key的选项了。如图所示，创建应用没有勾选<strong>iOS SDK</strong>，当点击设置，进去后根本没有定制化的设置选项。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1283539-2692fd322c24ee12.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
+<ul>
+<li>创建应用时，注意正确填写iOS SDK安全码</li>
+</ul>
+<p>在Xcode里面，找到自己工程的安全码，即工程的Bundle Identifier，如下图所示，应该是类似com.baidu.mapdemo等格式的字符串。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1283539-94b292153d5dde82.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
+<p>##2.工程配置</p>
+<p>#####2.1 CocoaPods方法</p>
+<p>这种方法，优点是简单，不需要再对工程进行额外的配置。缺点是，没有自己根据需要选择性的加载百度开发包的余地，把整个SDK都导进来了，不管你有没有可能会用到这些包。</p>
+<p>打开终端，输入类似下面的命令，cd到你自己工程的目录下</p>
+<pre><code>$ cd /Users/ChenMan/iOSLAB/myMapDemo/
+</code></pre><p>1.创建Podfile：</p>
+<pre><code>touch Podfile
+</code></pre><p>2.编辑Podfile内容如下：</p>
+<pre><code>pod &apos;BaiduMapKit&apos; #百度地图SDK
+</code></pre><p>3.在Podfile所在的文件夹下输入命令：</p>
+<pre><code>pod install （这个可能比较慢，请耐心等待……）
+</code></pre><p>成功以后，会出现如下记录：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">Analyzing dependencies</div><div class="line"> </div><div class="line">Downloading dependencies</div><div class="line"> </div><div class="line">Installing BaiduMapKit (2.9.1)</div><div class="line"> </div><div class="line">Generating Pods project</div><div class="line"> </div><div class="line">Integrating client project</div><div class="line"> </div><div class="line">[!] Please close any current Xcode sessions and use `***.xcworkspace` for this project from now on.</div><div class="line">Sending stats</div></pre></td></tr></table></figure></p>
+<p>恭喜你已成功导入百度地图iOS SDK，现在就可以打开xcworkspace文件，在你的项目中使用百度地图SDK了</p>
+<p>#####2.2 手动拷贝依赖库方法</p>
+<p>这种方法的优点是，可以选择性的导入所需开发包，尽可能减小APP工程体积。缺点是步骤相对繁琐，总的来说分两部分工作，一是，选择性拷贝所需开发包到工程目录下并建立引用关系(手动拖拽，并勾选copy if needed，保证所需包被复制到工程目录下，而不是仅仅是引用关系)，二是，在工程的TARGETS-&gt;Build Phases-&gt; Link Binary With Libaries里面，添加前面添加的开发包。</p>
+<p>接下来引用百度地图的文档说明，并作了适当改编：</p>
+<ul>
+<li>第一步、根据需要导入 .framework包</li>
+</ul>
+<p>百度地图 iOS SDK 采用分包的形式提供 .framework包，请广大开发者使用时确保各分包的版本保持一致。其中<strong>BaiduMapAPI_Base.framework</strong>为基础包，使用SDK任何功能<strong>都需导入</strong>，其他分包可<strong>按需导入</strong>。</p>
+<p>全部分包和自定义分包的下载地址为 <a href="http://lbsyun.baidu.com/index.php?title=iossdk/sdkiosdev-download" target="_blank" rel="external">http://lbsyun.baidu.com/index.php?title=iossdk/sdkiosdev-download</a>，如下图所示：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1283539-fa978acf2fba6dc5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="这里我选择下载的是自定义分包，我只需要单纯的定位功能"></p>
 <blockquote>
-<ol>
-<li>字母，数字，连字符不变。 </li>
-<li>空格转换成<strong>加号</strong>。 </li>
-<li>其他所有的字符转换成用<strong>百分号</strong>表示，并接上字符的两位十六进制编码。如%2F </li>
-</ol>
+<p>注: 静态库中采用Objective-C++实现，因此需要您保证您工程中<strong>至少有一个.mm后缀的源文件</strong>(您可以将任意一个.m后缀的文件改名为.mm，比如<strong>AppDelegate.mm</strong>)，或者在工程属性中指定编译方式，即在Xcode的Project -&gt; Edit Active Target -&gt; Build Setting 中找到 Compile Sources As，并将其设置为”Objective-C++”</p>
 </blockquote>
 <ul>
-<li><strong>UrlDecode方法</strong><br>其功能与编码相反</li>
+<li>第二步、引入所需的系统库</li>
 </ul>
-<p>#2. 字符串在编码之前之后的效果<br>原字符串：<br><a id="more"></a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Vk/nQmguwJIN</div></pre></td></tr></table></figure>
-<p>编码之后：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Vk%2FnQmguwJIN</div></pre></td></tr></table></figure></p>
-<p>解码之后：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Vk/nQmguwJIN</div></pre></td></tr></table></figure></p>
-<p>#3.UrlEncode/UrlDecode方法的实现</p>
-<p><strong>编码</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">+(NSString*)encodeString:(NSString*)unencodedString&#123;</div><div class="line"></div><div class="line">// CharactersToBeEscaped = @&quot;:/?&amp;=;+!@#$()~&apos;,*&quot;;</div><div class="line">// CharactersToLeaveUnescaped = @&quot;[].&quot;;</div><div class="line"></div><div class="line">NSString *encodedString = (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,</div><div class="line">(CFStringRef)unencodedString,</div><div class="line">NULL,</div><div class="line">(CFStringRef)@&quot;!*&apos;();:@&amp;=+$,/?%#[]&quot;,</div><div class="line">kCFStringEncodingUTF8));</div><div class="line"></div><div class="line">return encodedString;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p><strong>解码</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">//URLDEcode</div><div class="line">+(NSString *)decodeString:(NSString*)encodedString</div><div class="line"></div><div class="line">&#123;</div><div class="line">//NSString *decodedString = [encodedString stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding ];</div><div class="line"></div><div class="line">NSString *decodedString  = (__bridge_transfer NSString *)CFURLCreateStringByReplacingPercentEscapesUsingEncoding(NULL,(__bridge CFStringRef)encodedString,CFSTR(&quot;&quot;),CFStringConvertNSStringEncodingToEncoding(NSUTF8StringEncoding));</div><div class="line">return decodedString;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>#4.使用建议<br>建议自己写个Category。比如，可以基于NSString新建一个URLEncoding类别文件，类名分别为NSString+URLEncoding.h和NSString+URLEncoding.m。然后，在你需要的地方导入该头文件即可。作为对比，与上面的实现不同，下面采用replaceOccurrencesOfString:方法实现解码功能。</p>
-<p>其中：<br><strong>NSString+URLEncoding.h</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">#import &lt;Foundation/Foundation.h&gt;</div><div class="line"></div><div class="line">@interface NSString (URLEncoding)</div><div class="line"></div><div class="line">// 字符串转码</div><div class="line">- (NSString*)urlEncodeString;</div><div class="line"></div><div class="line">// 反URL编码</div><div class="line">- (NSString *)decodeFromPercentEscapeString;</div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure></p>
-<p><strong>NSString+URLEncoding.m</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">#import &quot;NSString+URLEncoding.h&quot;</div><div class="line"></div><div class="line">@implementation NSString (URLEncoding)</div><div class="line"></div><div class="line">// 字符串编码</div><div class="line">- (NSString *)urlEncodeString</div><div class="line">&#123;</div><div class="line">NSString *result = (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault, (CFStringRef)self, NULL, CFSTR(&quot;:/?#[]@!$&amp;’()&#123;&#125;&lt;&gt;*+,;=&quot;),kCFStringEncodingUTF8));</div><div class="line">return result;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 反URL编码</div><div class="line">- (NSString *)decodeFromPercentAndPlusString</div><div class="line">&#123;</div><div class="line">NSMutableString *outputStr = [NSMutableString stringWithString:self];</div><div class="line">[outputStr replaceOccurrencesOfString:@&quot;+&quot;</div><div class="line">withString:@&quot; &quot;</div><div class="line">options:NSLiteralSearch</div><div class="line">range:NSMakeRange(0, [outputStr length])];</div><div class="line"></div><div class="line">return [outputStr stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>#5. 调用范例</p>
-<p>在调用处的类中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">#import &quot;NSString+URLEncoding.h&quot;</div></pre></td></tr></table></figure></p>
-<p>然后，调用上述方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[testStr urlEncodeString];</div></pre></td></tr></table></figure></p>
-<p>即可。</p>
-<p>##参考文献</p>
+<p>百度地图SDK中提供了定位功能和动画效果，v2.0.0版本开始使用OpenGL渲染，因此您需要在您的Xcode工程中引入CoreLocation.framework和QuartzCore.framework、OpenGLES.framework、SystemConfiguration.framework、CoreGraphics.framework、Security.framework、<strong>libsqlite3.0.tbd（xcode7以前为 libsqlite3.0.dylib）、CoreTelephony.framework 、libstdc++.6.0.9.tbd（xcode7以前为libstdc++.6.0.9.dylib）</strong>。</p>
+<blockquote>
+<p>（注：粗体标识的系统库为v2.9.0新增的系统库，使用v2.9.0及以上版本的地图SDK，务必增加导入这3个系统库。）</p>
+</blockquote>
+<p>添加方式： 在Xcode的Project -&gt; Active Target -&gt;Build Phases -&gt;Link Binary With Libraries，添加这几个系统库即可。</p>
 <ul>
-<li><a href="http://blog.csdn.net/qwerty123501029/article/details/7092077" target="_blank" rel="external">http://blog.csdn.net/qwerty123501029/article/details/7092077</a></li>
-<li><a href="http://blog.csdn.net/typingios/article/details/9136005" target="_blank" rel="external">http://blog.csdn.net/typingios/article/details/9136005</a></li>
-<li><a href="http://blog.csdn.net/bianhuanshizhe/article/details/46953155" target="_blank" rel="external">http://blog.csdn.net/bianhuanshizhe/article/details/46953155</a></li>
+<li>第三步、引入所需的第三方openssl库：</li>
 </ul>
+<p>添加支持HTTPS所需的penssl静态库：libssl.a和libcrypto.a（SDK打好的包存放于thirdlib目录下）</p>
+<p>例如，我需要的是单纯的定位功能，选择自定义分包下载后，会看到如下图文件目录结构，静态库：libssl.a和libcrypto.a就在thirdlibs文件夹下面。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1283539-50f3d4490a346fa9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="thirdlibs文件夹"></p>
+<p>添加方法： 在 TARGETS-&gt;Build Phases-&gt; Link Binary With Libaries中点击“+”按钮，在弹出的窗口中点击“Add Other”按钮，选择libssl.a和libcrypto.a添加到工程中</p>
+<ul>
+<li>第四步、环境配置</li>
+</ul>
+<p>在TARGETS-&gt;Build Settings-&gt;Other Linker Flags 中添加-ObjC。</p>
+<ul>
+<li>第五步、引入mapapi.bundle资源文件</li>
+</ul>
+<p>如果使用了基础地图功能，需要添加该资源，否则地图不能正常显示mapapi.bundle中存储了定位、默认大头针标注View及路线关键点的资源图片，还存储了矢量地图绘制必需的资源文件。如果您不需要使用内置的图片显示功能，则可以删除bundle文件中的image文件夹。您也可以根据具体需求任意替换或删除该bundle中image文件夹的图片文件。</p>
+<p>方法：选中工程名，在右键菜单中选择Add Files to “工程名”…，从BaiduMapAPI_Map.framework||Resources文件中选择mapapi.bundle文件，并勾选“Copy items if needed”复选框，单击“Add”按钮，将资源文件添加到工程中。</p>
+<ul>
+<li>第六步、引入头文件</li>
+</ul>
+<p>在使用SDK的类 按需 引入下边的头文件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">#import &lt;BaiduMapAPI_Base/BMKBaseComponent.h&gt;//引入base相关所有的头文件</div><div class="line"> </div><div class="line">#import &lt;BaiduMapAPI_Map/BMKMapComponent.h&gt;//引入地图功能所有的头文件</div><div class="line"> </div><div class="line">#import &lt;BaiduMapAPI_Search/BMKSearchComponent.h&gt;//引入检索功能所有的头文件</div><div class="line"> </div><div class="line">#import &lt;BaiduMapAPI_Cloud/BMKCloudSearchComponent.h&gt;//引入云检索功能所有的头文件</div><div class="line"> </div><div class="line">#import &lt;BaiduMapAPI_Location/BMKLocationComponent.h&gt;//引入定位功能所有的头文件</div><div class="line"> </div><div class="line">#import &lt;BaiduMapAPI_Utils/BMKUtilsComponent.h&gt;//引入计算工具所有的头文件</div><div class="line"> </div><div class="line">#import &lt;BaiduMapAPI_Radar/BMKRadarComponent.h&gt;//引入周边雷达功能所有的头文件</div><div class="line"> </div><div class="line">#import &lt;BaiduMapAPI_Map/BMKMapView.h&gt;//只引入所需的单个头文件</div></pre></td></tr></table></figure>
+<p>具体的应用位置，一般是两个地方，一个是AppDelegate文件，一个是调用定位功能的ViewController文件。接下来两节会讲到怎么用。</p>
+<p>##3.AppDelegate文件配置</p>
+<p>假设我现在的需求是，APP需要定位当前所在位置经纬度，并根据经纬度反地理编码，得到所在地址，包括省市区，街道等详细地址信息。</p>
+<p>并假设，已经申请得到了一个密钥如下（拷这个没用，自己根据BundleID申请吧）：</p>
+<pre><code>B266f735e43ab207ec152deff44fec8b
+</code></pre><p>首先，需要在AppDelegate.mm文件导入所需头文件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">//百度地图</div><div class="line">#define BMK_KEY @&quot;B266f735e43ab207ec152deff44fec8b&quot;//百度地图的key</div><div class="line">#import &lt;BaiduMapAPI_Base/BMKBaseComponent.h&gt;//引入base相关所有的头文件</div></pre></td></tr></table></figure>
+<p>其次，声明一个BMKMapManager属性：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">@interface AppDelegate ()</div><div class="line"></div><div class="line">@property (nonatomic, strong) BMKMapManager *mapManager;</div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure></p>
+<p>然后，在AppDelegate的<code>- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {}</code>代理方法中初始化百度地图，代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">//百度地图</div><div class="line">_mapManager = [BMKMapManager new];</div><div class="line">BOOL ret = [_mapManager start:BMK_KEY generalDelegate:nil];</div><div class="line">if (!ret)</div><div class="line">&#123;</div><div class="line">    NSLog(@&quot;百度地图启动失败&quot;);</div><div class="line">&#125;</div><div class="line">else</div><div class="line">&#123;</div><div class="line">    NSLog(@&quot;百度地图启动成功&quot;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这样，当APP启动就会启动百度地图相关模块，以便后续VC调用。</p>
+<p>##4.用到百度定位功能所在VC的配置</p>
+<p>首先，导入相关头文件，及key的宏定义<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">//百度地图</div><div class="line">#import &lt;BaiduMapAPI_Base/BMKBaseComponent.h&gt;//引入base相关所有的头文件</div><div class="line">#import &lt;BaiduMapAPI_Location/BMKLocationComponent.h&gt;//引入定位功能所有的头文件</div><div class="line">#import &lt;BaiduMapAPI_Search/BMKSearchComponent.h&gt;//引入检索功能所有的头文件</div><div class="line">#define BMK_KEY @&quot;B266f735e43ab207ec152deff44fec8b&quot;//百度地图的key</div></pre></td></tr></table></figure></p>
+<p>其次，声明该VC服从百度相关模块的代理如下，其它代理自选：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">//百度地图·代理</div><div class="line">@interface TestViewController ()&lt;UITableViewDataSource, UITableViewDelegate,CLLocationManagerDelegate,BMKGeneralDelegate,BMKLocationServiceDelegate,BMKGeoCodeSearchDelegate&gt;</div><div class="line">&#123;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>然后，声明相关属性如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">//百度地图</div><div class="line">@property (nonatomic, strong)BMKLocationService *locService;</div><div class="line">@property (nonatomic, strong)BMKGeoCodeSearch *geocodesearch;</div><div class="line">@property BOOL isGeoSearch;</div></pre></td></tr></table></figure></p>
+<p>接着，在VC的<code>- (void)viewDidLoad {}</code>方法里面，对相关模块进行初始化操作。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">//百度地图</div><div class="line">//启动LocationService</div><div class="line">_locService = [[BMKLocationService alloc]init];//定位功能的初始化</div><div class="line">_locService.delegate = self;//设置代理位self</div><div class="line">[_locService startUserLocationService];//启动定位服务</div></pre></td></tr></table></figure></p>
+<p>最后，实现百度地图相关代理方法，并进行自定义的一些操作。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div></pre></td><td class="code"><pre><div class="line">#pragma mark - BMK_LocationDelegate 百度地图</div><div class="line">/**</div><div class="line"> *定位失败后，会调用此函数</div><div class="line"> *@param error 错误号</div><div class="line"> */</div><div class="line">- (void)didFailToLocateUserWithError:(NSError *)error</div><div class="line">&#123;</div><div class="line">    NSLog(@&quot;地图定位失败======%@&quot;,error);</div><div class="line">&#125;</div><div class="line"></div><div class="line">//处理位置坐标更新</div><div class="line">- (void)didUpdateBMKUserLocation:(BMKUserLocation *)userLocation</div><div class="line">&#123;</div><div class="line">    NSLog(@&quot;didUpdateUserLocation lat %f,long %f&quot;,userLocation.location.coordinate.latitude,</div><div class="line">          userLocation.location.coordinate.longitude);</div><div class="line">    </div><div class="line">    //从manager获取左边</div><div class="line">    CLLocationCoordinate2D coordinate = userLocation.location.coordinate;//位置坐标</div><div class="line">    //存储经纬度</div><div class="line">    [self.userLocationInfoModel SaveLocationCoordinate2D:coordinate];</div><div class="line">    </div><div class="line">    if ((userLocation.location.coordinate.latitude != 0 || userLocation.location.coordinate.longitude != 0))</div><div class="line">    &#123;</div><div class="line">        </div><div class="line">        </div><div class="line">        //发送反编码请求</div><div class="line">        //[self sendBMKReverseGeoCodeOptionRequest];</div><div class="line">        </div><div class="line">        NSString *latitude = [NSString stringWithFormat:@&quot;%f&quot;,userLocation.location.coordinate.latitude];</div><div class="line">        NSString *longitude = [NSString stringWithFormat:@&quot;%f&quot;,userLocation.location.coordinate.longitude];</div><div class="line">        [self reverseGeoCodeWithLatitude:latitude withLongitude:longitude];</div><div class="line">        </div><div class="line">    &#125;else&#123;</div><div class="line">        NSLog(@&quot;位置为空&quot;);</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    //关闭坐标更新</div><div class="line">    [self.locService stopUserLocationService];</div><div class="line">&#125;</div><div class="line"></div><div class="line">//地图定位</div><div class="line">- (BMKLocationService *)locService</div><div class="line">&#123;</div><div class="line">    if (!_locService)</div><div class="line">    &#123;</div><div class="line">        _locService = [[BMKLocationService alloc] init];</div><div class="line">        _locService.delegate = self;</div><div class="line">    &#125;</div><div class="line">    return _locService;</div><div class="line">&#125;</div><div class="line"></div><div class="line">//检索对象</div><div class="line">- (BMKGeoCodeSearch *)geocodesearch</div><div class="line">&#123;</div><div class="line">    if (!_geocodesearch)</div><div class="line">    &#123;</div><div class="line">        _geocodesearch = [[BMKGeoCodeSearch alloc] init];</div><div class="line">        _geocodesearch.delegate = self;</div><div class="line">    &#125;</div><div class="line">    return _geocodesearch;</div><div class="line">&#125;</div><div class="line"></div><div class="line">#pragma mark ----反向地理编码</div><div class="line">- (void)reverseGeoCodeWithLatitude:(NSString *)latitude withLongitude:(NSString *)longitude</div><div class="line">&#123;</div><div class="line">    </div><div class="line">    //发起反向地理编码检索</div><div class="line">    </div><div class="line">    CLLocationCoordinate2D coor;</div><div class="line">    coor.latitude = [latitude doubleValue];</div><div class="line">    coor.longitude = [longitude doubleValue];</div><div class="line">    </div><div class="line">    BMKReverseGeoCodeOption *reverseGeocodeSearchOption = [[BMKReverseGeoCodeOption alloc] init];</div><div class="line">    reverseGeocodeSearchOption.reverseGeoPoint = coor;</div><div class="line">    BOOL flag = [self.geocodesearch reverseGeoCode:reverseGeocodeSearchOption];;</div><div class="line">    if (flag)</div><div class="line">    &#123;</div><div class="line">        NSLog(@&quot;反地理编码成功&quot;);//可注释</div><div class="line">    &#125;</div><div class="line">    else</div><div class="line">    &#123;</div><div class="line">        NSLog(@&quot;反地理编码失败&quot;);//可注释</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">//发送反编码请求</div><div class="line">- (void)sendBMKReverseGeoCodeOptionRequest&#123;</div><div class="line">    </div><div class="line">    self.isGeoSearch = false;</div><div class="line">    CLLocationCoordinate2D pt = (CLLocationCoordinate2D)&#123;0, 0&#125;;//初始化</div><div class="line">    if (_locService.userLocation.location.coordinate.longitude!= 0</div><div class="line">        &amp;&amp; _locService.userLocation.location.coordinate.latitude!= 0) &#123;</div><div class="line">        //如果还没有给pt赋值,那就将当前的经纬度赋值给pt</div><div class="line">        pt = (CLLocationCoordinate2D)&#123;_locService.userLocation.location.coordinate.latitude,</div><div class="line">            _locService.userLocation.location.coordinate.longitude&#125;;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    BMKReverseGeoCodeOption *reverseGeocodeSearchOption = [[BMKReverseGeoCodeOption alloc]init];//初始化反编码请求</div><div class="line">    reverseGeocodeSearchOption.reverseGeoPoint = pt;//设置反编码的店为pt</div><div class="line">    BOOL flag = [_geocodesearch reverseGeoCode:reverseGeocodeSearchOption];//发送反编码请求.并返回是否成功</div><div class="line">    if(flag)</div><div class="line">    &#123;</div><div class="line">        NSLog(@&quot;反geo检索发送成功&quot;);</div><div class="line">    &#125;</div><div class="line">    else</div><div class="line">    &#123;</div><div class="line">        NSLog(@&quot;反geo检索发送失败&quot;);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">//发送成功,百度将会返回东西给你</div><div class="line">-(void)onGetReverseGeoCodeResult:(BMKGeoCodeSearch *)searcher</div><div class="line">                           result:(BMKReverseGeoCodeResult *)result</div><div class="line">                        errorCode:(BMKSearchErrorCode)error</div><div class="line">&#123;</div><div class="line">    </div><div class="line">    if (error == BMK_SEARCH_NO_ERROR) &#123;</div><div class="line">        NSString *address1 = result.address; // result.addressDetail ///层次化地址信息</div><div class="line">        NSLog(@&quot;我的位置在 %@&quot;,address1);</div><div class="line">        </div><div class="line">        //保存位置信息到模型</div><div class="line">        [self.userLocationInfoModel saveLocationInfoWithBMKReverseGeoCodeResult:result];</div><div class="line">        </div><div class="line">        //进行缓存处理，上传到服务器等操作</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>需要提到的是，可以合理利用<code>BMKReverseGeoCodeResult</code>类型的对象<code>result</code>，比如取出它的某些属性存到自己定义的模型中去。该对象的类型是百度地图SDK的类，里面包含了根据经纬度返回的地址信息。它的类文件如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line">/*</div><div class="line"> *  BMKGeocodeType.h</div><div class="line"> *  BMapKit</div><div class="line"> *</div><div class="line"> *  Copyright 2011 Baidu Inc. All rights reserved.</div><div class="line"> *</div><div class="line"> */</div><div class="line"></div><div class="line">#import &lt;BaiduMapAPI_Base/BMKTypes.h&gt;</div><div class="line"></div><div class="line">///反地址编码结果</div><div class="line">@interface BMKReverseGeoCodeResult : NSObject</div><div class="line">&#123;</div><div class="line">	BMKAddressComponent* _addressDetail;</div><div class="line">	NSString* _address;</div><div class="line">	CLLocationCoordinate2D _location;</div><div class="line">	NSArray* _poiList;</div><div class="line">&#125;</div><div class="line">///层次化地址信息</div><div class="line">@property (nonatomic, strong) BMKAddressComponent *addressDetail;</div><div class="line">///地址名称</div><div class="line">@property (nonatomic, strong) NSString* address;</div><div class="line">///商圈名称</div><div class="line">@property (nonatomic, strong) NSString* businessCircle;</div><div class="line">///结合当前位置POI的语义化结果描述</div><div class="line">@property (nonatomic, strong) NSString* sematicDescription;</div><div class="line">///地址坐标</div><div class="line">@property (nonatomic) CLLocationCoordinate2D location;</div><div class="line">///地址周边POI信息，成员类型为BMKPoiInfo</div><div class="line">@property (nonatomic, strong) NSArray* poiList;</div><div class="line"></div><div class="line">@end</div><div class="line"></div><div class="line">///地址编码结果</div><div class="line">@interface BMKGeoCodeResult : NSObject</div><div class="line">&#123;</div><div class="line">    CLLocationCoordinate2D _location;</div><div class="line">    NSString* _address;</div><div class="line">&#125;</div><div class="line">///地理编码位置</div><div class="line">@property (nonatomic) CLLocationCoordinate2D location;</div><div class="line">///地理编码地址</div><div class="line">@property (nonatomic,strong) NSString* address;</div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure>
+<p>其中，<code>result</code>对象包含了一个层次化地址信息，如<code>@property (nonatomic, strong) BMKAddressComponent *addressDetail;</code>所示。它的<code>addressDetail</code>属性包含的信息可从<code>BMKAddressComponent</code>类的代码了解更多：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line">///线路检索节点信息,一个路线检索节点可以通过经纬度坐标或城市名加地名确定</div><div class="line">@interface BMKPlanNode : NSObject&#123;</div><div class="line">    NSString*              _cityName;</div><div class="line">    NSString*              _name;</div><div class="line">    CLLocationCoordinate2D _pt;</div><div class="line">&#125;</div><div class="line"></div><div class="line">///节点所在城市</div><div class="line">@property (nonatomic, strong) NSString* cityName;</div><div class="line">///节点所在城市ID</div><div class="line">@property (nonatomic, assign) NSInteger cityID;</div><div class="line">///节点名称</div><div class="line">@property (nonatomic, strong) NSString* name;</div><div class="line">///节点坐标</div><div class="line">@property (nonatomic) CLLocationCoordinate2D pt;</div><div class="line">@end</div><div class="line"></div><div class="line">///室内路线检索节点信息</div><div class="line">@interface BMKIndoorPlanNode : NSObject</div><div class="line"></div><div class="line">///节点所在楼层</div><div class="line">@property (nonatomic, retain) NSString* floor;</div><div class="line">///节点坐标</div><div class="line">@property (nonatomic) CLLocationCoordinate2D pt;</div><div class="line"></div><div class="line">@end</div><div class="line"></div><div class="line">///此类表示地址结果的层次化信息</div><div class="line">@interface BMKAddressComponent : NSObject</div><div class="line"></div><div class="line">/// 街道号码</div><div class="line">@property (nonatomic, strong) NSString* streetNumber;</div><div class="line">/// 街道名称</div><div class="line">@property (nonatomic, strong) NSString* streetName;</div><div class="line">/// 区县名称</div><div class="line">@property (nonatomic, strong) NSString* district;</div><div class="line">/// 城市名称</div><div class="line">@property (nonatomic, strong) NSString* city;</div><div class="line">/// 省份名称</div><div class="line">@property (nonatomic, strong) NSString* province;</div><div class="line">/// 国家</div><div class="line">@property (nonatomic, strong) NSString* country;</div><div class="line">/// 国家代码</div><div class="line">@property (nonatomic, strong) NSString* countryCode;</div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure></p>
+<p>正如上面的代码中看到，里面包含了国家，省市区，街道及街道号等层次化信息。在实际的开发中，可以按需取出这些信息，这种操作可以写在下面的代理方法中去。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">//发送成功,百度将会返回东西给你</div><div class="line">-(void)onGetReverseGeoCodeResult:(BMKGeoCodeSearch *)searcher</div><div class="line">                           result:(BMKReverseGeoCodeResult *)result</div><div class="line">                        errorCode:(BMKSearchErrorCode)error</div><div class="line">&#123;</div><div class="line">   //取出层次化信息操作</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<hr>
+<p>###附1:可能的问题</p>
+<blockquote>
+<p>百度地图反geo检索发送失败</p>
+</blockquote>
+<p>可能因为，key是其它样例Demo的，或者以前申请的过期了。检查一下，用自己工程的Bundle Identifer重新申请key，在真机上进行测试，反检索发起成功。这时候需要重新申请密钥key。</p>
+<ul>
+<li>#####新建密钥入口 <a href="http://lbsyun.baidu.com/apiconsole/key" target="_blank" rel="external">http://lbsyun.baidu.com/apiconsole/key</a></li>
+</ul>
+<p>###附2:参考文献</p>
+<ol>
+<li><a href="http://lbsyun.baidu.com/index.php?title=iossdk/guide/key" target="_blank" rel="external">百度地图iOS SDK开发指南</a></li>
+<li><a href="http://lbsyun.baidu.com/index.php?title=iossdk/sdkiosdev-download" target="_blank" rel="external">百度地图iOS地图SDK</a></li>
+</ol>
 
       
 
@@ -307,7 +382,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/06/23/post1/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/06/24/post5/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -320,15 +395,6 @@
 
   
 <nav id="article-nav">
-  
-    <a href="/2017/06/24/post2/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          iOS字符串的各种基础操作及衍生操作
-        
-      </div>
-    </a>
   
   
     <a href="/2017/06/23/cimain/" id="article-nav-older" class="article-nav-link-wrap">
