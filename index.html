@@ -184,8 +184,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>##1.申请密钥</p>
-<p>首先，申请一个baidu账号，接着进入<a href="http://lbsyun.baidu.com/apiconsole/key" target="_blank" rel="external">新建密钥入口</a>申请成为baidu地图开发者，填写相关开发者信息和短信验证码。接下来点击<strong>创建应用</strong>，如官方文档<a href="http://lbsyun.baidu.com/index.php?title=iossdk/guide/key" target="_blank" rel="external">新建密钥文档指南</a>里面的截图所示，注意正确勾选有关项。如果你想要实名认证，点击页面右上角的<strong>实名状态</strong>，下面是该页面的截图。</p>
+        <h2 id="1-申请密钥"><a href="#1-申请密钥" class="headerlink" title="1.申请密钥"></a>1.申请密钥</h2><p>首先，申请一个baidu账号，接着进入<a href="http://lbsyun.baidu.com/apiconsole/key" target="_blank" rel="external">新建密钥入口</a>申请成为baidu地图开发者，填写相关开发者信息和短信验证码。接下来点击<strong>创建应用</strong>，如官方文档<a href="http://lbsyun.baidu.com/index.php?title=iossdk/guide/key" target="_blank" rel="external">新建密钥文档指南</a>里面的截图所示，注意正确勾选有关项。如果你想要实名认证，点击页面右上角的<strong>实名状态</strong>，下面是该页面的截图。</p>
         
           <a class="article-more-a" href="/2017/06/24/post5/#more">more >></a>
         
@@ -242,8 +241,7 @@
 </blockquote>
 <p>但有时候，仅仅停留在这些基本操作还不能直接满足一些需求，这时候可以利用这些基本操作进行一些字符串的衍生操作。</p>
 <p>这篇文章，将先引用CSDN一个<a href="http://blog.csdn.net/sevenquan" target="_blank" rel="external">大神</a>的字符串【基本操作】，基于此，然后介绍一些【字符串的衍生操作】。</p>
-<p>#一. 字符串的基本操作</p>
-<p>1.【字符串插入】<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">NSMutableString* str1=[[NSMutableString alloc] initWithString:@&quot;hello&quot;];//存在堆区，可变字符串</div><div class="line">NSLog(@&quot;str1:%@&quot;,str1);</div><div class="line">[str1 insertString:@&quot;234&quot;atIndex:2];//把一个字符串插入另一个字符串中的某一个位置</div><div class="line">NSLog(@&quot;str1:%@&quot;,str1);</div></pre></td></tr></table></figure></p>
+<h1 id="一-字符串的基本操作"><a href="#一-字符串的基本操作" class="headerlink" title="一. 字符串的基本操作"></a>一. 字符串的基本操作</h1><p>1.【字符串插入】<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">NSMutableString* str1=[[NSMutableString alloc] initWithString:@&quot;hello&quot;];//存在堆区，可变字符串</div><div class="line">NSLog(@&quot;str1:%@&quot;,str1);</div><div class="line">[str1 insertString:@&quot;234&quot;atIndex:2];//把一个字符串插入另一个字符串中的某一个位置</div><div class="line">NSLog(@&quot;str1:%@&quot;,str1);</div></pre></td></tr></table></figure></p>
         
           <a class="article-more-a" href="/2017/06/04/post2/#more">more >></a>
         
@@ -293,8 +291,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>#1.本编解码方法的功能说明</p>
-<ul>
+        <h1 id="1-本编解码方法的功能说明"><a href="#1-本编解码方法的功能说明" class="headerlink" title="1.本编解码方法的功能说明"></a>1.本编解码方法的功能说明</h1><ul>
 <li><strong>UrlEncode方法</strong><br>把任何参数转换成适合放在URL中的字符串。具体规则： </li>
 </ul>
 <blockquote>
@@ -307,7 +304,7 @@
 <ul>
 <li><strong>UrlDecode方法</strong><br>其功能与编码相反</li>
 </ul>
-<p>#2. 字符串在编码之前之后的效果<br>原字符串：<br>
+<h1 id="2-字符串在编码之前之后的效果"><a href="#2-字符串在编码之前之后的效果" class="headerlink" title="2. 字符串在编码之前之后的效果"></a>2. 字符串在编码之前之后的效果</h1><p>原字符串：<br>
         
           <a class="article-more-a" href="/2017/04/23/post1/#more">more >></a>
         
@@ -364,66 +361,9 @@
 <li>先观赏一下典型的UITableView控件案例</li>
 </ul>
 <p><img src="http://upload-images.jianshu.io/upload_images/1283539-645bbe8ea2df333b.png" alt="image.png"></p>
-<!--more>
-
-- 典型的UICollectionView控件案例
-
-![image.png](http://upload-images.jianshu.io/upload_images/1283539-27d98b5c999424a0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-
-
-## 1.单元格默认选中效果
-
-- 系统默认单元格选中样式
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">//无色</div><div class="line">cell.selectionStyle = </div><div class="line">UITableViewCellSelectionStyleNone</div><div class="line">;</div><div class="line">//蓝色</div><div class="line">cell.selectionStyle = </div><div class="line">UITableViewCellSelectionStyleBlue</div><div class="line">;</div><div class="line">//灰色</div><div class="line">cell.selectionStyle = </div><div class="line">UITableViewCellSelectionStyleGray</div><div class="line">;</div></pre></td></tr></table></figure>
-<ul>
-<li>系统默认单元格样式（无选中效果）</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cell.selectionStyle = UITableViewCellStyleDefault;</div><div class="line">cell.selectionStyle = UITableViewCellSelectionStyleDefault;</div></pre></td></tr></table></figure>
-<blockquote>
-<p>示例</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath</div><div class="line">&#123;</div><div class="line"></div><div class="line">MyTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];</div><div class="line">if (cell == nil) &#123;</div><div class="line">cell = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([MyTableViewCell class]) owner:self options:nil] lastObject];</div><div class="line">&#125;</div><div class="line">cell.cellMdl = [self.tableItemArr objectAtIndex:indexPath.row];</div><div class="line"></div><div class="line">//设置选中背景色</div><div class="line">cell.selectionStyle = UITableViewCellStyleDefault;</div><div class="line">cell.selectionStyle = UITableViewCellSelectionStyleDefault;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="2-单元格自定义选中效果方案（一）"><a href="#2-单元格自定义选中效果方案（一）" class="headerlink" title="2.单元格自定义选中效果方案（一）"></a>2.单元格自定义选中效果方案（一）</h2><ul>
-<li>通用方案:</li>
-</ul>
-<blockquote>
-<p>假设你已经正确实现其他代理方法，需要在table或collection的返回cell的代理方法中作如下设置：</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cell.selectedBackgroundView = [[UIView alloc] initWithFrame:cell.frame];</div><div class="line">cell.selectedBackgroundView.backgroundColor = [UIColor groupTableViewBackgroundColor];</div></pre></td></tr></table></figure>
-<blockquote>
-<p>示例：</p>
-</blockquote>
-<ul>
-<li>UICollectionView</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath &#123;</div><div class="line"></div><div class="line">//    return [collectionView dequeueReusableCellWithReuseIdentifier:@&quot;collectionCellId&quot; forIndexPath:indexPath];</div><div class="line"></div><div class="line">UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:collectionCellId forIndexPath:indexPath];</div><div class="line"></div><div class="line">cell.selectedBackgroundView = [[UIView alloc] initWithFrame:cell.frame];</div><div class="line">cell.selectedBackgroundView.backgroundColor = [UIColor groupTableViewBackgroundColor];</div><div class="line"></div><div class="line">////    错误的做法：当次级VC返回时才会调用</div><div class="line">//    if (cell.isHighlighted) &#123;</div><div class="line">//        cell.backgroundColor = [UIColor groupTableViewBackgroundColor];</div><div class="line">//    &#125;else&#123;</div><div class="line">//        cell.backgroundColor = [UIColor whiteColor];</div><div class="line">//    &#125;</div><div class="line"></div><div class="line">return cell;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<ul>
-<li>UITableView</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath</div><div class="line">&#123;</div><div class="line"></div><div class="line">AssistantTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];</div><div class="line">if (cell == nil) &#123;</div><div class="line">cell = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([AssistantTableViewCell class]) owner:self options:nil] lastObject];</div><div class="line">&#125;</div><div class="line">cell.cellMdl = [self.questionItemArr objectAtIndex:indexPath.row];</div><div class="line"></div><div class="line">//设置选中背景色</div><div class="line">//    cell.selectionStyle = UITableViewCellStyleDefault;</div><div class="line">//    cell.selectionStyle = UITableViewCellSelectionStyleDefault;</div><div class="line"></div><div class="line">cell.selectedBackgroundView = [[UIView alloc] initWithFrame:cell.frame];</div><div class="line">cell.selectedBackgroundView.backgroundColor = [UIColor groupTableViewBackgroundColor];</div><div class="line"></div><div class="line">return cell;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="3-单元格自定义选中效果方案（二）"><a href="#3-单元格自定义选中效果方案（二）" class="headerlink" title="3.单元格自定义选中效果方案（二）"></a>3.单元格自定义选中效果方案（二）</h2><ul>
-<li><p>通用方案:</p>
-</li>
-<li><p>[x] 在自己自定义的cell文件中重写如下方法：</p>
-</li>
-</ul>
-<blockquote>
-<p>示例：</p>
-</blockquote>
-<ul>
-<li>UITableViewCell.m</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">- (void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated&#123;</div><div class="line">[super setHighlighted:highlighted];</div><div class="line">if (highlighted) &#123;</div><div class="line">//选中时</div><div class="line">self.backgroundColor = [UIColor groupTableViewBackgroundColor];</div><div class="line">&#125;else&#123;</div><div class="line">//非选中</div><div class="line">self.backgroundColor = [UIColor whiteColor];</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<ul>
-<li>UICollectionView.m</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">- (void)setHighlighted:(BOOL)highlighted&#123;</div><div class="line">[super setHighlighted:highlighted];</div><div class="line">if (highlighted) &#123;</div><div class="line">//选中时</div><div class="line">self.backgroundColor = [UIColor groupTableViewBackgroundColor];</div><div class="line">&#125;else&#123;</div><div class="line">//非选中</div><div class="line">self.backgroundColor = [UIColor whiteColor];</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="4-小结"><a href="#4-小结" class="headerlink" title="4.小结"></a>4.小结</h2><p>如你所见，不难发现，两个cell设置套路是一样的（捂脸）。</p>
-<blockquote>
-<p>注意的是，方案一和方案二不要重复设置。另外，二者择一的话，推荐方案一。</p>
-</blockquote>
--->
+        
+          <a class="article-more-a" href="/2017/03/26/post4/#more">more >></a>
+        
       
 
       
@@ -585,7 +525,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>写文章时插入
+        <p>写文章时插入\
         
           <a class="article-more-a" href="/2016/06/23/cimain/#more">more >></a>
         
@@ -691,8 +631,7 @@
         <blockquote>
 <p>现在，越来越多的程序员在记录和分享日常技术文章的时候选择Markdown格式，这种格式正是GitHub和Stackoverflow倡导的格式。鉴于Markdown的简洁和高效，如果你还在用可视化的方法在Word或富文本框里面敲敲打打、拖拖拽拽的话，就显得太low了。还等什么呢，赶紧来收藏好它的语法吧~~</p>
 </blockquote>
-<p>###目录：</p>
-<ul>
+<h3 id="目录："><a href="#目录：" class="headerlink" title="目录："></a>目录：</h3><ul>
 <li>一、Markdown 简明语法手册</li>
 <li>二、Markdown 高阶语法手册</li>
 </ul>

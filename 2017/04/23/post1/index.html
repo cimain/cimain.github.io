@@ -8,16 +8,16 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>iOS字符串编码与解码方法的实现与调用(UrlEncode/UrlDecode) | ChenMan(陈满の个人网站)</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="#1.本编解码方法的功能说明  UrlEncode方法把任何参数转换成适合放在URL中的字符串。具体规则：     字母，数字，连字符不变。  空格转换成加号。  其他所有的字符转换成用百分号表示，并接上字符的两位十六进制编码。如%2F     UrlDecode方法其功能与编码相反  #2. 字符串在编码之前之后的效果原字符串：">
+  <meta name="description" content="1.本编解码方法的功能说明 UrlEncode方法把任何参数转换成适合放在URL中的字符串。具体规则：     字母，数字，连字符不变。  空格转换成加号。  其他所有的字符转换成用百分号表示，并接上字符的两位十六进制编码。如%2F     UrlDecode方法其功能与编码相反  2. 字符串在编码之前之后的效果原字符串：">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS字符串编码与解码方法的实现与调用(UrlEncode&#x2F;UrlDecode)">
 <meta property="og:url" content="http://yoursite.com/2017/04/23/post1/index.html">
 <meta property="og:site_name" content="ChenMan(陈满の个人网站)">
-<meta property="og:description" content="#1.本编解码方法的功能说明  UrlEncode方法把任何参数转换成适合放在URL中的字符串。具体规则：     字母，数字，连字符不变。  空格转换成加号。  其他所有的字符转换成用百分号表示，并接上字符的两位十六进制编码。如%2F     UrlDecode方法其功能与编码相反  #2. 字符串在编码之前之后的效果原字符串：">
-<meta property="og:updated_time" content="2017-06-24T12:25:11.000Z">
+<meta property="og:description" content="1.本编解码方法的功能说明 UrlEncode方法把任何参数转换成适合放在URL中的字符串。具体规则：     字母，数字，连字符不变。  空格转换成加号。  其他所有的字符转换成用百分号表示，并接上字符的两位十六进制编码。如%2F     UrlDecode方法其功能与编码相反  2. 字符串在编码之前之后的效果原字符串：">
+<meta property="og:updated_time" content="2017-06-24T12:46:16.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS字符串编码与解码方法的实现与调用(UrlEncode&#x2F;UrlDecode)">
-<meta name="twitter:description" content="#1.本编解码方法的功能说明  UrlEncode方法把任何参数转换成适合放在URL中的字符串。具体规则：     字母，数字，连字符不变。  空格转换成加号。  其他所有的字符转换成用百分号表示，并接上字符的两位十六进制编码。如%2F     UrlDecode方法其功能与编码相反  #2. 字符串在编码之前之后的效果原字符串：">
+<meta name="twitter:description" content="1.本编解码方法的功能说明 UrlEncode方法把任何参数转换成适合放在URL中的字符串。具体规则：     字母，数字，连字符不变。  空格转换成加号。  其他所有的字符转换成用百分号表示，并接上字符的两位十六进制编码。如%2F     UrlDecode方法其功能与编码相反  2. 字符串在编码之前之后的效果原字符串：">
   
     <link rel="alternative" href="/atom.xml" title="ChenMan(陈满の个人网站)" type="application/atom+xml">
   
@@ -183,8 +183,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>#1.本编解码方法的功能说明</p>
-<ul>
+        <h1 id="1-本编解码方法的功能说明"><a href="#1-本编解码方法的功能说明" class="headerlink" title="1.本编解码方法的功能说明"></a>1.本编解码方法的功能说明</h1><ul>
 <li><strong>UrlEncode方法</strong><br>把任何参数转换成适合放在URL中的字符串。具体规则： </li>
 </ul>
 <blockquote>
@@ -197,23 +196,20 @@
 <ul>
 <li><strong>UrlDecode方法</strong><br>其功能与编码相反</li>
 </ul>
-<p>#2. 字符串在编码之前之后的效果<br>原字符串：<br><a id="more"></a></p>
+<h1 id="2-字符串在编码之前之后的效果"><a href="#2-字符串在编码之前之后的效果" class="headerlink" title="2. 字符串在编码之前之后的效果"></a>2. 字符串在编码之前之后的效果</h1><p>原字符串：<br><a id="more"></a></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Vk/nQmguwJIN</div></pre></td></tr></table></figure>
 <p>编码之后：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Vk%2FnQmguwJIN</div></pre></td></tr></table></figure></p>
 <p>解码之后：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Vk/nQmguwJIN</div></pre></td></tr></table></figure></p>
-<p>#3.UrlEncode/UrlDecode方法的实现</p>
-<p><strong>编码</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">+(NSString*)encodeString:(NSString*)unencodedString&#123;</div><div class="line"></div><div class="line">// CharactersToBeEscaped = @&quot;:/?&amp;=;+!@#$()~&apos;,*&quot;;</div><div class="line">// CharactersToLeaveUnescaped = @&quot;[].&quot;;</div><div class="line"></div><div class="line">NSString *encodedString = (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,</div><div class="line">(CFStringRef)unencodedString,</div><div class="line">NULL,</div><div class="line">(CFStringRef)@&quot;!*&apos;();:@&amp;=+$,/?%#[]&quot;,</div><div class="line">kCFStringEncodingUTF8));</div><div class="line"></div><div class="line">return encodedString;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h1 id="3-UrlEncode-UrlDecode方法的实现"><a href="#3-UrlEncode-UrlDecode方法的实现" class="headerlink" title="3.UrlEncode/UrlDecode方法的实现"></a>3.UrlEncode/UrlDecode方法的实现</h1><p><strong>编码</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">+(NSString*)encodeString:(NSString*)unencodedString&#123;</div><div class="line"></div><div class="line">// CharactersToBeEscaped = @&quot;:/?&amp;=;+!@#$()~&apos;,*&quot;;</div><div class="line">// CharactersToLeaveUnescaped = @&quot;[].&quot;;</div><div class="line"></div><div class="line">NSString *encodedString = (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,</div><div class="line">(CFStringRef)unencodedString,</div><div class="line">NULL,</div><div class="line">(CFStringRef)@&quot;!*&apos;();:@&amp;=+$,/?%#[]&quot;,</div><div class="line">kCFStringEncodingUTF8));</div><div class="line"></div><div class="line">return encodedString;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p><strong>解码</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">//URLDEcode</div><div class="line">+(NSString *)decodeString:(NSString*)encodedString</div><div class="line"></div><div class="line">&#123;</div><div class="line">//NSString *decodedString = [encodedString stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding ];</div><div class="line"></div><div class="line">NSString *decodedString  = (__bridge_transfer NSString *)CFURLCreateStringByReplacingPercentEscapesUsingEncoding(NULL,(__bridge CFStringRef)encodedString,CFSTR(&quot;&quot;),CFStringConvertNSStringEncodingToEncoding(NSUTF8StringEncoding));</div><div class="line">return decodedString;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>#4.使用建议<br>建议自己写个Category。比如，可以基于NSString新建一个URLEncoding类别文件，类名分别为NSString+URLEncoding.h和NSString+URLEncoding.m。然后，在你需要的地方导入该头文件即可。作为对比，与上面的实现不同，下面采用replaceOccurrencesOfString:方法实现解码功能。</p>
+<h1 id="4-使用建议"><a href="#4-使用建议" class="headerlink" title="4.使用建议"></a>4.使用建议</h1><p>建议自己写个Category。比如，可以基于NSString新建一个URLEncoding类别文件，类名分别为NSString+URLEncoding.h和NSString+URLEncoding.m。然后，在你需要的地方导入该头文件即可。作为对比，与上面的实现不同，下面采用replaceOccurrencesOfString:方法实现解码功能。</p>
 <p>其中：<br><strong>NSString+URLEncoding.h</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">#import &lt;Foundation/Foundation.h&gt;</div><div class="line"></div><div class="line">@interface NSString (URLEncoding)</div><div class="line"></div><div class="line">// 字符串转码</div><div class="line">- (NSString*)urlEncodeString;</div><div class="line"></div><div class="line">// 反URL编码</div><div class="line">- (NSString *)decodeFromPercentEscapeString;</div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure></p>
 <p><strong>NSString+URLEncoding.m</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">#import &quot;NSString+URLEncoding.h&quot;</div><div class="line"></div><div class="line">@implementation NSString (URLEncoding)</div><div class="line"></div><div class="line">// 字符串编码</div><div class="line">- (NSString *)urlEncodeString</div><div class="line">&#123;</div><div class="line">NSString *result = (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault, (CFStringRef)self, NULL, CFSTR(&quot;:/?#[]@!$&amp;’()&#123;&#125;&lt;&gt;*+,;=&quot;),kCFStringEncodingUTF8));</div><div class="line">return result;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 反URL编码</div><div class="line">- (NSString *)decodeFromPercentAndPlusString</div><div class="line">&#123;</div><div class="line">NSMutableString *outputStr = [NSMutableString stringWithString:self];</div><div class="line">[outputStr replaceOccurrencesOfString:@&quot;+&quot;</div><div class="line">withString:@&quot; &quot;</div><div class="line">options:NSLiteralSearch</div><div class="line">range:NSMakeRange(0, [outputStr length])];</div><div class="line"></div><div class="line">return [outputStr stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>#5. 调用范例</p>
-<p>在调用处的类中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">#import &quot;NSString+URLEncoding.h&quot;</div></pre></td></tr></table></figure></p>
+<h1 id="5-调用范例"><a href="#5-调用范例" class="headerlink" title="5. 调用范例"></a>5. 调用范例</h1><p>在调用处的类中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">#import &quot;NSString+URLEncoding.h&quot;</div></pre></td></tr></table></figure></p>
 <p>然后，调用上述方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[testStr urlEncodeString];</div></pre></td></tr></table></figure></p>
 <p>即可。</p>
-<p>##参考文献</p>
-<ul>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ul>
 <li><a href="http://blog.csdn.net/qwerty123501029/article/details/7092077" target="_blank" rel="external">http://blog.csdn.net/qwerty123501029/article/details/7092077</a></li>
 <li><a href="http://blog.csdn.net/typingios/article/details/9136005" target="_blank" rel="external">http://blog.csdn.net/typingios/article/details/9136005</a></li>
 <li><a href="http://blog.csdn.net/bianhuanshizhe/article/details/46953155" target="_blank" rel="external">http://blog.csdn.net/bianhuanshizhe/article/details/46953155</a></li>
