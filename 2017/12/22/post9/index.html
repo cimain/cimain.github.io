@@ -6,17 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2016 | ChenMan(陈满の个人网站)</title>
+  <title>iOS开发·UIWindow与视图层级调整技巧（makeKeyWindow，resignKeyWindow，makeKeyAndVisible，keyWindow，windowLevel，UIWindowLevelNormal，UIWindowLevelAlert，UIWindowLevelStatusBar） | ChenMan(陈满の个人网站)</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Shenzhen,China">
-<meta property="og:type" content="website">
-<meta property="og:title" content="ChenMan(陈满の个人网站)">
-<meta property="og:url" content="http://yoursite.com/archives/2016/index.html">
+  <meta name="description" content="iOS开发过程中，多人开发或者导入第三方框架的时候，可能碰到UIWindow层级冲突的问题。  例如，很多人习惯在keyWindow上添加一个自定义浮层视图，但是，当自己或者其它第三方框架曾经调高过其它自定义UIWindow属性windowLevel，或者有其它同级windowLevel的UIWindow后来改变过显示状态（如.hidden=NO，makeKeyAndVisible等），而且又没">
+<meta name="keywords" content="iOS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS开发·UIWindow与视图层级调整技巧（makeKeyWindow，resignKeyWindow，makeKeyAndVisible，keyWindow，windowLevel，UIWindowLevelNormal，UIWindowLevelAlert，UIWindowLevelStatusBar）">
+<meta property="og:url" content="http://yoursite.com/2017/12/22/post9/index.html">
 <meta property="og:site_name" content="ChenMan(陈满の个人网站)">
-<meta property="og:description" content="Shenzhen,China">
+<meta property="og:description" content="iOS开发过程中，多人开发或者导入第三方框架的时候，可能碰到UIWindow层级冲突的问题。  例如，很多人习惯在keyWindow上添加一个自定义浮层视图，但是，当自己或者其它第三方框架曾经调高过其它自定义UIWindow属性windowLevel，或者有其它同级windowLevel的UIWindow后来改变过显示状态（如.hidden=NO，makeKeyAndVisible等），而且又没">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1283539-934bcf12bebfe5ae.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1283539-c10057e96a4ec7aa.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-04-12T03:48:36.946Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ChenMan(陈满の个人网站)">
-<meta name="twitter:description" content="Shenzhen,China">
+<meta name="twitter:title" content="iOS开发·UIWindow与视图层级调整技巧（makeKeyWindow，resignKeyWindow，makeKeyAndVisible，keyWindow，windowLevel，UIWindowLevelNormal，UIWindowLevelAlert，UIWindowLevelStatusBar）">
+<meta name="twitter:description" content="iOS开发过程中，多人开发或者导入第三方框架的时候，可能碰到UIWindow层级冲突的问题。  例如，很多人习惯在keyWindow上添加一个自定义浮层视图，但是，当自己或者其它第三方框架曾经调高过其它自定义UIWindow属性windowLevel，或者有其它同级windowLevel的UIWindow后来改变过显示状态（如.hidden=NO，makeKeyAndVisible等），而且又没">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1283539-934bcf12bebfe5ae.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
   
     <link rel="alternative" href="/atom.xml" title="ChenMan(陈满の个人网站)" type="application/atom+xml">
   
@@ -162,76 +167,294 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-post9" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/07/23/welcome/" class="archive-article-date">
-  	<time datetime="2016-07-23T05:25:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-23</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/07/23/welcome/">搭建网站填坑记录</a>
+    <h1 class="article-title" itemprop="name">
+      iOS开发·UIWindow与视图层级调整技巧（makeKeyWindow，resignKeyWindow，makeKeyAndVisible，keyWindow，windowLevel，UIWindowLevelNormal，UIWindowLevelAlert，UIWindowLevelStatusBar）
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/01/24/post3/" class="archive-article-date">
-  	<time datetime="2016-01-24T12:01:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-01-24</time>
+        
+        <a href="/2017/12/22/post9/" class="archive-article-date">
+  	<time datetime="2017-12-22T03:47:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-22</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/01/24/post3/">程序员修养·Markdown语法学习手册</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>iOS开发过程中，多人开发或者导入第三方框架的时候，可能碰到UIWindow层级冲突的问题。</p>
+</blockquote>
+<p>例如，很多人习惯在keyWindow上添加一个自定义浮层视图，但是，当自己或者其它第三方框架曾经调高过其它自定义UIWindow属性windowLevel，或者有其它同级windowLevel的UIWindow后来改变过显示状态（如.hidden=NO，makeKeyAndVisible等），而且又<strong><em>没有</em></strong> 设将其设置为keyWindow，结果导致正在显示的UIWindow不是keyWindow，从而导致添加到keyWindow上自定义视图无法显示（被覆盖了）。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1283539-934bcf12bebfe5ae.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="如何查看App的UIWindow层级"></p>
+<h2 id="一-为App初始化一个默认UIWindow对象"><a href="#一-为App初始化一个默认UIWindow对象" class="headerlink" title="一. 为App初始化一个默认UIWindow对象"></a>一. 为App初始化一个默认UIWindow对象</h2><p>在AppDelegate.m中需要初始化一个window属性，作为后面往App添加视图的容器</p>
+<a id="more"></a>
+<h5 id="1-初始化操作写在如下UIApplicationDelegate代理方法中"><a href="#1-初始化操作写在如下UIApplicationDelegate代理方法中" class="headerlink" title="1. 初始化操作写在如下UIApplicationDelegate代理方法中"></a>1. 初始化操作写在如下UIApplicationDelegate代理方法中</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions &#123;</div></pre></td></tr></table></figure>
+<h5 id="2-一个初始化window操作示例如下，具体根据产品需求设置"><a href="#2-一个初始化window操作示例如下，具体根据产品需求设置" class="headerlink" title="2. 一个初始化window操作示例如下，具体根据产品需求设置"></a>2. 一个初始化window操作示例如下，具体根据产品需求设置</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];</div><div class="line">self.window.backgroundColor = [UIColor whiteColor];</div><div class="line">[self.window makeKeyAndVisible];</div></pre></td></tr></table></figure>
+<h5 id="3-接下来需指定window的rootViewController"><a href="#3-接下来需指定window的rootViewController" class="headerlink" title="3. 接下来需指定window的rootViewController"></a>3. 接下来需指定window的rootViewController</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">//判断该用首次欢迎页or密码登录页等等</div><div class="line">if ([CommonUtils isStringNilOrEmpty:[CommonUtils getStrValueInUDWithKey:kIsGuide]]) &#123;</div><div class="line">    [CommonUtils saveStrValueInUD:@&quot;1&quot; forKey:kGuide];</div><div class="line">    // 欢迎页置为rootViewController</div><div class="line">    self.window.rootViewController = [[WHGuidePagesController alloc]initWithNibName:@&quot;WHGuidePagesController&quot; bundle:nil];</div><div class="line">&#125;else&#123;</div><div class="line">    // 检查各种密码决定登录方式，并分别设置rootViewController</div><div class="line">    [self chooseVerifyMethod];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="4-注意点：rootViewController属性"><a href="#4-注意点：rootViewController属性" class="headerlink" title="4. 注意点：rootViewController属性"></a>4. 注意点：rootViewController属性</h5><ul>
+<li>目前只有UIWindow<strong><em>有</em></strong>rootViewController这个<strong><em>属性</em></strong>，不要跟UINavigationController里面的根视图概念混淆。</li>
+<li>UINavigationController其实<strong><em>并没有</em></strong> rootViewController这个属性！也就没有自带的setter方法。要设置其根视图只能通过如下方法，而不能通过属性的setter方法和点语法设置根视图。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">- (instancetype)initWithRootViewController:(UIViewController *)rootViewController; </div><div class="line">// Convenience method pushes the root view controller without animation.</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h5 id="5-大多数APP的视图层级关系（以有底部TabBar的App为例）"><a href="#5-大多数APP的视图层级关系（以有底部TabBar的App为例）" class="headerlink" title="5. 大多数APP的视图层级关系（以有底部TabBar的App为例）"></a>5. 大多数APP的视图层级关系（以有底部TabBar的App为例）</h5><ul>
+<li><p>1). [UIApplication sharedApplication].keyWindow为UIWindow对象。比如，获取APP的keyWindow并往上添加视图的代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[[UIApplication sharedApplication].keyWindow addSubview:self.signView];</div></pre></td></tr></table></figure>
+<ul>
+<li>2). 假设APP的keyWindow对象为uiWindow，则uiWindow.rootViewController为UITabBarController对象（也只有UIWindow可以用点语法设置根视图）。比如，为设置rootViewController代码：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">self.window.rootViewController = customTabBarVC;//AppDelegate.m里面</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>3). UITabBarController对象的viewControllers包含UINavigationController对象。设置其viewControllers的方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- (void)setViewControllers:(NSArray&lt;__kindof UIViewController *&gt; * __nullable)viewControllers animated:(BOOL)animated;</div></pre></td></tr></table></figure>
+<ul>
+<li>4). UINavigationController对象的rootViewController为UIViewController对象。初始化其rootViewController的方法为：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- (instancetype)initWithRootViewController:(UIViewController *)rootViewController;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="6-获取keyWindow-它并不一定是当前最上层显示的window-的rootViewController"><a href="#6-获取keyWindow-它并不一定是当前最上层显示的window-的rootViewController" class="headerlink" title="6. 获取keyWindow(它并不一定是当前最上层显示的window)的rootViewController"></a>6. 获取keyWindow(它并不一定是当前最上层显示的window)的rootViewController</h5><p>可以通过如下方法找到当前UIWindow的rootViewController，前提是当keyWindow真的显示在最上层。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">#pragma mark - 获取根视图的(导航、标签)视图控制器</div><div class="line">+ (UINavigationController *)getRootVCformViewController</div><div class="line">&#123;</div><div class="line">    UIViewController *rootVC = [UIApplication sharedApplication].keyWindow.rootViewController;</div><div class="line">    UINavigationController *nav = nil;</div><div class="line">    if ([rootVC isKindOfClass:[UITabBarController class]]) &#123;</div><div class="line">        UITabBarController *tabbar = (UITabBarController *)rootVC;</div><div class="line">        NSInteger index = tabbar.selectedIndex;</div><div class="line">        nav = tabbar.childViewControllers[index];</div><div class="line">    &#125;else if ([rootVC isKindOfClass:[UINavigationController class]]) &#123;</div><div class="line">        nav = (UINavigationController *)rootVC;</div><div class="line">    &#125;else if ([rootVC isKindOfClass:[UIViewController class]]) &#123;</div><div class="line">        NSLog(@&quot;This no UINavigationController...&quot;);</div><div class="line">    &#125;</div><div class="line">    return nav;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="二-在自定义的UIWindow添加自定义视图"><a href="#二-在自定义的UIWindow添加自定义视图" class="headerlink" title="二. 在自定义的UIWindow添加自定义视图"></a>二. 在自定义的UIWindow添加自定义视图</h2><p>假设想为一个APP添加一个手势验证的页面，当进入APP弹出这个手势验证页面。如果不想影响原来的UIWindow，可以考虑新建一个UIWindow并覆盖原来的UIWindow，并往新建的UIWindow上添加各种手势相关的视图及控制器。但在手势验证完后，务必销毁这个自定义的UIWindow，否则可能导致看不见的UIWindow越积越多。</p>
+<h5 id="1-自定义UIWindow"><a href="#1-自定义UIWindow" class="headerlink" title="1. 自定义UIWindow"></a>1. 自定义UIWindow</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">_window = [[UIWindow alloc]initWithFrame:[[UIScreen mainScreen] bounds]];</div><div class="line">_window.hidden = NO;</div><div class="line">[self.window makeKeyAndVisible];</div></pre></td></tr></table></figure>
+<h5 id="2-指定自定义视图控制器"><a href="#2-指定自定义视图控制器" class="headerlink" title="2. 指定自定义视图控制器"></a>2. 指定自定义视图控制器</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">UIViewController *vc = [[UIViewController alloc]init];</div><div class="line">_window.rootViewController = vc;</div></pre></td></tr></table></figure>
+<h5 id="3-销毁自定义UIWindow"><a href="#3-销毁自定义UIWindow" class="headerlink" title="3. 销毁自定义UIWindow"></a>3. 销毁自定义UIWindow</h5><p>自定义视图用完后，记得要销毁自定义的UIWindow，否则导致APP以后会有越来越多没用到的UIWindow，即使再也没有显示过它们，但是可以用调试工具看到许多废弃的window。可参考方法如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">- (void)dismiss &#123;</div><div class="line">    </div><div class="line">    [self.window resignKeyWindow];</div><div class="line">    self.window.windowLevel = -1000;</div><div class="line">    self.window.hidden = YES;</div><div class="line">    [self.window.rootViewController dismissViewControllerAnimated:YES completion:nil];</div><div class="line">    </div><div class="line">    self.window = nil;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="三-UIWindow的显示特性"><a href="#三-UIWindow的显示特性" class="headerlink" title="三. UIWindow的显示特性"></a>三. UIWindow的显示特性</h2><h4 id="1-相同windowLevel下，调整UIWindow显示层的基本方法"><a href="#1-相同windowLevel下，调整UIWindow显示层的基本方法" class="headerlink" title="1. 相同windowLevel下，调整UIWindow显示层的基本方法"></a>1. 相同windowLevel下，调整UIWindow显示层的基本方法</h4><h5 id="1-显示相关属性：hidden"><a href="#1-显示相关属性：hidden" class="headerlink" title="1). 显示相关属性：hidden"></a>1). 显示相关属性：hidden</h5><ul>
+<li>如果仅仅想显示一个UIWindow<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">customWindow.hidden = NO;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p>PS: 虽然设置自己的hidden即可显示出来，但上述方法并不会”自动”影响之前显示的UIWindow对象的hidden属性。如果，之前UIWindow的hidden = NO，设置新UIWindow的hidden将旧UIWindow覆盖后，旧UIWindow的hidden属性依旧为NO。</p>
+<ul>
+<li>如果仅仅想隐藏一个UIWindow<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">customWindow.hidden = YES;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>PS: 如果你没有专门设置过hidden属性，系统默认为YES。上述代码会将UIWindow绝对隐藏，不管有没其他UIWindow覆盖。当也没有其它非隐藏的UIWindow的时候，APP屏幕完全黑屏。</p>
+</blockquote>
+<ul>
+<li>如果想显示一个UIWindow，同时设置为keyWindow，并将其显示在同一windowLevel的其它任何UIWindow之上<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- (void)makeKeyAndVisible</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p>PS: 上述方法真的会将其显示在同一windowLevel的其它任何UIWindow之上！显示最上层的UIWindow以最后执行过该代码的UIWindow为准。</p>
+</blockquote>
+<h5 id="2-显示相关方法：makeKeyAndVisible的作用"><a href="#2-显示相关方法：makeKeyAndVisible的作用" class="headerlink" title="2). 显示相关方法：makeKeyAndVisible的作用"></a>2). 显示相关方法：makeKeyAndVisible的作用</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[self.window makeKeyAndVisible];</div></pre></td></tr></table></figure>
+<p>其执行效果包括 <strong><em>但不限于</em></strong> 执行了如下代码（因为还会覆盖同level的所有window）：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[self.window makeKeyWindow];</div><div class="line">self.window.hidden = NO;</div></pre></td></tr></table></figure></p>
+<p>讲真，makeKeyAndVisible真的会自动改变hidden属性值为NO。</p>
+<h5 id="3-UIWindow对象的hidden属性默认值"><a href="#3-UIWindow对象的hidden属性默认值" class="headerlink" title="3). UIWindow对象的hidden属性默认值"></a>3). UIWindow对象的hidden属性默认值</h5><ul>
+<li>默认值：YES</li>
+</ul>
+<blockquote>
+<p>PS：如果你仅仅创建一个UIWindow，而又不专门设置hidden属性（或者makeKeyAndVisible），系统默认分配的默认值为true。例如，我们把影响到hidden属性的方法屏蔽掉：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];</div><div class="line">self.window.backgroundColor = [UIColor whiteColor];</div><div class="line">// [self.window makeKeyAndVisible];</div><div class="line">// [self.window makeKeyWindow];</div><div class="line">// self.window.hidden = NO;</div></pre></td></tr></table></figure></p>
+</blockquote>
+<p>再来打印hidden属性如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">po self.window.isHidden</div><div class="line">true</div></pre></td></tr></table></figure></p>
+<h5 id="4-误区：关于keyWindow的混淆易错点"><a href="#4-误区：关于keyWindow的混淆易错点" class="headerlink" title="4). 误区：关于keyWindow的混淆易错点"></a>4). 误区：关于keyWindow的混淆易错点</h5><p>设置keyWindow与否并<strong><em>不</em></strong> 影响视图层级<strong><em>显示</em></strong>，仅来接收键盘及其它非触摸事件。如果没有专门设置过keyWindow的hiden为NO，而且也没有其它非隐藏的UIWindow，那么APP会黑屏。</p>
+<ul>
+<li><p>如果仅仅设置为keyWindow</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- (void)makeKeyWindow</div></pre></td></tr></table></figure>
+</li>
+<li><p>如果仅仅解除为keyWindow</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- (void)resignKeyWindow</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p>app的keyWindow与是否在最上层显示没有任何关系。比如，你如果想通过<code>[[UIApplication sharedApplication] keyWindow]</code>获取正在显示的UIWindow是<strong><em>极其不准确</em></strong> 的。有时候通过这个代码获取的如果真的是正在显示的UIWindow，仅仅是因为碰巧而已。</p>
+</blockquote>
+<h5 id="5-警惕点：有多个hidden属性-NO的UIWindow，该显示谁？"><a href="#5-警惕点：有多个hidden属性-NO的UIWindow，该显示谁？" class="headerlink" title="5). 警惕点：有多个hidden属性=NO的UIWindow，该显示谁？"></a>5). 警惕点：有多个hidden属性=NO的UIWindow，该显示谁？</h5><p>如上所见，makeKeyAndVisible与hidden的setter方法均可以改变hidden的值，但有个问题，经过多次调整，可能有多个UIWindow的hidden都为NO，那么应该显示谁？</p>
+<ul>
+<li>对于hidden的setter方法，最终显示的以<strong><em>最后</em></strong> 执行过 <strong><em>.hidden=NO</em></strong> 的UIWindow为准，且执行 <strong><em>.hidden=NO</em></strong> 之前hidden的值为YES。（hidden如果是从NO改为NO的<strong><em>不</em></strong> 算 <strong><em>最后</em></strong> 改变UIWindow的显示状态）</li>
+<li>对于makeKeyAndVisible方法，最终显示的以<strong><em>最后</em></strong> 执行过 <strong><em>makeKeyAndVisible</em></strong> 的UIWindow为准。</li>
+<li>对于先后分别用makeKeyAndVisible方法和hidden的setter方法，还是先后分别用hidden的setter方法和makeKeyAndVisible方法，结局同样以最后改变显示状态的UIWindow为准。</li>
+</ul>
+<h3 id="2-基于windowLevel，调整UIWindow显示层的拓展方法"><a href="#2-基于windowLevel，调整UIWindow显示层的拓展方法" class="headerlink" title="2. 基于windowLevel，调整UIWindow显示层的拓展方法"></a>2. 基于windowLevel，调整UIWindow显示层的拓展方法</h3><p>先去UIWindow.h里面看看UIWindowLevel的定义：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">typedef CGFloat UIWindowLevel;</div><div class="line">UIKIT_EXTERN const UIWindowLevel UIWindowLevelNormal;</div><div class="line">UIKIT_EXTERN const UIWindowLevel UIWindowLevelAlert;</div><div class="line">UIKIT_EXTERN const UIWindowLevel UIWindowLevelStatusBar __TVOS_PROHIBITED;</div></pre></td></tr></table></figure></p>
+<p>例如，在手势相关类中调整自定义的UIWindow层级<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[self.window makeKeyAndVisible]; </div><div class="line">_window.windowLevel = UIWindowLevelAlert;</div></pre></td></tr></table></figure></p>
+<ul>
+<li><p>打印代表UIWindowLevelAlert层级的数据值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">(lldb) po self.window.windowLevel</div><div class="line">2000</div></pre></td></tr></table></figure>
+</li>
+<li><p>同理，打印代表UIWindowLevelStatusBar层级的数据值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">(lldb) po self.window.windowLevel</div><div class="line">1000</div></pre></td></tr></table></figure>
+</li>
+<li><p>同理，打印代表UIWindowLevelNormal层级的数据值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">(lldb) po self.window.windowLevel</div><div class="line">0</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><strong><em>小结：</em></strong></p>
+<blockquote>
+<ol>
+<li>windowLevel数值越大的显示在窗口栈的越上面</li>
+<li><strong><em>显示层的优先级</em></strong> 为： UIWindowLevelAlert &gt; UIWindowLevelStatusBar &gt; UIWindowLevelNormal</li>
+<li>系统给UIWindow默认的windowLevel为UIWindowLevelNormal</li>
+</ol>
+</blockquote>
+<p><img src="http://upload-images.jianshu.io/upload_images/1283539-c10057e96a4ec7aa.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Xcode查看窗口栈"></p>
+<h2 id="四-UIWindow常见操作方法总结"><a href="#四-UIWindow常见操作方法总结" class="headerlink" title="四. UIWindow常见操作方法总结"></a>四. UIWindow常见操作方法总结</h2><h5 id="1-获取App所有window的windows数组"><a href="#1-获取App所有window的windows数组" class="headerlink" title="1. 获取App所有window的windows数组"></a>1. 获取App所有window的windows数组</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[[UIApplication sharedApplication] windows]</div></pre></td></tr></table></figure>
+<p>例如，第三方加载动画框架KVNProcess中KVNProgress.m文件会有一段这样的代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">- (void)addToCurrentWindow</div><div class="line">&#123;</div><div class="line">	UIWindow *currentWindow = nil;</div><div class="line">	</div><div class="line">	NSEnumerator *frontToBackWindows = [[[UIApplication sharedApplication] windows] reverseObjectEnumerator];</div><div class="line">	</div><div class="line">	for (UIWindow *window in frontToBackWindows) &#123;</div><div class="line">		if (window.windowLevel == UIWindowLevelNormal) &#123;</div><div class="line">			currentWindow = window;</div><div class="line">			break;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	if (self.superview != currentWindow) &#123;</div><div class="line">		[self addToView:currentWindow];</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h5 id="2-keyWindow"><a href="#2-keyWindow" class="headerlink" title="2. keyWindow"></a>2. keyWindow</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[[UIApplication sharedApplication] keyWindow]</div></pre></td></tr></table></figure>
+<p>例如，第三方下拉菜单框架FFDropDownMenu的FFDropDownMenuView.m文件中有这样一段代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">UIWindow *keyWindow = [UIApplication sharedApplication].keyWindow;</div><div class="line">[keyWindow addSubview:self];</div></pre></td></tr></table></figure></p>
+<p>这段代码的目的是添加到最上层UIWindow，但实际操作是把自己的视图添加到keyWindow上。其实，如果我们在编写代码时严谨地保证keyWindow是显示在最上层的UIWindow，这样写没有问题。但如果：自己或者其它第三方框架曾经调高过其它UIWindow属性windowLevel，或者有同级windowLevel的其它UIWindow后来改变过显示状态（如.hidden=NO，makeKeyAndVisible等），可能会导致下拉菜单的弹出视图无法显示（被覆盖）。</p>
+<h5 id="3-获取AppDelegate单例的window属性"><a href="#3-获取AppDelegate单例的window属性" class="headerlink" title="3. 获取AppDelegate单例的window属性"></a>3. 获取AppDelegate单例的window属性</h5><p>专门获取AppDelegate.m文件中的window属性，不包含其它其定义的window<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[[[UIApplication sharedApplication] delegate] window]</div></pre></td></tr></table></figure></p>
+<p>拓展一下，获取AppDelegate单例的方法为<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">+ (AppDelegate *)sharedDelegate</div><div class="line">&#123;</div><div class="line">    return (AppDelegate *)[[UIApplication sharedApplication] delegate];</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<hr>
+<h2 id="附-调试打印例子"><a href="#附-调试打印例子" class="headerlink" title="附. 调试打印例子"></a>附. 调试打印例子</h2><ul>
+<li><p>启动APP，AppDelegate.m中的window属性</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">(lldb) po self.window</div><div class="line">&lt;UIWindow: 0x15fd24390; frame = (0 0; 320 568); gestureRecognizers = &lt;NSArray: 0x1700567a0&gt;; layer = &lt;UIWindowLayer: 0x170233700&gt;&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>跳转手势，GestureScreen.m中的window属性</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">(lldb) po _window</div><div class="line">&lt;UIWindow: 0x15fd29160; frame = (0 0; 320 568); gestureRecognizers = &lt;NSArray: 0x170057f70&gt;; layer = &lt;UIWindowLayer: 0x1702345c0&gt;&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>此时，可查看所有window</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">(lldb) po [[UIApplication sharedApplication] windows]</div><div class="line">&lt;__NSArrayM 0x17405c290&gt;(</div><div class="line">&lt;UIWindow: 0x15fd24390; frame = (0 0; 320 568); gestureRecognizers = &lt;NSArray: 0x1700567a0&gt;; layer = &lt;UIWindowLayer: 0x170233700&gt;&gt;,</div><div class="line">&lt;UIWindow: 0x15fd29160; frame = (0 0; 320 568); gestureRecognizers = &lt;NSArray: 0x170057f70&gt;; layer = &lt;UIWindowLayer: 0x1702345c0&gt;&gt;</div><div class="line">)</div></pre></td></tr></table></figure>
+</li>
+<li><p>此时，断点在手势相关类中，也可专门查看AppDelegate.m中的window属性：假设<figure class="highlight plain"><figcaption><span>*delegateWindow = [[[UIApplication sharedApplication] delegate] window];``` 打印如下</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">```</div><div class="line">(lldb) po delegateWindow</div><div class="line">&lt;UIWindow: 0x15fd24390; frame = (0 0; 320 568); gestureRecognizers = &lt;NSArray: 0x1700567a0&gt;; layer = &lt;UIWindowLayer: 0x170233700&gt;&gt;</div></pre></td></tr></table></figure></p>
+</li>
+</ul>
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/aliPay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/wechatPay.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/12/22/post9/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2018/01/24/post7/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          iOS开发·必会的算法操作：字符串数组排序+模型对象数组排序
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2017/11/12/post11/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">iOS开发·适配iPhone X相关的宏和方法</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+  
+  
   
 
-    
+  
+
+  
 
 
           </div>
@@ -254,8 +477,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

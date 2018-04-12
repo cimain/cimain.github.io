@@ -219,6 +219,82 @@
 
 
   
+    <article id="post-post12" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/02/12/post12/">iOS基础·属性的修饰词与setter的关系（@property、@synthesize、@dynamic、retain、assign、copy、weak、strong、nonatomic、atomic、readonly、readwrite等修饰词与setter、getter等存取方法之间的关系）</a>
+    </h1>
+  
+
+        
+        <a href="/2018/02/12/post12/" class="archive-article-date">
+  	<time datetime="2018-02-12T03:53:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>很多人讲属性修饰词的时候，喜欢从字面或者定义的角度介绍它们间的区别。这篇文章，我们侧重从修饰词对setter方法的影响直接展示区别。</p>
+</blockquote>
+<h2 id="1-实例变量：命名区别于全局变量和局部变量"><a href="#1-实例变量：命名区别于全局变量和局部变量" class="headerlink" title="1. 实例变量：命名区别于全局变量和局部变量"></a>1. 实例变量：命名区别于全局变量和局部变量</h2><hr>
+<h4 id="1-1-命名法则："><a href="#1-1-命名法则：" class="headerlink" title="1.1 命名法则："></a>1.1 命名法则：</h4><ul>
+<li>以下划线<code>_</code>作为实例变量名字的前缀，如<code>_student</code></li>
+<li>这样，可以很容易地通过下划线区分实例变量与其它变量（全局变量，局部变量，静态变量等）</li>
+</ul>
+<h4 id="1-2-声明位置："><a href="#1-2-声明位置：" class="headerlink" title="1.2 声明位置："></a>1.2 声明位置：</h4><ul>
+<li>在.h头文件中</li>
+<li>或者，在.m实现文件的<strong><em>类拓展</em></strong> 中</li>
+</ul>
+<h4 id="1-3-声明形式"><a href="#1-3-声明形式" class="headerlink" title="1.3 声明形式:"></a>1.3 声明形式:</h4><ul>
+<li>头文件，写在类似<code>@interface Person : NSObject {...}</code>这样的花括号<code>{...}</code>里面 </li>
+<li>实现文件的类拓展中，写在类似<code>@interface Person ()&lt;UIScrollViewDelegate&gt; {...}</code>这样的花括号<code>{...}</code>里面</li>
+</ul>
+        
+          <a class="article-more-a" href="/2018/02/12/post12/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/02/12/post12/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-post7" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -261,6 +337,205 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2018/01/24/post7/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-post9" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/22/post9/">iOS开发·UIWindow与视图层级调整技巧（makeKeyWindow，resignKeyWindow，makeKeyAndVisible，keyWindow，windowLevel，UIWindowLevelNormal，UIWindowLevelAlert，UIWindowLevelStatusBar）</a>
+    </h1>
+  
+
+        
+        <a href="/2017/12/22/post9/" class="archive-article-date">
+  	<time datetime="2017-12-22T03:47:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>iOS开发过程中，多人开发或者导入第三方框架的时候，可能碰到UIWindow层级冲突的问题。</p>
+</blockquote>
+<p>例如，很多人习惯在keyWindow上添加一个自定义浮层视图，但是，当自己或者其它第三方框架曾经调高过其它自定义UIWindow属性windowLevel，或者有其它同级windowLevel的UIWindow后来改变过显示状态（如.hidden=NO，makeKeyAndVisible等），而且又<strong><em>没有</em></strong> 设将其设置为keyWindow，结果导致正在显示的UIWindow不是keyWindow，从而导致添加到keyWindow上自定义视图无法显示（被覆盖了）。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1283539-934bcf12bebfe5ae.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="如何查看App的UIWindow层级"></p>
+<h2 id="一-为App初始化一个默认UIWindow对象"><a href="#一-为App初始化一个默认UIWindow对象" class="headerlink" title="一. 为App初始化一个默认UIWindow对象"></a>一. 为App初始化一个默认UIWindow对象</h2><p>在AppDelegate.m中需要初始化一个window属性，作为后面往App添加视图的容器</p>
+        
+          <a class="article-more-a" href="/2017/12/22/post9/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/12/22/post9/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-post11" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/12/post11/">iOS开发·适配iPhone X相关的宏和方法</a>
+    </h1>
+  
+
+        
+        <a href="/2017/11/12/post11/" class="archive-article-date">
+  	<time datetime="2017-11-12T03:52:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>过了好久，今天终于有时间总结一下适配iPhone X相关的坑，总的来说有两类坑，一个是导航栏+状态栏的高度发生了变化，一个是一些没有实现实现<code>-tableView: viewForHeaderInSection:</code>和<code>-tableView: viewForFooterInSection:</code>等代理方法的UITableView会出错位的问题。</p>
+</blockquote>
+<p><img src="http://upload-images.jianshu.io/upload_images/1283539-1f9e771f3c5134b1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<h2 id="1-判断是否iPhone-X：返回YES或NO"><a href="#1-判断是否iPhone-X：返回YES或NO" class="headerlink" title="1. 判断是否iPhone X：返回YES或NO"></a>1. 判断是否iPhone X：返回YES或NO</h2><h5 id="1-1-判断：宏"><a href="#1-1-判断：宏" class="headerlink" title="1.1 判断：宏"></a>1.1 判断：宏</h5><h6 id="（1）依据屏幕分辨率"><a href="#（1）依据屏幕分辨率" class="headerlink" title="（1）依据屏幕分辨率"></a>（1）依据屏幕分辨率</h6><ul>
+<li>三目运算法<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">//是否iPhoneX YES:iPhoneX屏幕 NO:传统屏幕</div><div class="line">#define kIs_iPhoneX ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : NO)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+        
+          <a class="article-more-a" href="/2017/11/12/post11/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/11/12/post11/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-post10" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/12/post10/">iOS开发·KVC:字典转模型,防止因本地未定义字段（后台的字段与本地字符串名不一致）导致数据转换过程中的奔溃</a>
+    </h1>
+  
+
+        
+        <a href="/2017/10/12/post10/" class="archive-article-date">
+  	<time datetime="2017-10-12T03:49:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>将后台JSON数据中的字典转成本地的模型，我们一般选用部分优秀的第三方框架，如SBJSON、JSONKit、MJExtension、YYModel等。但是，一些简单的数据，我们也可以尝试自己来实现转换的过程。</p>
+</blockquote>
+<p>更重要的是，有时候在iOS面试的时候，部分面试官会不仅问你某种场景会用到什么框架，更会问你如果要你来实现这个功能，你有没有解决思路？所以，自己实现字典转模型还是有必要掌握的。有了这个基础，在利用运行时runtime的动态特性，你也可以实现这些第三方框架。</p>
+<h2 id="1-建模"><a href="#1-建模" class="headerlink" title="1. 建模"></a>1. 建模</h2><p>假设网络请求图片信息并在APP的界面上展示，这里新建一个图书图片的模型，id表示图书的ID，imgUrl是图书的封面地址（可以用SDWebImage加载该图），nameStr时图书的名字，introduceStr是图书的简介。</p>
+        
+          <a class="article-more-a" href="/2017/10/12/post10/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/10/12/post10/">展开全文 >></a>
         </p>
       
 
@@ -501,182 +776,10 @@
 
 
   
-    <article id="post-post6" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/24/post6/">安装及更新Carthage的方法&amp;安装Homebrew</a>
-    </h1>
-  
-
-        
-        <a href="/2017/03/24/post6/" class="archive-article-date">
-  	<time datetime="2017-03-24T12:21:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>iOS开发中有一个非常优秀的图表类开源库叫<a href="https://github.com/danielgindi/Charts" target="_blank" rel="external">Charts</a>，但是当你下载后想正常运行该demo时需要先安装<a href="https://github.com/Carthage/Carthage/releases" target="_blank" rel="external">Carthage</a>。而安装Carthage之前需要安装<a href="https://brew.sh/" target="_blank" rel="external">Homebrew</a>，这里记录安装<a href="https://brew.sh/" target="_blank" rel="external">Homebrew</a>和<a href="https://github.com/Carthage/Carthage/releases" target="_blank" rel="external">Carthage</a>的方法。</p>
-</blockquote>
-<p>这篇文章，我们将按照操作的先后顺序依次来介绍。首先，安装<a href="https://brew.sh/" target="_blank" rel="external">Homebrew</a>，其次安装<a href="https://github.com/Carthage/Carthage/releases" target="_blank" rel="external">Carthage</a>，以及更新<a href="https://github.com/Carthage/Carthage/releases" target="_blank" rel="external">Carthage</a>，最后查看<a href="https://github.com/Carthage/Carthage/releases" target="_blank" rel="external">Carthage</a>版本。<br>
-        
-          <a class="article-more-a" href="/2017/03/24/post6/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/03/24/post6/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-welcome" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/23/welcome/">搭建网站填坑记录</a>
-    </h1>
-  
-
-        
-        <a href="/2016/07/23/welcome/" class="archive-article-date">
-  	<time datetime="2016-07-23T05:25:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <hr>
-<blockquote>
-<ul>
-<li>暂时没有时间讲全程ç的步骤，日后可能会更新完整版。</li>
-<li>目前仅做个人填坑记录。大家暂时绕走哈。</li>
-</ul>
-</blockquote>
-<ul>
-<li>问题提示</li>
-</ul>
-<blockquote>
-<p>Check you have permission to write to /usr/local</p>
-</blockquote>
-        
-          <a class="article-more-a" href="/2016/07/23/welcome/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/07/23/welcome/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-post3" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/01/24/post3/">程序员修养·Markdown语法学习手册</a>
-    </h1>
-  
-
-        
-        <a href="/2016/01/24/post3/" class="archive-article-date">
-  	<time datetime="2016-01-24T12:01:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-01-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>现在，越来越多的程序员在记录和分享日常技术文章的时候选择Markdown格式，这种格式正是GitHub和Stackoverflow倡导的格式。鉴于Markdown的简洁和高效，如果你还在用可视化的方法在Word或富文本框里面敲敲打打、拖拖拽拽的话，就显得太low了。还等什么呢，赶紧来收藏好它的语法吧~~</p>
-</blockquote>
-<h3 id="目录："><a href="#目录：" class="headerlink" title="目录："></a>目录：</h3><ul>
-<li>一、Markdown 简明语法手册</li>
-<li>二、Markdown 高阶语法手册</li>
-</ul>
-<hr>
-<h1 id="一、Markdown-简明语法手册-ref1"><a href="#一、Markdown-简明语法手册-ref1" class="headerlink" title="一、Markdown 简明语法手册[^ref1]"></a>一、Markdown 简明语法手册[^ref1]</h1><h3 id="1-斜体和粗体"><a href="#1-斜体和粗体" class="headerlink" title="1. 斜体和粗体"></a>1. 斜体和粗体</h3><p>使用 * 和 ** 表示斜体和粗体。</p>
-<p>示例：</p>
-<p>这是 <em>斜体</em>，这是 <strong>粗体</strong>。</p>
-<p>这是 <em>斜体</em>，这是 <strong>粗体</strong>。</p>
-        
-          <a class="article-more-a" href="/2016/01/24/post3/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/01/24/post3/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    </nav>
   
 
 
@@ -767,6 +870,10 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">iOS</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>

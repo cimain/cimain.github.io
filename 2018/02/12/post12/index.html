@@ -6,17 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2016 | ChenMan(陈满の个人网站)</title>
+  <title>iOS基础·属性的修饰词与setter的关系（@property、@synthesize、@dynamic、retain、assign、copy、weak、strong、nonatomic、atomic、readonly、readwrite等修饰词与setter、getter等存取方法之间的关系） | ChenMan(陈满の个人网站)</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Shenzhen,China">
-<meta property="og:type" content="website">
-<meta property="og:title" content="ChenMan(陈满の个人网站)">
-<meta property="og:url" content="http://yoursite.com/archives/2016/index.html">
+  <meta name="description" content="很多人讲属性修饰词的时候，喜欢从字面或者定义的角度介绍它们间的区别。这篇文章，我们侧重从修饰词对setter方法的影响直接展示区别。  1. 实例变量：命名区别于全局变量和局部变量 1.1 命名法则： 以下划线_作为实例变量名字的前缀，如_student 这样，可以很容易地通过下划线区分实例变量与其它变量（全局变量，局部变量，静态变量等）  1.2 声明位置： 在.h头文件中 或者，在.m实现文">
+<meta name="keywords" content="iOS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS基础·属性的修饰词与setter的关系（@property、@synthesize、@dynamic、retain、assign、copy、weak、strong、nonatomic、atomic、readonly、readwrite等修饰词与setter、getter等存取方法之间的关系）">
+<meta property="og:url" content="http://yoursite.com/2018/02/12/post12/index.html">
 <meta property="og:site_name" content="ChenMan(陈满の个人网站)">
-<meta property="og:description" content="Shenzhen,China">
+<meta property="og:description" content="很多人讲属性修饰词的时候，喜欢从字面或者定义的角度介绍它们间的区别。这篇文章，我们侧重从修饰词对setter方法的影响直接展示区别。  1. 实例变量：命名区别于全局变量和局部变量 1.1 命名法则： 以下划线_作为实例变量名字的前缀，如_student 这样，可以很容易地通过下划线区分实例变量与其它变量（全局变量，局部变量，静态变量等）  1.2 声明位置： 在.h头文件中 或者，在.m实现文">
+<meta property="og:updated_time" content="2018-04-12T03:54:37.429Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ChenMan(陈满の个人网站)">
-<meta name="twitter:description" content="Shenzhen,China">
+<meta name="twitter:title" content="iOS基础·属性的修饰词与setter的关系（@property、@synthesize、@dynamic、retain、assign、copy、weak、strong、nonatomic、atomic、readonly、readwrite等修饰词与setter、getter等存取方法之间的关系）">
+<meta name="twitter:description" content="很多人讲属性修饰词的时候，喜欢从字面或者定义的角度介绍它们间的区别。这篇文章，我们侧重从修饰词对setter方法的影响直接展示区别。  1. 实例变量：命名区别于全局变量和局部变量 1.1 命名法则： 以下划线_作为实例变量名字的前缀，如_student 这样，可以很容易地通过下划线区分实例变量与其它变量（全局变量，局部变量，静态变量等）  1.2 声明位置： 在.h头文件中 或者，在.m实现文">
   
     <link rel="alternative" href="/atom.xml" title="ChenMan(陈满の个人网站)" type="application/atom+xml">
   
@@ -162,76 +164,402 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-post12" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/07/23/welcome/" class="archive-article-date">
-  	<time datetime="2016-07-23T05:25:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-23</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/07/23/welcome/">搭建网站填坑记录</a>
+    <h1 class="article-title" itemprop="name">
+      iOS基础·属性的修饰词与setter的关系（@property、@synthesize、@dynamic、retain、assign、copy、weak、strong、nonatomic、atomic、readonly、readwrite等修饰词与setter、getter等存取方法之间的关系）
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/01/24/post3/" class="archive-article-date">
-  	<time datetime="2016-01-24T12:01:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-01-24</time>
+        
+        <a href="/2018/02/12/post12/" class="archive-article-date">
+  	<time datetime="2018-02-12T03:53:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-12</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/01/24/post3/">程序员修养·Markdown语法学习手册</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>很多人讲属性修饰词的时候，喜欢从字面或者定义的角度介绍它们间的区别。这篇文章，我们侧重从修饰词对setter方法的影响直接展示区别。</p>
+</blockquote>
+<h2 id="1-实例变量：命名区别于全局变量和局部变量"><a href="#1-实例变量：命名区别于全局变量和局部变量" class="headerlink" title="1. 实例变量：命名区别于全局变量和局部变量"></a>1. 实例变量：命名区别于全局变量和局部变量</h2><hr>
+<h4 id="1-1-命名法则："><a href="#1-1-命名法则：" class="headerlink" title="1.1 命名法则："></a>1.1 命名法则：</h4><ul>
+<li>以下划线<code>_</code>作为实例变量名字的前缀，如<code>_student</code></li>
+<li>这样，可以很容易地通过下划线区分实例变量与其它变量（全局变量，局部变量，静态变量等）</li>
+</ul>
+<h4 id="1-2-声明位置："><a href="#1-2-声明位置：" class="headerlink" title="1.2 声明位置："></a>1.2 声明位置：</h4><ul>
+<li>在.h头文件中</li>
+<li>或者，在.m实现文件的<strong><em>类拓展</em></strong> 中</li>
+</ul>
+<h4 id="1-3-声明形式"><a href="#1-3-声明形式" class="headerlink" title="1.3 声明形式:"></a>1.3 声明形式:</h4><ul>
+<li>头文件，写在类似<code>@interface Person : NSObject {...}</code>这样的花括号<code>{...}</code>里面 </li>
+<li>实现文件的类拓展中，写在类似<code>@interface Person ()&lt;UIScrollViewDelegate&gt; {...}</code>这样的花括号<code>{...}</code>里面</li>
+</ul>
+<a id="more"></a>
+<h4 id="1-4-声明示例："><a href="#1-4-声明示例：" class="headerlink" title="1.4 声明示例："></a>1.4 声明示例：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">@interface TYPagerController ()&lt;UIScrollViewDelegate&gt; &#123;</div><div class="line">    NSInteger   _countOfControllers;</div><div class="line">    BOOL        _needLayoutContentView;</div><div class="line">    CGFloat     _preOffsetX;</div><div class="line">    float    _heightInMeters;</div><div class="line"></div><div class="line">    struct &#123;</div><div class="line">        unsigned int transitionFromIndexToIndex :1;</div><div class="line">        unsigned int transitionFromIndexToIndexProgress :1;</div><div class="line">    &#125;_delegateFlags;</div><div class="line">    </div><div class="line">    struct &#123;</div><div class="line">        unsigned int transitionFromIndexToIndex :1;</div><div class="line">        unsigned int transitionFromIndexToIndexProgress :1;</div><div class="line">    &#125;_methodFlags;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="1-5-setter、getter方法"><a href="#1-5-setter、getter方法" class="headerlink" title="1.5 setter、getter方法"></a>1.5 setter、getter方法</h4><p>可以自己手动为实例变量在<strong><em>头文件</em></strong> 中声明setter、getter方法，并在<strong><em>实现文件</em></strong>中实现setter、getter方法。你也可以不声明不实现，但不要再企图调用setter、getter方法了，甚至点语法。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">//一个例子</div><div class="line">//实现getter</div><div class="line">- (float)heightInMeters&#123;</div><div class="line">    return _heightInMeters;</div><div class="line">&#125;</div><div class="line">//实现setter</div><div class="line">- (float)setHeightInMeters:(float)h&#123;</div><div class="line">    _heightInMeters = h;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h4 id="1-6-调用setter、getter方法"><a href="#1-6-调用setter、getter方法" class="headerlink" title="1.6 调用setter、getter方法"></a>1.6 调用setter、getter方法</h4><p>如果你实现了setter，getter方法，才可以调用<strong><em>存取方法</em></strong>，例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">//调用getter</div><div class="line">float temp = [self heightInMeters];</div><div class="line">//调用setter</div><div class="line">[self setHeightInMeters:10.0];</div></pre></td></tr></table></figure></p>
+<h4 id="1-7-点语法"><a href="#1-7-点语法" class="headerlink" title="1.7 点语法"></a>1.7 点语法</h4><p>如果你实现了setter，getter方法，才可以使用<strong><em>点语法</em></strong> 简化调用<strong><em>存取方法</em></strong>。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">//调用getter</div><div class="line">float temp = self.heightInMeters;</div><div class="line">//调用setter</div><div class="line">self.heightInMeters = 10.0;</div></pre></td></tr></table></figure></p>
+<h4 id="1-8-实例变量类型："><a href="#1-8-实例变量类型：" class="headerlink" title="1.8 实例变量类型："></a>1.8 实例变量类型：</h4><ul>
+<li><p>1）可以是简单的C类型，如  <code>int  _sudentNum;</code>，<code>float  _heightInMeters;</code></p>
+<blockquote>
+<p>这种实例变量及其值会在声明对象的内部保存。</p>
+</blockquote>
+</li>
+<li><p>2）可以是指针，用来指向其他对象，如<code>NSString *tempStr</code>，<code>CMPersonModel *personModel</code>等等。这种属性叫<strong><em>对象实例变量</em></strong>。</p>
+</li>
+</ul>
+<blockquote>
+<p>这种变量，声明的对象内部仅保存指向相应实例对象的指针（对象地址），而不保存实例对象本身。实例对象本身由堆负责保存，管理机制由ARC负责。</p>
+<h4 id="1-9-继承特性："><a href="#1-9-继承特性：" class="headerlink" title="1.9 继承特性："></a>1.9 继承特性：</h4><ul>
+<li>子类继承不了父类写在<strong><em>类拓展</em></strong> 中的示例变量</li>
+</ul>
+</blockquote>
+<h2 id="2-属性：自动声明实例变量和存取方法，并实现存取方法"><a href="#2-属性：自动声明实例变量和存取方法，并实现存取方法" class="headerlink" title="2. 属性：自动声明实例变量和存取方法，并实现存取方法"></a>2. 属性：自动声明实例变量和存取方法，并实现存取方法</h2><hr>
+<h4 id="2-1-声明位置："><a href="#2-1-声明位置：" class="headerlink" title="2.1 声明位置："></a>2.1 声明位置：</h4><ul>
+<li>声明头文件</li>
+<li>或者实现文件的类拓展中<h4 id="2-2-声明形式："><a href="#2-2-声明形式：" class="headerlink" title="2.2 声明形式："></a>2.2 声明形式：</h4></li>
+<li>写在@interface与@end之间，花括号<code>{...}</code>之外</li>
+<li>必须有@property修饰词修饰，后面可选择性地添加其他修饰词如(nonatomic, strong) 等<h4 id="2-3-声明示例："><a href="#2-3-声明示例：" class="headerlink" title="2.3 声明示例："></a>2.3 声明示例：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">#import &lt;UIKit/UIKit.h&gt;</div><div class="line">@interface TMAddCategoryViewController ()</div><div class="line">@property (nonatomic, strong) NSMutableArray *dataSource;</div><div class="line">@end</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="2-4-存取方法：编译器会自动声明和实现"><a href="#2-4-存取方法：编译器会自动声明和实现" class="headerlink" title="2.4 存取方法：编译器会自动声明和实现"></a>2.4 存取方法：编译器会自动声明和实现</h4><ul>
+<li>@property会让编译器自动声明相应的实例变量和存取方法，并实现存取方法。除非你用其它关键词修饰，专门告诉编译器做什么其它特殊处理。</li>
+<li>即使自动生成存取方法，遇到一些需求时，你也可以再自己重写存取方法。一般添加数据模型示例对象的时候，喜欢重写getter方法，设置一些默认值，这种叫懒加载。</li>
+<li>有一些<strong><em>例外</em></strong>，不会自动生成存取方法：<blockquote>
+<ol>
+<li>同时重写了getter setter</li>
+<li>重写只读属性的 getter</li>
+<li>使用了@dynamic</li>
+<li>@protocol 中定义的属性</li>
+<li>category 中定义的属性</li>
+<li>重载的属性：当你在子类中重载父类的属性，你必须用 @synthesize 手动合成</li>
+</ol>
+</blockquote>
+</li>
+</ul>
+<h4 id="2-5-示例：重写getter"><a href="#2-5-示例：重写getter" class="headerlink" title="2.5 示例：重写getter"></a>2.5 示例：重写getter</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">- (NSMutableArray *)dataSource</div><div class="line">&#123;</div><div class="line">    if (!_dataSource) &#123;</div><div class="line">        _dataSource = [NSMutableArray array];</div><div class="line">        RLMResults *results = [[TMDataBaseManager defaultManager] queryAddCategorysWithPaymentType:self.paymentType];</div><div class="line">        for (TMAddCategory *category in results) &#123;</div><div class="line">            [_dataSource addObject:category];</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    return _dataSource;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>注：RLMResults是第三方数据库框架Realm中的一个类名</p>
+<h4 id="2-6-示例：重写setter"><a href="#2-6-示例：重写setter" class="headerlink" title="2.6 示例：重写setter"></a>2.6 示例：重写setter</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">- (void)setDataSource:(id&lt;iCarouselDataSource&gt;)dataSource</div><div class="line">&#123;</div><div class="line">    if (_dataSource != dataSource)</div><div class="line">    &#123;</div><div class="line">        _dataSource = dataSource;</div><div class="line">        if (_dataSource)</div><div class="line">        &#123;</div><div class="line">            [self reloadData];</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="2-7-重写setter和getter导致的特别情况："><a href="#2-7-重写setter和getter导致的特别情况：" class="headerlink" title="2.7 重写setter和getter导致的特别情况："></a>2.7 重写setter和getter导致的特别情况：</h4><p>@property声明的属性，编译器是否会合成存取方法和成员变量有如下三种特别情况</p>
+<ul>
+<li>若手动实现了setter方法，编译器就只会自动生成getter方法</li>
+<li>若手动实现了getter方法，编译器就只会自动生成setter方法</li>
+<li>若同时手动实现了setter和getter方法，编译器就不会自动生成不存在的<strong><em>成员变量</em></strong> 。</li>
+</ul>
+<h4 id="2-8-编译器自动实现的存取方法有什么弱点"><a href="#2-8-编译器自动实现的存取方法有什么弱点" class="headerlink" title="2.8 编译器自动实现的存取方法有什么弱点?"></a>2.8 编译器自动实现的存取方法有什么弱点?</h4><ul>
+<li>@property只会生成最简单的getter/setter方法，而不会进行数据判断</li>
+</ul>
+<h4 id="2-9-指定所生成的方法的方法名称"><a href="#2-9-指定所生成的方法的方法名称" class="headerlink" title="2.9 指定所生成的方法的方法名称"></a>2.9 指定所生成的方法的方法名称</h4><ul>
+<li>getter=你定制的getter方法名称</li>
+<li>setter=你定义的setter方法名称(注意setter方法必须要有 :)</li>
+<li>示例：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">@property(getter=isMarried)BOOL married;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>通常BOOL类型的属性的getter方法要以is开头</p>
+<h4 id="2-10-继承特性："><a href="#2-10-继承特性：" class="headerlink" title="2.10 继承特性："></a>2.10 继承特性：</h4><ul>
+<li>父类声明在<strong><em>头文件</em></strong> 中的属性，子类无法继承这些属性声明的实例变量，只能看到属性自动生成的存取方法。</li>
+</ul>
+<h2 id="3-修饰词：-synthesize-与-dynamic"><a href="#3-修饰词：-synthesize-与-dynamic" class="headerlink" title="3. 修饰词：@synthesize 与 @dynamic"></a>3. 修饰词：@synthesize 与 @dynamic</h2><h2 id="gt-修饰词：告诉编译器是否或怎样自动给属性生成存取方法"><a href="#gt-修饰词：告诉编译器是否或怎样自动给属性生成存取方法" class="headerlink" title="&gt; 修饰词：告诉编译器是否或怎样自动给属性生成存取方法"></a>&gt; 修饰词：告诉编译器是否或怎样自动给属性生成存取方法</h2><p>@property有两个对应的修饰词，一个是@synthesize，一个是@dynamic。如果@synthesize和@dynamic都没写，那么默认的就是<code>@syntheszie var = _var;</code>。 显然，这两个修饰的功能是互斥的。</p>
+<h4 id="3-1-synthesize-与-dynamic"><a href="#3-1-synthesize-与-dynamic" class="headerlink" title="3.1 @synthesize 与 @dynamic"></a>3.1 @synthesize 与 @dynamic</h4><h6 id="3-1-1-位置"><a href="#3-1-1-位置" class="headerlink" title="3.1.1 位置"></a>3.1.1 位置</h6><p>@dynamic或者@synthesize，写在.m文件的@implementation中。</p>
+<h6 id="3-1-2-功能区分"><a href="#3-1-2-功能区分" class="headerlink" title="3.1.2 功能区分"></a>3.1.2 功能区分</h6><p>理解这两个修饰词的功能，可以先看看这两个单词的意思。</p>
+<ul>
+<li>synthesize 与 dynamic 英文意思<ul>
+<li>synthesize  [‘sɪnθəsaɪz]  v. 合成；综合</li>
+<li>dynamic  [daɪ’næmɪk]  adj. 动态的；动力的；动力学的；有活力的<h6 id="3-1-3-单词区分"><a href="#3-1-3-单词区分" class="headerlink" title="3.1.3 单词区分"></a>3.1.3 单词区分</h6><strong>单词混淆</strong>: 多线程的概念里面有个关键词@synchronized跟@synthesize容易视觉混淆，这里也看看两个单词的意思。</li>
+</ul>
+</li>
+<li>synthesize 与 synchronized 单词比较<ul>
+<li>synthesize  [‘sɪnθəsaɪz]  v. 合成；综合</li>
+<li>synchronized  [‘sɪŋkrənaɪzd] adj. 同步的；同步化的 v. 使协调（synchronize的过去分词）；同时发生；校准<h4 id="3-2-synthesize"><a href="#3-2-synthesize" class="headerlink" title="3.2 @synthesize"></a>3.2 @synthesize</h4><h6 id="3-2-1-介绍"><a href="#3-2-1-介绍" class="headerlink" title="3.2.1 介绍"></a>3.2.1 介绍</h6>定义属性后，编译器会自动编写访问这些属性所需的方法，此过程叫做<strong><em>自动合成</em></strong> (autosynthesis)。需要强调的是，这个过程由编译器在编译期执行，所以编辑器里看不到这些“合成方法”(synthesized method)的源代码。除了生成方法代码 getter、setter 之外，编译器还要自动向类中添加适当类型的实例变量，并且在属性名前面加下划线，以此作为实例变量的名字。<h6 id="3-2-2-用法"><a href="#3-2-2-用法" class="headerlink" title="3.2.2 用法"></a>3.2.2 用法</h6></li>
+</ul>
+</li>
+<li>多个属性可以通过一行@synthesize搞定,多个属性之间用逗号连接</li>
+<li>可以在类的实现代码里通过@synthesize语法来指定<strong>实例变量</strong>的名字。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">@synthesize name = realName；</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>对于上面的实例变量则为生成的是realName而不是name，方法也对应改变。定义的实例变量是根据<code>@synthesize name = realName;</code>来定的。用的比较多的情况是：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">@synthesize name = _name;</div></pre></td></tr></table></figure></p>
+<p>上述代码的意思是，在@property 声明的name，在<code>setter/getter</code>方法中使用<code>NSObject * _name;</code>这个实例变量来赋值与返回。</p>
+<h6 id="3-2-3-三种写法比较"><a href="#3-2-3-三种写法比较" class="headerlink" title="3.2.3 三种写法比较"></a>3.2.3 三种写法比较</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">@synthesize age = _age;</div></pre></td></tr></table></figure>
+<ul>
+<li>setter和getter实现中会访问成员变量_age</li>
+<li><p>如果成员变量_age不存在，就会自动生成一个@private的成员变量_age</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">@synthesize age;//等效下面</div><div class="line">@synthesize age = age;</div></pre></td></tr></table></figure>
+</li>
+<li><p>setter和getter实现中会访问@synthesize后同名成员变量age</p>
+</li>
+<li>如果成员变量age不存在，就会自动生成一个@private的成员变量age<h6 id="3-2-4-用法场景"><a href="#3-2-4-用法场景" class="headerlink" title="3.2.4 用法场景"></a>3.2.4 用法场景</h6>当你在子类中重载了父类中的属性，你必须使用@synthesize来手动合成实例变量。</li>
+</ul>
+<h4 id="3-3-dynamic"><a href="#3-3-dynamic" class="headerlink" title="3.3 @dynamic"></a>3.3 @dynamic</h4><h6 id="3-3-1-介绍"><a href="#3-3-1-介绍" class="headerlink" title="3.3.1 介绍"></a>3.3.1 介绍</h6><ul>
+<li>@dynamic告诉编译器：属性的setter与getter方法由用户自己实现，不自动生成。（当然对于readonly的属性只需提供getter即可）。<h6 id="3-3-2-崩溃"><a href="#3-3-2-崩溃" class="headerlink" title="3.3.2 崩溃"></a>3.3.2 崩溃</h6></li>
+<li>假如一个属性被声明为@dynamic var，然后你没有提供@setter方法和@getter方法，编译的时候没问题，但是当程序运行到instance.var = someVar，由于缺setter方法会导致程序崩溃；或者当运行到 someVar = var时，由于缺getter方法同样会导致崩溃。</li>
+<li>编译时没问题，运行时才执行相应的方法，这就是所谓的<strong><em>动态绑定</em></strong>。</li>
+</ul>
+<h4 id="3-4-注意的事"><a href="#3-4-注意的事" class="headerlink" title="3.4. 注意的事"></a>3.4. 注意的事</h4><ul>
+<li>@synthesize 仅仅是一个 <strong><em>clang</em></strong> 的 Objective-C 语言扩展 (autosynthesis of properties), 然后clang恰好是 Xcode 的默认编译器. </li>
+<li>如果编译器换成了 <strong><em>gcc</em></strong>, 那么这个特性也就不复存在了。</li>
+</ul>
+<h2 id="4-其它修饰词"><a href="#4-其它修饰词" class="headerlink" title="4. 其它修饰词"></a>4. 其它修饰词</h2><hr>
+<p>很多人讲这些修饰词的时候，喜欢从字面或者定义的角度介绍它们间的区别。这篇文章，我们从修饰词对setter方法的影响直接展示区别。</p>
+<blockquote>
+<p>retain、assign、copy、weak、strong、nonatomic、atomic、readonly、readwrite</p>
+</blockquote>
+<p>假设为了修饰一个属性nameStr，代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">#import &lt;UIKit/UIKit.h&gt;</div><div class="line">@interface CMViewController ()</div><div class="line">@property (nonatomic, strong) NSString *nameStr;</div><div class="line">@end</div></pre></td></tr></table></figure></p>
+<p>其中，当括号内的修饰词(nonatomic, strong)换成下面各种修饰词的时候，分别分析一下setter方法（有些修饰词修饰字符串并不合适，但这里仅为分析区别）。</p>
+<h4 id="4-1-assign"><a href="#4-1-assign" class="headerlink" title="4.1 assign"></a>4.1 assign</h4><h6 id="4-1-1-基本特性"><a href="#4-1-1-基本特性" class="headerlink" title="4.1.1 基本特性"></a>4.1.1 基本特性</h6><ul>
+<li>assign (默认)：直接赋值，不更改引用计数。</li>
+</ul>
+<h6 id="4-1-2-对setter的影响"><a href="#4-1-2-对setter的影响" class="headerlink" title="4.1.2 对setter的影响"></a>4.1.2 对setter的影响</h6><ul>
+<li>assign修饰词对setter的影响：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">- (void) setName:(NSString *)newValue&#123;</div><div class="line">  nameStr = newValue;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h6 id="4-1-3-使用场景"><a href="#4-1-3-使用场景" class="headerlink" title="4.1.3 使用场景"></a>4.1.3 使用场景</h6><ul>
+<li>常用于基本数据类型（NSInteger）和C数据类型（int、float、double、char以及id类型。</li>
+<li>这个修饰符不会牵涉到内存管理，但是如果是对象类型，可能会导致内存泄漏或者EXC_BAD_ACCESS错误。</li>
+<li>除了assign以外的其他修饰符，是必须用于修饰OC对象的。<h6 id="4-1-4-危险场景"><a href="#4-1-4-危险场景" class="headerlink" title="4.1.4 危险场景"></a>4.1.4 危险场景</h6></li>
+<li>assign修饰的对象销毁后不会把该对象的指针置nil。对象已经被销毁，但指针还在痴痴的指向它，这就成了野指针，这是比较危险的。所以assign修饰的OC属性是非常危险的，比如，一些老的第三方框架用assign修饰的delegate属性经常会导致崩溃。</li>
+</ul>
+<h4 id="4-2-retain"><a href="#4-2-retain" class="headerlink" title="4.2 retain"></a>4.2 retain</h4><h6 id="4-2-1-基本特性"><a href="#4-2-1-基本特性" class="headerlink" title="4.2.1 基本特性"></a>4.2.1 基本特性</h6><ul>
+<li>retain: 指针拷贝。指针拷贝后，地址不变，内容不变，引用计数器加1。</li>
+</ul>
+<h6 id="4-2-2-对setter的影响"><a href="#4-2-2-对setter的影响" class="headerlink" title="4.2.2 对setter的影响"></a>4.2.2 对setter的影响</h6><ul>
+<li>retain修饰词对setter的影响：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">- (void) setName:(NSString *)newValue&#123;</div><div class="line">  if (nameStr !=newValue)&#123;</div><div class="line">     [nameStr release]</div><div class="line">     nameStr = [newValue retain];</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h6 id="4-2-3-使用场景"><a href="#4-2-3-使用场景" class="headerlink" title="4.2.3 使用场景"></a>4.2.3 使用场景</h6><ul>
+<li>适用NSObject和其子类。MRC下，用于修饰多数的OC类型的对象。ARC下，一般功能被strong取代。</li>
+<li>不能用于基本的数据类型或者Core Foundation的对象(retain操作会使对象的引用计数器加1,但是基本的数据类型或者Core Foundation对象压根就没有引用计数器，所以无法进行retain操作。换言之:基本数据类型或者CF不是指针，不是指针就无法进行retain操作。对象即指针嘛)。</li>
+</ul>
+<h4 id="4-3-copy"><a href="#4-3-copy" class="headerlink" title="4.3 copy"></a>4.3 copy</h4><h6 id="4-3-1-基本特点"><a href="#4-3-1-基本特点" class="headerlink" title="4.3.1 基本特点"></a>4.3.1 基本特点</h6><ul>
+<li>copy是内容拷贝。释放旧对象，然后建立一个索引计数为1的对象。</li>
+<li>strong修饰的属性在赋值时不会调用copy，而copy修饰的属性在赋值相当于自动多调用了一次copy方法。<h6 id="4-3-2-对setter的影响"><a href="#4-3-2-对setter的影响" class="headerlink" title="4.3.2 对setter的影响"></a>4.3.2 对setter的影响</h6></li>
+<li>copy修饰词对setter的影响：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">- (void) setName:(NSString *)newValue&#123;</div><div class="line">  if (nameStr !=newValue)&#123;</div><div class="line">     [nameStr release]</div><div class="line">     nameStr = [newValue copy];</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h6 id="4-3-3-使用场景"><a href="#4-3-3-使用场景" class="headerlink" title="4.3.3 使用场景"></a>4.3.3 使用场景</h6><p>copy的使用场景为，实现了NSCopying protocol的类，我想获取它的值，但是我又不想在原对象上改变，于是深赋值一份新的值给你，让你来自由操作。</p>
+<ul>
+<li>用于修饰block。</li>
+<li>用于含有可深拷贝的mutable子类的类，如NSString，NSArray，NSSet，NSDictionary，NSData的，NSCharacterSet，NSIndexSet。</li>
+<li>但是NSMutableArray这样的不可以，Mutable的不能用copy，不然初始化会有问题。</li>
+</ul>
+<h4 id="4-4-weak"><a href="#4-4-weak" class="headerlink" title="4.4 weak"></a>4.4 weak</h4><p>weak、strong是ARC出现后才出现的概念，但这并不代表weak、strong这两个修饰都不能在MRC模式下使用。事实上，strong在MRC模式依旧可使用。</p>
+<h6 id="4-4-1-基本特性"><a href="#4-4-1-基本特性" class="headerlink" title="4.4.1 基本特性"></a>4.4.1 基本特性</h6><ul>
+<li>weak 用来修饰强引用的属性，类似于对应原来的assign。</li>
+<li>weak是一种弱引用,并不会使对象的引用计数加1,可以避免循环引用的问题。</li>
+<li>不保留传入的对象。如果该对象被释放，那么相应的实例变量会被自动赋为nil，不会变为悬空指针(也称野指针)。悬空指针指向的是不再存在的对象，向悬空指针发送消息通常会导致程序崩溃。<h6 id="4-4-2-两种模式下"><a href="#4-4-2-两种模式下" class="headerlink" title="4.4.2 两种模式下"></a>4.4.2 两种模式下</h6></li>
+<li>MRC模式<ul>
+<li>weak: MRC模式下无法使用</li>
+</ul>
+</li>
+<li>ARC模式<ul>
+<li>weak: 弱引用，不会使对象的引用计数器加1。<h6 id="4-4-3-与assign的区别"><a href="#4-4-3-与assign的区别" class="headerlink" title="4.4.3 与assign的区别"></a>4.4.3 与assign的区别</h6></li>
+</ul>
+</li>
+<li>weak修饰的对象销毁的时候，指针会自动设置为nil。而assign不会。</li>
+<li>assign可以用于非OC对象，而weak必须用于OC对象。<h6 id="4-4-4-使用场景"><a href="#4-4-4-使用场景" class="headerlink" title="4.4.4 使用场景"></a>4.4.4 使用场景</h6></li>
+</ul>
+<ul>
+<li>用于修饰UI控件。</li>
+<li>UI控件拖到xib/Storyboard后，系统自动为控件赋了strong，所以拖到代码就用weak就行了。</li>
+<li>代理属性。<code>@property (nonatomic, weak) id delegate;  // 修饰代理属性</code><h6 id="4-5-5-对setter的影响"><a href="#4-5-5-对setter的影响" class="headerlink" title="4.5.5 对setter的影响"></a>4.5.5 对setter的影响</h6></li>
+<li>weak修饰词对setter的影响：假设nameStr和newValue都是用weak修饰的属性<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[nameStr release]</div><div class="line">nameStr = newValue;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="4-5-strong"><a href="#4-5-strong" class="headerlink" title="4.5 strong"></a>4.5 strong</h4><h6 id="4-5-1-基本特性"><a href="#4-5-1-基本特性" class="headerlink" title="4.5.1 基本特性"></a>4.5.1 基本特性</h6><p>strong 用来修饰强引用的属性，类似于对应原来的retain。</p>
+<h6 id="4-5-2-两种模式"><a href="#4-5-2-两种模式" class="headerlink" title="4.5.2 两种模式"></a>4.5.2 两种模式</h6><ul>
+<li>MRC模式<ul>
+<li>strong: 与retain等价</li>
+</ul>
+</li>
+<li>ARC模式<ul>
+<li>strong: 强引用(它使对象的引用计数加1)<h6 id="4-5-3-使用场景"><a href="#4-5-3-使用场景" class="headerlink" title="4.5.3 使用场景"></a>4.5.3 使用场景</h6></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>当要保住某个对象的命,让这个对象可以用于其他的方法时(即在某段时间内要经常用到这个对象,又不想每次用到这个对象都要重新alloc),此时你要把这个对象变为强指针,即变为strong，让strong强引用着这个对象,使这个对象不会被释放。</li>
+<li>用于修饰NSMutableArray，NSMutableDictionary等copy无法修饰的属性。</li>
+<li>一般的指针变量默认就是strong类型的,所以我们对于strong变量不加__strong修饰。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">NSString *name = self.nameField.text;  // 等价</div><div class="line">__strong NSString *name = self.nameField.text;  // 等价</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h6 id="4-5-4-对setter的影响"><a href="#4-5-4-对setter的影响" class="headerlink" title="4.5.4 对setter的影响"></a>4.5.4 对setter的影响</h6><ul>
+<li>strong修饰词对setter的影响：假设nameStr和newValue都是用strong修饰的属性<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[newValue retain]</div><div class="line">[nameStr release]</div><div class="line">nameStr = newValue;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="4-6-读写属性"><a href="#4-6-读写属性" class="headerlink" title="4.6 读写属性"></a>4.6 读写属性</h4><p>读写性修饰符——readwrite、readonly</p>
+<h6 id="4-6-1-readwrite"><a href="#4-6-1-readwrite" class="headerlink" title="4.6.1 readwrite"></a>4.6.1 readwrite</h6><ul>
+<li>readwrite(默认):  可读可写(系统自动创建getter 和 setter 方法)<h6 id="4-6-1-readonly"><a href="#4-6-1-readonly" class="headerlink" title="4.6.1 readonly"></a>4.6.1 readonly</h6></li>
+<li>readonly: 只读,系统只会生成 getter方法</li>
+</ul>
+<h4 id="4-7-原子属性"><a href="#4-7-原子属性" class="headerlink" title="4.7 原子属性"></a>4.7 原子属性</h4><h6 id="4-7-1-atomic"><a href="#4-7-1-atomic" class="headerlink" title="4.7.1 atomic"></a>4.7.1 atomic</h6><ul>
+<li>1.原子属性，声明的属性默认就是atomic.所以底层默认为属性的setter方法加锁，目的就是防止多(条)线程访问同一个内存地址，造成数据错误。</li>
+<li>2.在多线程环境下,原子操作非常有必要,因为它能提供多线程安全，如果没有原子操作,可能引起异常。—&gt;线程保护</li>
+<li>3.需要消耗大量的资源。<h6 id="4-7-2-nonatomic"><a href="#4-7-2-nonatomic" class="headerlink" title="4.7.2 nonatomic"></a>4.7.2 nonatomic</h6></li>
+<li>1.非原子属性，不会为setter方法加锁。</li>
+<li>2.没有涉及多线程的编程时,用nonatomic。</li>
+<li>3.不会消耗大量的资源，所以会提高性能。</li>
+</ul>
+<h2 id="5-property的几个例子"><a href="#5-property的几个例子" class="headerlink" title="5. @property的几个例子"></a>5. @property的几个例子</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">@property (nonatomic, readonly) CGFloat itemWidth;</div><div class="line">@property (nonatomic, assign) double brightness;</div><div class="line">@property (nonatomic, assign, getter=isOpenMenu) BOOL openMenu;</div><div class="line">@property (nonatomic, strong) UILabel *newsBooksLabel;</div><div class="line">@property (nonatomic, strong) UITableView *tableView;</div><div class="line">@property (nonatomic, weak) IBOutlet UIButton *nextButton;</div><div class="line">@property (nonatomic, copy) void (^cancelBtnBlock)();</div><div class="line">@property (nonatomic, weak) id&lt;TMSideCellDelegate&gt; sideCellDelegate;</div></pre></td></tr></table></figure>
+<h2 id="6-推荐阅读"><a href="#6-推荐阅读" class="headerlink" title="6. 推荐阅读"></a>6. 推荐阅读</h2><ul>
+<li>深拷贝浅拷贝的区别<ul>
+<li><a href="http://www.jianshu.com/p/59d39e614718" target="_blank" rel="external">http://www.jianshu.com/p/59d39e614718</a></li>
+<li><a href="http://www.jianshu.com/p/4e5fde48fcda" target="_blank" rel="external">http://www.jianshu.com/p/4e5fde48fcda</a></li>
+<li><a href="http://www.jianshu.com/p/6b9f3a79cc34" target="_blank" rel="external">http://www.jianshu.com/p/6b9f3a79cc34</a></li>
+</ul>
+</li>
+<li>修饰词与block引起的循环引用<ul>
+<li><a href="http://www.jianshu.com/p/bb23544f72df" target="_blank" rel="external">http://www.jianshu.com/p/bb23544f72df</a></li>
+<li><a href="http://www.jianshu.com/p/701da54bd78c" target="_blank" rel="external">http://www.jianshu.com/p/701da54bd78c</a></li>
+</ul>
+</li>
+</ul>
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/aliPay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/wechatPay.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2018/02/12/post12/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2018/03/24/post8/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          iOS框架·Masonry源码深度解析及学习启示:设计模式与链式编程思想
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2018/01/24/post7/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">iOS开发·必会的算法操作：字符串数组排序+模型对象数组排序</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+  
+  
   
 
-    
+  
+
+  
 
 
           </div>
@@ -254,8 +582,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

@@ -6,17 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2016 | ChenMan(陈满の个人网站)</title>
+  <title>iOS开发·适配iPhone X相关的宏和方法 | ChenMan(陈满の个人网站)</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Shenzhen,China">
-<meta property="og:type" content="website">
-<meta property="og:title" content="ChenMan(陈满の个人网站)">
-<meta property="og:url" content="http://yoursite.com/archives/2016/index.html">
+  <meta name="description" content="过了好久，今天终于有时间总结一下适配iPhone X相关的坑，总的来说有两类坑，一个是导航栏+状态栏的高度发生了变化，一个是一些没有实现实现-tableView: viewForHeaderInSection:和-tableView: viewForFooterInSection:等代理方法的UITableView会出错位的问题。   1. 判断是否iPhone X：返回YES或NO1.1 判断">
+<meta name="keywords" content="iOS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS开发·适配iPhone X相关的宏和方法">
+<meta property="og:url" content="http://yoursite.com/2017/11/12/post11/index.html">
 <meta property="og:site_name" content="ChenMan(陈满の个人网站)">
-<meta property="og:description" content="Shenzhen,China">
+<meta property="og:description" content="过了好久，今天终于有时间总结一下适配iPhone X相关的坑，总的来说有两类坑，一个是导航栏+状态栏的高度发生了变化，一个是一些没有实现实现-tableView: viewForHeaderInSection:和-tableView: viewForFooterInSection:等代理方法的UITableView会出错位的问题。   1. 判断是否iPhone X：返回YES或NO1.1 判断">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1283539-1f9e771f3c5134b1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-04-12T03:54:51.981Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ChenMan(陈满の个人网站)">
-<meta name="twitter:description" content="Shenzhen,China">
+<meta name="twitter:title" content="iOS开发·适配iPhone X相关的宏和方法">
+<meta name="twitter:description" content="过了好久，今天终于有时间总结一下适配iPhone X相关的坑，总的来说有两类坑，一个是导航栏+状态栏的高度发生了变化，一个是一些没有实现实现-tableView: viewForHeaderInSection:和-tableView: viewForFooterInSection:等代理方法的UITableView会出错位的问题。   1. 判断是否iPhone X：返回YES或NO1.1 判断">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1283539-1f9e771f3c5134b1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
   
     <link rel="alternative" href="/atom.xml" title="ChenMan(陈满の个人网站)" type="application/atom+xml">
   
@@ -162,76 +166,224 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-post11" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/07/23/welcome/" class="archive-article-date">
-  	<time datetime="2016-07-23T05:25:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-23</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/07/23/welcome/">搭建网站填坑记录</a>
+    <h1 class="article-title" itemprop="name">
+      iOS开发·适配iPhone X相关的宏和方法
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/01/24/post3/" class="archive-article-date">
-  	<time datetime="2016-01-24T12:01:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-01-24</time>
+        
+        <a href="/2017/11/12/post11/" class="archive-article-date">
+  	<time datetime="2017-11-12T03:52:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-12</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/01/24/post3/">程序员修养·Markdown语法学习手册</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>过了好久，今天终于有时间总结一下适配iPhone X相关的坑，总的来说有两类坑，一个是导航栏+状态栏的高度发生了变化，一个是一些没有实现实现<code>-tableView: viewForHeaderInSection:</code>和<code>-tableView: viewForFooterInSection:</code>等代理方法的UITableView会出错位的问题。</p>
+</blockquote>
+<p><img src="http://upload-images.jianshu.io/upload_images/1283539-1f9e771f3c5134b1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<h2 id="1-判断是否iPhone-X：返回YES或NO"><a href="#1-判断是否iPhone-X：返回YES或NO" class="headerlink" title="1. 判断是否iPhone X：返回YES或NO"></a>1. 判断是否iPhone X：返回YES或NO</h2><h5 id="1-1-判断：宏"><a href="#1-1-判断：宏" class="headerlink" title="1.1 判断：宏"></a>1.1 判断：宏</h5><h6 id="（1）依据屏幕分辨率"><a href="#（1）依据屏幕分辨率" class="headerlink" title="（1）依据屏幕分辨率"></a>（1）依据屏幕分辨率</h6><ul>
+<li>三目运算法<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">//是否iPhoneX YES:iPhoneX屏幕 NO:传统屏幕</div><div class="line">#define kIs_iPhoneX ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : NO)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<a id="more"></a>
+<ul>
+<li>多行逻辑判断<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">//是否iPhoneX 1:iPhoneX屏幕 0:传统屏幕</div><div class="line">#define kIs_iPhoneX_test (&#123;\</div><div class="line">int tmp = 0;\</div><div class="line">if ([UIScreen instancesRespondToSelector:@selector(currentMode)]) &#123;\</div><div class="line">    if (CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size)) &#123;\</div><div class="line">        tmp = 1;\</div><div class="line">    &#125;else&#123;\</div><div class="line">        tmp = 0;\</div><div class="line">    &#125;\</div><div class="line">&#125;else&#123;\</div><div class="line">    tmp = 0;\</div><div class="line">&#125;\</div><div class="line">tmp;\</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<ul>
+<li>其中，反斜杠<code>\</code>并不是注释或者其它的无用符号，其实是多行宏换行必须要用的标志。</li>
+<li>最后一句<code>tmp;\</code>也是必须的，因为要将经过逻辑判断得到的<code>tmp</code>作为该宏的返回值。</li>
+</ul>
+</blockquote>
+<h6 id="（2）依据屏幕尺寸"><a href="#（2）依据屏幕尺寸" class="headerlink" title="（2）依据屏幕尺寸"></a>（2）依据屏幕尺寸</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">#define kIs_iPhoneX (kSCREEN_WIDTH == 375.f &amp;&amp; kSCREEN_HEIGHT == 812.f)</div><div class="line">#define kSCREEN_WIDTH  ([UIScreen mainScreen].bounds.size.width)</div><div class="line">#define kSCREEN_HEIGHT ([UIScreen mainScreen].bounds.size.height)</div></pre></td></tr></table></figure>
+<h5 id="1-2-判断：方法"><a href="#1-2-判断：方法" class="headerlink" title="1.2 判断：方法"></a>1.2 判断：方法</h5><ul>
+<li>方法：依据设备型号<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">+(BOOL)getIs_iPhoneX&#123;</div><div class="line">    struct utsname systemInfo;</div><div class="line">    uname(&amp;systemInfo);</div><div class="line">    NSString *platform = [NSString stringWithCString: systemInfo.machine encoding:NSASCIIStringEncoding];</div><div class="line">    </div><div class="line">    if([platform isEqualToString:@&quot;iPhone10,3&quot;]||[platform isEqualToString:@&quot;iPhone10,6&quot;]) &#123;</div><div class="line">        return YES;</div><div class="line">    &#125;else&#123;</div><div class="line">        return NO;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="2-灵活返回状态栏-导航栏的高度"><a href="#2-灵活返回状态栏-导航栏的高度" class="headerlink" title="2. 灵活返回状态栏+导航栏的高度"></a>2. 灵活返回状态栏+导航栏的高度</h2><blockquote>
+<p>需求：灵活得到导航栏+状态栏的高度，作为一个子视图Y轴的起点。</p>
+<ul>
+<li>宏定义<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">#define kStatusBarAndNavigationBarHeight (kIs_iPhoneX ? 88.f : 64.f)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<ul>
+<li>调用范例<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">//自动适配</div><div class="line">_segmentedControl.frame = CGRectMake(0, kStatusBarAndNavigationBarHeight, kSCREEN_WIDTH, 55);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="3-拓展：获得iOS系统与App版本信息"><a href="#3-拓展：获得iOS系统与App版本信息" class="headerlink" title="3. 拓展：获得iOS系统与App版本信息"></a>3. 拓展：获得iOS系统与App版本信息</h2><ul>
+<li>获取iOS系统版本号：返回字符串</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">+ (NSString *)getSystemVersion&#123;</div><div class="line">    return [[UIDevice currentDevice] systemVersion];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>获取App版本号：返回字符串</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">+ (NSString *)getAppVersion&#123;</div><div class="line">    NSDictionary *infoDic = [[NSBundle mainBundle] infoDictionary];</div><div class="line">    // 获取App的版本号</div><div class="line">    NSString *appVersion = [infoDic objectForKey:@&quot;CFBundleShortVersionString&quot;];</div><div class="line">    return appVersion;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="4-适配iPhone-X的其他问题"><a href="#4-适配iPhone-X的其他问题" class="headerlink" title="4. 适配iPhone X的其他问题"></a>4. 适配iPhone X的其他问题</h2><p>适配iPhone X和Xcode 9的过程中，除了与导航栏相关的问题，还有一个问题经常出现，就是UITableView相关的问题。下面两个办法可以解决多数错位的问题。</p>
+<ul>
+<li><p>VC创建tableView属性的时候这样设置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">self.tableView.estimatedRowHeight = 0;</div><div class="line">self.tableView.estimatedSectionHeaderHeight = 0;</div><div class="line">self.tableView.estimatedSectionFooterHeight = 0;</div></pre></td></tr></table></figure>
+</li>
+<li><p>还可以这样设置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">//cell自适应高度</div><div class="line">self.tableView.rowHeight = UITableViewAutomaticDimension;</div><div class="line">//预估行高</div><div class="line">self.tableView.estimatedRowHeight = 44.0f;</div></pre></td></tr></table></figure>
+</li>
+<li><p>关于根视图的安全区</p>
+</li>
+</ul>
+<p>iOS新增了个safeArea，原来的老代码中，规定子视图跟根子视图的关系的代码需要新增一个判断：当iOS 11时，需要改为子视图跟根子视图的安全区的关系。这样就不会在iPhone X的底部虚拟home有任何控件干扰了。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">if (@available(iOS 11.0, *)) &#123;</div><div class="line">    make.edges.equalTo(self.view.safeAreaInsets)</div><div class="line">&#125; else &#123;</div><div class="line">    make.edges.equalTo(self.view)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>当然，一般除了tabbar不能放在这个底部虚拟home区，其它的视图tableView视图或者网页视图时可以放在底部虚拟home区中的。这时候，不需要强调必须把子视图放在safeArea之内，原来的老代码也就不用改。</p>
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/aliPay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/wechatPay.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/11/12/post11/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2017/12/22/post9/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          iOS开发·UIWindow与视图层级调整技巧（makeKeyWindow，resignKeyWindow，makeKeyAndVisible，keyWindow，windowLevel，UIWindowLevelNormal，UIWindowLevelAlert，UIWindowLevelStatusBar）
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2017/10/12/post10/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">iOS开发·KVC:字典转模型,防止因本地未定义字段（后台的字段与本地字符串名不一致）导致数据转换过程中的奔溃</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+  
+  
   
 
-    
+  
+
+  
 
 
           </div>
@@ -254,8 +406,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
