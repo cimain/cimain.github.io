@@ -6,17 +6,36 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2016/7 | ChenMan(陈满の个人网站)</title>
+  <title>iOS开发·必会的算法操作：字符串数组排序+模型对象数组排序 | ChenMan(陈满の个人网站)</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Shenzhen,China">
-<meta property="og:type" content="website">
-<meta property="og:title" content="ChenMan(陈满の个人网站)">
-<meta property="og:url" content="http://yoursite.com/archives/2016/07/index.html">
+  <meta name="description" content="前面的话为了给字符串数组排序，除了用C/C++的基本办法，iOS开发者更应该学会利用苹果专门为NSArray 排序提供的sortedArrayUsingComparator 方法： 1- (NSArray&amp;lt;ObjectType&amp;gt; *)sortedArrayUsingComparator:(NSComparator NS_NOESCAPE)cmptr NS_AVAILABLE(10_6,">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS开发·必会的算法操作：字符串数组排序+模型对象数组排序">
+<meta property="og:url" content="http://yoursite.com/2018/01/24/post7/index.html">
 <meta property="og:site_name" content="ChenMan(陈满の个人网站)">
-<meta property="og:description" content="Shenzhen,China">
+<meta property="og:description" content="前面的话为了给字符串数组排序，除了用C/C++的基本办法，iOS开发者更应该学会利用苹果专门为NSArray 排序提供的sortedArrayUsingComparator 方法： 1- (NSArray&amp;lt;ObjectType&amp;gt; *)sortedArrayUsingComparator:(NSComparator NS_NOESCAPE)cmptr NS_AVAILABLE(10_6,">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/4/12/162b7d5b837c998e?w=1240&h=418&f=png&s=178143">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/4/12/162b7d5b8339e10b?w=1240&h=205&f=png&s=125496">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/4/12/162b7d5b84f50b00?w=1240&h=742&f=png&s=354395">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/4/12/162b7d5d587e2c6f?w=1240&h=799&f=png&s=247510">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/4/12/162b7d5b855576da?w=1170&h=408&f=png&s=49625">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/4/12/162b7d5d5a4e7375?w=1200&h=484&f=png&s=94341">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/4/12/162b7d5b8be0c123?w=1156&h=530&f=png&s=98132">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/4/12/162b7d5b996ca3aa?w=1184&h=488&f=png&s=93423">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/4/12/162b7d5baebfc221?w=1122&h=522&f=png&s=95444">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/4/12/162b7d5baf52dd62?w=1206&h=470&f=png&s=95331">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/4/12/162b7d5bb3b8663b?w=1208&h=492&f=png&s=96670">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/4/12/162b7d5bb53864bb?w=1184&h=476&f=png&s=94997">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/4/12/162b7d5bb65dc318?w=1174&h=462&f=png&s=91486">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/4/12/162b7d5bcd9f4ef7?w=1176&h=1082&f=png&s=180473">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/4/12/162b7d5be3766c71?w=1182&h=502&f=png&s=82314">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/4/12/162b7d5be4e47d99?w=1240&h=952&f=png&s=192239">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/4/12/162b7d5be78cfc44?w=1240&h=804&f=png&s=367110">
+<meta property="og:updated_time" content="2018-04-12T03:36:05.339Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ChenMan(陈满の个人网站)">
-<meta name="twitter:description" content="Shenzhen,China">
+<meta name="twitter:title" content="iOS开发·必会的算法操作：字符串数组排序+模型对象数组排序">
+<meta name="twitter:description" content="前面的话为了给字符串数组排序，除了用C/C++的基本办法，iOS开发者更应该学会利用苹果专门为NSArray 排序提供的sortedArrayUsingComparator 方法： 1- (NSArray&amp;lt;ObjectType&amp;gt; *)sortedArrayUsingComparator:(NSComparator NS_NOESCAPE)cmptr NS_AVAILABLE(10_6,">
+<meta name="twitter:image" content="https://user-gold-cdn.xitu.io/2018/4/12/162b7d5b837c998e?w=1240&h=418&f=png&s=178143">
   
     <link rel="alternative" href="/atom.xml" title="ChenMan(陈满の个人网站)" type="application/atom+xml">
   
@@ -162,49 +181,372 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-post7" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/07/23/welcome/" class="archive-article-date">
-  	<time datetime="2016-07-23T05:25:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-23</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/07/23/welcome/">搭建网站填坑记录</a>
+    <h1 class="article-title" itemprop="name">
+      iOS开发·必会的算法操作：字符串数组排序+模型对象数组排序
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
+        
+        <a href="/2018/01/24/post7/" class="archive-article-date">
+  	<time datetime="2018-01-24T12:21:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-24</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="前面的话"><a href="#前面的话" class="headerlink" title="前面的话"></a>前面的话</h1><p>为了给字符串数组排序，除了用C/C++的基本办法，iOS开发者更应该学会利用苹果专门为<strong>NSArray</strong> 排序提供的<strong>sortedArrayUsingComparator</strong> 方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- (NSArray&lt;ObjectType&gt; *)sortedArrayUsingComparator:(NSComparator NS_NOESCAPE)cmptr NS_AVAILABLE(10_6, 4_0);</div></pre></td></tr></table></figure>
+<p>其中，需要设置一个<strong>NSComparator</strong> 参数，它是一个block，查看定义如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">typedef NSComparisonResult (^NSComparator)(id obj1, id obj2);</div></pre></td></tr></table></figure></p>
+<p>这个block体返回的<strong>NSComparisonResult</strong> 是一个枚举类型，它的定义是：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">typedef NS_ENUM(NSInteger, NSComparisonResult) &#123;NSOrderedAscending = -1L, NSOrderedSame, NSOrderedDescending&#125;;</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>问题来了，怎么设置？</p>
+</blockquote>
+<ul>
+<li>为了设置这个<strong>NSComparator</strong> 参数的block体，你可以在设置其block体的时候，手动返回一个<strong>NSComparisonResult</strong> 枚举类型的某个具体值（<strong>NSOrderedAscending</strong>, <strong>NSOrderedSame</strong>, <strong>NSOrderedDescending</strong> 三选一）：</li>
+</ul>
+<p><img src="https://user-gold-cdn.xitu.io/2018/4/12/162b7d5b837c998e?w=1240&amp;h=418&amp;f=png&amp;s=178143" alt="image.png"></p>
+<ul>
+<li>如果数组里面是字符串，在设置其block体的时候，你也可以利用苹果专门为<strong>NSString</strong> 提供的字符串比较方法，获得一个<strong>NSComparisonResult</strong> 类型，将其自动返回。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- (NSComparisonResult)compare:(NSString *)string options:(NSStringCompareOptions)mask range:(NSRange)rangeOfReceiverToCompare locale:(nullable id)locale; // locale arg used to be a dictionary pre-Leopard. We now accept NSLocale. Assumes the current locale if non-nil and non-NSLocale. nil continues to mean canonical compare, which doesn&apos;t depend on user&apos;s locale choice.</div></pre></td></tr></table></figure>
+<p><img src="https://user-gold-cdn.xitu.io/2018/4/12/162b7d5b8339e10b?w=1240&amp;h=205&amp;f=png&amp;s=125496" alt="image.png"></p>
+<p>这时候，就需要了解<strong>NSStringCompareOptions</strong> 的意思。但如果你搜索一下<strong>NSStringCompareOptions</strong> ，会发现很多文章中的翻译或者中文解释在误导，或者很难看清什么意思？例如下面这篇博客：</p>
+<p><img src="https://user-gold-cdn.xitu.io/2018/4/12/162b7d5b84f50b00?w=1240&amp;h=742&amp;f=png&amp;s=354395" alt="image.png"></p>
+<p>然后，相同的解释文案还以讹传讹的传开来了，例如你看下面这个博客：</p>
+<p><img src="https://user-gold-cdn.xitu.io/2018/4/12/162b7d5d587e2c6f?w=1240&amp;h=799&amp;f=png&amp;s=247510" alt="image.png"></p>
+<p>于是，笔者决定写此本文，好好展示他们的用途。</p>
+<h1 id="1-第一种：数组的字符串元素里面是基本数据类型"><a href="#1-第一种：数组的字符串元素里面是基本数据类型" class="headerlink" title="1. 第一种：数组的字符串元素里面是基本数据类型"></a>1. 第一种：数组的字符串元素里面是基本数据类型</h1><hr>
+<h3 id="1-1-字符串数组排序示例"><a href="#1-1-字符串数组排序示例" class="headerlink" title="1.1 字符串数组排序示例"></a>1.1 字符串数组排序示例</h3><h5 id="1-1-1-实验代码"><a href="#1-1-1-实验代码" class="headerlink" title="1.1.1 实验代码"></a>1.1.1 实验代码</h5><ul>
+<li>main.m<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">void handleSortingForIntStrArray(void)&#123;</div><div class="line">    NSArray *originalArray = @[@&quot;00&quot;,@&quot;0&quot;,@&quot;00&quot;,@&quot;01&quot;,@&quot;10&quot;,@&quot;21&quot;,@&quot;12&quot;,@&quot;11&quot;,@&quot;22&quot;];</div><div class="line">    //block比较方法，数组中可以是NSInteger，NSString（需要转换）</div><div class="line">    NSComparator finderSort = ^(id string1,id string2)&#123;</div><div class="line">        if ([string1 integerValue] &gt; [string2 integerValue]) &#123;</div><div class="line">            return (NSComparisonResult)NSOrderedDescending;</div><div class="line">        &#125;else if ([string1 integerValue] &lt; [string2 integerValue])&#123;</div><div class="line">            return (NSComparisonResult)NSOrderedAscending;</div><div class="line">        &#125;else&#123;</div><div class="line">            return (NSComparisonResult)NSOrderedSame;</div><div class="line">        &#125;</div><div class="line">    &#125;;</div><div class="line">    //数组排序：</div><div class="line">    NSArray *resultArray = [originalArray sortedArrayUsingComparator:finderSort];</div><div class="line">    NSLog(@&quot;第一种排序结果：%@&quot;,resultArray);</div><div class="line">&#125;</div><div class="line"></div><div class="line">int main(int argc, const char * argv[]) &#123;</div><div class="line">    @autoreleasepool &#123;</div><div class="line">        // insert code here...</div><div class="line">        NSLog(@&quot;Results of handleSortingForIntArray()**********************&quot;);</div><div class="line">        handleSortingForIntStrArray();</div><div class="line">    &#125;</div><div class="line">    return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h5 id="1-1-2-运行结果"><a href="#1-1-2-运行结果" class="headerlink" title="1.1.2 运行结果"></a>1.1.2 运行结果</h5><p><img src="https://user-gold-cdn.xitu.io/2018/4/12/162b7d5b855576da?w=1170&amp;h=408&amp;f=png&amp;s=49625" alt="image.png"></p>
+<h5 id="1-1-3-实验结论"><a href="#1-1-3-实验结论" class="headerlink" title="1.1.3 实验结论"></a>1.1.3 实验结论</h5><ul>
+<li>依据数组元素的数值大小返回升序数组</li>
+</ul>
+<h3 id="1-2-NSComparator与NSComparisonResult"><a href="#1-2-NSComparator与NSComparisonResult" class="headerlink" title="1.2 NSComparator与NSComparisonResult"></a>1.2 NSComparator与NSComparisonResult</h3><p>上面的代码中用到了NSComparator与NSComparisonResult，在本文的“前面的话”中已经介绍过，这里重新列一下定义。</p>
+<h5 id="1-2-1-NSComparator"><a href="#1-2-1-NSComparator" class="headerlink" title="1.2.1 NSComparator"></a>1.2.1 NSComparator</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">typedef NSComparisonResult (^NSComparator)(id obj1, id obj2);</div></pre></td></tr></table></figure>
+<h5 id="1-2-2-NSComparisonResult"><a href="#1-2-2-NSComparisonResult" class="headerlink" title="1.2.2 NSComparisonResult"></a>1.2.2 NSComparisonResult</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">typedef NS_ENUM(NSInteger, NSComparisonResult) &#123;NSOrderedAscending = -1L, NSOrderedSame, NSOrderedDescending&#125;;</div></pre></td></tr></table></figure>
+<h1 id="2-第二种：数组的字符串元素里面不是基本数据类型"><a href="#2-第二种：数组的字符串元素里面不是基本数据类型" class="headerlink" title="2. 第二种：数组的字符串元素里面不是基本数据类型"></a>2. 第二种：数组的字符串元素里面不是基本数据类型</h1><hr>
+<h3 id="2-1-示例：字符串数组排序"><a href="#2-1-示例：字符串数组排序" class="headerlink" title="2.1 示例：字符串数组排序"></a>2.1 示例：字符串数组排序</h3><h5 id="2-1-1-实验代码"><a href="#2-1-1-实验代码" class="headerlink" title="2.1.1 实验代码"></a>2.1.1 实验代码</h5><ul>
+<li>main.m<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line">//</div><div class="line">//  main.m</div><div class="line">//  SortingForArray</div><div class="line">//</div><div class="line">//  Created by ChenMan on 2017/12/20.</div><div class="line">//  Copyright © 2017年 ChenMan. All rights reserved.</div><div class="line">//</div><div class="line"></div><div class="line">#import &lt;Foundation/Foundation.h&gt;</div><div class="line">#import &lt;stdio.h&gt;</div><div class="line"></div><div class="line">void handleSortingForStrArray(void)&#123;</div><div class="line">       NSArray *stringsArray = [NSArray arrayWithObjects:</div><div class="line">                             @&quot;string b&quot;,</div><div class="line">                             @&quot;string A&quot;,</div><div class="line">                             @&quot;string a&quot;,</div><div class="line">                             @&quot;string \uFF41&quot;,</div><div class="line">                             @&quot;string a&quot;,</div><div class="line">                             @&quot;string A&quot;,</div><div class="line">                             @&quot;string c&quot;,</div><div class="line">                             @&quot;string d0030&quot;,</div><div class="line">                             @&quot;string d2&quot;,</div><div class="line">                             @&quot;アいろはｱｲｳｴイウエ&quot;,</div><div class="line">                             @&quot;ｱいろはｱｲｳｴｲｳｴ&quot;,</div><div class="line">                             @&quot;アいろはｱｲｳｴイウエ&quot;,nil];</div><div class="line">    </div><div class="line">    NSLocale *currentLocale = [NSLocale currentLocale];</div><div class="line">    NSComparator finderSortBlock = ^(id string1,id string2) &#123;</div><div class="line">        </div><div class="line">        NSRange string1Range =NSMakeRange(0, [string1 length]);</div><div class="line">        return [string1 compare:string2 options:nil range:string1Range locale:currentLocale];</div><div class="line">    &#125;;</div><div class="line">    </div><div class="line">    NSArray *finderSortArray = [stringsArray sortedArrayUsingComparator:finderSortBlock];</div><div class="line">    NSLog(@&quot;finderSortArray: %@&quot;, finderSortArray);</div><div class="line">    </div><div class="line">&#125;</div><div class="line"></div><div class="line">int main(int argc, const char * argv[]) &#123;</div><div class="line">    @autoreleasepool &#123;</div><div class="line">        // insert code here...</div><div class="line">        NSLog(@&quot;Results of handleSortingForStrArray()**********************&quot;);</div><div class="line">        handleSortingForStrArray();</div><div class="line">    &#125;</div><div class="line">    return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h5 id="2-1-2-运行结果："><a href="#2-1-2-运行结果：" class="headerlink" title="2.1.2 运行结果："></a>2.1.2 运行结果：</h5><p><img src="https://user-gold-cdn.xitu.io/2018/4/12/162b7d5d5a4e7375?w=1200&amp;h=484&amp;f=png&amp;s=94341" alt="image.png"></p>
+<h5 id="2-1-3-实验结论："><a href="#2-1-3-实验结论：" class="headerlink" title="2.1.3 实验结论："></a>2.1.3 实验结论：</h5><p>如上实验代码中，有这样一行代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">return [string1 compare:string2 options:nil range:string1Range locale:currentLocale];</div></pre></td></tr></table></figure></p>
+<p>根据运行结果，可知如下结论：</p>
+<ul>
+<li>即使在<code>- (NSComparisonResult)compare:(NSString *)string options:(NSStringCompareOptions)mask range:(NSRange)rangeOfReceiverToCompare locale:(nullable id)locale;</code>中将<code>(NSStringCompareOptions)</code>枚举类型的参数设置为<code>nil</code>，也可以运行。但一般不这么做，这里只是为了观察不指定该枚举参数时候系统的默认设置，并与本文接下来指定该枚举参数的排序结果对比。</li>
+<li>可以发现：<ul>
+<li>默认同一字符的全角字符看做半角字符。不区分同一个字符（如日文的片假字）的半角与全角状态。相同元素，维持原序。</li>
+<li>默认区分字母大小写，同一个字符小写在前，大写在后。</li>
+<li>字母并非按unicode码的大小升序排列。例如，<code>全角a</code>的unicode为FF41，<code>半角a</code>的unicode为0061，<code>半角A</code>的unicode为0041，<code>半角b</code>的unicode为0062，但排序结果是 <code>全角a</code> = <code>半角a</code> &lt; <code>半角A</code> &lt; <code>半角b</code>。</li>
+<li>默认不识别含有数字字符的数值大小，0030虽然数学意义比2大，但是，仅从字符串的角度看，第一个字符0比2小，所以d0030排在d2前面。</li>
+</ul>
+</li>
+</ul>
+<h5 id="2-1-4-知识拓展："><a href="#2-1-4-知识拓展：" class="headerlink" title="2.1.4 知识拓展："></a>2.1.4 知识拓展：</h5><blockquote>
+<p>半角与全角字符</p>
+<ul>
+<li>全角占两个字节，半角占一个字节。通常我们碰到的英文字母、数字键、符号键这种ASCII码系统里面的字符大多数情况下是半角的。</li>
+</ul>
+</blockquote>
+<ul>
+<li><p>国内汉字输入法输入的汉字为全角，字母数字为半角，但是标点则默认为全角，可切换为半角（可以通过输入法工具条上的相应按钮来切换标点符号的全角半角状态）。</p>
+</li>
+<li><p>日文里面的有汉字，也有片假字。这个片假字有两套编码，同一个片假字分别有半角和全角两种编码。例如：看起来像一样的片假字组成的句子，全角状态<code>ア</code>字符开头的为<code>アいろはｱｲｳｴイウエ</code>，半角状态<code>ｱ</code>字符开头的为<code>ｱいろはｱｲｳｴｲｳｴ</code>。可以看到，明显同一个片假字的<strong>全角状态</strong> 比<strong>半角状态</strong> “胖”一圈。</p>
+</li>
+</ul>
+<ul>
+<li>英文字母其实也有全角字母，例如小写的<code>a</code>，其半角形式的unicode码为0061，其全角形式的unicode码为FF41。可查阅<a href="https://unicode-table.com/cn/" target="_blank" rel="external">Unicode®字符百科</a>官网。</li>
+</ul>
+<h3 id="2-2-NSStringCompareOptions"><a href="#2-2-NSStringCompareOptions" class="headerlink" title="2.2 NSStringCompareOptions"></a>2.2 NSStringCompareOptions</h3><p>NSStringCompareOptions是一个枚举类型，并非一个类。打开NSStringCompareOptions的定义，可查看如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">typedef NS_OPTIONS(NSUInteger, NSStringCompareOptions) &#123;</div><div class="line">    NSCaseInsensitiveSearch = 1,</div><div class="line">    NSLiteralSearch = 2,		/* Exact character-by-character equivalence */</div><div class="line">    NSBackwardsSearch = 4,		/* Search from end of source string */</div><div class="line">    NSAnchoredSearch = 8,		/* Search is limited to start (or end, if NSBackwardsSearch) of source string */</div><div class="line">    NSNumericSearch = 64,		/* Added in 10.2; Numbers within strings are compared using numeric value, that is, Foo2.txt &lt; Foo7.txt &lt; Foo25.txt; only applies to compare methods, not find */</div><div class="line">    NSDiacriticInsensitiveSearch API_AVAILABLE(macos(10.5), ios(2.0), watchos(2.0), tvos(9.0)) = 128, /* If specified, ignores diacritics (o-umlaut == o) */</div><div class="line">    NSWidthInsensitiveSearch API_AVAILABLE(macos(10.5), ios(2.0), watchos(2.0), tvos(9.0)) = 256, /* If specified, ignores width differences (&apos;a&apos; == UFF41) */</div><div class="line">    NSForcedOrderingSearch API_AVAILABLE(macos(10.5), ios(2.0), watchos(2.0), tvos(9.0)) = 512, /* If specified, comparisons are forced to return either NSOrderedAscending or NSOrderedDescending if the strings are equivalent but not strictly equal, for stability when sorting (e.g. &quot;aaa&quot; &gt; &quot;AAA&quot; with NSCaseInsensitiveSearch specified) */</div><div class="line">    NSRegularExpressionSearch API_AVAILABLE(macos(10.7), ios(3.2), watchos(2.0), tvos(9.0)) = 1024    /* Applies to rangeOfString:..., stringByReplacingOccurrencesOfString:..., and replaceOccurrencesOfString:... methods only; the search string is treated as an ICU-compatible regular expression; if set, no other options can apply except NSCaseInsensitiveSearch and NSAnchoredSearch */</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<h5 id="2-2-1-NSNumericSearch"><a href="#2-2-1-NSNumericSearch" class="headerlink" title="2.2.1 NSNumericSearch"></a>2.2.1 NSNumericSearch</h5><blockquote>
+<p>官方解释：Added in 10.2; Numbers within strings are compared using numeric value, that is, Foo2.txt &lt; Foo7.txt &lt; Foo25.txt; only applies to compare methods, not find</p>
+</blockquote>
+<ul>
+<li><p>假设，将上例中的部分代码修改为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">void handleSortingForStrArray(void)&#123;</div><div class="line">    NSArray *stringsArray = [NSArray arrayWithObjects:</div><div class="line">                             @&quot;string b&quot;,</div><div class="line">                             @&quot;string A&quot;,</div><div class="line">                             @&quot;string a&quot;,</div><div class="line">                             @&quot;string \uFF41&quot;,</div><div class="line">                             @&quot;string a&quot;,</div><div class="line">                             @&quot;string A&quot;,</div><div class="line">                             @&quot;string c&quot;,</div><div class="line">                             @&quot;string d0030&quot;,</div><div class="line">                             @&quot;string d2&quot;,</div><div class="line">                             @&quot;アいろはｱｲｳｴイウエ&quot;,</div><div class="line">                             @&quot;ｱいろはｱｲｳｴｲｳｴ&quot;,</div><div class="line">                             @&quot;アいろはｱｲｳｴイウエ&quot;,nil];</div><div class="line">    NSStringCompareOptions comparisonOptions = NSNumericSearch;</div><div class="line">    NSLocale *currentLocale = [NSLocale currentLocale];</div><div class="line">    NSComparator finderSortBlock = ^(id string1,id string2) &#123;</div><div class="line">        </div><div class="line">        NSRange string1Range =NSMakeRange(0, [string1 length]);</div><div class="line">        return [string1 compare:string2 options:comparisonOptions range:string1Range locale:currentLocale];</div><div class="line">    &#125;;</div><div class="line">    </div><div class="line">    NSArray *finderSortArray = [stringsArray sortedArrayUsingComparator:finderSortBlock];</div><div class="line">    NSLog(@&quot;finderSortArray: %@&quot;, finderSortArray);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>运行结果</p>
+</li>
+</ul>
+<p><img src="https://user-gold-cdn.xitu.io/2018/4/12/162b7d5b8be0c123?w=1156&amp;h=530&amp;f=png&amp;s=98132" alt="image.png"></p>
+<ul>
+<li>结论<br><code>NSStringCompareOptions</code>指定为<code>NSNumericSearch</code>，当字符串中含有数字时，从数值大小的角度按升序排序。</li>
+</ul>
+<h5 id="2-2-2-NSCaseInsensitiveSearch"><a href="#2-2-2-NSCaseInsensitiveSearch" class="headerlink" title="2.2.2 NSCaseInsensitiveSearch"></a>2.2.2 NSCaseInsensitiveSearch</h5><blockquote>
+<p>官方解释：无。英文字面解释：不区分字母大小写。</p>
+</blockquote>
+<ul>
+<li><p>假设，将上例中的部分代码修改为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">NSStringCompareOptions comparisonOptions = NSCaseInsensitiveSearch;</div></pre></td></tr></table></figure>
+</li>
+<li><p>运行结果</p>
+</li>
+</ul>
+<p><img src="https://user-gold-cdn.xitu.io/2018/4/12/162b7d5b996ca3aa?w=1184&amp;h=488&amp;f=png&amp;s=93423" alt="image.png"></p>
+<ul>
+<li>结论<br><code>NSStringCompareOptions</code>指定为<code>NSCaseInsensitiveSearch</code>，不区分同一个字母的大小写状态，如<code>a</code>与<code>A</code>看做相同元素，若其它条件也一致则保持原序。</li>
+</ul>
+<h5 id="2-2-3-NSLiteralSearch"><a href="#2-2-3-NSLiteralSearch" class="headerlink" title="2.2.3 NSLiteralSearch"></a>2.2.3 NSLiteralSearch</h5><blockquote>
+<p>官方解释：Exact character-by-character equivalence</p>
+</blockquote>
+<ul>
+<li><p>假设，将上例中的部分代码修改为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">NSStringCompareOptions comparisonOptions = NSLiteralSearch;</div></pre></td></tr></table></figure>
+</li>
+<li><p>运行结果</p>
+</li>
+</ul>
+<p><img src="https://user-gold-cdn.xitu.io/2018/4/12/162b7d5baebfc221?w=1122&amp;h=522&amp;f=png&amp;s=95444" alt="image.png"></p>
+<ul>
+<li>结论<ul>
+<li><strong><em>区分</em></strong> 同一个字符（如日文的片假字）的半角与全角状态，同一片假字的全角状态小于半角状态。</li>
+<li>其它规则，继续按系统默认排序规则排序，包括<strong>默认区分</strong> 字母大小写，以及其它默认排序规则。</li>
+<li>按照官方英文说明，这个规则是指区分每个字符的等效状态。只要unicode不同的字符，就不认可他们“等效”，即使他们的语言上的含义相同。</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>题外话<ul>
+<li>所以，有的文献说<strong>NSLiteralSearch</strong> 是区分大小写是误导，系统本就<strong>默认区分</strong> 字母大小写，这些人以为苹果公司提供这个功能来画蛇添足干嘛？而且可以看看官方英文说明，也不是这个意思。只有指定<strong>不区分</strong> 字母大小写的<strong>NSCaseInsensitiveSearch</strong>，要么不写，即默认<strong>区分</strong>。</li>
+</ul>
+</li>
+</ul>
+<h5 id="2-2-4-NSWidthInsensitiveSearch"><a href="#2-2-4-NSWidthInsensitiveSearch" class="headerlink" title="2.2.4 NSWidthInsensitiveSearch"></a>2.2.4 NSWidthInsensitiveSearch</h5><blockquote>
+<p>官方解释：If specified, ignores width differences (‘a’ == UFF41)</p>
+<ul>
+<li>假设，将上例中的部分代码修改为<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">NSStringCompareOptions comparisonOptions = NSWidthInsensitiveSearch;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<ul>
+<li>运行结果</li>
+</ul>
+<p><img src="https://user-gold-cdn.xitu.io/2018/4/12/162b7d5baf52dd62?w=1206&amp;h=470&amp;f=png&amp;s=95331" alt="image.png"></p>
+<ul>
+<li>结论<ul>
+<li><strong>不区分</strong> 同一个字符（如日文的片假字）的半角与全角状态，同一片假字的全角状态等于半角状态。</li>
+<li>其它规则，继续按系统默认排序规则排序，包括<strong>默认区分</strong> 字母大小写，以及其它默认排序规则。</li>
+<li>同时指定两个时，<strong>NSWidthInsensitiveSearch</strong> 比<strong>NSLiteralSearch</strong> 的优先级高，综合起来的结果是<strong>不区分</strong> 半角全角。</li>
+<li>官方英文说明中的<code>UFF41</code>是指<code>全角a</code>，<code>&#39;a&#39;</code> 是指<code>半角a</code>，如果指定<strong>NSWidthInsensitiveSearch</strong>，则不区分字符的全角半角，即使你同时指定了<strong>NSLiteralSearch</strong>。</li>
+</ul>
+</li>
+</ul>
+<p>即，当有如下代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">NSStringCompareOptions comparisonOptions = NSWidthInsensitiveSearch | NSLiteralSearch;</div></pre></td></tr></table></figure></p>
+<p>其作用相当于没有NSLiteralSearch的代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">NSStringCompareOptions comparisonOptions = NSWidthInsensitiveSearch;</div></pre></td></tr></table></figure></p>
+<h5 id="2-2-5-NSForcedOrderingSearch"><a href="#2-2-5-NSForcedOrderingSearch" class="headerlink" title="2.2.5 NSForcedOrderingSearch"></a>2.2.5 NSForcedOrderingSearch</h5><blockquote>
+<p>官方解释：If specified, comparisons are forced to return either NSOrderedAscending or NSOrderedDescending if the strings are equivalent but not strictly equal, for stability when sorting (e.g. “aaa” &gt; “AAA” with NSCaseInsensitiveSearch specified)</p>
+</blockquote>
+<ul>
+<li><p>假设，将上例中的部分代码修改为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">NSStringCompareOptions comparisonOptions = NSForcedOrderingSearch;</div></pre></td></tr></table></figure>
+</li>
+<li><p>运行结果</p>
+</li>
+</ul>
+<p><img src="https://user-gold-cdn.xitu.io/2018/4/12/162b7d5bb3b8663b?w=1208&amp;h=492&amp;f=png&amp;s=96670" alt="image.png"></p>
+<ul>
+<li>结论<ul>
+<li>不存在字符等不等效相不相等的概念了，只要unicode不一样的字符，必须区分，必须返回一个谁大谁小的结果（NSOrderedAscending or NSOrderedDescending）。</li>
+<li>从英文说明也可以看出，<strong>NSForcedOrderingSearch</strong> 的优先级最高，即如果你同时指定了其它有可能作用冲突的枚举类型，也以<strong>NSForcedOrderingSearch</strong> 的作用为准。</li>
+</ul>
+</li>
+</ul>
+<h5 id="2-2-6-综合应用"><a href="#2-2-6-综合应用" class="headerlink" title="2.2.6 综合应用"></a>2.2.6 综合应用</h5><ul>
+<li><p>一个比较多的应用示例是，区分字母大小写，区分数值大小，区分半角全角，并强制性指定区分unicode不一样的字符。综合这些条件，写起来就是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">NSStringCompareOptions comparisonOptions = NSNumericSearch|NSWidthInsensitiveSearch|NSForcedOrderingSearch;</div></pre></td></tr></table></figure>
+</li>
+<li><p>运行结果</p>
+</li>
+</ul>
+<p><img src="https://user-gold-cdn.xitu.io/2018/4/12/162b7d5bb53864bb?w=1184&amp;h=476&amp;f=png&amp;s=94997" alt="image.png"></p>
+<h5 id="2-2-7-误导用法"><a href="#2-2-7-误导用法" class="headerlink" title="2.2.7 误导用法"></a>2.2.7 误导用法</h5><ul>
+<li>我看过有很多其它博客用了这样的误导示例：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">NSStringCompareOptions comparisonOptions = NSCaseInsensitiveSearch|NSNumericSearch|NSWidthInsensitiveSearch|NSForcedOrderingSearch;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>这里面，NSCaseInsensitiveSearch是为了不区分大小写字母，但是后面再加个NSForcedOrderingSearch想强制区分字符又是怎么回事？虽然，这样写并不会报错，运行效果跟上面的综合示例一摸一样。但这样误导的想法是个逻辑矛盾。不信，你看看它运行的结果：</p>
+<p><img src="https://user-gold-cdn.xitu.io/2018/4/12/162b7d5bb65dc318?w=1174&amp;h=462&amp;f=png&amp;s=91486" alt="image.png"></p>
+<h1 id="3-数组里面是类的对象"><a href="#3-数组里面是类的对象" class="headerlink" title="3. 数组里面是类的对象"></a>3. 数组里面是类的对象</h1><hr>
+<p>需求：假设我们根据后台返回的JSON字典数组用MJExtension转换成模型数组，现在我们需要根据ID或者Age对模型数组进行排序。</p>
+<ul>
+<li><p>Pesson.m</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">#import &lt;Foundation/Foundation.h&gt;  </div><div class="line">  </div><div class="line">@interface Person : NSObject  </div><div class="line">@property (nonatomic,copy) NSString *ID;  </div><div class="line">@property (nonatomic,copy) NSString *name;  </div><div class="line">@property (nonatomic,assign) int age;  </div><div class="line">@end</div></pre></td></tr></table></figure>
+</li>
+<li><p>根据int类型的属性对模型数组进行排序</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">NSArray *sortArrayByAgeInt = [self.dataArray sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) &#123;  </div><div class="line">      </div><div class="line">    Person *pModel1 = obj1;  </div><div class="line">    Person *pModel2 = obj2;  </div><div class="line">    </div><div class="line">    if (pModel1.age &gt; pModel2.age) &#123; </div><div class="line">        return NSOrderedDescending;//降序  </div><div class="line">    &#125;else if (pModel1.name &lt; pModel2.name)&#123;  </div><div class="line">        return NSOrderedAscending;//升序  </div><div class="line">    &#125;else &#123;  </div><div class="line">        return NSOrderedSame;//相等  </div><div class="line">    &#125;  </div><div class="line">      </div><div class="line">&#125;];</div></pre></td></tr></table></figure>
+</li>
+<li><p>根据str类型的属性对模型数组进行排序</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">NSArray *sortArrayByIDStr = [self.dataArray sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) &#123;  </div><div class="line">      </div><div class="line">    Person *pModel1 = obj1;  </div><div class="line">    Person *pModel2 = obj2;  </div><div class="line">    </div><div class="line">    if ([pModel1.ID intValue]&gt; [pModel2.ID intValue]) &#123; </div><div class="line">        return NSOrderedDescending;//降序  </div><div class="line">    &#125;else if (pModel1.name &lt; pModel2.name)&#123;  </div><div class="line">        return NSOrderedAscending;//升序  </div><div class="line">    &#125;else &#123;  </div><div class="line">        return NSOrderedSame;//相等  </div><div class="line">    &#125;  </div><div class="line">      </div><div class="line">&#125;];</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="4-花样玩法：例题"><a href="#4-花样玩法：例题" class="headerlink" title="4. 花样玩法：例题"></a>4. 花样玩法：例题</h1><hr>
+<p>在OC的高级用法中，经常需要查看系统类或者某个自定义类中的私有属性以及私有成员变量，并通过KVC的办法强制修改这些私有成员变量的值，以取代系统或者自定义类中的默认设置。所以，如果你懒得创建一些假数据的数组，可以想到运用运行时的办法获取成员变量的数组，并进行排序操作训练。</p>
+<blockquote>
+<p><strong>题1</strong>. 请取出<code>NSString</code>类的全部<strong>公有</strong> <strong>属性</strong> 并存放到一个数组，并利用<code>NSArray</code>的<code>sortedArrayUsingComparator</code>的方法给这个数组进行升序排序操作。要求：排序过程中需要区分字符全角半角状态，其它可按系统默认条件。</p>
+</blockquote>
+<ul>
+<li><p>参考代码：<br>main.m</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">void handlePrintingOfProperties(void)&#123;</div><div class="line">    unsigned int count;// 记录属性个数</div><div class="line">    objc_property_t *properties = class_copyPropertyList([NSString class], &amp;count);</div><div class="line">    // 生成一个属性名称组成的数组</div><div class="line">    NSMutableArray *propertyNameArray = [NSMutableArray array];</div><div class="line">    for (int i = 0; i &lt; count; i++) &#123;</div><div class="line">        // An opaque type that represents an Objective-C declared property.</div><div class="line">        // objc_property_t 属性类型</div><div class="line">        objc_property_t property = properties[i];</div><div class="line">        // 获取属性的名称 C语言字符串</div><div class="line">        const char *cName = property_getName(property);</div><div class="line">        // 转换为Objective C 字符串</div><div class="line">        NSString *name = [NSString stringWithCString:cName encoding:NSUTF8StringEncoding];</div><div class="line">        [propertyNameArray addObject:name];</div><div class="line">    &#125;</div><div class="line">    NSLog(@&quot;排序前的属性列表 = %@&quot;,propertyNameArray);</div><div class="line">    </div><div class="line">    NSComparator cmptr = ^(NSString *obj1, NSString *obj2)&#123;</div><div class="line">        return [obj1 compare:obj2 options:NSLiteralSearch];</div><div class="line">    &#125;;</div><div class="line">    NSArray *afterSort = [propertyNameArray sortedArrayUsingComparator:cmptr];</div><div class="line">    NSLog(@&quot;排序后的属性列表 = %@&quot;,afterSort);</div><div class="line">    </div><div class="line">    //C语言中,用完copy,create的东西之后,最好释放</div><div class="line">    free(properties);</div><div class="line">&#125;</div><div class="line"></div><div class="line">int main(int argc, const char * argv[]) &#123;</div><div class="line">    @autoreleasepool &#123;</div><div class="line">        NSLog(@&quot;handlePrintingOfProperties()**********************&quot;);</div><div class="line">        handlePrintingOfProperties();</div><div class="line">    &#125;</div><div class="line">    return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>运行结果</p>
+</li>
+</ul>
+<p><img src="https://user-gold-cdn.xitu.io/2018/4/12/162b7d5bcd9f4ef7?w=1176&amp;h=1082&amp;f=png&amp;s=180473" alt="image.png"></p>
+<blockquote>
+<p><strong>题2</strong>. 请取出<code>NSURL</code>类中包括<strong>私有</strong> 在内的<strong>全部</strong> <strong>成员变量</strong>，并存放到一个数组，并利用<code>NSArray</code>的<code>sortedArrayUsingComparator</code>的方法给这个数组进行升序排序操作。要求：排序过程中需要区分字符全角半角状态，其它可按系统默认条件。</p>
+</blockquote>
+<ul>
+<li><p>参考代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">void handlePrintingOfIvars(void)&#123;</div><div class="line">    unsigned int count;// 记录属性个数</div><div class="line">    Ivar *properties = class_copyIvarList([NSURL class], &amp;count);</div><div class="line">    // 生成一个属性名称组成的数组</div><div class="line">    NSMutableArray *propertyNameArray = [NSMutableArray array];</div><div class="line">    for (int i = 0; i &lt; count; i++) &#123;</div><div class="line">        // An opaque type that represents an Objective-C declared property.</div><div class="line">        // objc_property_t 属性类型</div><div class="line">        Ivar property = properties[i];</div><div class="line">        // 获取属性的名称 C语言字符串</div><div class="line">        const char *cName = ivar_getName(property);</div><div class="line">        // 转换为Objective C 字符串</div><div class="line">        NSString *name = [NSString stringWithCString:cName encoding:NSUTF8StringEncoding];</div><div class="line">        [propertyNameArray addObject:name];</div><div class="line">    &#125;</div><div class="line">    NSLog(@&quot;排序前的成员变量列表 = %@&quot;,propertyNameArray);</div><div class="line">    </div><div class="line">    NSComparator cmptr = ^(NSString *obj1, NSString *obj2)&#123;</div><div class="line">        return [obj1 compare:obj2 options:NSLiteralSearch];</div><div class="line">    &#125;;</div><div class="line">    NSArray *afterSort = [propertyNameArray sortedArrayUsingComparator:cmptr];</div><div class="line">    NSLog(@&quot;排序后的成员变量列表 = %@&quot;,afterSort);</div><div class="line">    </div><div class="line">    //C语言中,用完copy,create的东西之后,最好释放</div><div class="line">    free(properties);</div><div class="line">&#125;</div><div class="line"></div><div class="line">int main(int argc, const char * argv[]) &#123;</div><div class="line">    @autoreleasepool &#123;</div><div class="line">        NSLog(@&quot;handlePrintingOfIvars()**********************&quot;);</div><div class="line">        handlePrintingOfIvars();</div><div class="line">    &#125;</div><div class="line">    return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>运行结果</p>
+</li>
+</ul>
+<p><img src="https://user-gold-cdn.xitu.io/2018/4/12/162b7d5be3766c71?w=1182&amp;h=502&amp;f=png&amp;s=82314" alt="image.png"></p>
+<h1 id="5-附录：本实验中创建工程说明"><a href="#5-附录：本实验中创建工程说明" class="headerlink" title="5. 附录：本实验中创建工程说明"></a>5. 附录：本实验中创建工程说明</h1><hr>
+<p>任何能在计算机上执行的项目称之为<strong>程序</strong>，其中，有图形化用户界面的程序称之为<strong>应用</strong> ，没有图形界面的程序可以是<strong>守护进程</strong> ，还有一种称之为<strong>命令行工具</strong>。本文这里关注的是算法和数据结果，不关注图形界面，所以新建一个命令行工具即可。创建方法：新建一个macOS工程，选择Command Line Tool类型，点击下一步配置工程信息即可。</p>
+<p><img src="https://user-gold-cdn.xitu.io/2018/4/12/162b7d5be4e47d99?w=1240&amp;h=952&amp;f=png&amp;s=192239" alt="创建一个命令行工具"></p>
+<p><img src="https://user-gold-cdn.xitu.io/2018/4/12/162b7d5be78cfc44?w=1240&amp;h=804&amp;f=png&amp;s=367110" alt="工程创建成功"></p>
 
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/aliPay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/wechatPay.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2018/01/24/post7/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2018/03/24/post8/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          iOS框架·Masonry源码深度解析及学习启示:设计模式与链式编程思想
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2017/06/24/post5/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">iOS·采用第三方(百度地图SDK)实现定位等功能开发</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+  
+  
   
 
-    
+  
+
+  
 
 
           </div>
@@ -227,8 +569,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
