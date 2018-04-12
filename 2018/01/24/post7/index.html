@@ -31,7 +31,7 @@
 <meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/4/12/162b7d5be3766c71?w=1182&h=502&f=png&s=82314">
 <meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/4/12/162b7d5be4e47d99?w=1240&h=952&f=png&s=192239">
 <meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/4/12/162b7d5be78cfc44?w=1240&h=804&f=png&s=367110">
-<meta property="og:updated_time" content="2018-04-12T03:36:05.339Z">
+<meta property="og:updated_time" content="2018-04-12T03:41:13.137Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS开发·必会的算法操作：字符串数组排序+模型对象数组排序">
 <meta name="twitter:description" content="前面的话为了给字符串数组排序，除了用C/C++的基本办法，iOS开发者更应该学会利用苹果专门为NSArray 排序提供的sortedArrayUsingComparator 方法： 1- (NSArray&amp;lt;ObjectType&amp;gt; *)sortedArrayUsingComparator:(NSComparator NS_NOESCAPE)cmptr NS_AVAILABLE(10_6,">
@@ -208,6 +208,7 @@
 <blockquote>
 <p>问题来了，怎么设置？</p>
 </blockquote>
+<a id="more"></a>
 <ul>
 <li>为了设置这个<strong>NSComparator</strong> 参数的block体，你可以在设置其block体的时候，手动返回一个<strong>NSComparisonResult</strong> 枚举类型的某个具体值（<strong>NSOrderedAscending</strong>, <strong>NSOrderedSame</strong>, <strong>NSOrderedDescending</strong> 三选一）：</li>
 </ul>

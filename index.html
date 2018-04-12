@@ -164,100 +164,6 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-post8-1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/12/post8-1/">post8</a>
-    </h1>
-  
-
-        
-        <a href="/2018/04/12/post8-1/" class="archive-article-date">
-  	<time datetime="2018-04-12T03:39:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-12</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/04/12/post8-1/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-post7-1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/12/post7-1/">post7</a>
-    </h1>
-  
-
-        
-        <a href="/2018/04/12/post7-1/" class="archive-article-date">
-  	<time datetime="2018-04-12T03:39:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-12</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/04/12/post7-1/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
     <article id="post-post8" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -284,317 +190,9 @@
 <h1 id="1-之前的不足：系统API纯代码布局"><a href="#1-之前的不足：系统API纯代码布局" class="headerlink" title="1. 之前的不足：系统API纯代码布局"></a>1. 之前的不足：系统API纯代码布局</h1><ul>
 <li>系统给的自动布局（AutoLayout）的API</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">+(instancetype)constraintWithItem:(id)view1</div><div class="line">                       attribute:(NSLayoutAttribute)attr1</div><div class="line">                       relatedBy:(NSLayoutRelation)relation</div><div class="line">                          toItem:(nullable id)view2</div><div class="line">                       attribute:(NSLayoutAttribute)attr2</div><div class="line">                      multiplier:(CGFloat)multiplier</div><div class="line">                        constant:(CGFloat)c;</div></pre></td></tr></table></figure>
-<ul>
-<li>传统代码中使用系统API进行布局<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">- (void)viewDidLoad &#123;</div><div class="line">    [super viewDidLoad];</div><div class="line">    // Do any additional setup after loading the view, typically from a nib.</div><div class="line">    self.view.backgroundColor = [UIColor yellowColor];</div><div class="line">    </div><div class="line">    </div><div class="line">    UIView *subView = [[UIView alloc] init];</div><div class="line">    subView.backgroundColor = [UIColor redColor];</div><div class="line">    // 在设置约束前，先将子视图添加进来</div><div class="line">    [self.view addSubview:subView];</div><div class="line">    </div><div class="line">    // 使用autoLayout约束，禁止将AutoresizingMask转换为约束</div><div class="line">    [subView setTranslatesAutoresizingMaskIntoConstraints:NO];</div><div class="line">    </div><div class="line">    // 设置subView相对于VIEW的上左下右各40像素</div><div class="line">    NSLayoutConstraint *constraintTop = [NSLayoutConstraint constraintWithItem:subView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTop multiplier:1.0 constant:40];</div><div class="line">    NSLayoutConstraint *constraintLeft = [NSLayoutConstraint constraintWithItem:subView attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeft multiplier:1.0 constant:40];</div><div class="line">    // 由于iOS坐标系的原点在左上角，所以设置下，右边距使用负值</div><div class="line">    NSLayoutConstraint *constraintBottom = [NSLayoutConstraint constraintWithItem:subView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeBottom multiplier:1.0 constant:-40];</div><div class="line">    NSLayoutConstraint *constraintRight = [NSLayoutConstraint constraintWithItem:subView attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeRight multiplier:1.0 constant:-40];</div><div class="line">    </div><div class="line">    // 将四条约束加进数组中</div><div class="line">    NSArray *array = [NSArray arrayWithObjects:constraintTop, constraintLeft, constraintBottom, constraintRight, nil];</div><div class="line">    // 把约束条件设置到父视图的Contraints中</div><div class="line">    [self.view addConstraints:array];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>可见，系统传统的代码布局有点繁琐。为了简化上述传统布局代码，被广泛应用的第三方框架 <a href="https://github.com/SnapKit/Masonry" target="_blank" rel="external">Masonry</a> 对<strong>AutoLayout</strong> 进行了封装，Swift版则是 <a href="https://github.com/SnapKit/SnapKit" target="_blank" rel="external">SnapKit</a>。这篇文章就是针对 <strong>Masonry</strong> 源代码的解析与学习笔记。在这之前，如下图所示，是 <strong>Masonry</strong> 源代码的结构图：</p>
-<p><img src="https://user-gold-cdn.xitu.io/2018/4/12/162b7c2627163503?w=1000&amp;h=1333&amp;f=png&amp;s=1482587" alt="Masonry 源码结构图"></p>
-<h1 id="2-顺藤摸瓜：Masonry链式语法的调用栈解析"><a href="#2-顺藤摸瓜：Masonry链式语法的调用栈解析" class="headerlink" title="2. 顺藤摸瓜：Masonry链式语法的调用栈解析"></a>2. 顺藤摸瓜：Masonry链式语法的调用栈解析</h1><h3 id="2-1-mas-makeConstraints：外部调用"><a href="#2-1-mas-makeConstraints：外部调用" class="headerlink" title="2.1 mas_makeConstraints：外部调用"></a>2.1 <strong><code>mas_makeConstraints</code></strong>：外部调用</h3><ul>
-<li>调用例子</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">#import &quot;Masonry.h&quot;</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">[self.containerView addSubview:self.bannerView];</div><div class="line">[self.bannerView mas_makeConstraints:^(MASConstraintMaker *make) &#123;</div><div class="line">    make.leading.equalTo(self.containerView.mas_leading);</div><div class="line">    make.top.equalTo(self.containerView.mas_top);</div><div class="line">    make.trailing.equalTo(self.containerView.mas_trailing);</div><div class="line">    make.height.equalTo(@(kViewWidth(131.0)));</div><div class="line">&#125;];</div></pre></td></tr></table></figure>
-<h3 id="2-2-mas-makeConstraints：实现原理，通过导入的头文件分析"><a href="#2-2-mas-makeConstraints：实现原理，通过导入的头文件分析" class="headerlink" title="2.2 mas_makeConstraints：实现原理，通过导入的头文件分析"></a>2.2 <strong><code>mas_makeConstraints</code></strong>：实现原理，通过导入的头文件分析</h3><ul>
-<li>Masonry.h</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">#import &lt;Foundation/Foundation.h&gt;</div><div class="line"></div><div class="line">//! Project version number for Masonry.</div><div class="line">FOUNDATION_EXPORT double MasonryVersionNumber;</div><div class="line"></div><div class="line">//! Project version string for Masonry.</div><div class="line">FOUNDATION_EXPORT const unsigned char MasonryVersionString[];</div><div class="line"></div><div class="line">#import &quot;MASUtilities.h&quot;</div><div class="line">#import &quot;View+MASAdditions.h&quot;</div><div class="line">#import &quot;View+MASShorthandAdditions.h&quot;</div><div class="line">#import &quot;ViewController+MASAdditions.h&quot;</div><div class="line">#import &quot;NSArray+MASAdditions.h&quot;</div><div class="line">#import &quot;NSArray+MASShorthandAdditions.h&quot;</div><div class="line">#import &quot;MASConstraint.h&quot;</div><div class="line">#import &quot;MASCompositeConstraint.h&quot;</div><div class="line">#import &quot;MASViewAttribute.h&quot;</div><div class="line">#import &quot;MASViewConstraint.h&quot;</div><div class="line">#import &quot;MASConstraintMaker.h&quot;</div><div class="line">#import &quot;MASLayoutConstraint.h&quot;</div><div class="line">#import &quot;NSLayoutConstraint+MASDebugAdditions.h&quot;</div></pre></td></tr></table></figure>
-<blockquote>
-<p>其中<code>View+MASAdditions</code>分类为<code>UIView</code>添加了<code>mas_makeConstraints</code>方法</p>
-</blockquote>
-<ul>
-<li>View+MASAdditions.m</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">- (NSArray *)mas_makeConstraints:(void(^)(MASConstraintMaker *))block &#123;</div><div class="line">    self.translatesAutoresizingMaskIntoConstraints = NO;</div><div class="line">    MASConstraintMaker *constraintMaker = [[MASConstraintMaker alloc] initWithView:self];</div><div class="line">    block(constraintMaker);</div><div class="line">    return [constraintMaker install];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<ul>
-<li>MASConstraintMaker.m<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">@interface MASConstraintMaker () &lt;MASConstraintDelegate&gt;</div><div class="line"></div><div class="line">@property (nonatomic, weak) MAS_VIEW *view;</div><div class="line">@property (nonatomic, strong) NSMutableArray *constraints;</div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">- (id)initWithView:(MAS_VIEW *)view &#123;</div><div class="line">    self = [super init];</div><div class="line">    if (!self) return nil;</div><div class="line">    </div><div class="line">    self.view = view;</div><div class="line">    self.constraints = NSMutableArray.new;</div><div class="line">    </div><div class="line">    return self;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="2-3-top：通过MASConstraintMaker类源码分析"><a href="#2-3-top：通过MASConstraintMaker类源码分析" class="headerlink" title="2.3  .top：通过MASConstraintMaker类源码分析"></a>2.3  <strong><code>.top</code></strong>：通过<code>MASConstraintMaker</code>类源码分析</h3><p>先分析设置 <strong>第一个约束属性</strong> 的情况（且唯一一个）：例如<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">make.top.equalTo(self.containerView.mas_top);</div></pre></td></tr></table></figure></p>
-<h6 id="2-3-1-MASConstraintMaker的分析"><a href="#2-3-1-MASConstraintMaker的分析" class="headerlink" title="2.3.1 MASConstraintMaker的分析"></a>2.3.1 MASConstraintMaker的分析</h6><ul>
-<li>MASConstraintMaker.m<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">- (MASConstraint *)top &#123;</div><div class="line">    return [self addConstraintWithLayoutAttribute:NSLayoutAttributeTop];</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (MASConstraint *)addConstraintWithLayoutAttribute:(NSLayoutAttribute)layoutAttribute &#123;</div><div class="line">    return [self constraint:nil addConstraintWithLayoutAttribute:layoutAttribute];</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (MASConstraint *)constraint:(MASConstraint *)constraint addConstraintWithLayoutAttribute:(NSLayoutAttribute)layoutAttribute &#123;</div><div class="line">    MASViewAttribute *viewAttribute = [[MASViewAttribute alloc] initWithView:self.view layoutAttribute:layoutAttribute];</div><div class="line">    MASViewConstraint *newConstraint = [[MASViewConstraint alloc] initWithFirstViewAttribute:viewAttribute];</div><div class="line">    if ([constraint isKindOfClass:MASViewConstraint.class]) &#123;</div><div class="line">        //replace with composite constraint</div><div class="line">        NSArray *children = @[constraint, newConstraint];</div><div class="line">        MASCompositeConstraint *compositeConstraint = [[MASCompositeConstraint alloc] initWithChildren:children];</div><div class="line">        compositeConstraint.delegate = self;</div><div class="line">        [self constraint:constraint shouldBeReplacedWithConstraint:compositeConstraint];</div><div class="line">        return compositeConstraint;</div><div class="line">    &#125;</div><div class="line">    if (!constraint) &#123;</div><div class="line">        newConstraint.delegate = self;</div><div class="line">        [self.constraints addObject:newConstraint];</div><div class="line">    &#125;</div><div class="line">    return newConstraint;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>该方法返回的<code>newConstraint</code>是一个<code>MASViewConstraint</code>类的示例，而<code>MASViewConstraint</code>类又是<code>MASConstraint</code>的子类，返回类型写成<code>MASConstraint</code>没毛病。</p>
-<p>代码较多，暂时可以只先看<code>if (!constraint)</code>里面的代码。可见，最后设置 <code>newConstraint</code>对象代理为<code>self</code> (即 <code>MASConstraintMaker</code>)，并添加到一开始准备好的 self.constraints 数组中，返回。</p>
-<p>其中，设置 <code>MASViewConstraint</code> 类 <code>newConstraint</code> 对象的 <code>MASConstraintDelegate</code> 代理为<code>self</code> (即 <code>MASConstraintMaker</code>)，其作用就是为了能够同时设置<strong><em>多个约束属性</em></strong>！即链式语法。</p>
-<ul>
-<li>MASConstraint+Private.h<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">@protocol MASConstraintDelegate &lt;NSObject&gt;</div><div class="line"></div><div class="line">/**</div><div class="line"> *	Notifies the delegate when the constraint needs to be replaced with another constraint. For example</div><div class="line"> *  A MASViewConstraint may turn into a MASCompositeConstraint when an array is passed to one of the equality blocks</div><div class="line"> */</div><div class="line">- (void)constraint:(MASConstraint *)constraint shouldBeReplacedWithConstraint:(MASConstraint *)replacementConstraint;</div><div class="line"></div><div class="line">- (MASConstraint *)constraint:(MASConstraint *)constraint addConstraintWithLayoutAttribute:(NSLayoutAttribute)layoutAttribute;</div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h6 id="2-3-2-MASConstraintMaker的继续分析"><a href="#2-3-2-MASConstraintMaker的继续分析" class="headerlink" title="2.3.2 MASConstraintMaker的继续分析"></a>2.3.2 MASConstraintMaker的继续分析</h6><p>第2.3.1节的<code>MASConstraintMaker.m</code>代码中，先是初始化了 <code>MASViewAttribute</code> 对象并保存了 view、item以及 <code>NSLayoutAttribute</code> 三个属性。</p>
-<ul>
-<li>MASViewAttribute.m<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">- (id)initWithView:(MAS_VIEW *)view layoutAttribute:(NSLayoutAttribute)layoutAttribute &#123;</div><div class="line">    self = [self initWithView:view item:view layoutAttribute:layoutAttribute];</div><div class="line">    return self;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (id)initWithView:(MAS_VIEW *)view item:(id)item layoutAttribute:(NSLayoutAttribute)layoutAttribute &#123;</div><div class="line">    self = [super init];</div><div class="line">    if (!self) return nil;</div><div class="line">    </div><div class="line">    _view = view;</div><div class="line">    _item = item;</div><div class="line">    _layoutAttribute = layoutAttribute;</div><div class="line">    </div><div class="line">    return self;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>然后又初始化了 <code>MASViewConstraint</code> 对象，内部配置了些默认参数并保存了如上的第一个约束参数 <code>MASViewAttribute</code>。</p>
-<ul>
-<li>MASViewConstraint.m<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">- (id)initWithFirstViewAttribute:(MASViewAttribute *)firstViewAttribute &#123;</div><div class="line">    self = [super init];</div><div class="line">    if (!self) return nil;</div><div class="line">    </div><div class="line">    _firstViewAttribute = firstViewAttribute;</div><div class="line">    self.layoutPriority = MASLayoutPriorityRequired;</div><div class="line">    self.layoutMultiplier = 1;</div><div class="line">    </div><div class="line">    return self;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="2-4-equalTo-：通过基类MASConstraint及其子类MASViewConstraint分析"><a href="#2-4-equalTo-：通过基类MASConstraint及其子类MASViewConstraint分析" class="headerlink" title="2.4 .equalTo ：通过基类MASConstraint及其子类MASViewConstraint分析"></a>2.4 <strong><code>.equalTo</code></strong> ：通过基类<code>MASConstraint</code>及其子类<code>MASViewConstraint</code>分析</h3><p> <strong>第一个约束属性</strong> 设置完后，走到<code>.equalTo</code>时，前面返回已经是一个 <code>MASViewConstraint</code>(继承自<code>MASConstraint</code>) 对象了，因而调用的是在基类<code>MASConstraint</code>中声明并实现的block属性getter方法。</p>
-<ul>
-<li>MASConstraint.m</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">- (MASConstraint * (^)(id))equalTo &#123;</div><div class="line">    return ^id(id attribute) &#123;</div><div class="line">        return self.equalToWithRelation(attribute, NSLayoutRelationEqual);</div><div class="line">    &#125;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>其中，基类 <code>MASConstraint</code> 仅仅声明，并没有实现<code>equalToWithRelation</code>抽象方法。但是，如2.3节中的链式语法<code>.top</code>，该方法返回的<code>newConstraint</code>实际是其子类–<code>MASViewConstraint</code>类的实例，故而可调用子类<code>MASViewConstraint</code>实现的<code>equalToWithRelation</code>方法：</p>
-<ul>
-<li>MASViewConstraint.m<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">- (MASConstraint * (^)(id, NSLayoutRelation))equalToWithRelation &#123;</div><div class="line">    return ^id(id attribute, NSLayoutRelation relation) &#123;</div><div class="line">        if ([attribute isKindOfClass:NSArray.class]) &#123;</div><div class="line">            NSAssert(!self.hasLayoutRelation, @&quot;Redefinition of constraint relation&quot;);</div><div class="line">            NSMutableArray *children = NSMutableArray.new;</div><div class="line">            for (id attr in attribute) &#123;</div><div class="line">                MASViewConstraint *viewConstraint = [self copy];</div><div class="line">                viewConstraint.layoutRelation = relation;</div><div class="line">                viewConstraint.secondViewAttribute = attr;</div><div class="line">                [children addObject:viewConstraint];</div><div class="line">            &#125;</div><div class="line">            MASCompositeConstraint *compositeConstraint = [[MASCompositeConstraint alloc] initWithChildren:children];</div><div class="line">            compositeConstraint.delegate = self.delegate;</div><div class="line">            [self.delegate constraint:self shouldBeReplacedWithConstraint:compositeConstraint];</div><div class="line">            return compositeConstraint;</div><div class="line">        &#125; else &#123;</div><div class="line">            NSAssert(!self.hasLayoutRelation || self.layoutRelation == relation &amp;&amp; [attribute isKindOfClass:NSValue.class], @&quot;Redefinition of constraint relation&quot;);</div><div class="line">            self.layoutRelation = relation;</div><div class="line">            self.secondViewAttribute = attribute;</div><div class="line">            return self;</div><div class="line">        &#125;</div><div class="line">    &#125;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>代码较多，暂时可先看<code>else {</code>里面的代码。</p>
-<h5 id="1-self-layoutRelation-relation"><a href="#1-self-layoutRelation-relation" class="headerlink" title="(1) self.layoutRelation = relation;"></a>(1) self.layoutRelation = relation;</h5><p>首先是 <code>self.layoutRelation</code> 保存了约束关系且重写了 <code>set</code> 方法，在里面用 <code>self.hasLayoutRelation</code> 这个 <code>BOOL</code> 标识已经有约束关系。</p>
-<ul>
-<li>MASViewConstraint.m<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">- (void)setLayoutRelation:(NSLayoutRelation)layoutRelation &#123;</div><div class="line">    _layoutRelation = layoutRelation;</div><div class="line">    self.hasLayoutRelation = YES;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h6 id="2-self-secondViewAttribute-attribute"><a href="#2-self-secondViewAttribute-attribute" class="headerlink" title="(2) self.secondViewAttribute = attribute;"></a>(2) self.secondViewAttribute = attribute;</h6><p>然后同样是重写了 <code>self.secondViewAttribute</code> 的 <code>set</code> 方法，这里会根据不同的情况做不同的操作。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">- (void)setSecondViewAttribute:(id)secondViewAttribute &#123;</div><div class="line">    if ([secondViewAttribute isKindOfClass:NSValue.class]) &#123;</div><div class="line">        [self setLayoutConstantWithValue:secondViewAttribute];</div><div class="line">    &#125; else if ([secondViewAttribute isKindOfClass:MAS_VIEW.class]) &#123;</div><div class="line">        _secondViewAttribute = [[MASViewAttribute alloc] initWithView:secondViewAttribute layoutAttribute:self.firstViewAttribute.layoutAttribute];</div><div class="line">    &#125; else if ([secondViewAttribute isKindOfClass:MASViewAttribute.class]) &#123;</div><div class="line">        MASViewAttribute *attr = secondViewAttribute;</div><div class="line">        if (attr.layoutAttribute == NSLayoutAttributeNotAnAttribute) &#123;</div><div class="line">            _secondViewAttribute = [[MASViewAttribute alloc] initWithView:attr.view item:attr.item layoutAttribute:self.firstViewAttribute.layoutAttribute];;</div><div class="line">        &#125; else &#123;</div><div class="line">            _secondViewAttribute = secondViewAttribute;</div><div class="line">        &#125;</div><div class="line">    &#125; else &#123;</div><div class="line">        NSAssert(NO, @&quot;attempting to add unsupported attribute: %@&quot;, secondViewAttribute);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>其中，第1种情况对应的是：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">make.height.equalTo(@20.0f)</div></pre></td></tr></table></figure></p>
-<p>传入 <code>NSValue</code> 的时, 会直接设置 <code>constraint</code> 的 <code>offset</code>, <code>centerOffset</code>, <code>sizeOffset</code>, 或者 <code>insets</code>。调用栈如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line">//MASViewConstraint.m</div><div class="line">if ([secondViewAttribute isKindOfClass:NSValue.class]) &#123;</div><div class="line">    [self setLayoutConstantWithValue:secondViewAttribute];</div><div class="line">&#125;</div><div class="line">//MASConstraint.m</div><div class="line">- (void)setLayoutConstantWithValue:(NSValue *)value &#123;</div><div class="line">    if ([value isKindOfClass:NSNumber.class]) &#123;</div><div class="line">        self.offset = [(NSNumber *)value doubleValue];</div><div class="line">    &#125; else if (strcmp(value.objCType, @encode(CGPoint)) == 0) &#123;</div><div class="line">        CGPoint point;</div><div class="line">        [value getValue:&amp;point];</div><div class="line">        self.centerOffset = point;</div><div class="line">    &#125; else if (strcmp(value.objCType, @encode(CGSize)) == 0) &#123;</div><div class="line">        CGSize size;</div><div class="line">        [value getValue:&amp;size];</div><div class="line">        self.sizeOffset = size;</div><div class="line">    &#125; else if (strcmp(value.objCType, @encode(MASEdgeInsets)) == 0) &#123;</div><div class="line">        MASEdgeInsets insets;</div><div class="line">        [value getValue:&amp;insets];</div><div class="line">        self.insets = insets;</div><div class="line">    &#125; else &#123;</div><div class="line">        NSAssert(NO, @&quot;attempting to set layout constant with unsupported value: %@&quot;, value);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">//MASViewConstraint.m</div><div class="line">- (void)setOffset:(CGFloat)offset &#123;</div><div class="line">    self.layoutConstant = offset;</div><div class="line">&#125;</div><div class="line">//MASViewConstraint.m</div><div class="line">- (void)setLayoutConstant:(CGFloat)layoutConstant &#123;</div><div class="line">    _layoutConstant = layoutConstant;</div><div class="line">#if TARGET_OS_MAC &amp;&amp; !(TARGET_OS_IPHONE || TARGET_OS_TV)</div><div class="line">    if (self.useAnimator) &#123;</div><div class="line">        [self.layoutConstraint.animator setConstant:layoutConstant];</div><div class="line">    &#125; else &#123;</div><div class="line">        self.layoutConstraint.constant = layoutConstant;</div><div class="line">    &#125;</div><div class="line">#else</div><div class="line">    self.layoutConstraint.constant = layoutConstant;</div><div class="line">#endif</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>第2种情况，一般是直接传入一个视图：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">make.top.equalTo(self)</div></pre></td></tr></table></figure></p>
-<p>这时, 就会初始化一个 <code>layoutAttribute</code> 属性与 <code>firstViewArribute</code> 相同的 <code>MASViewAttribute</code>, 上面的代码就会使视图与 view 顶部对齐。</p>
-<p>第3种情况，会传入一个视图的 <code>MASViewAttribute</code>:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">make.top.equalTo(view.mas_bottom);</div></pre></td></tr></table></figure></p>
-<p>使用这种写法时, 一般是因为约束的方向不同. 这行代码会使视图的顶部与 view 的底部对齐。</p>
-<h3 id="2-5-height-width：Masonry的链式语法特性"><a href="#2-5-height-width：Masonry的链式语法特性" class="headerlink" title="2.5 .height.width：Masonry的链式语法特性"></a>2.5 <code>.height.width</code>：Masonry的链式语法特性</h3><ul>
-<li>调用例子<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">make.height.width.equalTo(@20);</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>其中，<code>.height</code> 设置<strong>第一个约束属性</strong>时，调用的是 <code>MASConstraintMaker.m</code> 中的 <code>.height</code>， <code>addConstraintWithLayoutAttribute</code>，以及<code>- (MASConstraint *)constraint:(MASConstraint *)constraint addConstraintWithLayoutAttribute:(NSLayoutAttribute)layoutAttribute</code>。</p>
-<ul>
-<li>MASConstraintMaker.m<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">- (MASConstraint *)height &#123;</div><div class="line">    return [self addConstraintWithLayoutAttribute:NSLayoutAttributeHeight];</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (MASConstraint *)addConstraintWithLayoutAttribute:(NSLayoutAttribute)layoutAttribute &#123;</div><div class="line">    return [self constraint:nil addConstraintWithLayoutAttribute:layoutAttribute];</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (MASConstraint *)constraint:(MASConstraint *)constraint addConstraintWithLayoutAttribute:(NSLayoutAttribute)layoutAttribute &#123;</div><div class="line">    MASViewAttribute *viewAttribute = [[MASViewAttribute alloc] initWithView:self.view layoutAttribute:layoutAttribute];</div><div class="line">    MASViewConstraint *newConstraint = [[MASViewConstraint alloc] initWithFirstViewAttribute:viewAttribute];</div><div class="line">    if ([constraint isKindOfClass:MASViewConstraint.class]) &#123;</div><div class="line">        //replace with composite constraint</div><div class="line">        NSArray *children = @[constraint, newConstraint];</div><div class="line">        MASCompositeConstraint *compositeConstraint = [[MASCompositeConstraint alloc] initWithChildren:children];</div><div class="line">        compositeConstraint.delegate = self;</div><div class="line">        [self constraint:constraint shouldBeReplacedWithConstraint:compositeConstraint];</div><div class="line">        return compositeConstraint;</div><div class="line">    &#125;</div><div class="line">    if (!constraint) &#123;</div><div class="line">        newConstraint.delegate = self;</div><div class="line">        [self.constraints addObject:newConstraint];</div><div class="line">    &#125;</div><div class="line">    return newConstraint;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>该方法调用栈返回的是一个<code>MASViewConstraint</code>(父类是 <code>MASConstraint</code>) 对象。</p>
-<p>因此，通过 <code>.width</code> 设置<strong>第二个约束属性</strong>的时候，调用的先是基类 <code>MASConstraint.m</code> 中的<code>.width</code>，然后调用由子类<code>MASViewConstraint</code>实现的<code>addConstraintWithLayoutAttribute</code>方法。这时候的调用栈为：</p>
-<ul>
-<li><p>MASConstraint.m</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">- (MASConstraint *)width &#123;</div><div class="line">    return [self addConstraintWithLayoutAttribute:NSLayoutAttributeWidth];</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (MASConstraint *)addConstraintWithLayoutAttribute:(NSLayoutAttribute __unused)layoutAttribute &#123;</div><div class="line">    MASMethodNotImplemented();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>MASViewConstraint.m</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">- (MASConstraint *)addConstraintWithLayoutAttribute:(NSLayoutAttribute)layoutAttribute &#123;</div><div class="line">    NSAssert(!self.hasLayoutRelation, @&quot;Attributes should be chained before defining the constraint relation&quot;);</div><div class="line"></div><div class="line">    return [self.delegate constraint:self addConstraintWithLayoutAttribute:layoutAttribute];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>这其中，<code>self.delegate</code> 是什么呢？如2.3.1节所述，MASConstraintMaker.m 中设置了 <code>MASViewConstraint</code> 类 <code>newConstraint</code> 对象的 <code>MASConstraintDelegate</code> 代理为<code>“self”</code> (即 <code>MASConstraintMaker</code>)，其作用就是为了能够同时设置<strong><em>多个约束属性</em></strong>，即链式语法。所以，第二个设置约束属性跟第一个设置约束属性<strong><em>最终</em></strong> 调用的方法一样（都是MASConstraintMaker.m中实现的<code>addConstraintWithLayoutAttribute</code>）。</p>
-<ul>
-<li>MASConstraintMaker.m<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">- (MASConstraint *)constraint:(MASConstraint *)constraint addConstraintWithLayoutAttribute:(NSLayoutAttribute)layoutAttribute &#123;</div><div class="line">    MASViewAttribute *viewAttribute = [[MASViewAttribute alloc] initWithView:self.view layoutAttribute:layoutAttribute];</div><div class="line">    MASViewConstraint *newConstraint = [[MASViewConstraint alloc] initWithFirstViewAttribute:viewAttribute];</div><div class="line">    if ([constraint isKindOfClass:MASViewConstraint.class]) &#123;</div><div class="line">        //replace with composite constraint</div><div class="line">        NSArray *children = @[constraint, newConstraint];</div><div class="line">        MASCompositeConstraint *compositeConstraint = [[MASCompositeConstraint alloc] initWithChildren:children];</div><div class="line">        compositeConstraint.delegate = self;</div><div class="line">        [self constraint:constraint shouldBeReplacedWithConstraint:compositeConstraint];</div><div class="line">        return compositeConstraint;</div><div class="line">    &#125;</div><div class="line">    if (!constraint) &#123;</div><div class="line">        newConstraint.delegate = self;</div><div class="line">        [self.constraints addObject:newConstraint];</div><div class="line">    &#125;</div><div class="line">    return newConstraint;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>当设置 <strong>第二次约束属性</strong> 并执行完之后，我们还可以发现 <code>constraint</code> 不为 <code>nil</code>，而是一个 <code>MASViewConstraint</code> 对象 ，所以该<strong>方法调用栈</strong>返回的不是 <code>MASViewConstraint</code> 对象，而是 <code>MASCompositeConstraint</code> 这个对象了，下面我们来看看这个类。</p>
-<h3 id="2-6-约束的集合：-MASCompositeConstraint"><a href="#2-6-约束的集合：-MASCompositeConstraint" class="headerlink" title="2.6 约束的集合： MASCompositeConstraint"></a>2.6 约束的集合： <code>MASCompositeConstraint</code></h3><p><code>MASCompositeConstraint</code> 是约束的集合，它里面有个私有的数组用来存放多个 <code>MASViewAttribute</code> 对象。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">make.height.width.equalTo(@20)</div></pre></td></tr></table></figure>
-<p>当设置 <strong>第二个约束属性</strong>，走到 <code>.width</code> 时，最终走的是：</p>
-<ul>
-<li>MASConstraintMaker.m</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">- (MASConstraint *)constraint:(MASConstraint *)constraint addConstraintWithLayoutAttribute:(NSLayoutAttribute)layoutAttribute &#123;</div><div class="line">    MASViewAttribute *viewAttribute = [[MASViewAttribute alloc] initWithView:self.view layoutAttribute:layoutAttribute];</div><div class="line">    MASViewConstraint *newConstraint = [[MASViewConstraint alloc] initWithFirstViewAttribute:viewAttribute];</div><div class="line">    if ([constraint isKindOfClass:MASViewConstraint.class]) &#123;</div><div class="line">        //replace with composite constraint</div><div class="line">        NSArray *children = @[constraint, newConstraint];</div><div class="line">        MASCompositeConstraint *compositeConstraint = [[MASCompositeConstraint alloc] initWithChildren:children];</div><div class="line">        compositeConstraint.delegate = self;</div><div class="line">        [self constraint:constraint shouldBeReplacedWithConstraint:compositeConstraint];</div><div class="line">        return compositeConstraint;</div><div class="line">    &#125;</div><div class="line">   ....</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>其中，可以成功的走进 <code>if</code>判读里面，将 <code>.height</code> <code>.wight</code> 两条约束 <code>MASViewConstraint</code>对象塞到数组里，创建 <code>MASCompositeConstraint</code> 对象，并且同样设置了 <code>delegate</code>，最后还把 <code>self.constraints</code> 里面事先添加好的约束 <code>MASViewConstraint</code> 对象替换成了 <code>MASCompositeConstraint</code> 对象。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">#pragma mark - MASConstraintDelegate</div><div class="line"></div><div class="line">- (void)constraint:(MASConstraint *)constraint shouldBeReplacedWithConstraint:(MASConstraint *)replacementConstraint &#123;</div><div class="line">    NSUInteger index = [self.childConstraints indexOfObject:constraint];</div><div class="line">    NSAssert(index != NSNotFound, @&quot;Could not find constraint %@&quot;, constraint);</div><div class="line">    [self.childConstraints replaceObjectAtIndex:index withObject:replacementConstraint];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>另外，我们可以点击 <code>MASCompositeConstraint</code> 初始化方法里看看，它内部会通过 <code>for</code> 循环，把数组里面的所有 <code>MASViewConstraint</code> 对象同样设置了 <code>delegate</code>。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">- (id)initWithChildren:(NSArray *)children &#123;</div><div class="line">    self = [super init];</div><div class="line">    if (!self) return nil;</div><div class="line"></div><div class="line">    _childConstraints = [children mutableCopy];</div><div class="line">    for (MASConstraint *constraint in _childConstraints) &#123;</div><div class="line">        constraint.delegate = self;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    return self;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>这么做的目的同时是为了能够继续链式调用，比如我们再设置<strong>第三个约束属性</strong> <code>.left</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">make.height.width.left.equalTo(@20);</div></pre></td></tr></table></figure>
-<p>这时候的调用栈如下：</p>
-<ul>
-<li><p>MASConstraint.m</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">- (MASConstraint *)left &#123;</div><div class="line">    return [self addConstraintWithLayoutAttribute:NSLayoutAttributeLeft];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>MASCompositeConstraint.m</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">- (MASConstraint *)addConstraintWithLayoutAttribute:(NSLayoutAttribute)layoutAttribute &#123;</div><div class="line">    [self constraint:self addConstraintWithLayoutAttribute:layoutAttribute];</div><div class="line">    return self;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (MASConstraint *)constraint:(MASConstraint __unused *)constraint addConstraintWithLayoutAttribute:(NSLayoutAttribute)layoutAttribute &#123;</div><div class="line">    id&lt;MASConstraintDelegate&gt; strongDelegate = self.delegate;</div><div class="line">    MASConstraint *newConstraint = [strongDelegate constraint:self addConstraintWithLayoutAttribute:layoutAttribute];</div><div class="line">    newConstraint.delegate = self;</div><div class="line">    [self.childConstraints addObject:newConstraint];</div><div class="line">    return newConstraint;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>可以发现，这里又是通过 delegate 方式，调用 <code>MASConstraintMaker</code> 工厂类中的：</p>
-<ul>
-<li>MASConstraintMaker.m</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">- (MASConstraint *)constraint:(MASConstraint *)constraint addConstraintWithLayoutAttribute:(NSLayoutAttribute)layoutAttribute &#123;</div><div class="line">    MASViewAttribute *viewAttribute = [[MASViewAttribute alloc] initWithView:self.view layoutAttribute:layoutAttribute];</div><div class="line">    MASViewConstraint *newConstraint = [[MASViewConstraint alloc] initWithFirstViewAttribute:viewAttribute];</div><div class="line">    if ([constraint isKindOfClass:MASViewConstraint.class]) &#123;</div><div class="line">        //replace with composite constraint</div><div class="line">        NSArray *children = @[constraint, newConstraint];</div><div class="line">        MASCompositeConstraint *compositeConstraint = [[MASCompositeConstraint alloc] initWithChildren:children];</div><div class="line">        compositeConstraint.delegate = self;</div><div class="line">        [self constraint:constraint shouldBeReplacedWithConstraint:compositeConstraint];</div><div class="line">        return compositeConstraint;</div><div class="line">    &#125;</div><div class="line">    if (!constraint) &#123;</div><div class="line">        newConstraint.delegate = self;</div><div class="line">        [self.constraints addObject:newConstraint];</div><div class="line">    &#125;</div><div class="line">    return newConstraint;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>此时，注意到两个 <code>if</code> 体都没有走进去，既不像第一次，也不像第二次约束设置的时候。所以，这次仅仅是初始化了个 <code>MASViewConstraint</code> 对象就直接返回了，然后回到上个方法中添加到 <code>MASCompositeConstraint</code> 的私有数组 <code>self.childConstraints</code> 中返回备用。</p>
-<p><img src="https://user-gold-cdn.xitu.io/2018/4/12/162b7c2627052cf8?w=1240&amp;h=338&amp;f=png&amp;s=196925" alt="三处的同名方法最终调用的还是MASConstraintMaker中的方法"></p>
-<p>关于<strong><em>三次</em></strong> 约束设置之后的 <code>.equalTo(@20)</code>，因为执行完 <code>.left</code> 时，返回的是 <code>MASCompositeConstraint</code> 对象，到这一步的时候会有点变化，调用栈如下：</p>
-<ul>
-<li><p>MASConstraint.m</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">- (MASConstraint * (^)(id))equalTo &#123;</div><div class="line">    return ^id(id attribute) &#123;</div><div class="line">        return self.equalToWithRelation(attribute, NSLayoutRelationEqual);</div><div class="line">    &#125;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>MASCompositeConstraint.m</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">- (MASConstraint * (^)(id, NSLayoutRelation))equalToWithRelation &#123;</div><div class="line">    return ^id(id attr, NSLayoutRelation relation) &#123;</div><div class="line">        for (MASConstraint *constraint in self.childConstraints.copy) &#123;</div><div class="line">            constraint.equalToWithRelation(attr, relation);</div><div class="line">        &#125;</div><div class="line">        return self;</div><div class="line">    &#125;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>可以发现，这里会循环之前准备好的私有数组 <code>self.childConstraints</code>，调用 MASViewConstraint.m 的 <code>equalToWithRelation</code> 方法，和上面讲的一样了。</p>
-<h3 id="2-7-添加约束到视图"><a href="#2-7-添加约束到视图" class="headerlink" title="2.7 添加约束到视图"></a>2.7 添加约束到视图</h3><p><code>mas_makeConstraints</code> 方法的最后会调用 <code>[constraintMaker install]</code> 方法来添加所有存储在 <code>self.constraints</code> 数组中的所有约束。</p>
-<ul>
-<li>MASConstraintMaker.m<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"> - (NSArray *)install &#123;</div><div class="line">    if (self.removeExisting) &#123;</div><div class="line">        NSArray *installedConstraints = [MASViewConstraint installedConstraintsForView:self.view];</div><div class="line">        for (MASConstraint *constraint in installedConstraints) &#123;</div><div class="line">            [constraint uninstall];</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    NSArray *constraints = self.constraints.copy;</div><div class="line">    for (MASConstraint *constraint in constraints) &#123;</div><div class="line">        constraint.updateExisting = self.updateExisting;</div><div class="line">        [constraint install];</div><div class="line">    &#125;</div><div class="line">    [self.constraints removeAllObjects];</div><div class="line">    return constraints;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>(1). 如果需要重新构建约束，也就是 调用 <code>mas_remakeConstraints:</code>方法，会先取出视图的所有约束，然后通过一个 <code>for</code> 循环，调用 <code>uninstall</code> 来清空所有约束：</p>
-<p>(2). 如果不需要重新构建约束，会取出 <code>self.constraints</code> 数组中准备好的约束，通过 <code>for</code> 循环，调用 <code>install</code> 来把约束添加到视图上。</p>
-<p>关于 <code>install</code> ，是基类 <code>MASConstraint</code> 的抽象方法，方法体由<code>MASViewConstraint</code> 或 <code>MASCompositeConstraint</code> 实现。而 <code>MASCompositeConstraint</code> 的 <code>install</code>方法体中其实也是调用的由<code>MASViewConstraint</code>类实现的<code>install</code>。</p>
-<ul>
-<li><p>MASConstraint.m</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- (void)install &#123; MASMethodNotImplemented(); &#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>MASCompositeConstraint.m</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">- (void)install &#123;</div><div class="line">    for (MASConstraint *constraint in self.childConstraints) &#123;</div><div class="line">        constraint.updateExisting = self.updateExisting;</div><div class="line">        [constraint install];</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>MASViewConstraint.m</p>
-</li>
-</ul>
-<p>这里代码较多，就不分开解析了，直接分为7步写到源码的注释中，如下所示：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div></pre></td><td class="code"><pre><div class="line">- (void)install &#123;</div><div class="line"></div><div class="line">    //【1】如果约束以及存在并是 active 会直接返回。</div><div class="line">    if (self.hasBeenInstalled) &#123;</div><div class="line">        return;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    //【2】如果 self.layoutConstraint 响应了 isActive 方法并且不为空，会激活这条约束并添加到 mas_installedConstraints 数组中，最后返回。</div><div class="line">    if ([self supportsActiveProperty] &amp;&amp; self.layoutConstraint) &#123;</div><div class="line">        self.layoutConstraint.active = YES;</div><div class="line">        [self.firstViewAttribute.view.mas_installedConstraints addObject:self];</div><div class="line">        return;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    //【3】这边是获取即将用于初始化 NSLayoutConstraint 的子类 MASLayoutConstraint 的几个属性。</div><div class="line">    MAS_VIEW *firstLayoutItem = self.firstViewAttribute.item;</div><div class="line">    NSLayoutAttribute firstLayoutAttribute = self.firstViewAttribute.layoutAttribute;</div><div class="line">    MAS_VIEW *secondLayoutItem = self.secondViewAttribute.item;</div><div class="line">    NSLayoutAttribute secondLayoutAttribute = self.secondViewAttribute.layoutAttribute;</div><div class="line">    </div><div class="line"></div><div class="line">    // alignment attributes must have a secondViewAttribute</div><div class="line">    // therefore we assume that is refering to superview</div><div class="line">    // eg make.left.equalTo(@10)</div><div class="line">    //【4】这边是判断当前即将添加的约束是否是 size 类型的并且 self.secondViewAttribute 也就是约束的第二个参数是 nil，（eg make.left.equalTo(@10)）会自动将约束添加到约束的第一个参数视图的 superview 上。</div><div class="line">    if (!self.firstViewAttribute.isSizeAttribute &amp;&amp; !self.secondViewAttribute) &#123;</div><div class="line">        secondLayoutItem = self.firstViewAttribute.view.superview;</div><div class="line">        secondLayoutAttribute = firstLayoutAttribute;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line"></div><div class="line">    //【5】然后就会初始化 NSLayoutConstraint 的子类 MASLayoutConstraint。</div><div class="line">    MASLayoutConstraint *layoutConstraint</div><div class="line">        = [MASLayoutConstraint constraintWithItem:firstLayoutItem</div><div class="line">                                        attribute:firstLayoutAttribute</div><div class="line">                                        relatedBy:self.layoutRelation</div><div class="line">                                           toItem:secondLayoutItem</div><div class="line">                                        attribute:secondLayoutAttribute</div><div class="line">                                       multiplier:self.layoutMultiplier</div><div class="line">                                         constant:self.layoutConstant];</div><div class="line">    </div><div class="line">    layoutConstraint.priority = self.layoutPriority;</div><div class="line">    layoutConstraint.mas_key = self.mas_key;</div><div class="line">    </div><div class="line"></div><div class="line">    //【6】这段代码会先判断是否有约束第二个参数的视图，有的话会寻找约束第一个和第二参数视图的公共 Superview，相当于求两个数的最小公倍数；如果不满足第一个条件，会判断约束第一个参数是否是 size 类型的，是的话直接取到它的视图；最后都不满足会直接取到约束第一个参数视图父视图。</div><div class="line">    if (self.secondViewAttribute.view) &#123;</div><div class="line">        MAS_VIEW *closestCommonSuperview = [self.firstViewAttribute.view mas_closestCommonSuperview:self.secondViewAttribute.view];</div><div class="line">        NSAssert(closestCommonSuperview,</div><div class="line">                 @&quot;couldn&apos;t find a common superview for %@ and %@&quot;,</div><div class="line">                 self.firstViewAttribute.view, self.secondViewAttribute.view);</div><div class="line">        self.installedView = closestCommonSuperview;</div><div class="line">    &#125; else if (self.firstViewAttribute.isSizeAttribute) &#123;</div><div class="line">        self.installedView = self.firstViewAttribute.view;</div><div class="line">    &#125; else &#123;</div><div class="line">        self.installedView = self.firstViewAttribute.view.superview;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    //【7】如果需要升级当前的约束就会获取原有的约束，并替换为新的约束，这样就不需要再次为 view 安装约束。如果原来的 view 中不存在可以升级的约束，那么就会在上一步寻找到的 installedView 上面添加约束。</div><div class="line">    MASLayoutConstraint *existingConstraint = nil;</div><div class="line">    if (self.updateExisting) &#123;</div><div class="line">        existingConstraint = [self layoutConstraintSimilarTo:layoutConstraint];</div><div class="line">    &#125;</div><div class="line">    if (existingConstraint) &#123;</div><div class="line">        // just update the constant</div><div class="line">        existingConstraint.constant = layoutConstraint.constant;</div><div class="line">        self.layoutConstraint = existingConstraint;</div><div class="line">    &#125; else &#123;</div><div class="line">        [self.installedView addConstraint:layoutConstraint];</div><div class="line">        self.layoutConstraint = layoutConstraint;</div><div class="line">        [firstLayoutItem.mas_installedConstraints addObject:self];</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>其中第【6】步中的<code>mas_closestCommonSuperview</code>方法，它会寻找 firstLayoutItem 和 secondLayoutItem 两个视图的公共 superview, 相当于求两个数的最小公倍数.</p>
-<ul>
-<li>View+MASAdditions.m<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">- (instancetype)mas_closestCommonSuperview:(MAS_VIEW *)view &#123;</div><div class="line">    MAS_VIEW *closestCommonSuperview = nil;</div><div class="line"></div><div class="line">    MAS_VIEW *secondViewSuperview = view;</div><div class="line">    while (!closestCommonSuperview &amp;&amp; secondViewSuperview) &#123;</div><div class="line">        MAS_VIEW *firstViewSuperview = self;</div><div class="line">        while (!closestCommonSuperview &amp;&amp; firstViewSuperview) &#123;</div><div class="line">            if (secondViewSuperview == firstViewSuperview) &#123;</div><div class="line">                closestCommonSuperview = secondViewSuperview;</div><div class="line">            &#125;</div><div class="line">            firstViewSuperview = firstViewSuperview.superview;</div><div class="line">        &#125;</div><div class="line">        secondViewSuperview = secondViewSuperview.superview;</div><div class="line">    &#125;</div><div class="line">    return closestCommonSuperview;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h1 id="3-顺藤再摸瓜：Masonry其它链式语法的调用栈解析（选读）"><a href="#3-顺藤再摸瓜：Masonry其它链式语法的调用栈解析（选读）" class="headerlink" title="3. 顺藤再摸瓜：Masonry其它链式语法的调用栈解析（选读）"></a>3. 顺藤再摸瓜：Masonry其它链式语法的调用栈解析（选读）</h1><h3 id="3-1-make-edges-equalTo-view"><a href="#3-1-make-edges-equalTo-view" class="headerlink" title="3.1 make.edges.equalTo(view)"></a>3.1 make.edges.equalTo(view)</h3><ul>
-<li>例子</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">make.edges.equalTo(view)</div></pre></td></tr></table></figure>
-<p>我们再来看看这种写法，调用栈如下：</p>
-<ul>
-<li>MASConstraintMaker.m<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">- (MASConstraint *)edges &#123;</div><div class="line">    return [self addConstraintWithAttributes:MASAttributeTop | MASAttributeLeft | MASAttributeRight | MASAttributeBottom];</div><div class="line">&#125;</div><div class="line">- (MASConstraint *)addConstraintWithAttributes:(MASAttribute)attrs &#123;</div><div class="line">    __unused MASAttribute anyAttribute = (MASAttributeLeft | MASAttributeRight | MASAttributeTop | MASAttributeBottom | MASAttributeLeading</div><div class="line">                                          | MASAttributeTrailing | MASAttributeWidth | MASAttributeHeight | MASAttributeCenterX</div><div class="line">                                          | MASAttributeCenterY | </div><div class="line">                                          </div><div class="line">                    ......</div><div class="line">                        </div><div class="line">    NSMutableArray *attributes = [NSMutableArray array];</div><div class="line">    </div><div class="line">    if (attrs &amp; MASAttributeLeft) [attributes addObject:self.view.mas_left];</div><div class="line">    if (attrs &amp; MASAttributeRight) [attributes addObject:self.view.mas_right];</div><div class="line">    if (attrs &amp; MASAttributeTop) [attributes addObject:self.view.mas_top];</div><div class="line">    </div><div class="line">    				......    </div><div class="line">    </div><div class="line">    NSMutableArray *children = [NSMutableArray arrayWithCapacity:attributes.count];</div><div class="line">    </div><div class="line">    for (MASViewAttribute *a in attributes) &#123;</div><div class="line">        [children addObject:[[MASViewConstraint alloc] initWithFirstViewAttribute:a]];</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    MASCompositeConstraint *constraint = [[MASCompositeConstraint alloc] initWithChildren:children];</div><div class="line">    constraint.delegate = self;</div><div class="line">    [self.constraints addObject:constraint];</div><div class="line">    return constraint;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>代码太多省略了一部分，可以发现这段代码作用就是返回一个包含多条约束的 <code>MASCompositeConstraint</code> 对象，接着后面的操作也都是一样的了。</p>
-<h3 id="3-2-make-edges-equalTo-UIEdgeInsetsMake-0-0f-0-0f-0-0f-0-0f"><a href="#3-2-make-edges-equalTo-UIEdgeInsetsMake-0-0f-0-0f-0-0f-0-0f" class="headerlink" title="3.2 make.edges.equalTo(UIEdgeInsetsMake(0.0f, 0.0f, 0.0f, 0.0f));"></a>3.2 make.edges.equalTo(UIEdgeInsetsMake(0.0f, 0.0f, 0.0f, 0.0f));</h3><p>上面3.1中例子的写法还可以改成这样：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">make.edges.equalTo(UIEdgeInsetsMake(0.0f, 0.0f, 0.0f, 0.0f));</div></pre></td></tr></table></figure>
-<p>这里的 <code>equalTo</code> 需要注意下，它是一个宏，定义在 MASConstraint.h 中：</p>
-<ul>
-<li>MASConstraint.h<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">#define mas_equalTo(...)                 equalTo(MASBoxValue((__VA_ARGS__)))</div><div class="line">#define mas_greaterThanOrEqualTo(...)    greaterThanOrEqualTo(MASBoxValue((__VA_ARGS__)))</div><div class="line">#define mas_lessThanOrEqualTo(...)       lessThanOrEqualTo(MASBoxValue((__VA_ARGS__)))</div><div class="line">#define mas_offset(...)                  valueOffset(MASBoxValue((__VA_ARGS__)))</div><div class="line">#ifdef MAS_SHORTHAND_GLOBALS</div><div class="line">#define equalTo(...)                     mas_equalTo(__VA_ARGS__)</div><div class="line">#define greaterThanOrEqualTo(...)        mas_greaterThanOrEqualTo(__VA_ARGS__)</div><div class="line">#define lessThanOrEqualTo(...)           mas_lessThanOrEqualTo(__VA_ARGS__)</div><div class="line">#define offset(...)                      mas_offset(__VA_ARGS__)</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>代入上述宏定义，前面的代码等效成：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">make.edges.equalTo(MASBoxValue(UIEdgeInsetsMake(0.0f, 0.0f, 0.0f, 0.0f)));</div></pre></td></tr></table></figure></p>
-<p>可以发现，其实里面调用的是 <code>MASBoxValue</code> 这个宏，它将 C 和 Objective-C 语言中的一些基本数据结构比如说 <code>double</code> <code>CGPoint</code> <code>CGSize</code> 这些值用 <code>NSValue</code> 进行包装。</p>
-<p>这里还支持直接调用 size、center 等，具体实现都差不多，就不熬述了：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">make.center.equalTo(CGPointMake(0, 50));</div><div class="line">make.size.equalTo(CGSizeMake(200, 100));</div></pre></td></tr></table></figure>
-<h3 id="3-3-make-height-equalTo-redView-blueView"><a href="#3-3-make-height-equalTo-redView-blueView" class="headerlink" title="3.3 make.height.equalTo(@[redView, blueView])"></a>3.3 make.height.equalTo(@[redView, blueView])</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">make.height.equalTo(@[redView, blueView])</div></pre></td></tr></table></figure>
-<p>再来看看这种传数组的，在走到 <code>.equalTo</code> 时，最终会调用 MASViewConstraint.m 里面的 <code>equalToWithRelation</code> 方法</p>
-<ul>
-<li><p>MASConstraint.m</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">- (MASConstraint * (^)(id))equalTo &#123;</div><div class="line">    return ^id(id attribute) &#123;</div><div class="line">        return self.equalToWithRelation(attribute, NSLayoutRelationEqual);</div><div class="line">    &#125;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>MASViewConstraint.m</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">- (MASConstraint * (^)(id, NSLayoutRelation))equalToWithRelation &#123;</div><div class="line">    return ^id(id attribute, NSLayoutRelation relation) &#123;</div><div class="line">        if ([attribute isKindOfClass:NSArray.class]) &#123;</div><div class="line">            NSAssert(!self.hasLayoutRelation, @&quot;Redefinition of constraint relation&quot;);</div><div class="line">            NSMutableArray *children = NSMutableArray.new;</div><div class="line">            for (id attr in attribute) &#123;</div><div class="line">                MASViewConstraint *viewConstraint = [self copy];</div><div class="line">                viewConstraint.layoutRelation = relation;</div><div class="line">                viewConstraint.secondViewAttribute = attr;</div><div class="line">                [children addObject:viewConstraint];</div><div class="line">            &#125;</div><div class="line">            MASCompositeConstraint *compositeConstraint = [[MASCompositeConstraint alloc] initWithChildren:children];</div><div class="line">            compositeConstraint.delegate = self.delegate;</div><div class="line">            [self.delegate constraint:self shouldBeReplacedWithConstraint:compositeConstraint];</div><div class="line">            return compositeConstraint;</div><div class="line">        &#125; else &#123;   ....    &#125;</div><div class="line">    &#125;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>这边还是遍历数组，并且 <code>MASViewConstraint</code> 实现 <code>NSCopying 协议</code>，调用 <code>[self copy]</code> 会创建 <code>MASViewConstraint</code> 对象<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">- (id)copyWithZone:(NSZone __unused *)zone &#123;</div><div class="line">    MASViewConstraint *constraint = [[MASViewConstraint alloc] initWithFirstViewAttribute:self.firstViewAttribute];</div><div class="line">    constraint.layoutConstant = self.layoutConstant;</div><div class="line">    constraint.layoutRelation = self.layoutRelation;</div><div class="line">    constraint.layoutPriority = self.layoutPriority;</div><div class="line">    constraint.layoutMultiplier = self.layoutMultiplier;</div><div class="line">    constraint.delegate = self.delegate;</div><div class="line">    return constraint;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>然后会根据传的数组里面的 Value 类型来做不同的操作，前面讲过就不熬述了：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">- (void)setSecondViewAttribute:(id)secondViewAttribute &#123;</div><div class="line">    if ([secondViewAttribute isKindOfClass:NSValue.class]) &#123;</div><div class="line">        [self setLayoutConstantWithValue:secondViewAttribute];</div><div class="line">    &#125; else if ([secondViewAttribute isKindOfClass:MAS_VIEW.class]) &#123;</div><div class="line">        _secondViewAttribute = [[MASViewAttribute alloc] initWithView:secondViewAttribute layoutAttribute:self.firstViewAttribute.layoutAttribute];</div><div class="line">    &#125; else if ([secondViewAttribute isKindOfClass:MASViewAttribute.class]) &#123;</div><div class="line">        _secondViewAttribute = secondViewAttribute;</div><div class="line">    &#125; else &#123;</div><div class="line">        NSAssert(NO, @&quot;attempting to add unsupported attribute: %@&quot;, secondViewAttribute);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>最后便是生成 <code>MASCompositeConstraint</code> 对象，并通过 <code>delegate</code> 方式，调用 <code>MASConstraintMaker</code> 的方法，替换 <code>self.constraints</code> 数组里的约束：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">- (void)constraint:(MASConstraint *)constraint shouldBeReplacedWithConstraint:(MASConstraint *)replacementConstraint &#123;</div><div class="line">    NSUInteger index = [self.constraints indexOfObject:constraint];</div><div class="line">    NSAssert(index != NSNotFound, @&quot;Could not find constraint %@&quot;, constraint);</div><div class="line">    [self.constraints replaceObjectAtIndex:index withObject:replacementConstraint];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h1 id="4-举一反三：框架源码的学习启示"><a href="#4-举一反三：框架源码的学习启示" class="headerlink" title="4. 举一反三：框架源码的学习启示"></a>4. 举一反三：框架源码的学习启示</h1><h3 id="4-1-简化的设计模式：工厂类-amp-工厂方法"><a href="#4-1-简化的设计模式：工厂类-amp-工厂方法" class="headerlink" title="4.1 简化的设计模式：工厂类&amp;工厂方法"></a>4.1 简化的设计模式：工厂类&amp;工厂方法</h3><p><code>MASConstraintMaker</code>类就是一个工厂类，负责创建<code>MASConstraint</code>类型的对象（依赖于<code>MASConstraint</code>接口，而不依赖于具体实现）。在UIView的<code>View+MASAdditions</code>分类中就是调用的<code>MASConstraintMaker</code>类中的一些方法。上述我们在使用Masonry给subView添加约束时，<code>mas_makeConstraints</code>方法中的Block的参数就是<code>MASConstraintMaker</code>的对象。用户可以通过该Block回调过来的<code>MASConstraintMaker</code>对象给View指定要添加的约束以及该约束的值。该工厂中的<code>constraints</code>属性数组就记录了该工厂创建的所有<code>MASConstraint</code>对象。</p>
-<p><img src="https://user-gold-cdn.xitu.io/2018/4/12/162b7c2626feb5d9?w=1240&amp;h=665&amp;f=png&amp;s=436575" alt="核心类和分类的类图"></p>
-<p><code>MASConstraintMaker</code> 之所以成为约束工厂类，因为<code>MASConstraintMaker</code>赋值创建<code>NSLayoutConstraint</code>对象，因为Masonry将<code>NSLayoutConstraint</code>类进一步封装成了<code>MASViewConstraint</code>，所以<code>MASConstraintMaker</code>是负责创建<code>MASViewConstraint</code>的对象，并调用<code>MASViewConstraint</code>对象的<code>Install</code>方法将该约束添加到相应的视图中。</p>
-<p>说了这么多，总结一下，如果你调用<code>maker.top</code>, <code>maker.left</code>等等这些方法都会调用下方的工厂方法来创建相应的<code>MASViewConstraint</code>对象，并记录在工厂对象的约束数组中。之所以能链式调用，就是讲当前的工厂对象（<code>MASConstraintMaker</code>）指定为<code>MASViewConstraint</code>对象的代理，所以一个<code>MASViewConstraint</code>对象就可以通过代理来调用工厂方法来创建另一个新的<code>MASViewConstraint</code>对象了，此处用到了代理模式。</p>
-<p><img src="https://user-gold-cdn.xitu.io/2018/4/12/162b7c262714ca08?w=1129&amp;h=419&amp;f=png&amp;s=148360" alt="工厂对象MASConstraintMaker的工厂方法"></p>
-<blockquote>
-<p>角色分析</p>
-</blockquote>
-<ul>
-<li><p>Client：<code>UIView</code>，通过分类<code>View+MASAdditions</code>来扮演</p>
-</li>
-<li><p>工厂类：<code>MASConstraintMaker</code> </p>
-</li>
-<li><p>抽象产品：<code>MASConstraint</code></p>
-</li>
-<li><p>具体产品：<code>MASViewConstraint</code>， <code>MASCompositeConstraint</code></p>
-</li>
-</ul>
-<p><img src="https://user-gold-cdn.xitu.io/2018/4/12/162b7c2628db01df?w=992&amp;h=502&amp;f=png&amp;s=12251" alt="工厂类与两个子类"></p>
-<h3 id="4-2-真正的设计模式：组合模式"><a href="#4-2-真正的设计模式：组合模式" class="headerlink" title="4.2 真正的设计模式：组合模式"></a>4.2 真正的设计模式：组合模式</h3><p>换一种角度看，<strong>Masonry</strong> 并非单纯的工厂模式，而是采用了经典的 <a href="https://en.wikipedia.org/wiki/Composite_pattern" target="_blank" rel="external">Composite</a> 设计模式，中文可译作<strong>组合模式</strong>。</p>
-<p><img src="https://user-gold-cdn.xitu.io/2018/4/12/162b7c262928f000?w=571&amp;h=257&amp;f=png&amp;s=6548" alt="典型的 Composite 类图"></p>
-<p><img src="https://user-gold-cdn.xitu.io/2018/4/12/162b7c26485d857f?w=350&amp;h=187&amp;f=png&amp;s=2910" alt="典型的 Composite 对象结构"></p>
-<h6 id="4-2-1-经典-组合模式-中的参与者："><a href="#4-2-1-经典-组合模式-中的参与者：" class="headerlink" title="4.2.1 经典 组合模式 中的参与者："></a>4.2.1 经典 <strong><em>组合模式</em></strong> 中的参与者：</h6><h5 id="Client"><a href="#Client" class="headerlink" title="Client"></a>Client</h5><ul>
-<li>通过 Component 接口操纵组合部件的对象。</li>
-</ul>
-<h5 id="Component"><a href="#Component" class="headerlink" title="Component"></a>Component</h5><ul>
-<li>为组合中的对象声明接口。<ul>
-<li>在适当的情况下，实现所有类共有接口的缺省行为</li>
-<li>声明一个接口用于访问和管理 Component 的子组件。</li>
-<li>在递归结构中定义一个接口，用于访问一个父部件，并在合适的情况下实现它。</li>
-</ul>
-</li>
-</ul>
-<h5 id="Leaf"><a href="#Leaf" class="headerlink" title="Leaf"></a>Leaf</h5><ul>
-<li>在组合中表示叶节点对象，叶节点没有子节点。</li>
-<li>在组合中定义图元对象的行为。</li>
-</ul>
-<h5 id="Composite"><a href="#Composite" class="headerlink" title="Composite"></a>Composite</h5><ul>
-<li>定义有子部件的那些部件的行为。</li>
-<li>在 Composite 接口中实现与子部件有关的操作。</li>
-</ul>
-<h6 id="4-2-2-从-组合模式-的角度看，Masonry-框架中的角色分析："><a href="#4-2-2-从-组合模式-的角度看，Masonry-框架中的角色分析：" class="headerlink" title="4.2.2 从 组合模式 的角度看，Masonry 框架中的角色分析："></a>4.2.2 从 <strong><em>组合模式</em></strong> 的角度看，<strong><em>Masonry</em></strong> 框架中的角色分析：</h6><p><code>UIView</code>，通过分类<code>View+MASAdditions</code>来调用Masonry</p>
-<h5 id="Client-1"><a href="#Client-1" class="headerlink" title="Client"></a>Client</h5><ul>
-<li><code>MASConstraintMaker</code></li>
-</ul>
-<h5 id="Component-1"><a href="#Component-1" class="headerlink" title="Component"></a>Component</h5><ul>
-<li><code>MASConstraint</code></li>
-</ul>
-<h5 id="Leaf-1"><a href="#Leaf-1" class="headerlink" title="Leaf"></a>Leaf</h5><ul>
-<li><code>MASViewConstraint</code></li>
-</ul>
-<h5 id="Composite-1"><a href="#Composite-1" class="headerlink" title="Composite"></a>Composite</h5><ul>
-<li><code>MASCompositeConstraint</code></li>
-</ul>
-<h3 id="4-3-编程思想：链式编程"><a href="#4-3-编程思想：链式编程" class="headerlink" title="4.3 编程思想：链式编程"></a>4.3 编程思想：链式编程</h3><p>Objective-C是一门动态语言，它使用了一种动态的消息发送机制，即对象(object)或类(class)调用方法。而OC中的<strong>点语法</strong>则只能通过setter和getter方法作用于类的<strong>属性</strong>，而不能作用于某个<strong>方法</strong>。想实现链式语法，只能通过block属性。</p>
-<p><strong>链式编程思想</strong>：核心思想为将block作为方法的返回值，且返回值的类型为调用者本身，并将该方法以setter的形式返回，这样就可以实现了连续调用，即为链式编程。</p>
-<blockquote>
-<p>【举例】简单使用链式编程思想实现一个简单计算器的功能：</p>
-</blockquote>
-<h6 id="4-3-1-新建一个名为CaculateMaker的类，用于运算。"><a href="#4-3-1-新建一个名为CaculateMaker的类，用于运算。" class="headerlink" title="4.3.1 新建一个名为CaculateMaker的类，用于运算。"></a>4.3.1 新建一个名为CaculateMaker的类，用于运算。</h6><p><img src="https://user-gold-cdn.xitu.io/2018/4/12/162b7c26486a4d39?w=1240&amp;h=608&amp;f=png&amp;s=244869" alt="新建一个名为CaculateMaker的类"></p>
-<h6 id="4-3-2-在CaculateMaker-h文件中声明一个方法add："><a href="#4-3-2-在CaculateMaker-h文件中声明一个方法add：" class="headerlink" title="4.3.2 在CaculateMaker.h文件中声明一个方法add："></a>4.3.2 在CaculateMaker.h文件中声明一个方法add：</h6><ul>
-<li>CaculateMaker.h<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">//  CaculateMaker.h</div><div class="line">//  ChainBlockTestApp</div><div class="line"></div><div class="line">#import &lt;Foundation/Foundation.h&gt;</div><div class="line">#import &lt;UIKit/UIKit.h&gt;</div><div class="line"></div><div class="line">@interface CaculateMaker : NSObject</div><div class="line"></div><div class="line">@property (nonatomic, assign) CGFloat result;</div><div class="line"></div><div class="line">- (CaculateMaker *(^)(CGFloat num))add;</div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h6 id="4-3-3-在CaculateMaker-m文件中实现这个方法："><a href="#4-3-3-在CaculateMaker-m文件中实现这个方法：" class="headerlink" title="4.3.3 在CaculateMaker.m文件中实现这个方法："></a>4.3.3 在CaculateMaker.m文件中实现这个方法：</h6><ul>
-<li>CaculateMaker.m<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">//  CaculateMaker.m</div><div class="line">//  ChainBlockTestApp</div><div class="line"></div><div class="line"></div><div class="line">#import &quot;CaculateMaker.h&quot;</div><div class="line"></div><div class="line">@implementation CaculateMaker</div><div class="line"></div><div class="line">- (CaculateMaker *(^)(CGFloat num))add;&#123;</div><div class="line">    return ^CaculateMaker *(CGFloat num)&#123;</div><div class="line">        _result += num;</div><div class="line">        return self;</div><div class="line">    &#125;;</div><div class="line">&#125;</div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h6 id="4-3-4-在viewController里面导入CaculateMaker-h文件，然后调用add方法就完成了链式语法："><a href="#4-3-4-在viewController里面导入CaculateMaker-h文件，然后调用add方法就完成了链式语法：" class="headerlink" title="4.3.4 在viewController里面导入CaculateMaker.h文件，然后调用add方法就完成了链式语法："></a>4.3.4 在viewController里面导入CaculateMaker.h文件，然后调用add方法就完成了链式语法：</h6><ul>
-<li>ViewController.m</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">CaculateMaker *maker = [[CaculateMaker alloc] init];</div><div class="line">maker.add(20).add(30);</div></pre></td></tr></table></figure>
-<p>通过上面Masonry布局可以看出，它为UIView写了一个category，拓展了<code>mas_makeConstraints</code>方法，并将<code>MASConstraintMaker</code>对象作为block的参数传递，在block的实现里完成UIView的布局，提现了<strong>函数式编程思想</strong>。</p>
-<h6 id="4-3-5-同样，我们也可以给NSObject添加一个NSObject-Caculate的分类，完成加法操作："><a href="#4-3-5-同样，我们也可以给NSObject添加一个NSObject-Caculate的分类，完成加法操作：" class="headerlink" title="4.3.5 同样，我们也可以给NSObject添加一个NSObject+Caculate的分类，完成加法操作："></a>4.3.5 同样，我们也可以给NSObject添加一个NSObject+Caculate的分类，完成加法操作：</h6><ul>
-<li><p>NSObject+Caculate.h</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">//  NSObject+Caculate.h</div><div class="line">//  ChainBlockTestApp</div><div class="line"></div><div class="line">#import &lt;Foundation/Foundation.h&gt;</div><div class="line">#import &lt;UIKit/UIKit.h&gt;</div><div class="line">#import &quot;CaculateMaker.h&quot;</div><div class="line"></div><div class="line">@interface NSObject (Caculate)</div><div class="line"></div><div class="line">- (CGFloat)caculate:(void (^)(CaculateMaker *make))block;</div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure>
-</li>
-<li><p>NSObject+Caculate.m</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">//  NSObject+Caculate.m</div><div class="line">//  ChainBlockTestApp</div><div class="line"></div><div class="line">#import &quot;NSObject+Caculate.h&quot;</div><div class="line"></div><div class="line">@implementation NSObject (Caculate)</div><div class="line"></div><div class="line">- (CGFloat)caculate:(void (^)(CaculateMaker *make))block;&#123;</div><div class="line">    CaculateMaker *make = [[CaculateMaker alloc] init];</div><div class="line">    block(make);</div><div class="line">    return make.result;</div><div class="line">&#125;</div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h6 id="4-3-6-最后在viewController里面调用，就很轻松的实现了链式语法："><a href="#4-3-6-最后在viewController里面调用，就很轻松的实现了链式语法：" class="headerlink" title="4.3.6 最后在viewController里面调用，就很轻松的实现了链式语法："></a>4.3.6 最后在viewController里面调用，就很轻松的实现了链式语法：</h6><ul>
-<li>ViewController.m</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">CGFloat result = [NSObject caculate:^(CaculateMaker *maker) &#123;</div><div class="line">    maker.add(10).add(20).add(30);</div><div class="line">&#125;];</div><div class="line">NSLog(@&quot;结果为:%.2f&quot;,result);</div></pre></td></tr></table></figure>
-<h1 id="5-参考阅读"><a href="#5-参考阅读" class="headerlink" title="5. 参考阅读"></a>5. 参考阅读</h1><ul>
-<li><p>Masonry解析</p>
-<ul>
-<li><a href="http://qiufeng.me/masonry" target="_blank" rel="external">http://qiufeng.me/masonry</a></li>
-<li><a href="https://www.cnblogs.com/ludashi/p/5591572.html" target="_blank" rel="external">https://www.cnblogs.com/ludashi/p/5591572.html</a></li>
-</ul>
-</li>
-<li><p>工厂模式</p>
-<ul>
-<li><a href="https://www.jianshu.com/p/7b89b7f587f9" target="_blank" rel="external">https://www.jianshu.com/p/7b89b7f587f9</a></li>
-<li><a href="https://www.jianshu.com/p/847af218b1f0" target="_blank" rel="external">https://www.jianshu.com/p/847af218b1f0</a></li>
-</ul>
-</li>
-<li><p>组合模式</p>
-<ul>
-<li><a href="http://www.runoob.com/design-pattern/composite-pattern.html" target="_blank" rel="external">http://www.runoob.com/design-pattern/composite-pattern.html</a></li>
-<li><a href="http://www.cnblogs.com/gaochundong/p/design_pattern_composite.html" target="_blank" rel="external">http://www.cnblogs.com/gaochundong/p/design_pattern_composite.html</a></li>
-<li><a href="http://www.cnblogs.com/peida/archive/2008/09/09/1284686.html" target="_blank" rel="external">http://www.cnblogs.com/peida/archive/2008/09/09/1284686.html</a></li>
-</ul>
-</li>
-<li><p>链式编程</p>
-<ul>
-<li><a href="https://www.jianshu.com/p/cb9252f5105b" target="_blank" rel="external">https://www.jianshu.com/p/cb9252f5105b</a></li>
-<li><a href="https://www.jianshu.com/p/ac8bdd3430e7" target="_blank" rel="external">https://www.jianshu.com/p/ac8bdd3430e7</a></li>
-</ul>
-</li>
-</ul>
-
+        
+          <a class="article-more-a" href="/2018/03/24/post8/#more">more >></a>
+        
       
 
       
@@ -648,215 +246,9 @@
 <blockquote>
 <p>问题来了，怎么设置？</p>
 </blockquote>
-<ul>
-<li>为了设置这个<strong>NSComparator</strong> 参数的block体，你可以在设置其block体的时候，手动返回一个<strong>NSComparisonResult</strong> 枚举类型的某个具体值（<strong>NSOrderedAscending</strong>, <strong>NSOrderedSame</strong>, <strong>NSOrderedDescending</strong> 三选一）：</li>
-</ul>
-<p><img src="https://user-gold-cdn.xitu.io/2018/4/12/162b7d5b837c998e?w=1240&amp;h=418&amp;f=png&amp;s=178143" alt="image.png"></p>
-<ul>
-<li>如果数组里面是字符串，在设置其block体的时候，你也可以利用苹果专门为<strong>NSString</strong> 提供的字符串比较方法，获得一个<strong>NSComparisonResult</strong> 类型，将其自动返回。</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- (NSComparisonResult)compare:(NSString *)string options:(NSStringCompareOptions)mask range:(NSRange)rangeOfReceiverToCompare locale:(nullable id)locale; // locale arg used to be a dictionary pre-Leopard. We now accept NSLocale. Assumes the current locale if non-nil and non-NSLocale. nil continues to mean canonical compare, which doesn&apos;t depend on user&apos;s locale choice.</div></pre></td></tr></table></figure>
-<p><img src="https://user-gold-cdn.xitu.io/2018/4/12/162b7d5b8339e10b?w=1240&amp;h=205&amp;f=png&amp;s=125496" alt="image.png"></p>
-<p>这时候，就需要了解<strong>NSStringCompareOptions</strong> 的意思。但如果你搜索一下<strong>NSStringCompareOptions</strong> ，会发现很多文章中的翻译或者中文解释在误导，或者很难看清什么意思？例如下面这篇博客：</p>
-<p><img src="https://user-gold-cdn.xitu.io/2018/4/12/162b7d5b84f50b00?w=1240&amp;h=742&amp;f=png&amp;s=354395" alt="image.png"></p>
-<p>然后，相同的解释文案还以讹传讹的传开来了，例如你看下面这个博客：</p>
-<p><img src="https://user-gold-cdn.xitu.io/2018/4/12/162b7d5d587e2c6f?w=1240&amp;h=799&amp;f=png&amp;s=247510" alt="image.png"></p>
-<p>于是，笔者决定写此本文，好好展示他们的用途。</p>
-<h1 id="1-第一种：数组的字符串元素里面是基本数据类型"><a href="#1-第一种：数组的字符串元素里面是基本数据类型" class="headerlink" title="1. 第一种：数组的字符串元素里面是基本数据类型"></a>1. 第一种：数组的字符串元素里面是基本数据类型</h1><hr>
-<h3 id="1-1-字符串数组排序示例"><a href="#1-1-字符串数组排序示例" class="headerlink" title="1.1 字符串数组排序示例"></a>1.1 字符串数组排序示例</h3><h5 id="1-1-1-实验代码"><a href="#1-1-1-实验代码" class="headerlink" title="1.1.1 实验代码"></a>1.1.1 实验代码</h5><ul>
-<li>main.m<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">void handleSortingForIntStrArray(void)&#123;</div><div class="line">    NSArray *originalArray = @[@&quot;00&quot;,@&quot;0&quot;,@&quot;00&quot;,@&quot;01&quot;,@&quot;10&quot;,@&quot;21&quot;,@&quot;12&quot;,@&quot;11&quot;,@&quot;22&quot;];</div><div class="line">    //block比较方法，数组中可以是NSInteger，NSString（需要转换）</div><div class="line">    NSComparator finderSort = ^(id string1,id string2)&#123;</div><div class="line">        if ([string1 integerValue] &gt; [string2 integerValue]) &#123;</div><div class="line">            return (NSComparisonResult)NSOrderedDescending;</div><div class="line">        &#125;else if ([string1 integerValue] &lt; [string2 integerValue])&#123;</div><div class="line">            return (NSComparisonResult)NSOrderedAscending;</div><div class="line">        &#125;else&#123;</div><div class="line">            return (NSComparisonResult)NSOrderedSame;</div><div class="line">        &#125;</div><div class="line">    &#125;;</div><div class="line">    //数组排序：</div><div class="line">    NSArray *resultArray = [originalArray sortedArrayUsingComparator:finderSort];</div><div class="line">    NSLog(@&quot;第一种排序结果：%@&quot;,resultArray);</div><div class="line">&#125;</div><div class="line"></div><div class="line">int main(int argc, const char * argv[]) &#123;</div><div class="line">    @autoreleasepool &#123;</div><div class="line">        // insert code here...</div><div class="line">        NSLog(@&quot;Results of handleSortingForIntArray()**********************&quot;);</div><div class="line">        handleSortingForIntStrArray();</div><div class="line">    &#125;</div><div class="line">    return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h5 id="1-1-2-运行结果"><a href="#1-1-2-运行结果" class="headerlink" title="1.1.2 运行结果"></a>1.1.2 运行结果</h5><p><img src="https://user-gold-cdn.xitu.io/2018/4/12/162b7d5b855576da?w=1170&amp;h=408&amp;f=png&amp;s=49625" alt="image.png"></p>
-<h5 id="1-1-3-实验结论"><a href="#1-1-3-实验结论" class="headerlink" title="1.1.3 实验结论"></a>1.1.3 实验结论</h5><ul>
-<li>依据数组元素的数值大小返回升序数组</li>
-</ul>
-<h3 id="1-2-NSComparator与NSComparisonResult"><a href="#1-2-NSComparator与NSComparisonResult" class="headerlink" title="1.2 NSComparator与NSComparisonResult"></a>1.2 NSComparator与NSComparisonResult</h3><p>上面的代码中用到了NSComparator与NSComparisonResult，在本文的“前面的话”中已经介绍过，这里重新列一下定义。</p>
-<h5 id="1-2-1-NSComparator"><a href="#1-2-1-NSComparator" class="headerlink" title="1.2.1 NSComparator"></a>1.2.1 NSComparator</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">typedef NSComparisonResult (^NSComparator)(id obj1, id obj2);</div></pre></td></tr></table></figure>
-<h5 id="1-2-2-NSComparisonResult"><a href="#1-2-2-NSComparisonResult" class="headerlink" title="1.2.2 NSComparisonResult"></a>1.2.2 NSComparisonResult</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">typedef NS_ENUM(NSInteger, NSComparisonResult) &#123;NSOrderedAscending = -1L, NSOrderedSame, NSOrderedDescending&#125;;</div></pre></td></tr></table></figure>
-<h1 id="2-第二种：数组的字符串元素里面不是基本数据类型"><a href="#2-第二种：数组的字符串元素里面不是基本数据类型" class="headerlink" title="2. 第二种：数组的字符串元素里面不是基本数据类型"></a>2. 第二种：数组的字符串元素里面不是基本数据类型</h1><hr>
-<h3 id="2-1-示例：字符串数组排序"><a href="#2-1-示例：字符串数组排序" class="headerlink" title="2.1 示例：字符串数组排序"></a>2.1 示例：字符串数组排序</h3><h5 id="2-1-1-实验代码"><a href="#2-1-1-实验代码" class="headerlink" title="2.1.1 实验代码"></a>2.1.1 实验代码</h5><ul>
-<li>main.m<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line">//</div><div class="line">//  main.m</div><div class="line">//  SortingForArray</div><div class="line">//</div><div class="line">//  Created by ChenMan on 2017/12/20.</div><div class="line">//  Copyright © 2017年 ChenMan. All rights reserved.</div><div class="line">//</div><div class="line"></div><div class="line">#import &lt;Foundation/Foundation.h&gt;</div><div class="line">#import &lt;stdio.h&gt;</div><div class="line"></div><div class="line">void handleSortingForStrArray(void)&#123;</div><div class="line">       NSArray *stringsArray = [NSArray arrayWithObjects:</div><div class="line">                             @&quot;string b&quot;,</div><div class="line">                             @&quot;string A&quot;,</div><div class="line">                             @&quot;string a&quot;,</div><div class="line">                             @&quot;string \uFF41&quot;,</div><div class="line">                             @&quot;string a&quot;,</div><div class="line">                             @&quot;string A&quot;,</div><div class="line">                             @&quot;string c&quot;,</div><div class="line">                             @&quot;string d0030&quot;,</div><div class="line">                             @&quot;string d2&quot;,</div><div class="line">                             @&quot;アいろはｱｲｳｴイウエ&quot;,</div><div class="line">                             @&quot;ｱいろはｱｲｳｴｲｳｴ&quot;,</div><div class="line">                             @&quot;アいろはｱｲｳｴイウエ&quot;,nil];</div><div class="line">    </div><div class="line">    NSLocale *currentLocale = [NSLocale currentLocale];</div><div class="line">    NSComparator finderSortBlock = ^(id string1,id string2) &#123;</div><div class="line">        </div><div class="line">        NSRange string1Range =NSMakeRange(0, [string1 length]);</div><div class="line">        return [string1 compare:string2 options:nil range:string1Range locale:currentLocale];</div><div class="line">    &#125;;</div><div class="line">    </div><div class="line">    NSArray *finderSortArray = [stringsArray sortedArrayUsingComparator:finderSortBlock];</div><div class="line">    NSLog(@&quot;finderSortArray: %@&quot;, finderSortArray);</div><div class="line">    </div><div class="line">&#125;</div><div class="line"></div><div class="line">int main(int argc, const char * argv[]) &#123;</div><div class="line">    @autoreleasepool &#123;</div><div class="line">        // insert code here...</div><div class="line">        NSLog(@&quot;Results of handleSortingForStrArray()**********************&quot;);</div><div class="line">        handleSortingForStrArray();</div><div class="line">    &#125;</div><div class="line">    return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h5 id="2-1-2-运行结果："><a href="#2-1-2-运行结果：" class="headerlink" title="2.1.2 运行结果："></a>2.1.2 运行结果：</h5><p><img src="https://user-gold-cdn.xitu.io/2018/4/12/162b7d5d5a4e7375?w=1200&amp;h=484&amp;f=png&amp;s=94341" alt="image.png"></p>
-<h5 id="2-1-3-实验结论："><a href="#2-1-3-实验结论：" class="headerlink" title="2.1.3 实验结论："></a>2.1.3 实验结论：</h5><p>如上实验代码中，有这样一行代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">return [string1 compare:string2 options:nil range:string1Range locale:currentLocale];</div></pre></td></tr></table></figure></p>
-<p>根据运行结果，可知如下结论：</p>
-<ul>
-<li>即使在<code>- (NSComparisonResult)compare:(NSString *)string options:(NSStringCompareOptions)mask range:(NSRange)rangeOfReceiverToCompare locale:(nullable id)locale;</code>中将<code>(NSStringCompareOptions)</code>枚举类型的参数设置为<code>nil</code>，也可以运行。但一般不这么做，这里只是为了观察不指定该枚举参数时候系统的默认设置，并与本文接下来指定该枚举参数的排序结果对比。</li>
-<li>可以发现：<ul>
-<li>默认同一字符的全角字符看做半角字符。不区分同一个字符（如日文的片假字）的半角与全角状态。相同元素，维持原序。</li>
-<li>默认区分字母大小写，同一个字符小写在前，大写在后。</li>
-<li>字母并非按unicode码的大小升序排列。例如，<code>全角a</code>的unicode为FF41，<code>半角a</code>的unicode为0061，<code>半角A</code>的unicode为0041，<code>半角b</code>的unicode为0062，但排序结果是 <code>全角a</code> = <code>半角a</code> &lt; <code>半角A</code> &lt; <code>半角b</code>。</li>
-<li>默认不识别含有数字字符的数值大小，0030虽然数学意义比2大，但是，仅从字符串的角度看，第一个字符0比2小，所以d0030排在d2前面。</li>
-</ul>
-</li>
-</ul>
-<h5 id="2-1-4-知识拓展："><a href="#2-1-4-知识拓展：" class="headerlink" title="2.1.4 知识拓展："></a>2.1.4 知识拓展：</h5><blockquote>
-<p>半角与全角字符</p>
-<ul>
-<li>全角占两个字节，半角占一个字节。通常我们碰到的英文字母、数字键、符号键这种ASCII码系统里面的字符大多数情况下是半角的。</li>
-</ul>
-</blockquote>
-<ul>
-<li><p>国内汉字输入法输入的汉字为全角，字母数字为半角，但是标点则默认为全角，可切换为半角（可以通过输入法工具条上的相应按钮来切换标点符号的全角半角状态）。</p>
-</li>
-<li><p>日文里面的有汉字，也有片假字。这个片假字有两套编码，同一个片假字分别有半角和全角两种编码。例如：看起来像一样的片假字组成的句子，全角状态<code>ア</code>字符开头的为<code>アいろはｱｲｳｴイウエ</code>，半角状态<code>ｱ</code>字符开头的为<code>ｱいろはｱｲｳｴｲｳｴ</code>。可以看到，明显同一个片假字的<strong>全角状态</strong> 比<strong>半角状态</strong> “胖”一圈。</p>
-</li>
-</ul>
-<ul>
-<li>英文字母其实也有全角字母，例如小写的<code>a</code>，其半角形式的unicode码为0061，其全角形式的unicode码为FF41。可查阅<a href="https://unicode-table.com/cn/" target="_blank" rel="external">Unicode®字符百科</a>官网。</li>
-</ul>
-<h3 id="2-2-NSStringCompareOptions"><a href="#2-2-NSStringCompareOptions" class="headerlink" title="2.2 NSStringCompareOptions"></a>2.2 NSStringCompareOptions</h3><p>NSStringCompareOptions是一个枚举类型，并非一个类。打开NSStringCompareOptions的定义，可查看如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">typedef NS_OPTIONS(NSUInteger, NSStringCompareOptions) &#123;</div><div class="line">    NSCaseInsensitiveSearch = 1,</div><div class="line">    NSLiteralSearch = 2,		/* Exact character-by-character equivalence */</div><div class="line">    NSBackwardsSearch = 4,		/* Search from end of source string */</div><div class="line">    NSAnchoredSearch = 8,		/* Search is limited to start (or end, if NSBackwardsSearch) of source string */</div><div class="line">    NSNumericSearch = 64,		/* Added in 10.2; Numbers within strings are compared using numeric value, that is, Foo2.txt &lt; Foo7.txt &lt; Foo25.txt; only applies to compare methods, not find */</div><div class="line">    NSDiacriticInsensitiveSearch API_AVAILABLE(macos(10.5), ios(2.0), watchos(2.0), tvos(9.0)) = 128, /* If specified, ignores diacritics (o-umlaut == o) */</div><div class="line">    NSWidthInsensitiveSearch API_AVAILABLE(macos(10.5), ios(2.0), watchos(2.0), tvos(9.0)) = 256, /* If specified, ignores width differences (&apos;a&apos; == UFF41) */</div><div class="line">    NSForcedOrderingSearch API_AVAILABLE(macos(10.5), ios(2.0), watchos(2.0), tvos(9.0)) = 512, /* If specified, comparisons are forced to return either NSOrderedAscending or NSOrderedDescending if the strings are equivalent but not strictly equal, for stability when sorting (e.g. &quot;aaa&quot; &gt; &quot;AAA&quot; with NSCaseInsensitiveSearch specified) */</div><div class="line">    NSRegularExpressionSearch API_AVAILABLE(macos(10.7), ios(3.2), watchos(2.0), tvos(9.0)) = 1024    /* Applies to rangeOfString:..., stringByReplacingOccurrencesOfString:..., and replaceOccurrencesOfString:... methods only; the search string is treated as an ICU-compatible regular expression; if set, no other options can apply except NSCaseInsensitiveSearch and NSAnchoredSearch */</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
-<h5 id="2-2-1-NSNumericSearch"><a href="#2-2-1-NSNumericSearch" class="headerlink" title="2.2.1 NSNumericSearch"></a>2.2.1 NSNumericSearch</h5><blockquote>
-<p>官方解释：Added in 10.2; Numbers within strings are compared using numeric value, that is, Foo2.txt &lt; Foo7.txt &lt; Foo25.txt; only applies to compare methods, not find</p>
-</blockquote>
-<ul>
-<li><p>假设，将上例中的部分代码修改为</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">void handleSortingForStrArray(void)&#123;</div><div class="line">    NSArray *stringsArray = [NSArray arrayWithObjects:</div><div class="line">                             @&quot;string b&quot;,</div><div class="line">                             @&quot;string A&quot;,</div><div class="line">                             @&quot;string a&quot;,</div><div class="line">                             @&quot;string \uFF41&quot;,</div><div class="line">                             @&quot;string a&quot;,</div><div class="line">                             @&quot;string A&quot;,</div><div class="line">                             @&quot;string c&quot;,</div><div class="line">                             @&quot;string d0030&quot;,</div><div class="line">                             @&quot;string d2&quot;,</div><div class="line">                             @&quot;アいろはｱｲｳｴイウエ&quot;,</div><div class="line">                             @&quot;ｱいろはｱｲｳｴｲｳｴ&quot;,</div><div class="line">                             @&quot;アいろはｱｲｳｴイウエ&quot;,nil];</div><div class="line">    NSStringCompareOptions comparisonOptions = NSNumericSearch;</div><div class="line">    NSLocale *currentLocale = [NSLocale currentLocale];</div><div class="line">    NSComparator finderSortBlock = ^(id string1,id string2) &#123;</div><div class="line">        </div><div class="line">        NSRange string1Range =NSMakeRange(0, [string1 length]);</div><div class="line">        return [string1 compare:string2 options:comparisonOptions range:string1Range locale:currentLocale];</div><div class="line">    &#125;;</div><div class="line">    </div><div class="line">    NSArray *finderSortArray = [stringsArray sortedArrayUsingComparator:finderSortBlock];</div><div class="line">    NSLog(@&quot;finderSortArray: %@&quot;, finderSortArray);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>运行结果</p>
-</li>
-</ul>
-<p><img src="https://user-gold-cdn.xitu.io/2018/4/12/162b7d5b8be0c123?w=1156&amp;h=530&amp;f=png&amp;s=98132" alt="image.png"></p>
-<ul>
-<li>结论<br><code>NSStringCompareOptions</code>指定为<code>NSNumericSearch</code>，当字符串中含有数字时，从数值大小的角度按升序排序。</li>
-</ul>
-<h5 id="2-2-2-NSCaseInsensitiveSearch"><a href="#2-2-2-NSCaseInsensitiveSearch" class="headerlink" title="2.2.2 NSCaseInsensitiveSearch"></a>2.2.2 NSCaseInsensitiveSearch</h5><blockquote>
-<p>官方解释：无。英文字面解释：不区分字母大小写。</p>
-</blockquote>
-<ul>
-<li><p>假设，将上例中的部分代码修改为</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">NSStringCompareOptions comparisonOptions = NSCaseInsensitiveSearch;</div></pre></td></tr></table></figure>
-</li>
-<li><p>运行结果</p>
-</li>
-</ul>
-<p><img src="https://user-gold-cdn.xitu.io/2018/4/12/162b7d5b996ca3aa?w=1184&amp;h=488&amp;f=png&amp;s=93423" alt="image.png"></p>
-<ul>
-<li>结论<br><code>NSStringCompareOptions</code>指定为<code>NSCaseInsensitiveSearch</code>，不区分同一个字母的大小写状态，如<code>a</code>与<code>A</code>看做相同元素，若其它条件也一致则保持原序。</li>
-</ul>
-<h5 id="2-2-3-NSLiteralSearch"><a href="#2-2-3-NSLiteralSearch" class="headerlink" title="2.2.3 NSLiteralSearch"></a>2.2.3 NSLiteralSearch</h5><blockquote>
-<p>官方解释：Exact character-by-character equivalence</p>
-</blockquote>
-<ul>
-<li><p>假设，将上例中的部分代码修改为</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">NSStringCompareOptions comparisonOptions = NSLiteralSearch;</div></pre></td></tr></table></figure>
-</li>
-<li><p>运行结果</p>
-</li>
-</ul>
-<p><img src="https://user-gold-cdn.xitu.io/2018/4/12/162b7d5baebfc221?w=1122&amp;h=522&amp;f=png&amp;s=95444" alt="image.png"></p>
-<ul>
-<li>结论<ul>
-<li><strong><em>区分</em></strong> 同一个字符（如日文的片假字）的半角与全角状态，同一片假字的全角状态小于半角状态。</li>
-<li>其它规则，继续按系统默认排序规则排序，包括<strong>默认区分</strong> 字母大小写，以及其它默认排序规则。</li>
-<li>按照官方英文说明，这个规则是指区分每个字符的等效状态。只要unicode不同的字符，就不认可他们“等效”，即使他们的语言上的含义相同。</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>题外话<ul>
-<li>所以，有的文献说<strong>NSLiteralSearch</strong> 是区分大小写是误导，系统本就<strong>默认区分</strong> 字母大小写，这些人以为苹果公司提供这个功能来画蛇添足干嘛？而且可以看看官方英文说明，也不是这个意思。只有指定<strong>不区分</strong> 字母大小写的<strong>NSCaseInsensitiveSearch</strong>，要么不写，即默认<strong>区分</strong>。</li>
-</ul>
-</li>
-</ul>
-<h5 id="2-2-4-NSWidthInsensitiveSearch"><a href="#2-2-4-NSWidthInsensitiveSearch" class="headerlink" title="2.2.4 NSWidthInsensitiveSearch"></a>2.2.4 NSWidthInsensitiveSearch</h5><blockquote>
-<p>官方解释：If specified, ignores width differences (‘a’ == UFF41)</p>
-<ul>
-<li>假设，将上例中的部分代码修改为<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">NSStringCompareOptions comparisonOptions = NSWidthInsensitiveSearch;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-</blockquote>
-<ul>
-<li>运行结果</li>
-</ul>
-<p><img src="https://user-gold-cdn.xitu.io/2018/4/12/162b7d5baf52dd62?w=1206&amp;h=470&amp;f=png&amp;s=95331" alt="image.png"></p>
-<ul>
-<li>结论<ul>
-<li><strong>不区分</strong> 同一个字符（如日文的片假字）的半角与全角状态，同一片假字的全角状态等于半角状态。</li>
-<li>其它规则，继续按系统默认排序规则排序，包括<strong>默认区分</strong> 字母大小写，以及其它默认排序规则。</li>
-<li>同时指定两个时，<strong>NSWidthInsensitiveSearch</strong> 比<strong>NSLiteralSearch</strong> 的优先级高，综合起来的结果是<strong>不区分</strong> 半角全角。</li>
-<li>官方英文说明中的<code>UFF41</code>是指<code>全角a</code>，<code>&#39;a&#39;</code> 是指<code>半角a</code>，如果指定<strong>NSWidthInsensitiveSearch</strong>，则不区分字符的全角半角，即使你同时指定了<strong>NSLiteralSearch</strong>。</li>
-</ul>
-</li>
-</ul>
-<p>即，当有如下代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">NSStringCompareOptions comparisonOptions = NSWidthInsensitiveSearch | NSLiteralSearch;</div></pre></td></tr></table></figure></p>
-<p>其作用相当于没有NSLiteralSearch的代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">NSStringCompareOptions comparisonOptions = NSWidthInsensitiveSearch;</div></pre></td></tr></table></figure></p>
-<h5 id="2-2-5-NSForcedOrderingSearch"><a href="#2-2-5-NSForcedOrderingSearch" class="headerlink" title="2.2.5 NSForcedOrderingSearch"></a>2.2.5 NSForcedOrderingSearch</h5><blockquote>
-<p>官方解释：If specified, comparisons are forced to return either NSOrderedAscending or NSOrderedDescending if the strings are equivalent but not strictly equal, for stability when sorting (e.g. “aaa” &gt; “AAA” with NSCaseInsensitiveSearch specified)</p>
-</blockquote>
-<ul>
-<li><p>假设，将上例中的部分代码修改为</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">NSStringCompareOptions comparisonOptions = NSForcedOrderingSearch;</div></pre></td></tr></table></figure>
-</li>
-<li><p>运行结果</p>
-</li>
-</ul>
-<p><img src="https://user-gold-cdn.xitu.io/2018/4/12/162b7d5bb3b8663b?w=1208&amp;h=492&amp;f=png&amp;s=96670" alt="image.png"></p>
-<ul>
-<li>结论<ul>
-<li>不存在字符等不等效相不相等的概念了，只要unicode不一样的字符，必须区分，必须返回一个谁大谁小的结果（NSOrderedAscending or NSOrderedDescending）。</li>
-<li>从英文说明也可以看出，<strong>NSForcedOrderingSearch</strong> 的优先级最高，即如果你同时指定了其它有可能作用冲突的枚举类型，也以<strong>NSForcedOrderingSearch</strong> 的作用为准。</li>
-</ul>
-</li>
-</ul>
-<h5 id="2-2-6-综合应用"><a href="#2-2-6-综合应用" class="headerlink" title="2.2.6 综合应用"></a>2.2.6 综合应用</h5><ul>
-<li><p>一个比较多的应用示例是，区分字母大小写，区分数值大小，区分半角全角，并强制性指定区分unicode不一样的字符。综合这些条件，写起来就是：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">NSStringCompareOptions comparisonOptions = NSNumericSearch|NSWidthInsensitiveSearch|NSForcedOrderingSearch;</div></pre></td></tr></table></figure>
-</li>
-<li><p>运行结果</p>
-</li>
-</ul>
-<p><img src="https://user-gold-cdn.xitu.io/2018/4/12/162b7d5bb53864bb?w=1184&amp;h=476&amp;f=png&amp;s=94997" alt="image.png"></p>
-<h5 id="2-2-7-误导用法"><a href="#2-2-7-误导用法" class="headerlink" title="2.2.7 误导用法"></a>2.2.7 误导用法</h5><ul>
-<li>我看过有很多其它博客用了这样的误导示例：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">NSStringCompareOptions comparisonOptions = NSCaseInsensitiveSearch|NSNumericSearch|NSWidthInsensitiveSearch|NSForcedOrderingSearch;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>这里面，NSCaseInsensitiveSearch是为了不区分大小写字母，但是后面再加个NSForcedOrderingSearch想强制区分字符又是怎么回事？虽然，这样写并不会报错，运行效果跟上面的综合示例一摸一样。但这样误导的想法是个逻辑矛盾。不信，你看看它运行的结果：</p>
-<p><img src="https://user-gold-cdn.xitu.io/2018/4/12/162b7d5bb65dc318?w=1174&amp;h=462&amp;f=png&amp;s=91486" alt="image.png"></p>
-<h1 id="3-数组里面是类的对象"><a href="#3-数组里面是类的对象" class="headerlink" title="3. 数组里面是类的对象"></a>3. 数组里面是类的对象</h1><hr>
-<p>需求：假设我们根据后台返回的JSON字典数组用MJExtension转换成模型数组，现在我们需要根据ID或者Age对模型数组进行排序。</p>
-<ul>
-<li><p>Pesson.m</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">#import &lt;Foundation/Foundation.h&gt;  </div><div class="line">  </div><div class="line">@interface Person : NSObject  </div><div class="line">@property (nonatomic,copy) NSString *ID;  </div><div class="line">@property (nonatomic,copy) NSString *name;  </div><div class="line">@property (nonatomic,assign) int age;  </div><div class="line">@end</div></pre></td></tr></table></figure>
-</li>
-<li><p>根据int类型的属性对模型数组进行排序</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">NSArray *sortArrayByAgeInt = [self.dataArray sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) &#123;  </div><div class="line">      </div><div class="line">    Person *pModel1 = obj1;  </div><div class="line">    Person *pModel2 = obj2;  </div><div class="line">    </div><div class="line">    if (pModel1.age &gt; pModel2.age) &#123; </div><div class="line">        return NSOrderedDescending;//降序  </div><div class="line">    &#125;else if (pModel1.name &lt; pModel2.name)&#123;  </div><div class="line">        return NSOrderedAscending;//升序  </div><div class="line">    &#125;else &#123;  </div><div class="line">        return NSOrderedSame;//相等  </div><div class="line">    &#125;  </div><div class="line">      </div><div class="line">&#125;];</div></pre></td></tr></table></figure>
-</li>
-<li><p>根据str类型的属性对模型数组进行排序</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">NSArray *sortArrayByIDStr = [self.dataArray sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) &#123;  </div><div class="line">      </div><div class="line">    Person *pModel1 = obj1;  </div><div class="line">    Person *pModel2 = obj2;  </div><div class="line">    </div><div class="line">    if ([pModel1.ID intValue]&gt; [pModel2.ID intValue]) &#123; </div><div class="line">        return NSOrderedDescending;//降序  </div><div class="line">    &#125;else if (pModel1.name &lt; pModel2.name)&#123;  </div><div class="line">        return NSOrderedAscending;//升序  </div><div class="line">    &#125;else &#123;  </div><div class="line">        return NSOrderedSame;//相等  </div><div class="line">    &#125;  </div><div class="line">      </div><div class="line">&#125;];</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h1 id="4-花样玩法：例题"><a href="#4-花样玩法：例题" class="headerlink" title="4. 花样玩法：例题"></a>4. 花样玩法：例题</h1><hr>
-<p>在OC的高级用法中，经常需要查看系统类或者某个自定义类中的私有属性以及私有成员变量，并通过KVC的办法强制修改这些私有成员变量的值，以取代系统或者自定义类中的默认设置。所以，如果你懒得创建一些假数据的数组，可以想到运用运行时的办法获取成员变量的数组，并进行排序操作训练。</p>
-<blockquote>
-<p><strong>题1</strong>. 请取出<code>NSString</code>类的全部<strong>公有</strong> <strong>属性</strong> 并存放到一个数组，并利用<code>NSArray</code>的<code>sortedArrayUsingComparator</code>的方法给这个数组进行升序排序操作。要求：排序过程中需要区分字符全角半角状态，其它可按系统默认条件。</p>
-</blockquote>
-<ul>
-<li><p>参考代码：<br>main.m</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">void handlePrintingOfProperties(void)&#123;</div><div class="line">    unsigned int count;// 记录属性个数</div><div class="line">    objc_property_t *properties = class_copyPropertyList([NSString class], &amp;count);</div><div class="line">    // 生成一个属性名称组成的数组</div><div class="line">    NSMutableArray *propertyNameArray = [NSMutableArray array];</div><div class="line">    for (int i = 0; i &lt; count; i++) &#123;</div><div class="line">        // An opaque type that represents an Objective-C declared property.</div><div class="line">        // objc_property_t 属性类型</div><div class="line">        objc_property_t property = properties[i];</div><div class="line">        // 获取属性的名称 C语言字符串</div><div class="line">        const char *cName = property_getName(property);</div><div class="line">        // 转换为Objective C 字符串</div><div class="line">        NSString *name = [NSString stringWithCString:cName encoding:NSUTF8StringEncoding];</div><div class="line">        [propertyNameArray addObject:name];</div><div class="line">    &#125;</div><div class="line">    NSLog(@&quot;排序前的属性列表 = %@&quot;,propertyNameArray);</div><div class="line">    </div><div class="line">    NSComparator cmptr = ^(NSString *obj1, NSString *obj2)&#123;</div><div class="line">        return [obj1 compare:obj2 options:NSLiteralSearch];</div><div class="line">    &#125;;</div><div class="line">    NSArray *afterSort = [propertyNameArray sortedArrayUsingComparator:cmptr];</div><div class="line">    NSLog(@&quot;排序后的属性列表 = %@&quot;,afterSort);</div><div class="line">    </div><div class="line">    //C语言中,用完copy,create的东西之后,最好释放</div><div class="line">    free(properties);</div><div class="line">&#125;</div><div class="line"></div><div class="line">int main(int argc, const char * argv[]) &#123;</div><div class="line">    @autoreleasepool &#123;</div><div class="line">        NSLog(@&quot;handlePrintingOfProperties()**********************&quot;);</div><div class="line">        handlePrintingOfProperties();</div><div class="line">    &#125;</div><div class="line">    return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>运行结果</p>
-</li>
-</ul>
-<p><img src="https://user-gold-cdn.xitu.io/2018/4/12/162b7d5bcd9f4ef7?w=1176&amp;h=1082&amp;f=png&amp;s=180473" alt="image.png"></p>
-<blockquote>
-<p><strong>题2</strong>. 请取出<code>NSURL</code>类中包括<strong>私有</strong> 在内的<strong>全部</strong> <strong>成员变量</strong>，并存放到一个数组，并利用<code>NSArray</code>的<code>sortedArrayUsingComparator</code>的方法给这个数组进行升序排序操作。要求：排序过程中需要区分字符全角半角状态，其它可按系统默认条件。</p>
-</blockquote>
-<ul>
-<li><p>参考代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">void handlePrintingOfIvars(void)&#123;</div><div class="line">    unsigned int count;// 记录属性个数</div><div class="line">    Ivar *properties = class_copyIvarList([NSURL class], &amp;count);</div><div class="line">    // 生成一个属性名称组成的数组</div><div class="line">    NSMutableArray *propertyNameArray = [NSMutableArray array];</div><div class="line">    for (int i = 0; i &lt; count; i++) &#123;</div><div class="line">        // An opaque type that represents an Objective-C declared property.</div><div class="line">        // objc_property_t 属性类型</div><div class="line">        Ivar property = properties[i];</div><div class="line">        // 获取属性的名称 C语言字符串</div><div class="line">        const char *cName = ivar_getName(property);</div><div class="line">        // 转换为Objective C 字符串</div><div class="line">        NSString *name = [NSString stringWithCString:cName encoding:NSUTF8StringEncoding];</div><div class="line">        [propertyNameArray addObject:name];</div><div class="line">    &#125;</div><div class="line">    NSLog(@&quot;排序前的成员变量列表 = %@&quot;,propertyNameArray);</div><div class="line">    </div><div class="line">    NSComparator cmptr = ^(NSString *obj1, NSString *obj2)&#123;</div><div class="line">        return [obj1 compare:obj2 options:NSLiteralSearch];</div><div class="line">    &#125;;</div><div class="line">    NSArray *afterSort = [propertyNameArray sortedArrayUsingComparator:cmptr];</div><div class="line">    NSLog(@&quot;排序后的成员变量列表 = %@&quot;,afterSort);</div><div class="line">    </div><div class="line">    //C语言中,用完copy,create的东西之后,最好释放</div><div class="line">    free(properties);</div><div class="line">&#125;</div><div class="line"></div><div class="line">int main(int argc, const char * argv[]) &#123;</div><div class="line">    @autoreleasepool &#123;</div><div class="line">        NSLog(@&quot;handlePrintingOfIvars()**********************&quot;);</div><div class="line">        handlePrintingOfIvars();</div><div class="line">    &#125;</div><div class="line">    return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>运行结果</p>
-</li>
-</ul>
-<p><img src="https://user-gold-cdn.xitu.io/2018/4/12/162b7d5be3766c71?w=1182&amp;h=502&amp;f=png&amp;s=82314" alt="image.png"></p>
-<h1 id="5-附录：本实验中创建工程说明"><a href="#5-附录：本实验中创建工程说明" class="headerlink" title="5. 附录：本实验中创建工程说明"></a>5. 附录：本实验中创建工程说明</h1><hr>
-<p>任何能在计算机上执行的项目称之为<strong>程序</strong>，其中，有图形化用户界面的程序称之为<strong>应用</strong> ，没有图形界面的程序可以是<strong>守护进程</strong> ，还有一种称之为<strong>命令行工具</strong>。本文这里关注的是算法和数据结果，不关注图形界面，所以新建一个命令行工具即可。创建方法：新建一个macOS工程，选择Command Line Tool类型，点击下一步配置工程信息即可。</p>
-<p><img src="https://user-gold-cdn.xitu.io/2018/4/12/162b7d5be4e47d99?w=1240&amp;h=952&amp;f=png&amp;s=192239" alt="创建一个命令行工具"></p>
-<p><img src="https://user-gold-cdn.xitu.io/2018/4/12/162b7d5be78cfc44?w=1240&amp;h=804&amp;f=png&amp;s=367110" alt="工程创建成功"></p>
-
+        
+          <a class="article-more-a" href="/2018/01/24/post7/#more">more >></a>
+        
       
 
       
@@ -1224,10 +616,67 @@
 
 
   
+    <article id="post-post3" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
-    </nav>
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/01/24/post3/">程序员修养·Markdown语法学习手册</a>
+    </h1>
+  
+
+        
+        <a href="/2016/01/24/post3/" class="archive-article-date">
+  	<time datetime="2016-01-24T12:01:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-01-24</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>现在，越来越多的程序员在记录和分享日常技术文章的时候选择Markdown格式，这种格式正是GitHub和Stackoverflow倡导的格式。鉴于Markdown的简洁和高效，如果你还在用可视化的方法在Word或富文本框里面敲敲打打、拖拖拽拽的话，就显得太low了。还等什么呢，赶紧来收藏好它的语法吧~~</p>
+</blockquote>
+<h3 id="目录："><a href="#目录：" class="headerlink" title="目录："></a>目录：</h3><ul>
+<li>一、Markdown 简明语法手册</li>
+<li>二、Markdown 高阶语法手册</li>
+</ul>
+<hr>
+<h1 id="一、Markdown-简明语法手册-ref1"><a href="#一、Markdown-简明语法手册-ref1" class="headerlink" title="一、Markdown 简明语法手册[^ref1]"></a>一、Markdown 简明语法手册[^ref1]</h1><h3 id="1-斜体和粗体"><a href="#1-斜体和粗体" class="headerlink" title="1. 斜体和粗体"></a>1. 斜体和粗体</h3><p>使用 * 和 ** 表示斜体和粗体。</p>
+<p>示例：</p>
+<p>这是 <em>斜体</em>，这是 <strong>粗体</strong>。</p>
+<p>这是 <em>斜体</em>，这是 <strong>粗体</strong>。</p>
+        
+          <a class="article-more-a" href="/2016/01/24/post3/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/01/24/post3/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
   
 
 
