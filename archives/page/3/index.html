@@ -6,24 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>iOS开发·runtime+KVC实现多层字典模型转换（多层数据：模型嵌套模型，模型嵌套数组，数组嵌套模型） | ChenMan(陈满の个人网站)</title>
+  <title>Archives | ChenMan(陈满の个人网站)</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="本文实验Demo传送门：DictToModelDemo  前言：将后台JSON数据中的字典转成本地的模型，我们一般选用部分优秀的第三方框架，如SBJSON、JSONKit、MJExtension、YYModel等。但是，一些简单的数据，我们也可以尝试自己来实现转换的过程。  更重要的是，有时候在iOS面试的时候，部分面试官会不仅问你某种场景会用到什么框架，更会问你如果要你来实现这个功能，你有没有解">
-<meta name="keywords" content="iOS">
-<meta property="og:type" content="article">
-<meta property="og:title" content="iOS开发·runtime+KVC实现多层字典模型转换（多层数据：模型嵌套模型，模型嵌套数组，数组嵌套模型）">
-<meta property="og:url" content="http://yoursite.com/2018/03/15/post20/index.html">
+  <meta name="description" content="Shenzhen,China">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ChenMan(陈满の个人网站)">
+<meta property="og:url" content="http://yoursite.com/archives/page/3/index.html">
 <meta property="og:site_name" content="ChenMan(陈满の个人网站)">
-<meta property="og:description" content="本文实验Demo传送门：DictToModelDemo  前言：将后台JSON数据中的字典转成本地的模型，我们一般选用部分优秀的第三方框架，如SBJSON、JSONKit、MJExtension、YYModel等。但是，一些简单的数据，我们也可以尝试自己来实现转换的过程。  更重要的是，有时候在iOS面试的时候，部分面试官会不仅问你某种场景会用到什么框架，更会问你如果要你来实现这个功能，你有没有解">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1283539-c6f0bb54c1f0411b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1283539-f719beef7700d334.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1283539-2fb200b0b593c04e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1283539-f0067f1dd7e1c49a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-05-21T12:09:19.893Z">
+<meta property="og:description" content="Shenzhen,China">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iOS开发·runtime+KVC实现多层字典模型转换（多层数据：模型嵌套模型，模型嵌套数组，数组嵌套模型）">
-<meta name="twitter:description" content="本文实验Demo传送门：DictToModelDemo  前言：将后台JSON数据中的字典转成本地的模型，我们一般选用部分优秀的第三方框架，如SBJSON、JSONKit、MJExtension、YYModel等。但是，一些简单的数据，我们也可以尝试自己来实现转换的过程。  更重要的是，有时候在iOS面试的时候，部分面试官会不仅问你某种场景会用到什么框架，更会问你如果要你来实现这个功能，你有没有解">
-<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/1283539-c6f0bb54c1f0411b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:title" content="ChenMan(陈满の个人网站)">
+<meta name="twitter:description" content="Shenzhen,China">
   
     <link rel="alternative" href="/atom.xml" title="ChenMan(陈满の个人网站)" type="application/atom+xml">
   
@@ -169,265 +162,116 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-post20" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      iOS开发·runtime+KVC实现多层字典模型转换（多层数据：模型嵌套模型，模型嵌套数组，数组嵌套模型）
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2017" class="archive-year">2017</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2017/03/24/post6/" class="archive-article-date">
+  	<time datetime="2017-03-24T12:21:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-24</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2017/03/24/post6/">安装及更新Carthage的方法&amp;安装Homebrew</a>
     </h1>
   
 
-        
-        <a href="/2018/03/15/post20/" class="archive-article-date">
-  	<time datetime="2018-03-15T11:40:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>本文实验Demo传送门：<a href="https://github.com/cimain/DictToModelDemo" target="_blank" rel="external">DictToModelDemo</a></p>
-<blockquote>
-<p><strong>前言</strong>：将后台JSON数据中的字典转成本地的模型，我们一般选用部分优秀的第三方框架，如SBJSON、JSONKit、MJExtension、YYModel等。但是，一些简单的数据，我们也可以尝试自己来实现转换的过程。</p>
-</blockquote>
-<p>更重要的是，有时候在iOS面试的时候，部分面试官会不仅问你某种场景会用到什么框架，更会问你如果要你来实现这个功能，你有没有解决思路？所以，自己实现字典转模型还是有必要掌握的。有了这个基础，在利用运行时runtime的动态特性，你也可以实现这些第三方框架。</p>
-<p>笔者的KVC系列为：</p>
-<ul>
-<li><a href="https://www.jianshu.com/p/c95a085c35f5" target="_blank" rel="external">iOS开发·KVC:字典转模型，防止因本地未定义字段（后台的字段与本地字符串名不一致）导致数据转换过程中的奔溃</a></li>
-<li><a href="https://www.jianshu.com/p/885b65688b96" target="_blank" rel="external">iOS开发·runtime+KVC实现字典模型转换</a></li>
-</ul>
-<a id="more"></a>
-<h2 id="1-字典转模型：KVC"><a href="#1-字典转模型：KVC" class="headerlink" title="1. 字典转模型：KVC"></a>1. 字典转模型：KVC</h2><p>当对象的属性很多的时候，我们可以利用KVC批量设置。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- (void)setValuesForKeysWithDictionary:(NSDictionary&lt;NSString *,id&gt; *)keyedValues;</div></pre></td></tr></table></figure></p>
-<p>但是KVC批量转的时候，有个致命的缺点，就是当字典中的键，在对象属性中找不到对应的属性的时候会报错。解决办法是实现下面的方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">//空的方法体也行</div><div class="line">- (void)setValue:(id)value forUndefinedKey:(NSString *)key&#123;&#125;</div></pre></td></tr></table></figure></p>
-<blockquote>
-<p><strong>需求</strong>：有一个排名列表页面，这个页面的每个排名对应一个模型，这个模型从Plist转换得到。那么实现的代码如下所示：</p>
-</blockquote>
-<ul>
-<li><p>头文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">#import &lt;Foundation/Foundation.h&gt;</div><div class="line"></div><div class="line">@interface GloryListModel : NSObject</div><div class="line"></div><div class="line">//图标</div><div class="line">@property (nonatomic, copy) NSString *icon;</div><div class="line">//标题</div><div class="line">@property (nonatomic, copy) NSString *title;</div><div class="line">//目标控制器</div><div class="line">@property (nonatomic, copy) NSString *targetVC;</div><div class="line">//菜单编号</div><div class="line">@property (nonatomic, copy) NSString *menuCode;</div><div class="line"></div><div class="line">+ (instancetype)gloryListModelWithDict:(NSDictionary *)dict;</div><div class="line"></div><div class="line">+ (NSArray&lt;GloryListModel *&gt; *)gloryListModelsWithPlistName:(NSString *)plistName;</div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure>
-</li>
-<li><p>实现文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">#import &quot;GloryListModel.h&quot;</div><div class="line"></div><div class="line">@implementation GloryListModel</div><div class="line"></div><div class="line">//kvc实现字典转模型</div><div class="line">- (instancetype)initWithDict:(NSDictionary *)dict&#123;</div><div class="line">if (self = [super init]) &#123;</div><div class="line">[self setValuesForKeysWithDictionary:dict];</div><div class="line">&#125;</div><div class="line">return self;</div><div class="line">&#125;</div><div class="line"></div><div class="line">//防止与后台字段不匹配而造成崩溃</div><div class="line">- (void)setValue:(id)value forUndefinedKey:(NSString *)key&#123;&#125;</div><div class="line"></div><div class="line">+ (instancetype)gloryListModelWithDict:(NSDictionary *)dict;&#123;</div><div class="line">return [[self alloc]initWithDict:dict];</div><div class="line">&#125;</div><div class="line"></div><div class="line">+ (NSArray&lt;GloryListModel *&gt; *)gloryListModelsWithPlistName:(NSString *)plistName;&#123;</div><div class="line">//获取路径</div><div class="line">NSString *path = [[NSBundle mainBundle]pathForResource:plistName ofType:@&quot;plist&quot;];</div><div class="line">//读取plist</div><div class="line">NSArray *dictArr = [NSArray arrayWithContentsOfFile:path];</div><div class="line">//字典转模型</div><div class="line">NSMutableArray *modelArr = [NSMutableArray array];</div><div class="line">[dictArr enumerateObjectsUsingBlock:^(NSDictionary *dict, NSUInteger idx, BOOL * _Nonnull stop) &#123;</div><div class="line">[modelArr addObject:[self gloryListModelWithDict:dict]];</div><div class="line">&#125;];</div><div class="line">return modelArr.copy;</div><div class="line">&#125;</div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h4 id="1-2-KVC字典转模型弊端"><a href="#1-2-KVC字典转模型弊端" class="headerlink" title="1.2 KVC字典转模型弊端"></a>1.2 KVC字典转模型弊端</h4><p><strong>弊端</strong>：必须保证，模型中的属性和字典中的key一一对应。<br>如果不一致，就会调用[<status 0x7fa74b545d60=""> setValue:forUndefinedKey:]<br>报key找不到的错。</status></p>
-<p><strong>分析</strong>:模型中的属性和字典的key不一一对应，系统就会调用<code>setValue:forUndefinedKey:</code>报错。</p>
-<p><strong>解决</strong>:重写对象的<code>setValue:forUndefinedKey:</code>,把系统的方法覆盖，<br>就能继续使用KVC，字典转模型了。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">- (void)setValue:(id)value forUndefinedKey:(NSString *)key&#123;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="2-字典转模型：Runtime"><a href="#2-字典转模型：Runtime" class="headerlink" title="2. 字典转模型：Runtime"></a>2. 字典转模型：Runtime</h2><ul>
-<li><p><strong>思路1</strong>：利用运行时，首先要遍历参数字典, 如果我们获取得属性列表中包含了字典中的 key，就利用 KVC 方法赋值，然后就完成了字典转模型的操作。</p>
-</li>
-<li><p><strong>思路2</strong>：利用运行时，遍历模型中所有属性，根据模型的属性名，去字典中查找key，取出对应的值，给模型的属性赋值，然后就完成了字典转模型的操作。</p>
-</li>
-</ul>
-<p>至于实现途径，可以提供一个NSObject分类，专门字典转模型，以后所有模型都可以通过这个分类转。</p>
-<h4 id="2-1-先遍历被转换的字典"><a href="#2-1-先遍历被转换的字典" class="headerlink" title="2.1 先遍历被转换的字典"></a>2.1 先遍历被转换的字典</h4><ul>
-<li><p>分类实现：NSObject+EnumDictOneLevel.m</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div></pre></td><td class="code"><pre><div class="line">#import &quot;NSObject+EnumDictOneLevel.h&quot;</div><div class="line">#import &lt;objc/runtime.h&gt;</div><div class="line"></div><div class="line">const char *kCMPropertyListKey1 = &quot;CMPropertyListKey1&quot;;</div><div class="line"></div><div class="line">@implementation NSObject (EnumDictOneLevel)</div><div class="line"></div><div class="line">+ (instancetype)cm_modelWithDict1:(NSDictionary *)dict</div><div class="line">&#123;</div><div class="line">/* 实例化对象 */</div><div class="line">id model = [[self alloc]init];</div><div class="line"></div><div class="line">/* 使用字典,设置对象信息 */</div><div class="line">/* 1. 获得 self 的属性列表 */</div><div class="line">NSArray *propertyList = [self cm_objcProperties];</div><div class="line"></div><div class="line">/* 2. 遍历字典 */</div><div class="line">[dict enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) &#123;</div><div class="line"></div><div class="line">/* 3. 判断 key 是否字 propertyList 中 */</div><div class="line">if ([propertyList containsObject:key]) &#123;</div><div class="line"></div><div class="line">// KVC字典转模型</div><div class="line">if (obj) &#123;</div><div class="line">/* 说明属性存在,可以使用 KVC 设置数值 */</div><div class="line">[model setValue:obj forKey:key];</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">&#125;];</div><div class="line"></div><div class="line">/* 返回对象 */</div><div class="line">return model;</div><div class="line">&#125;</div><div class="line"></div><div class="line">+ (NSArray *)cm_objcProperties</div><div class="line">&#123;</div><div class="line">/* 获取关联对象 */</div><div class="line">NSArray *ptyList = objc_getAssociatedObject(self, kCMPropertyListKey1);</div><div class="line"></div><div class="line">/* 如果 ptyList 有值,直接返回 */</div><div class="line">if (ptyList) &#123;</div><div class="line">return ptyList;</div><div class="line">&#125;</div><div class="line">/* 调用运行时方法, 取得类的属性列表 */</div><div class="line">/* 成员变量:</div><div class="line">* class_copyIvarList(__unsafe_unretained Class cls, unsigned int *outCount)</div><div class="line">* 方法:</div><div class="line">* class_copyMethodList(__unsafe_unretained Class cls, unsigned int *outCount)</div><div class="line">* 属性:</div><div class="line">* class_copyPropertyList(__unsafe_unretained Class cls, unsigned int *outCount)</div><div class="line">* 协议:</div><div class="line">* class_copyProtocolList(__unsafe_unretained Class cls, unsigned int *outCount)</div><div class="line">*/</div><div class="line">unsigned int outCount = 0;</div><div class="line">/**</div><div class="line">* 参数1: 要获取得类</div><div class="line">* 参数2: 雷属性的个数指针</div><div class="line">* 返回值: 所有属性的数组, C 语言中,数组的名字,就是指向第一个元素的地址</div><div class="line">*/</div><div class="line">/* retain, creat, copy 需要release */</div><div class="line">objc_property_t *propertyList = class_copyPropertyList([self class], &amp;outCount);</div><div class="line"></div><div class="line">NSMutableArray *mtArray = [NSMutableArray array];</div><div class="line"></div><div class="line">/* 遍历所有属性 */</div><div class="line">for (unsigned int i = 0; i &lt; outCount; i++) &#123;</div><div class="line">/* 从数组中取得属性 */</div><div class="line">objc_property_t property = propertyList[i];</div><div class="line">/* 从 property 中获得属性名称 */</div><div class="line">const char *propertyName_C = property_getName(property);</div><div class="line">/* 将 C 字符串转化成 OC 字符串 */</div><div class="line">NSString *propertyName_OC = [NSString stringWithCString:propertyName_C encoding:NSUTF8StringEncoding];</div><div class="line">[mtArray addObject:propertyName_OC];</div><div class="line">&#125;</div><div class="line"></div><div class="line">/* 设置关联对象 */</div><div class="line">/**</div><div class="line">*  参数1 : 对象self</div><div class="line">*  参数2 : 动态添加属性的 key</div><div class="line">*  参数3 : 动态添加属性值</div><div class="line">*  参数4 : 对象的引用关系</div><div class="line">*/</div><div class="line"></div><div class="line">objc_setAssociatedObject(self, kCMPropertyListKey1, mtArray.copy, OBJC_ASSOCIATION_RETAIN_NONATOMIC);</div><div class="line">/* 释放 */</div><div class="line">free(propertyList);</div><div class="line">return mtArray.copy;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure>
-</li>
-<li><p>模型：PersonModel.h</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">#import &lt;Foundation/Foundation.h&gt;</div><div class="line"></div><div class="line">@interface PersonModel : NSObject</div><div class="line"></div><div class="line">@property (nonatomic, copy) NSString *iconStr;</div><div class="line"></div><div class="line">@property (nonatomic, copy) NSString *showStr;</div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure>
-<ul>
-<li><p>调用</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">NSDictionary *dict = @&#123;</div><div class="line">@&quot;iconStr&quot;:@&quot;小明&quot;,</div><div class="line">@&quot;showStr&quot;:@&quot;这是我的第一条心情&quot;</div><div class="line">&#125;;</div><div class="line">PersonModel *testPerson = [PersonModel cm_modelWithDict1:dict];</div><div class="line">// 测试数据</div><div class="line">NSLog(@&quot;%@&quot;,testPerson);</div></pre></td></tr></table></figure>
-</li>
-<li><p>运行验证</p>
-</li>
-</ul>
-<p><img src="https://upload-images.jianshu.io/upload_images/1283539-c6f0bb54c1f0411b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<h4 id="2-2-先遍历模型的成员变量数组"><a href="#2-2-先遍历模型的成员变量数组" class="headerlink" title="2.2 先遍历模型的成员变量数组"></a>2.2 先遍历模型的成员变量数组</h4><ul>
-<li>实现分类：NSObject+EnumArr.m</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div></pre></td><td class="code"><pre><div class="line">#import &quot;NSObject+EnumArr.h&quot;</div><div class="line">#import &lt;objc/message.h&gt;</div><div class="line"></div><div class="line">@implementation NSObject (EnumArr)</div><div class="line"></div><div class="line">/*</div><div class="line">* 把字典中所有value给模型中属性赋值,</div><div class="line">* KVC:遍历字典中所有key,去模型中查找</div><div class="line">* Runtime:根据模型中属性名去字典中查找对应value,如果找到就给模型的属性赋值.</div><div class="line">*/</div><div class="line">// 字典转模型</div><div class="line">+ (instancetype)modelWithDict:(NSDictionary *)dict</div><div class="line">&#123;</div><div class="line">// 创建对应模型对象</div><div class="line">id objc = [[self alloc] init];</div><div class="line"></div><div class="line"></div><div class="line">unsigned int count = 0;</div><div class="line"></div><div class="line">// 1.获取成员属性数组</div><div class="line">Ivar *ivarList = class_copyIvarList(self, &amp;count);</div><div class="line"></div><div class="line">// 2.遍历所有的成员属性名,一个一个去字典中取出对应的value给模型属性赋值</div><div class="line">for (int i = 0; i &lt; count; i++) &#123;</div><div class="line"></div><div class="line">// 2.1 获取成员属性</div><div class="line">Ivar ivar = ivarList[i];</div><div class="line"></div><div class="line">// 2.2 获取成员属性名 C -&gt; OC 字符串</div><div class="line">NSString *ivarName = [NSString stringWithUTF8String:ivar_getName(ivar)];</div><div class="line"></div><div class="line">// 2.3 _成员属性名 =&gt; 字典key</div><div class="line">NSString *key = [ivarName substringFromIndex:1];</div><div class="line"></div><div class="line">// 2.4 去字典中取出对应value给模型属性赋值</div><div class="line">id value = dict[key];</div><div class="line"></div><div class="line"></div><div class="line">// 获取成员属性类型</div><div class="line">NSString *ivarType = [NSString stringWithUTF8String:ivar_getTypeEncoding(ivar)];</div><div class="line"></div><div class="line">// 二级转换,字典中还有字典,也需要把对应字典转换成模型</div><div class="line">//</div><div class="line">// 判断下value,是不是字典</div><div class="line">if ([value isKindOfClass:[NSDictionary class]] &amp;&amp; ![ivarType containsString:@&quot;NS&quot;]) &#123; //  是字典对象,并且属性名对应类型是自定义类型</div><div class="line">// user User</div><div class="line"></div><div class="line">// 处理类型字符串 @\&quot;User\&quot; -&gt; User</div><div class="line">ivarType = [ivarType stringByReplacingOccurrencesOfString:@&quot;@&quot; withString:@&quot;&quot;];</div><div class="line">ivarType = [ivarType stringByReplacingOccurrencesOfString:@&quot;\&quot;&quot; withString:@&quot;&quot;];</div><div class="line">// 自定义对象,并且值是字典</div><div class="line">// value:user字典 -&gt; User模型</div><div class="line">// 获取模型(user)类对象</div><div class="line">Class modalClass = NSClassFromString(ivarType);</div><div class="line"></div><div class="line">// 字典转模型</div><div class="line">if (modalClass) &#123;</div><div class="line">// 字典转模型 user</div><div class="line">value = [modalClass modelWithDict:value];</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 字典,user</div><div class="line">//            NSLog(@&quot;%@&quot;,key);</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 三级转换：NSArray中也是字典，把数组中的字典转换成模型.</div><div class="line">// 判断值是否是数组</div><div class="line">if ([value isKindOfClass:[NSArray class]]) &#123;</div><div class="line">// 判断对应类有没有实现字典数组转模型数组的协议</div><div class="line">if ([self respondsToSelector:@selector(arrayContainModelClass)]) &#123;</div><div class="line"></div><div class="line">// 转换成id类型，就能调用任何对象的方法</div><div class="line">id idSelf = self;</div><div class="line"></div><div class="line">// 获取数组中字典对应的模型</div><div class="line">NSString *type =  [idSelf arrayContainModelClass][key];</div><div class="line"></div><div class="line">// 生成模型</div><div class="line">Class classModel = NSClassFromString(type);</div><div class="line">NSMutableArray *arrM = [NSMutableArray array];</div><div class="line">// 遍历字典数组，生成模型数组</div><div class="line">for (NSDictionary *dict in value) &#123;</div><div class="line">// 字典转模型</div><div class="line">id model =  [classModel modelWithDict:dict];</div><div class="line">[arrM addObject:model];</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 把模型数组赋值给value</div><div class="line">value = arrM;</div><div class="line"></div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 2.5 KVC字典转模型</div><div class="line">if (value) &#123;</div><div class="line"></div><div class="line">[objc setValue:value forKey:key];</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">// 返回对象</div><div class="line">return objc;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure>
-<ul>
-<li>第1层模型：各个属性与字典对应</li>
-<li><p>Status.h</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">#import &lt;Foundation/Foundation.h&gt;</div><div class="line">#import &quot;NSObject+EnumArr.h&quot;</div><div class="line"></div><div class="line">@class PersonModel;</div><div class="line"></div><div class="line">@interface Status : NSObject &lt;ModelDelegate&gt;</div><div class="line"></div><div class="line">@property (nonatomic, strong) NSString *title;</div><div class="line">@property (nonatomic, strong) PersonModel *person;</div><div class="line">@property (nonatomic, strong) NSArray *cellMdlArr;</div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure>
-</li>
-<li><p>第1层模型：实现文件需要指明数组里面装的类名</p>
-</li>
-<li><p>Status.m</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">#import &quot;Status.h&quot;</div><div class="line"></div><div class="line">@implementation Status</div><div class="line"></div><div class="line">+ (NSDictionary *)arrayContainModelClass</div><div class="line">&#123;</div><div class="line">return @&#123;@&quot;cellMdlArr&quot; : @&quot;CellModel&quot;&#125;;</div><div class="line">&#125;</div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure>
-</li>
-<li><p>第2层模型：第2层模型作为第一层模型的自定义类的属性</p>
-</li>
-<li><p>PersonModel.h</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">#import &lt;Foundation/Foundation.h&gt;</div><div class="line"></div><div class="line">@interface PersonModel : NSObject</div><div class="line">@property (nonatomic, copy) NSString *iconStr;</div><div class="line">@property (nonatomic, copy) NSString *showStr;</div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure>
-</li>
-<li><p>第2层模型：第2层模型作为第一层模型的数组类型的属性</p>
-</li>
-<li><p>CellModel.h</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">#import &lt;Foundation/Foundation.h&gt;</div><div class="line"></div><div class="line">@interface CellModel : NSObject</div><div class="line"></div><div class="line">@property (nonatomic, copy) NSString *stateStr;</div><div class="line">@property (nonatomic, copy) NSString *partnerStr;</div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure>
-</li>
-<li><p>将被转换的字典</p>
-</li>
-</ul>
-<p><img src="https://upload-images.jianshu.io/upload_images/1283539-f719beef7700d334.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<ul>
-<li>运行验证</li>
-</ul>
-<p><img src="https://upload-images.jianshu.io/upload_images/1283539-2fb200b0b593c04e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<h4 id="2-3-对2-1的改进：2-1无法对多层数据进行转换"><a href="#2-3-对2-1的改进：2-1无法对多层数据进行转换" class="headerlink" title="2.3 对2.1的改进：2.1无法对多层数据进行转换"></a>2.3 对2.1的改进：2.1无法对多层数据进行转换</h4><p><strong>思路</strong>：可以模仿2.2中的递归，对2.1进行改进：模型中，除了为数组属性添加数组元素对应的类名映射字典，还要为模型属性对应的类名添加映射字典。这是因为，从字典遍历出来的key无法得知自定义类型的属性的类名。</p>
-<ul>
-<li><p>Status.m</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">+ (NSDictionary *)dictWithModelClass</div><div class="line">&#123;</div><div class="line">return @&#123;@&quot;person&quot; : @&quot;PersonModel&quot;&#125;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>NSObject+EnumDict.m</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div></pre></td><td class="code"><pre><div class="line">#import &quot;NSObject+EnumDict.h&quot;</div><div class="line"></div><div class="line">//导入模型</div><div class="line">#import &quot;Status.h&quot;</div><div class="line">#import &lt;objc/runtime.h&gt;</div><div class="line"></div><div class="line">@implementation NSObject (EnumDict)</div><div class="line"></div><div class="line">const char *kCMPropertyListKey = &quot;CMPropertyListKey&quot;;</div><div class="line"></div><div class="line">+ (instancetype)cm_modelWithDict:(NSDictionary *)dict</div><div class="line">&#123;</div><div class="line">/* 实例化对象 */</div><div class="line">id model = [[self alloc]init];</div><div class="line"></div><div class="line">/* 使用字典,设置对象信息 */</div><div class="line">/* 1. 获得 self 的属性列表 */</div><div class="line">NSArray *propertyList = [self cm_objcProperties];</div><div class="line"></div><div class="line">/* 2. 遍历字典 */</div><div class="line">[dict enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) &#123;</div><div class="line"></div><div class="line">/* 3. 判断 key 是否字 propertyList 中 */</div><div class="line">if ([propertyList containsObject:key]) &#123;</div><div class="line"></div><div class="line">// 获取成员属性类型</div><div class="line">// 类型经常变，抽出来</div><div class="line">NSString *ivarType;</div><div class="line"></div><div class="line">if ([obj isKindOfClass:NSClassFromString(@&quot;__NSCFString&quot;)]) &#123;</div><div class="line">ivarType = @&quot;NSString&quot;;</div><div class="line">&#125;else if ([obj isKindOfClass:NSClassFromString(@&quot;__NSCFArray&quot;)])&#123;</div><div class="line">ivarType = @&quot;NSArray&quot;;</div><div class="line">&#125;else if ([obj isKindOfClass:NSClassFromString(@&quot;__NSCFNumber&quot;)])&#123;</div><div class="line">ivarType = @&quot;int&quot;;</div><div class="line">&#125;else if ([obj isKindOfClass:NSClassFromString(@&quot;__NSCFDictionary&quot;)])&#123;</div><div class="line">ivarType = @&quot;NSDictionary&quot;;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 二级转换,字典中还有字典,也需要把对应字典转换成模型</div><div class="line">// 判断下value,是不是字典</div><div class="line">if ([obj isKindOfClass:NSClassFromString(@&quot;__NSCFDictionary&quot;)]) &#123; //  是字典对象,并且属性名对应类型是自定义类型</div><div class="line">// value:user字典 -&gt; User模型</div><div class="line">// 获取模型(user)类对象</div><div class="line">NSString *ivarType = [Status dictWithModelClass][key];</div><div class="line">Class modalClass = NSClassFromString(ivarType);</div><div class="line"></div><div class="line">// 字典转模型</div><div class="line">if (modalClass) &#123;</div><div class="line">// 字典转模型 user</div><div class="line">obj = [modalClass cm_modelWithDict:obj];</div><div class="line">&#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">// 三级转换：NSArray中也是字典，把数组中的字典转换成模型.</div><div class="line">// 判断值是否是数组</div><div class="line">if ([obj isKindOfClass:[NSArray class]]) &#123;</div><div class="line">// 判断对应类有没有实现字典数组转模型数组的协议</div><div class="line">if ([self respondsToSelector:@selector(arrayContainModelClass)]) &#123;</div><div class="line"></div><div class="line">// 转换成id类型，就能调用任何对象的方法</div><div class="line">id idSelf = self;</div><div class="line"></div><div class="line">// 获取数组中字典对应的模型</div><div class="line">NSString *type =  [idSelf arrayContainModelClass][key];</div><div class="line"></div><div class="line">// 生成模型</div><div class="line">Class classModel = NSClassFromString(type);</div><div class="line">NSMutableArray *arrM = [NSMutableArray array];</div><div class="line">// 遍历字典数组，生成模型数组</div><div class="line">for (NSDictionary *dict in obj) &#123;</div><div class="line">// 字典转模型</div><div class="line">id model =  [classModel cm_modelWithDict:dict];</div><div class="line">[arrM addObject:model];</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 把模型数组赋值给value</div><div class="line">obj = arrM;</div><div class="line"></div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// KVC字典转模型</div><div class="line">if (obj) &#123;</div><div class="line">/* 说明属性存在,可以使用 KVC 设置数值 */</div><div class="line">[model setValue:obj forKey:key];</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">&#125;];</div><div class="line"></div><div class="line">/* 返回对象 */</div><div class="line">return model;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>调用</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">// 解析Plist文件</div><div class="line">NSString *filePath = [[NSBundle mainBundle] pathForResource:@&quot;statuses.plist&quot; ofType:nil];</div><div class="line">NSDictionary *statusDict = [NSDictionary dictionaryWithContentsOfFile:filePath];</div><div class="line"></div><div class="line">// 获取字典数组</div><div class="line">NSArray *dictArr = statusDict[@&quot;statuses&quot;];</div><div class="line">NSMutableArray *statusArr = [NSMutableArray array];</div><div class="line"></div><div class="line">// 遍历字典数组</div><div class="line">for (NSDictionary *dict in dictArr) &#123;</div><div class="line"></div><div class="line">Status *status = [Status cm_modelWithDict:dict];</div><div class="line"></div><div class="line">[statusArr addObject:status];</div><div class="line">&#125;</div><div class="line">NSLog(@&quot;%@&quot;,statusArr);</div></pre></td></tr></table></figure>
-</li>
-<li><p>运行验证</p>
-</li>
-</ul>
-<p><img src="https://upload-images.jianshu.io/upload_images/1283539-f0067f1dd7e1c49a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+        <div class="article-info info-on-right">
+          
+          
 
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/assets/img/aliPay.jpg">
-                      <span class="reward-type">支付宝</span>
-                    </div>
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/assets/img/wechatPay.jpg">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
         </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
-        </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2018/03/15/post20/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
   
-<nav id="article-nav">
+    
+    
+      
+        </div></section>
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2016" class="archive-year">2016</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2016/07/23/welcome/" class="archive-article-date">
+  	<time datetime="2016-07-23T05:25:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-23</time>
+</a>
+        </div>
+    	 
   
-    <a href="/2018/03/16/post21/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          iOS引用转换：Foundation与Core Foundation对象互相转换（__CFString转NSString，void *转id等等）
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2018/03/11/post19/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">iOS开发·KVO用法，原理与底层实现：runtime模拟实现KVO监听机制（Blcok及Delgate方式）</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-
-
-
-  
-  
-  
-
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2016/07/23/welcome/">搭建网站填坑记录</a>
+    </h1>
   
 
+        <div class="article-info info-on-right">
+          
+          
+
+        </div>
+        <div class="clearfix"></div>
+    </header>
+  </div>
+</article>
+  
+    
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2016/01/24/post3/" class="archive-article-date">
+  	<time datetime="2016-01-24T12:01:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-01-24</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2016/01/24/post3/">程序员修养·Markdown语法学习手册</a>
+    </h1>
+  
+
+        <div class="article-info info-on-right">
+          
+          
+
+        </div>
+        <div class="clearfix"></div>
+    </header>
+  </div>
+</article>
+  
+  
+    </div></section>
+  
+
+    
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/archives/page/2/">&laquo; Prev</a><a class="page-number" href="/archives/">1</a><a class="page-number" href="/archives/page/2/">2</a><span class="page-number current">3</span>
+    </nav>
   
 
 
@@ -461,8 +305,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
