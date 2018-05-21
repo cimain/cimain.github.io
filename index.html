@@ -164,36 +164,40 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-post13" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-post22" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/23/post13/">iOS中Block的用法，举例，解析与底层原理（Block看我really足够了）</a>
+      <a class="article-title" href="/2018/05/21/post22/">iOS开发·RunLoop源码与用法完全解析(输入源，定时源，观察者，线程间通信，端口间通信，NSPort，NSMessagePort，NSMachPort，NSPortMessage)</a>
     </h1>
   
 
         
-        <a href="/2018/04/23/post13/" class="archive-article-date">
-  	<time datetime="2018-04-23T06:05:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-23</time>
+        <a href="/2018/05/21/post22/" class="archive-article-date">
+  	<time datetime="2018-05-21T11:40:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-21</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>本文Demo的<a href="https://github.com/cimain/BlockTestApp/tree/master" target="_blank" rel="external">传送门</a></p>
-<p>【摘要】这篇文章，首先在第1节中介绍Block的定义，以及与C里面函数的对比。然后，第2节介绍实际开发中经常会用到的Block语法形式，以供读者日后查阅。只知道怎么用却不知什么时候用？所以随后的第3节将介绍Block的应用场景。然而，用Block不当导致了Crash？所以，第4节有必要了解Block捕获变量的特性，以及循环引用的解决。另外，千万不要懒，一碰到Block就weak，要区分哪些不会引起循环引用。然而，如果对Block的内存机制不熟悉，也会导致Crash，所以第5节会介绍Block的内存机制。学到这里已经够用了。然而，你却想进一步了解Block的实现机制？第6节将简单介绍下clang的编译与Block的实现及其原理。</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/1283539-a0876ad6676072ba.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<h2 id="1-前言"><a href="#1-前言" class="headerlink" title="1. 前言"></a>1. 前言</h2><hr>
-<blockquote>
-<p><strong>Block</strong>：带有自动变量（局部变量）的匿名函数。它是C语言的扩充功能。之所以是拓展，是因为C语言不允许存在这样匿名函数。</p>
-</blockquote>
-<h4 id="1-1-匿名函数"><a href="#1-1-匿名函数" class="headerlink" title="1.1 匿名函数"></a>1.1 匿名函数</h4><p>匿名函数是指不带函数名称函数。C语言中，函数是怎样的呢？类似这样：</p>
+        <p>本文Demo传送门 <a href="https://github.com/cimain/RunloopDemo" target="_blank" rel="external">RunloopDemo</a></p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>OSX / iOS 系统中，提供了两个这样的对象：<strong>NSRunLoop</strong> 和 <strong>CFRunLoopRef</strong>。</p>
+<ul>
+<li><p><strong>CFRunLoopRef</strong> 是在 <strong>CoreFoundation</strong> 框架内的，它提供了纯 C 函数的 API，所有这些 API 都是线程安全的。</p>
+</li>
+<li><p><strong>NSRunLoop</strong> 是基于 <strong>CFRunLoopRef</strong> 的封装，提供了面向对象的 API，但是这些 API 不是线程安全的。</p>
+</li>
+</ul>
+<h2 id="1-如何查看RunLoop源代码"><a href="#1-如何查看RunLoop源代码" class="headerlink" title="1. 如何查看RunLoop源代码"></a>1. 如何查看RunLoop源代码</h2><hr>
+<h5 id="1-1-NSRunLoop源代码"><a href="#1-1-NSRunLoop源代码" class="headerlink" title="1.1 NSRunLoop源代码"></a>1.1 NSRunLoop源代码</h5><p>NSRunLoop是Foundation框架里面的一个类，它的头文件可以在工程里面这样查看：</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/1283539-ceeb3e9fd6905c45.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>至于它的实现文件，暂时没有找到公开的资料。</p>
         
-          <a class="article-more-a" href="/2018/04/23/post13/#more">more >></a>
+          <a class="article-more-a" href="/2018/05/21/post22/#more">more >></a>
         
       
 
@@ -207,7 +211,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Block iOS</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
         		</li>
       		
 		</ul>
@@ -217,7 +221,151 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/04/23/post13/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/05/21/post22/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-post21" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/21/post21/">iOS引用转换：Foundation与Core Foundation对象互相转换（__CFString转NSString，void *转id等等）</a>
+    </h1>
+  
+
+        
+        <a href="/2018/05/21/post21/" class="archive-article-date">
+  	<time datetime="2018-05-21T11:40:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-21</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>源代码下载</p>
+</blockquote>
+<p><strong>下载地址</strong>：苹果公开的源代码在这里可以下载，<a href="https://opensource.apple.com/tarballs/" target="_blank" rel="external">https://opensource.apple.com/tarballs/</a></p>
+<p>例如，其中，有两个比较常见需要学习源码的下载地址：</p>
+<ul>
+<li>runtime的源代码在<a href="https://opensource.apple.com/tarballs/objc4/" target="_blank" rel="external">https://opensource.apple.com/tarballs/objc4/</a></li>
+<li>CoreFoudation(包括runloop)的源代码在<a href="https://opensource.apple.com/tarballs/CF/" target="_blank" rel="external">https://opensource.apple.com/tarballs/CF/</a></li>
+</ul>
+<p>当然，如果你想在github上在线查看源代码，可以点这里：<a href="https://github.com/cimain/runtime" target="_blank" rel="external">runtime</a>，<a href="https://github.com/cimain/CoreFoudation" target="_blank" rel="external">CoreFoudation</a></p>
+<blockquote>
+<p>为什么需要了解 <strong>引用转换</strong>？</p>
+</blockquote>
+<p>例如，在用到runtime的关联对象API的时候<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">static NSString * const kCMkvoClassPrefix_for_Block = @&quot;CMObserver_&quot;;</div><div class="line"></div><div class="line">NSMutableArray * observers = objc_getAssociatedObject(self, (__bridge void *)kCMkvoAssiociateObserver_for_Block);</div></pre></td></tr></table></figure></p>
+        
+          <a class="article-more-a" href="/2018/05/21/post21/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/05/21/post21/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-post20" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/21/post20/">iOS开发·runtime+KVC实现多层字典模型转换（多层数据：模型嵌套模型，模型嵌套数组，数组嵌套模型）</a>
+    </h1>
+  
+
+        
+        <a href="/2018/05/21/post20/" class="archive-article-date">
+  	<time datetime="2018-05-21T11:40:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-21</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>本文实验Demo传送门：<a href="https://github.com/cimain/DictToModelDemo" target="_blank" rel="external">DictToModelDemo</a></p>
+<blockquote>
+<p><strong>前言</strong>：将后台JSON数据中的字典转成本地的模型，我们一般选用部分优秀的第三方框架，如SBJSON、JSONKit、MJExtension、YYModel等。但是，一些简单的数据，我们也可以尝试自己来实现转换的过程。</p>
+</blockquote>
+<p>更重要的是，有时候在iOS面试的时候，部分面试官会不仅问你某种场景会用到什么框架，更会问你如果要你来实现这个功能，你有没有解决思路？所以，自己实现字典转模型还是有必要掌握的。有了这个基础，在利用运行时runtime的动态特性，你也可以实现这些第三方框架。</p>
+<p>笔者的KVC系列为：</p>
+<ul>
+<li><a href="https://www.jianshu.com/p/c95a085c35f5" target="_blank" rel="external">iOS开发·KVC:字典转模型，防止因本地未定义字段（后台的字段与本地字符串名不一致）导致数据转换过程中的奔溃</a></li>
+<li><a href="https://www.jianshu.com/p/885b65688b96" target="_blank" rel="external">iOS开发·runtime+KVC实现字典模型转换</a></li>
+</ul>
+        
+          <a class="article-more-a" href="/2018/05/21/post20/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/05/21/post20/">展开全文 >></a>
         </p>
       
 
@@ -277,6 +425,74 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2018/03/24/post8/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-post13" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/02/23/post13/">iOS中Block的用法，举例，解析与底层原理（Block看我really足够了）</a>
+    </h1>
+  
+
+        
+        <a href="/2018/02/23/post13/" class="archive-article-date">
+  	<time datetime="2018-02-23T06:05:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>本文Demo的<a href="https://github.com/cimain/BlockTestApp/tree/master" target="_blank" rel="external">传送门</a></p>
+<p>【摘要】这篇文章，首先在第1节中介绍Block的定义，以及与C里面函数的对比。然后，第2节介绍实际开发中经常会用到的Block语法形式，以供读者日后查阅。只知道怎么用却不知什么时候用？所以随后的第3节将介绍Block的应用场景。然而，用Block不当导致了Crash？所以，第4节有必要了解Block捕获变量的特性，以及循环引用的解决。另外，千万不要懒，一碰到Block就weak，要区分哪些不会引起循环引用。然而，如果对Block的内存机制不熟悉，也会导致Crash，所以第5节会介绍Block的内存机制。学到这里已经够用了。然而，你却想进一步了解Block的实现机制？第6节将简单介绍下clang的编译与Block的实现及其原理。</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/1283539-a0876ad6676072ba.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h2 id="1-前言"><a href="#1-前言" class="headerlink" title="1. 前言"></a>1. 前言</h2><hr>
+<blockquote>
+<p><strong>Block</strong>：带有自动变量（局部变量）的匿名函数。它是C语言的扩充功能。之所以是拓展，是因为C语言不允许存在这样匿名函数。</p>
+</blockquote>
+<h4 id="1-1-匿名函数"><a href="#1-1-匿名函数" class="headerlink" title="1.1 匿名函数"></a>1.1 匿名函数</h4><p>匿名函数是指不带函数名称函数。C语言中，函数是怎样的呢？类似这样：</p>
+        
+          <a class="article-more-a" href="/2018/02/23/post13/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Block iOS</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/02/23/post13/">展开全文 >></a>
         </p>
       
 
@@ -608,176 +824,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2017/10/12/post10/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-post5" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/24/post5/">iOS·采用第三方(百度地图SDK)实现定位等功能开发</a>
-    </h1>
-  
-
-        
-        <a href="/2017/06/24/post5/" class="archive-article-date">
-  	<time datetime="2017-06-24T12:19:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="1-申请密钥"><a href="#1-申请密钥" class="headerlink" title="1.申请密钥"></a>1.申请密钥</h2><p>首先，申请一个baidu账号，接着进入<a href="http://lbsyun.baidu.com/apiconsole/key" target="_blank" rel="external">新建密钥入口</a>申请成为baidu地图开发者，填写相关开发者信息和短信验证码。接下来点击<strong>创建应用</strong>，如官方文档<a href="http://lbsyun.baidu.com/index.php?title=iossdk/guide/key" target="_blank" rel="external">新建密钥文档指南</a>里面的截图所示，注意正确勾选有关项。如果你想要实名认证，点击页面右上角的<strong>实名状态</strong>，下面是该页面的截图。</p>
-        
-          <a class="article-more-a" href="/2017/06/24/post5/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/06/24/post5/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-post2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/04/post2/">iOS字符串的各种基础操作及衍生操作</a>
-    </h1>
-  
-
-        
-        <a href="/2017/06/04/post2/" class="archive-article-date">
-  	<time datetime="2017-06-04T11:46:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-04</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<ul>
-<li>目前，有不少文献介绍字符串的一些基本操作，如：字符串插入、字符串覆盖、字符串截取、分割字符串。</li>
-</ul>
-</blockquote>
-<p>但有时候，仅仅停留在这些基本操作还不能直接满足一些需求，这时候可以利用这些基本操作进行一些字符串的衍生操作。</p>
-<p>这篇文章，将先引用CSDN一个<a href="http://blog.csdn.net/sevenquan" target="_blank" rel="external">大神</a>的字符串【基本操作】，基于此，然后介绍一些【字符串的衍生操作】。</p>
-<h1 id="一-字符串的基本操作"><a href="#一-字符串的基本操作" class="headerlink" title="一. 字符串的基本操作"></a>一. 字符串的基本操作</h1><p>1.【字符串插入】<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">NSMutableString* str1=[[NSMutableString alloc] initWithString:@&quot;hello&quot;];//存在堆区，可变字符串</div><div class="line">NSLog(@&quot;str1:%@&quot;,str1);</div><div class="line">[str1 insertString:@&quot;234&quot;atIndex:2];//把一个字符串插入另一个字符串中的某一个位置</div><div class="line">NSLog(@&quot;str1:%@&quot;,str1);</div></pre></td></tr></table></figure></p>
-        
-          <a class="article-more-a" href="/2017/06/04/post2/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/06/04/post2/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-post1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/23/post1/">iOS字符串编码与解码方法的实现与调用(UrlEncode/UrlDecode)</a>
-    </h1>
-  
-
-        
-        <a href="/2017/04/23/post1/" class="archive-article-date">
-  	<time datetime="2017-04-23T05:51:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="1-本编解码方法的功能说明"><a href="#1-本编解码方法的功能说明" class="headerlink" title="1.本编解码方法的功能说明"></a>1.本编解码方法的功能说明</h1><ul>
-<li><strong>UrlEncode方法</strong><br>把任何参数转换成适合放在URL中的字符串。具体规则： </li>
-</ul>
-<blockquote>
-<ol>
-<li>字母，数字，连字符不变。 </li>
-<li>空格转换成<strong>加号</strong>。 </li>
-<li>其他所有的字符转换成用<strong>百分号</strong>表示，并接上字符的两位十六进制编码。如%2F </li>
-</ol>
-</blockquote>
-<ul>
-<li><strong>UrlDecode方法</strong><br>其功能与编码相反</li>
-</ul>
-<h1 id="2-字符串在编码之前之后的效果"><a href="#2-字符串在编码之前之后的效果" class="headerlink" title="2. 字符串在编码之前之后的效果"></a>2. 字符串在编码之前之后的效果</h1><p>原字符串：<br>
-        
-          <a class="article-more-a" href="/2017/04/23/post1/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/04/23/post1/">展开全文 >></a>
         </p>
       
 

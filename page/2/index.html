@@ -164,6 +164,176 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-post5" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/24/post5/">iOS·采用第三方(百度地图SDK)实现定位等功能开发</a>
+    </h1>
+  
+
+        
+        <a href="/2017/06/24/post5/" class="archive-article-date">
+  	<time datetime="2017-06-24T12:19:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-24</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-申请密钥"><a href="#1-申请密钥" class="headerlink" title="1.申请密钥"></a>1.申请密钥</h2><p>首先，申请一个baidu账号，接着进入<a href="http://lbsyun.baidu.com/apiconsole/key" target="_blank" rel="external">新建密钥入口</a>申请成为baidu地图开发者，填写相关开发者信息和短信验证码。接下来点击<strong>创建应用</strong>，如官方文档<a href="http://lbsyun.baidu.com/index.php?title=iossdk/guide/key" target="_blank" rel="external">新建密钥文档指南</a>里面的截图所示，注意正确勾选有关项。如果你想要实名认证，点击页面右上角的<strong>实名状态</strong>，下面是该页面的截图。</p>
+        
+          <a class="article-more-a" href="/2017/06/24/post5/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/06/24/post5/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-post2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/04/post2/">iOS字符串的各种基础操作及衍生操作</a>
+    </h1>
+  
+
+        
+        <a href="/2017/06/04/post2/" class="archive-article-date">
+  	<time datetime="2017-06-04T11:46:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-04</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<ul>
+<li>目前，有不少文献介绍字符串的一些基本操作，如：字符串插入、字符串覆盖、字符串截取、分割字符串。</li>
+</ul>
+</blockquote>
+<p>但有时候，仅仅停留在这些基本操作还不能直接满足一些需求，这时候可以利用这些基本操作进行一些字符串的衍生操作。</p>
+<p>这篇文章，将先引用CSDN一个<a href="http://blog.csdn.net/sevenquan" target="_blank" rel="external">大神</a>的字符串【基本操作】，基于此，然后介绍一些【字符串的衍生操作】。</p>
+<h1 id="一-字符串的基本操作"><a href="#一-字符串的基本操作" class="headerlink" title="一. 字符串的基本操作"></a>一. 字符串的基本操作</h1><p>1.【字符串插入】<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">NSMutableString* str1=[[NSMutableString alloc] initWithString:@&quot;hello&quot;];//存在堆区，可变字符串</div><div class="line">NSLog(@&quot;str1:%@&quot;,str1);</div><div class="line">[str1 insertString:@&quot;234&quot;atIndex:2];//把一个字符串插入另一个字符串中的某一个位置</div><div class="line">NSLog(@&quot;str1:%@&quot;,str1);</div></pre></td></tr></table></figure></p>
+        
+          <a class="article-more-a" href="/2017/06/04/post2/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/06/04/post2/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-post1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/23/post1/">iOS字符串编码与解码方法的实现与调用(UrlEncode/UrlDecode)</a>
+    </h1>
+  
+
+        
+        <a href="/2017/04/23/post1/" class="archive-article-date">
+  	<time datetime="2017-04-23T05:51:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1-本编解码方法的功能说明"><a href="#1-本编解码方法的功能说明" class="headerlink" title="1.本编解码方法的功能说明"></a>1.本编解码方法的功能说明</h1><ul>
+<li><strong>UrlEncode方法</strong><br>把任何参数转换成适合放在URL中的字符串。具体规则： </li>
+</ul>
+<blockquote>
+<ol>
+<li>字母，数字，连字符不变。 </li>
+<li>空格转换成<strong>加号</strong>。 </li>
+<li>其他所有的字符转换成用<strong>百分号</strong>表示，并接上字符的两位十六进制编码。如%2F </li>
+</ol>
+</blockquote>
+<ul>
+<li><strong>UrlDecode方法</strong><br>其功能与编码相反</li>
+</ul>
+<h1 id="2-字符串在编码之前之后的效果"><a href="#2-字符串在编码之前之后的效果" class="headerlink" title="2. 字符串在编码之前之后的效果"></a>2. 字符串在编码之前之后的效果</h1><p>原字符串：<br>
+        
+          <a class="article-more-a" href="/2017/04/23/post1/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/04/23/post1/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-post4" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     

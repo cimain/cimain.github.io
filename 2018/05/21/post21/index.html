@@ -6,17 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | ChenMan(陈满の个人网站)</title>
+  <title>iOS引用转换：Foundation与Core Foundation对象互相转换（__CFString转NSString，void *转id等等） | ChenMan(陈满の个人网站)</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Shenzhen,China">
-<meta property="og:type" content="website">
-<meta property="og:title" content="ChenMan(陈满の个人网站)">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+  <meta name="description" content="源代码下载  下载地址：苹果公开的源代码在这里可以下载，https://opensource.apple.com/tarballs/ 例如，其中，有两个比较常见需要学习源码的下载地址：  runtime的源代码在https://opensource.apple.com/tarballs/objc4/ CoreFoudation(包括runloop)的源代码在https://opensource.">
+<meta name="keywords" content="iOS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS引用转换：Foundation与Core Foundation对象互相转换（__CFString转NSString，void *转id等等）">
+<meta property="og:url" content="http://yoursite.com/2018/05/21/post21/index.html">
 <meta property="og:site_name" content="ChenMan(陈满の个人网站)">
-<meta property="og:description" content="Shenzhen,China">
+<meta property="og:description" content="源代码下载  下载地址：苹果公开的源代码在这里可以下载，https://opensource.apple.com/tarballs/ 例如，其中，有两个比较常见需要学习源码的下载地址：  runtime的源代码在https://opensource.apple.com/tarballs/objc4/ CoreFoudation(包括runloop)的源代码在https://opensource.">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1283539-0aacce2b470f3f02.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1283539-6d60d38ed6b2ffe9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-05-21T11:57:06.008Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ChenMan(陈满の个人网站)">
-<meta name="twitter:description" content="Shenzhen,China">
+<meta name="twitter:title" content="iOS引用转换：Foundation与Core Foundation对象互相转换（__CFString转NSString，void *转id等等）">
+<meta name="twitter:description" content="源代码下载  下载地址：苹果公开的源代码在这里可以下载，https://opensource.apple.com/tarballs/ 例如，其中，有两个比较常见需要学习源码的下载地址：  runtime的源代码在https://opensource.apple.com/tarballs/objc4/ CoreFoudation(包括runloop)的源代码在https://opensource.">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/1283539-0aacce2b470f3f02.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
   
     <link rel="alternative" href="/atom.xml" title="ChenMan(陈满の个人网站)" type="application/atom+xml">
   
@@ -162,290 +167,177 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-post21" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/05/21/post22/" class="archive-article-date">
-  	<time datetime="2018-05-21T11:40:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-21</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/05/21/post22/">iOS开发·RunLoop源码与用法完全解析(输入源，定时源，观察者，线程间通信，端口间通信，NSPort，NSMessagePort，NSMachPort，NSPortMessage)</a>
+    <h1 class="article-title" itemprop="name">
+      iOS引用转换：Foundation与Core Foundation对象互相转换（__CFString转NSString，void *转id等等）
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/05/21/post21/" class="archive-article-date">
+        
+        <a href="/2018/05/21/post21/" class="archive-article-date">
   	<time datetime="2018-05-21T11:40:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-21</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/05/21/post21/">iOS引用转换：Foundation与Core Foundation对象互相转换（__CFString转NSString，void *转id等等）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
+        
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/05/21/post20/" class="archive-article-date">
-  	<time datetime="2018-05-21T11:40:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-21</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/05/21/post20/">iOS开发·runtime+KVC实现多层字典模型转换（多层数据：模型嵌套模型，模型嵌套数组，数组嵌套模型）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/03/24/post8/" class="archive-article-date">
-  	<time datetime="2018-03-24T12:21:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-24</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/24/post8/">iOS框架·Masonry源码深度解析及学习启示:设计模式与链式编程思想</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/02/23/post13/" class="archive-article-date">
-  	<time datetime="2018-02-23T06:05:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/02/23/post13/">iOS中Block的用法，举例，解析与底层原理（Block看我really足够了）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Block iOS</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/02/12/post12/" class="archive-article-date">
-  	<time datetime="2018-02-12T03:53:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/02/12/post12/">iOS基础·属性的修饰词与setter的关系（@property、@synthesize、@dynamic、retain、assign、copy、weak、strong、nonatomic、atomic、readonly、readwrite等修饰词与setter、getter等存取方法之间的关系）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/01/24/post7/" class="archive-article-date">
-  	<time datetime="2018-01-24T12:21:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-24</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/01/24/post7/">iOS开发·必会的算法操作：字符串数组排序+模型对象数组排序</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
+    <div class="article-entry" itemprop="articleBody">
       
-        </div></section>
+        <blockquote>
+<p>源代码下载</p>
+</blockquote>
+<p><strong>下载地址</strong>：苹果公开的源代码在这里可以下载，<a href="https://opensource.apple.com/tarballs/" target="_blank" rel="external">https://opensource.apple.com/tarballs/</a></p>
+<p>例如，其中，有两个比较常见需要学习源码的下载地址：</p>
+<ul>
+<li>runtime的源代码在<a href="https://opensource.apple.com/tarballs/objc4/" target="_blank" rel="external">https://opensource.apple.com/tarballs/objc4/</a></li>
+<li>CoreFoudation(包括runloop)的源代码在<a href="https://opensource.apple.com/tarballs/CF/" target="_blank" rel="external">https://opensource.apple.com/tarballs/CF/</a></li>
+</ul>
+<p>当然，如果你想在github上在线查看源代码，可以点这里：<a href="https://github.com/cimain/runtime" target="_blank" rel="external">runtime</a>，<a href="https://github.com/cimain/CoreFoudation" target="_blank" rel="external">CoreFoudation</a></p>
+<blockquote>
+<p>为什么需要了解 <strong>引用转换</strong>？</p>
+</blockquote>
+<p>例如，在用到runtime的关联对象API的时候<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">static NSString * const kCMkvoClassPrefix_for_Block = @&quot;CMObserver_&quot;;</div><div class="line"></div><div class="line">NSMutableArray * observers = objc_getAssociatedObject(self, (__bridge void *)kCMkvoAssiociateObserver_for_Block);</div></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<p>需要通过 <code>(__bridge void *)</code> 转换 id 和 void * 。为什么转换？这是因为objc_getAssociatedObject的参数要求的。先看一下它的API：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">objc_getAssociatedObject(id _Nonnull object, const void * _Nonnull key)</div></pre></td></tr></table></figure>
+<p>对比一下两个参数：</p>
+<ul>
+<li><code>const void * _Nonnull key</code></li>
+<li><code>static NSString * const kCMkvoClassPrefix_for_Block = @&quot;CMObserver_&quot;;</code></li>
+</ul>
+<p>那么，想把<code>NSString</code>的字符串转成<code>void *</code>类型参数，必须进行引用转换。那么转换的是什么？OC中经常要对两个框架的对象进行转换：Foundation与Core Foundation对象。</p>
+<p>至于上面的代码，完整的功能可查阅 <a href="https://www.jianshu.com/p/c1aa85779d80" target="_blank" rel="external">iOS开发·KVO用法，原理与底层实现: runtime模拟实现KVO监听机制</a></p>
+<h2 id="1-两个框架的基本知识"><a href="#1-两个框架的基本知识" class="headerlink" title="1. 两个框架的基本知识"></a>1. 两个框架的基本知识</h2><h4 id="1-1-Foundation"><a href="#1-1-Foundation" class="headerlink" title="1.1 Foundation"></a>1.1 Foundation</h4><p>框架名是<code>Foundation.framework</code>，在Xcode新建工程时可以选择导入（其实会默认自动依赖好）。Foundation框架允许使用一些基本对象,如数字和字符串,以及一些对象集合,如数组,字典和集合,其他功能包括处理日期和时间、内存管理、处理文件系统、存储(或归档)对象、处理几何数据结构(如点和长方形)。这个框架中的类都是一些最基础的类。来自于这个框架的类名以<code>NS</code>开头。</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/1283539-0aacce2b470f3f02.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>Foundation框架提供了非常多好用的类, 比如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">NSString : 字符串</div><div class="line">NSArray : 数组</div><div class="line">NSDictionary : 字典</div><div class="line">NSDate : 日期</div><div class="line">NSData : 数据</div><div class="line">NSNumber : 数字</div></pre></td></tr></table></figure></p>
+<h4 id="1-2-Core-Foundation"><a href="#1-2-Core-Foundation" class="headerlink" title="1.2 Core Foundation"></a>1.2 Core Foundation</h4><p>Core Foundation 对象主要使用在用C语言编写的Core Foundation 框架中,并使用引用计数的对象。在ARC无效时,Core Foundation 框架中的retain/release 分别是 CFRetain /CFRelease。</p>
+<p>框架<code>CoreFoundation.framework</code>是一组C语言接口，它们为iOS应用程序提供基本数据管理和服务功能。下面列举该框架支持进行管理的数据以及可提供的服务。查阅Core Foundation的完整API <a href="https://developer.apple.com/documentation/corefoundation?language=objc" target="_blank" rel="external">点这里</a>。</p>
+<ul>
+<li>CF的引用定义：<code>CFStringRef</code>与<code>CFArrayRef</code><br>查阅CFArrayRef 的定义 <a href="https://developer.apple.com/library/content/documentation/CoreFoundation/Conceptual/CFDesignConcepts/Articles/ObjectReferences.html#//apple_ref/doc/uid/20001107-CJBEJBHH" target="_blank" rel="external">点这里</a><br>查阅CFStringRef 的定义 <a href="https://reviews.llvm.org/file/data/roj4fgtbifvqyszdszxj/PHID-FILE-w2qyf45rpqsbow7jpmot/file" target="_blank" rel="external">点这里</a></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">typedef const struct __CFString * CFStringRef;</div><div class="line">typedef const struct __CFArray * CFArrayRef;</div></pre></td></tr></table></figure>
+<ul>
+<li>CF的源代码：<code>__CFString</code>与<code>__CFArray</code><br>查阅CF中结构体的源代码 <a href="https://opensource.apple.com/source/CF/CF-744.18/" target="_blank" rel="external">点这里</a>。</li>
+</ul>
+<p><img src="https://upload-images.jianshu.io/upload_images/1283539-6d60d38ed6b2ffe9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<ul>
+<li>这些结构体的定义如下：</li>
+</ul>
+<h5 id="CFArray-c"><a href="#CFArray-c" class="headerlink" title="CFArray.c"></a>CFArray.c</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">struct __CFArray &#123;</div><div class="line">CFRuntimeBase _base;</div><div class="line">CFIndex _count;        /* number of objects */</div><div class="line">CFIndex _mutations;</div><div class="line">int32_t _mutInProgress;</div><div class="line">__strong void *_store;           /* can be NULL when MutableDeque */</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h5 id="CFString-c"><a href="#CFString-c" class="headerlink" title="CFString.c"></a>CFString.c</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">struct __CFString &#123;</div><div class="line">CFRuntimeBase base;</div><div class="line">union &#123;    // In many cases the allocated structs are smaller than these</div><div class="line">struct __inline1 &#123;</div><div class="line">CFIndex length;</div><div class="line">&#125; inline1;                                      // Bytes follow the length</div><div class="line">struct __notInlineImmutable1 &#123;</div><div class="line">void *buffer;                               // Note that the buffer is in the same place for all non-inline variants of CFString</div><div class="line">CFIndex length;</div><div class="line">CFAllocatorRef contentsDeallocator;        // Optional; just the dealloc func is used</div><div class="line">&#125; notInlineImmutable1;                          // This is the usual not-inline immutable CFString</div><div class="line">struct __notInlineImmutable2 &#123;</div><div class="line">void *buffer;</div><div class="line">CFAllocatorRef contentsDeallocator;        // Optional; just the dealloc func is used</div><div class="line">&#125; notInlineImmutable2;                          // This is the not-inline immutable CFString when length is stored with the contents (first byte)</div><div class="line">struct __notInlineMutable notInlineMutable;</div><div class="line">&#125; variants;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h4 id="1-3-两者关系"><a href="#1-3-两者关系" class="headerlink" title="1.3 两者关系"></a>1.3 两者关系</h4><p>Core Foundation 框架和 Foundation 框架紧密相关，它们为相同功能提供接口，但 Foundation 框架提供Objective-C接口。Foundation对象 和 Core Foundation对象间的转换，俗称为<strong>桥接</strong>。如果您将Foundation 对象和 Core Foundation 类型掺杂使用，则可利用两个框架之间的 “ <a href="https://developer.apple.com/library/content/documentation/CoreFoundation/Conceptual/CFDesignConcepts/Articles/tollFreeBridgedTypes.html#//apple_ref/doc/uid/TP40010677" target="_blank" rel="external">Toll Free Bridging</a>”。所谓的Toll-free bridging是说您可以在某个框架的方法或函数同时使用 Core Foundation 和 Foundation 框架中的某些类型。</p>
+<p>很多数据类型支持这一特性，其中包括群体和字符串数据类型。每个框架的类和类型描述都会对某个对象是否为 Toll-free bridged，应和什么对象桥接进行说明。如需进一步信息，请阅读 <a href="https://link.jianshu.com/?t=http://developer.apple.com/iphone/library/documentation/CoreFoundation/Reference/CoreFoundation_Collection/index.html#/apple_ref/doc/uid/TP40003849" target="_blank" rel="external">Core Foundation 框架参考</a>。</p>
+<h2 id="2-Objective-C指针与CoreFoundation指针之间的转换"><a href="#2-Objective-C指针与CoreFoundation指针之间的转换" class="headerlink" title="2. Objective-C指针与CoreFoundation指针之间的转换"></a>2. Objective-C指针与CoreFoundation指针之间的转换</h2><h4 id="2-1-MRC下的转换"><a href="#2-1-MRC下的转换" class="headerlink" title="2.1  MRC下的转换"></a>2.1  MRC下的转换</h4><ul>
+<li>CF–&gt;OC<br>强制转换符：<code>(CFStringRef)</code></li>
+<li>OC–&gt;CF<br>强制转换符：<code>(NSString *)</code></li>
+<li>例子<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">-(void)bridgeInMRC &#123;</div><div class="line">// 将Foundation对象转换为Core Foundation对象，直接强制类型转换即可</div><div class="line">NSString *strOC1 = [NSString stringWithFormat:@&quot;xxxxxx&quot;];</div><div class="line">CFStringRef strC1 = (CFStringRef)strOC1;</div><div class="line">NSLog(@&quot;%@ %@&quot;, strOC1, strC1);</div><div class="line">[strOC1 release];</div><div class="line">CFRelease(strC1);</div><div class="line"></div><div class="line">// 将Core Foundation对象转换为Foundation对象，直接强制类型转换即可</div><div class="line">CFStringRef strC2 = CFStringCreateWithCString(CFAllocatorGetDefault(), &quot;12345678&quot;, kCFStringEncodingASCII);</div><div class="line">NSString *strOC2 = (NSString *)strC2;</div><div class="line">NSLog(@&quot;%@ %@&quot;, strOC2, strC2);</div><div class="line">[strOC2 release];</div><div class="line">CFRelease(strC2);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="2-2-ARC下的转换"><a href="#2-2-ARC下的转换" class="headerlink" title="2.2  ARC下的转换"></a>2.2  ARC下的转换</h4><p>ARC仅管理Objective-C指针（retain、release、autorelease），不管理CoreFoundation指针。CF指针由人工管理，手动的CFRetain和CFRelease来管理。</p>
+<p>在ARC中，CF和OC之间的转化桥梁是 __bridge，有3种方式：</p>
+<ul>
+<li><code>__bridge</code> 只做类型转换，不改变对象所有权，是我们最常用的转换符。</li>
+<li><code>__bridge_transfer</code>：ARC接管 管理内存</li>
+<li><code>__bridge_retained</code>：ARC释放 内存管理</li>
+</ul>
+<h4 id="2-3-简单互相转换：-bridge"><a href="#2-3-简单互相转换：-bridge" class="headerlink" title="2.3 简单互相转换：__bridge"></a>2.3 简单互相转换：<code>__bridge</code></h4><p>① 从OC转CF，ARC管理内存：</p>
+<ul>
+<li><code>(__bridge CFStringRef)</code></li>
+<li>需要人工CFRetain，否则，Cocoa指针释放后， 传出去的指针则无效。</li>
+<li>例子</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">- (void)viewDidLoad</div><div class="line">&#123;</div><div class="line">[super viewDidLoad];</div><div class="line"></div><div class="line">NSString *aNSString = [[NSString alloc]initWithFormat:@&quot;test&quot;];</div><div class="line">CFStringRef aCFString = (__bridge CFStringRef)aNSString;</div><div class="line"></div><div class="line">(void)aCFString;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>上面只是单纯地执行了类型转换，没有进行所有权的转移，也就是说，当aNSString对象被ARC释放的时候，aCFString也不能被使用了。</p>
+<p>② 从CF转OC，需要开发者手动释放，不归ARC管：</p>
+<ul>
+<li><code>(__bridge NSString *)</code></li>
+<li>需要人工CFRelease，否则，OC对象的指针释放后，对象引用计数仍为1，不会被销毁。</li>
+<li>例子<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">- (void)viewDidLoad</div><div class="line">&#123;</div><div class="line">[super viewDidLoad];</div><div class="line"></div><div class="line">CFStringRef aCFString = CFStringCreateWithCString(NULL, &quot;test&quot;, kCFStringEncodingASCII);</div><div class="line">NSString *aNSString = (__bridge NSString *)aCFString;</div><div class="line"></div><div class="line">(void)aNSString;</div><div class="line"></div><div class="line">CFRelease(aCFString);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="3-ARC下内存管理发生改变的转换"><a href="#3-ARC下内存管理发生改变的转换" class="headerlink" title="3. ARC下内存管理发生改变的转换"></a>3. ARC下内存管理发生改变的转换</h2><h4 id="3-1-CF–-gt-OC：-bridge-transfer"><a href="#3-1-CF–-gt-OC：-bridge-transfer" class="headerlink" title="3.1 CF–&gt;OC：__bridge_transfer"></a>3.1 CF–&gt;OC：<code>__bridge_transfer</code></h4><ul>
+<li>例子<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">- (void)viewDidLoad  &#123;</div><div class="line">[super viewDidLoad];</div><div class="line"></div><div class="line">NSString *aNSString = [[NSString alloc]initWithFormat:@&quot;test&quot;];</div><div class="line">CFStringRef aCFString = (__bridge_retained CFStringRef) aNSString;</div><div class="line">aNSString = (__bridge_transfer NSString *)aCFString;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="3-2-OC–-gt-CF：-bridge-retained"><a href="#3-2-OC–-gt-CF：-bridge-retained" class="headerlink" title="3.2 OC–&gt;CF：__bridge_retained"></a>3.2 OC–&gt;CF：<code>__bridge_retained</code></h4><ul>
+<li>例子<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">- (void)viewDidLoad  &#123;</div><div class="line">[super viewDidLoad];</div><div class="line"></div><div class="line">NSString *aNSString = [[NSString alloc]initWithFormat:@&quot;test&quot;];</div><div class="line">CFStringRef aCFString = (__bridge_retained CFStringRef) aNSString;</div><div class="line"></div><div class="line">(void)aCFString;</div><div class="line"></div><div class="line">//这时候，即使开启ARC，也需要手动执行CFRelease</div><div class="line">CFRelease(aCFString);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="3-3-怎么区分记忆？"><a href="#3-3-怎么区分记忆？" class="headerlink" title="3.3  怎么区分记忆？"></a>3.3  怎么区分记忆？</h4><p>因为ARC无法管理CF对象的指针，所以，无论是CF转OC还是OC转CF，我们只需关心CF对象的引用需要加1还是减1即可。</p>
+<ul>
+<li>CF转OC：CFRef必须减1</li>
+</ul>
+<p>这样原来的CF对象就被释放，所以，以后也<strong>不用</strong>手动释放。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">NSString   *c = (__bridge_transfer NSString*)my_cfref; // -1 on the CFRef</div></pre></td></tr></table></figure></p>
+<ul>
+<li>OC转CF：CFRef 必须加1</li>
+</ul>
+<p>这样新的CF对象就不会被释放，所以，以后用完<strong>必须</strong>手动释放。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CFStringRef d = (__bridge_retained CFStringRef)my_id;  // returned CFRef is +1</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">//这时候，即使开启ARC，CF对象用完后也需要手动执行CFRelease</div><div class="line">CFRelease(aCFString);</div></pre></td></tr></table></figure>
+<h4 id="3-4-转换相关的宏"><a href="#3-4-转换相关的宏" class="headerlink" title="3.4 转换相关的宏"></a>3.4 转换相关的宏</h4><ul>
+<li><p>CFBridgingRetain</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">NS_INLINE CFTypeRef CFBridgingRetain(id X) &#123;</div><div class="line">return (__bridge_retain CFTypeRef)X;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>CFBridgingRelease</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">NS_INLINE id CFBridgingRelease(CFTypeRef X) &#123;</div><div class="line">return (__bridge_transfer id)X;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p>例1</p>
+</blockquote>
+<p>下面两个等效<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CFStringRef cfStr = (__bridge_retained CFStringRef)ocStr;</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CFStringRef cfStr = CFBridgingRetain(ocStr);</div></pre></td></tr></table></figure>
+<blockquote>
+<p>例2</p>
+</blockquote>
+<p>下面两个等效<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">NSString *ocStr = (__bridge_transfer NSString*)cfStr;</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">NSString *ocStr = CFBridgingRelease(cfStr);</div></pre></td></tr></table></figure>
+<h4 id="3-5-总结"><a href="#3-5-总结" class="headerlink" title="3.5 总结"></a>3.5 总结</h4><ul>
+<li>CF转化为OC时，并且对象的所有者发生改变，则使用<code>CFBridgingRelease()</code>或<code>__bridge_transfer</code> 。</li>
+<li>OC转化为CF时，并且对象的所有者发生改变，则使用<code>CFBridgingRetain()</code>或<code>__bridge_retained</code></li>
+</ul>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/aliPay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/wechatPay.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/22/post9/" class="archive-article-date">
-  	<time datetime="2017-12-22T03:47:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/22/post9/">iOS开发·UIWindow与视图层级调整技巧（makeKeyWindow，resignKeyWindow，makeKeyAndVisible，keyWindow，windowLevel，UIWindowLevelNormal，UIWindowLevelAlert，UIWindowLevelStatusBar）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -457,98 +349,97 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2018/05/21/post21/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/11/12/post11/" class="archive-article-date">
-  	<time datetime="2017-11-12T03:52:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-12</time>
-</a>
-        </div>
-    	 
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/11/12/post11/">iOS开发·适配iPhone X相关的宏和方法</a>
-    </h1>
+    <a href="/2018/05/21/post22/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          iOS开发·RunLoop源码与用法完全解析(输入源，定时源，观察者，线程间通信，端口间通信，NSPort，NSMessagePort，NSMachPort，NSPortMessage)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/05/21/post20/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">iOS开发·runtime+KVC实现多层字典模型转换（多层数据：模型嵌套模型，模型嵌套数组，数组嵌套模型）</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+  
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/12/post10/" class="archive-article-date">
-  	<time datetime="2017-10-12T03:49:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/12/post10/">iOS开发·KVC:字典转模型,防止因本地未定义字段（后台的字段与本地字符串名不一致）导致数据转换过程中的奔溃</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="extend next" rel="next" href="/archives/page/2/">Next &raquo;</a>
-    </nav>
   
 
 
@@ -582,8 +473,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
