@@ -164,65 +164,6 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-post8" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/24/post8/">iOS框架·Masonry源码深度解析及学习启示:设计模式与链式编程思想</a>
-    </h1>
-  
-
-        
-        <a href="/2018/03/24/post8/" class="archive-article-date">
-  	<time datetime="2018-03-24T12:21:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>这篇文章是 <a href="https://github.com/SnapKit/Masonry" target="_blank" rel="external">Masonry</a> 框架源码的解析和笔记。学习Masonry之前，先了解这个框架设计的初衷—传统的利用系统API进行纯代码布局的不足。然后，根据Masonry常见的几个链式语法中，顺藤摸瓜地了解Masonry的<strong>调用栈</strong>。最后，学习并思考这个框架用到的<strong>设计模式</strong>和<strong>链式编程</strong>思想。</p>
-</blockquote>
-<h1 id="1-之前的不足：系统API纯代码布局"><a href="#1-之前的不足：系统API纯代码布局" class="headerlink" title="1. 之前的不足：系统API纯代码布局"></a>1. 之前的不足：系统API纯代码布局</h1><ul>
-<li>系统给的自动布局（AutoLayout）的API</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">+(instancetype)constraintWithItem:(id)view1</div><div class="line">                       attribute:(NSLayoutAttribute)attr1</div><div class="line">                       relatedBy:(NSLayoutRelation)relation</div><div class="line">                          toItem:(nullable id)view2</div><div class="line">                       attribute:(NSLayoutAttribute)attr2</div><div class="line">                      multiplier:(CGFloat)multiplier</div><div class="line">                        constant:(CGFloat)c;</div></pre></td></tr></table></figure>
-<ul>
-<li>传统代码中使用系统API进行布局</li>
-</ul>
-        
-          <a class="article-more-a" href="/2018/03/24/post8/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/24/post8/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
     <article id="post-post22" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -569,6 +510,65 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2018/02/12/post12/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-post8" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/24/post8/">iOS框架·Masonry源码深度解析及学习启示:设计模式与链式编程思想</a>
+    </h1>
+  
+
+        
+        <a href="/2018/01/24/post8/" class="archive-article-date">
+  	<time datetime="2018-01-24T12:21:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-24</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>这篇文章是 <a href="https://github.com/SnapKit/Masonry" target="_blank" rel="external">Masonry</a> 框架源码的解析和笔记。学习Masonry之前，先了解这个框架设计的初衷—传统的利用系统API进行纯代码布局的不足。然后，根据Masonry常见的几个链式语法中，顺藤摸瓜地了解Masonry的<strong>调用栈</strong>。最后，学习并思考这个框架用到的<strong>设计模式</strong>和<strong>链式编程</strong>思想。</p>
+</blockquote>
+<h1 id="1-之前的不足：系统API纯代码布局"><a href="#1-之前的不足：系统API纯代码布局" class="headerlink" title="1. 之前的不足：系统API纯代码布局"></a>1. 之前的不足：系统API纯代码布局</h1><ul>
+<li>系统给的自动布局（AutoLayout）的API</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">+(instancetype)constraintWithItem:(id)view1</div><div class="line">                       attribute:(NSLayoutAttribute)attr1</div><div class="line">                       relatedBy:(NSLayoutRelation)relation</div><div class="line">                          toItem:(nullable id)view2</div><div class="line">                       attribute:(NSLayoutAttribute)attr2</div><div class="line">                      multiplier:(CGFloat)multiplier</div><div class="line">                        constant:(CGFloat)c;</div></pre></td></tr></table></figure>
+<ul>
+<li>传统代码中使用系统API进行布局</li>
+</ul>
+        
+          <a class="article-more-a" href="/2018/01/24/post8/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/01/24/post8/">展开全文 >></a>
         </p>
       
 

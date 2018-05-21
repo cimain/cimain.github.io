@@ -11,7 +11,7 @@
   <meta name="description" content="这篇文章是 Masonry 框架源码的解析和笔记。学习Masonry之前，先了解这个框架设计的初衷—传统的利用系统API进行纯代码布局的不足。然后，根据Masonry常见的几个链式语法中，顺藤摸瓜地了解Masonry的调用栈。最后，学习并思考这个框架用到的设计模式和链式编程思想。  1. 之前的不足：系统API纯代码布局 系统给的自动布局（AutoLayout）的API  1234567+(in">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS框架·Masonry源码深度解析及学习启示:设计模式与链式编程思想">
-<meta property="og:url" content="http://yoursite.com/2018/03/24/post8/index.html">
+<meta property="og:url" content="http://yoursite.com/2018/01/24/post8/index.html">
 <meta property="og:site_name" content="ChenMan(陈满の个人网站)">
 <meta property="og:description" content="这篇文章是 Masonry 框架源码的解析和笔记。学习Masonry之前，先了解这个框架设计的初衷—传统的利用系统API进行纯代码布局的不足。然后，根据Masonry常见的几个链式语法中，顺藤摸瓜地了解Masonry的调用栈。最后，学习并思考这个框架用到的设计模式和链式编程思想。  1. 之前的不足：系统API纯代码布局 系统给的自动布局（AutoLayout）的API  1234567+(in">
 <meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/4/12/162b7c2627163503?w=1000&h=1333&f=png&s=1482587">
@@ -22,7 +22,7 @@
 <meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/4/12/162b7c262928f000?w=571&h=257&f=png&s=6548">
 <meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/4/12/162b7c26485d857f?w=350&h=187&f=png&s=2910">
 <meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/4/12/162b7c26486a4d39?w=1240&h=608&f=png&s=244869">
-<meta property="og:updated_time" content="2018-04-23T06:09:53.835Z">
+<meta property="og:updated_time" content="2018-05-21T12:27:32.337Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS框架·Masonry源码深度解析及学习启示:设计模式与链式编程思想">
 <meta name="twitter:description" content="这篇文章是 Masonry 框架源码的解析和笔记。学习Masonry之前，先了解这个框架设计的初衷—传统的利用系统API进行纯代码布局的不足。然后，根据Masonry常见的几个链式语法中，顺藤摸瓜地了解Masonry的调用栈。最后，学习并思考这个框架用到的设计模式和链式编程思想。  1. 之前的不足：系统API纯代码布局 系统给的自动布局（AutoLayout）的API  1234567+(in">
@@ -184,8 +184,8 @@
   
 
         
-        <a href="/2018/03/24/post8/" class="archive-article-date">
-  	<time datetime="2018-03-24T12:21:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-24</time>
+        <a href="/2018/01/24/post8/" class="archive-article-date">
+  	<time datetime="2018-01-24T12:21:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-24</time>
 </a>
         
       </header>
@@ -598,7 +598,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2018/03/24/post8/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2018/01/24/post8/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -612,9 +612,18 @@
   
 <nav id="article-nav">
   
+    <a href="/2018/02/12/post12/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          iOS基础·属性的修饰词与setter的关系（@property、@synthesize、@dynamic、retain、assign、copy、weak、strong、nonatomic、atomic、readonly、readwrite等修饰词与setter、getter等存取方法之间的关系）
+        
+      </div>
+    </a>
   
-    <a href="/2018/03/18/post22/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">iOS开发·RunLoop源码与用法完全解析(输入源，定时源，观察者，线程间通信，端口间通信，NSPort，NSMessagePort，NSMachPort，NSPortMessage)</div>
+  
+    <a href="/2018/01/24/post7/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">iOS开发·必会的算法操作：字符串数组排序+模型对象数组排序</div>
       <i class="icon-circle-right"></i>
     </a>
   
