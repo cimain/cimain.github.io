@@ -164,222 +164,6 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-post22" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/21/post22/">iOS开发·RunLoop源码与用法完全解析(输入源，定时源，观察者，线程间通信，端口间通信，NSPort，NSMessagePort，NSMachPort，NSPortMessage)</a>
-    </h1>
-  
-
-        
-        <a href="/2018/05/21/post22/" class="archive-article-date">
-  	<time datetime="2018-05-21T11:40:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-21</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>本文Demo传送门 <a href="https://github.com/cimain/RunloopDemo" target="_blank" rel="external">RunloopDemo</a></p>
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>OSX / iOS 系统中，提供了两个这样的对象：<strong>NSRunLoop</strong> 和 <strong>CFRunLoopRef</strong>。</p>
-<ul>
-<li><p><strong>CFRunLoopRef</strong> 是在 <strong>CoreFoundation</strong> 框架内的，它提供了纯 C 函数的 API，所有这些 API 都是线程安全的。</p>
-</li>
-<li><p><strong>NSRunLoop</strong> 是基于 <strong>CFRunLoopRef</strong> 的封装，提供了面向对象的 API，但是这些 API 不是线程安全的。</p>
-</li>
-</ul>
-<h2 id="1-如何查看RunLoop源代码"><a href="#1-如何查看RunLoop源代码" class="headerlink" title="1. 如何查看RunLoop源代码"></a>1. 如何查看RunLoop源代码</h2><hr>
-<h5 id="1-1-NSRunLoop源代码"><a href="#1-1-NSRunLoop源代码" class="headerlink" title="1.1 NSRunLoop源代码"></a>1.1 NSRunLoop源代码</h5><p>NSRunLoop是Foundation框架里面的一个类，它的头文件可以在工程里面这样查看：</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/1283539-ceeb3e9fd6905c45.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p>至于它的实现文件，暂时没有找到公开的资料。</p>
-        
-          <a class="article-more-a" href="/2018/05/21/post22/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/05/21/post22/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-post21" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/21/post21/">iOS引用转换：Foundation与Core Foundation对象互相转换（__CFString转NSString，void *转id等等）</a>
-    </h1>
-  
-
-        
-        <a href="/2018/05/21/post21/" class="archive-article-date">
-  	<time datetime="2018-05-21T11:40:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-21</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>源代码下载</p>
-</blockquote>
-<p><strong>下载地址</strong>：苹果公开的源代码在这里可以下载，<a href="https://opensource.apple.com/tarballs/" target="_blank" rel="external">https://opensource.apple.com/tarballs/</a></p>
-<p>例如，其中，有两个比较常见需要学习源码的下载地址：</p>
-<ul>
-<li>runtime的源代码在<a href="https://opensource.apple.com/tarballs/objc4/" target="_blank" rel="external">https://opensource.apple.com/tarballs/objc4/</a></li>
-<li>CoreFoudation(包括runloop)的源代码在<a href="https://opensource.apple.com/tarballs/CF/" target="_blank" rel="external">https://opensource.apple.com/tarballs/CF/</a></li>
-</ul>
-<p>当然，如果你想在github上在线查看源代码，可以点这里：<a href="https://github.com/cimain/runtime" target="_blank" rel="external">runtime</a>，<a href="https://github.com/cimain/CoreFoudation" target="_blank" rel="external">CoreFoudation</a></p>
-<blockquote>
-<p>为什么需要了解 <strong>引用转换</strong>？</p>
-</blockquote>
-<p>例如，在用到runtime的关联对象API的时候<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">static NSString * const kCMkvoClassPrefix_for_Block = @&quot;CMObserver_&quot;;</div><div class="line"></div><div class="line">NSMutableArray * observers = objc_getAssociatedObject(self, (__bridge void *)kCMkvoAssiociateObserver_for_Block);</div></pre></td></tr></table></figure></p>
-        
-          <a class="article-more-a" href="/2018/05/21/post21/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/05/21/post21/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-post20" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/21/post20/">iOS开发·runtime+KVC实现多层字典模型转换（多层数据：模型嵌套模型，模型嵌套数组，数组嵌套模型）</a>
-    </h1>
-  
-
-        
-        <a href="/2018/05/21/post20/" class="archive-article-date">
-  	<time datetime="2018-05-21T11:40:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-21</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>本文实验Demo传送门：<a href="https://github.com/cimain/DictToModelDemo" target="_blank" rel="external">DictToModelDemo</a></p>
-<blockquote>
-<p><strong>前言</strong>：将后台JSON数据中的字典转成本地的模型，我们一般选用部分优秀的第三方框架，如SBJSON、JSONKit、MJExtension、YYModel等。但是，一些简单的数据，我们也可以尝试自己来实现转换的过程。</p>
-</blockquote>
-<p>更重要的是，有时候在iOS面试的时候，部分面试官会不仅问你某种场景会用到什么框架，更会问你如果要你来实现这个功能，你有没有解决思路？所以，自己实现字典转模型还是有必要掌握的。有了这个基础，在利用运行时runtime的动态特性，你也可以实现这些第三方框架。</p>
-<p>笔者的KVC系列为：</p>
-<ul>
-<li><a href="https://www.jianshu.com/p/c95a085c35f5" target="_blank" rel="external">iOS开发·KVC:字典转模型，防止因本地未定义字段（后台的字段与本地字符串名不一致）导致数据转换过程中的奔溃</a></li>
-<li><a href="https://www.jianshu.com/p/885b65688b96" target="_blank" rel="external">iOS开发·runtime+KVC实现字典模型转换</a></li>
-</ul>
-        
-          <a class="article-more-a" href="/2018/05/21/post20/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/05/21/post20/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
     <article id="post-post8" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -425,6 +209,222 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2018/03/24/post8/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-post22" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/18/post22/">iOS开发·RunLoop源码与用法完全解析(输入源，定时源，观察者，线程间通信，端口间通信，NSPort，NSMessagePort，NSMachPort，NSPortMessage)</a>
+    </h1>
+  
+
+        
+        <a href="/2018/03/18/post22/" class="archive-article-date">
+  	<time datetime="2018-03-18T11:40:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-18</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>本文Demo传送门 <a href="https://github.com/cimain/RunloopDemo" target="_blank" rel="external">RunloopDemo</a></p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>OSX / iOS 系统中，提供了两个这样的对象：<strong>NSRunLoop</strong> 和 <strong>CFRunLoopRef</strong>。</p>
+<ul>
+<li><p><strong>CFRunLoopRef</strong> 是在 <strong>CoreFoundation</strong> 框架内的，它提供了纯 C 函数的 API，所有这些 API 都是线程安全的。</p>
+</li>
+<li><p><strong>NSRunLoop</strong> 是基于 <strong>CFRunLoopRef</strong> 的封装，提供了面向对象的 API，但是这些 API 不是线程安全的。</p>
+</li>
+</ul>
+<h2 id="1-如何查看RunLoop源代码"><a href="#1-如何查看RunLoop源代码" class="headerlink" title="1. 如何查看RunLoop源代码"></a>1. 如何查看RunLoop源代码</h2><hr>
+<h5 id="1-1-NSRunLoop源代码"><a href="#1-1-NSRunLoop源代码" class="headerlink" title="1.1 NSRunLoop源代码"></a>1.1 NSRunLoop源代码</h5><p>NSRunLoop是Foundation框架里面的一个类，它的头文件可以在工程里面这样查看：</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/1283539-ceeb3e9fd6905c45.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>至于它的实现文件，暂时没有找到公开的资料。</p>
+        
+          <a class="article-more-a" href="/2018/03/18/post22/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/03/18/post22/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-post21" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/16/post21/">iOS引用转换：Foundation与Core Foundation对象互相转换（__CFString转NSString，void *转id等等）</a>
+    </h1>
+  
+
+        
+        <a href="/2018/03/16/post21/" class="archive-article-date">
+  	<time datetime="2018-03-16T11:40:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>源代码下载</p>
+</blockquote>
+<p><strong>下载地址</strong>：苹果公开的源代码在这里可以下载，<a href="https://opensource.apple.com/tarballs/" target="_blank" rel="external">https://opensource.apple.com/tarballs/</a></p>
+<p>例如，其中，有两个比较常见需要学习源码的下载地址：</p>
+<ul>
+<li>runtime的源代码在<a href="https://opensource.apple.com/tarballs/objc4/" target="_blank" rel="external">https://opensource.apple.com/tarballs/objc4/</a></li>
+<li>CoreFoudation(包括runloop)的源代码在<a href="https://opensource.apple.com/tarballs/CF/" target="_blank" rel="external">https://opensource.apple.com/tarballs/CF/</a></li>
+</ul>
+<p>当然，如果你想在github上在线查看源代码，可以点这里：<a href="https://github.com/cimain/runtime" target="_blank" rel="external">runtime</a>，<a href="https://github.com/cimain/CoreFoudation" target="_blank" rel="external">CoreFoudation</a></p>
+<blockquote>
+<p>为什么需要了解 <strong>引用转换</strong>？</p>
+</blockquote>
+<p>例如，在用到runtime的关联对象API的时候<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">static NSString * const kCMkvoClassPrefix_for_Block = @&quot;CMObserver_&quot;;</div><div class="line"></div><div class="line">NSMutableArray * observers = objc_getAssociatedObject(self, (__bridge void *)kCMkvoAssiociateObserver_for_Block);</div></pre></td></tr></table></figure></p>
+        
+          <a class="article-more-a" href="/2018/03/16/post21/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/03/16/post21/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-post20" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/15/post20/">iOS开发·runtime+KVC实现多层字典模型转换（多层数据：模型嵌套模型，模型嵌套数组，数组嵌套模型）</a>
+    </h1>
+  
+
+        
+        <a href="/2018/03/15/post20/" class="archive-article-date">
+  	<time datetime="2018-03-15T11:40:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>本文实验Demo传送门：<a href="https://github.com/cimain/DictToModelDemo" target="_blank" rel="external">DictToModelDemo</a></p>
+<blockquote>
+<p><strong>前言</strong>：将后台JSON数据中的字典转成本地的模型，我们一般选用部分优秀的第三方框架，如SBJSON、JSONKit、MJExtension、YYModel等。但是，一些简单的数据，我们也可以尝试自己来实现转换的过程。</p>
+</blockquote>
+<p>更重要的是，有时候在iOS面试的时候，部分面试官会不仅问你某种场景会用到什么框架，更会问你如果要你来实现这个功能，你有没有解决思路？所以，自己实现字典转模型还是有必要掌握的。有了这个基础，在利用运行时runtime的动态特性，你也可以实现这些第三方框架。</p>
+<p>笔者的KVC系列为：</p>
+<ul>
+<li><a href="https://www.jianshu.com/p/c95a085c35f5" target="_blank" rel="external">iOS开发·KVC:字典转模型，防止因本地未定义字段（后台的字段与本地字符串名不一致）导致数据转换过程中的奔溃</a></li>
+<li><a href="https://www.jianshu.com/p/885b65688b96" target="_blank" rel="external">iOS开发·runtime+KVC实现字典模型转换</a></li>
+</ul>
+        
+          <a class="article-more-a" href="/2018/03/15/post20/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/03/15/post20/">展开全文 >></a>
         </p>
       
 
